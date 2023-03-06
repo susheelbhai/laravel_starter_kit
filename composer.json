@@ -1,0 +1,21 @@
+{
+    "name": "susheelbhai/laravel_starter_kit",
+    "description": "Multi authentication starter kit with 3 types of user.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Susheelbhai\\StarterKit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Susheel Kumar Singh",
+            "email": "susheelkrsingh306@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/breeze": "^1.19"
+    }
+}
