@@ -17,11 +17,11 @@
                             @foreach ($details as $key => $i)
                             
                             @if (isset($i['image']))
-                                <x-partner.form.input-img1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" type="file" value="{{ $i['value'] ?? '' }}" required="{{ $required ?? ''}}" />
+                                <x-partner.form.input-img1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" type="file" value="{{ $i['value'] ?? '' }}" required="{{ isset($i['required']) ? 'required' : ''}}" />
                             @elseif(isset($i['options']))
-                                <x-partner.form.input1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" value="{{ $i['value'] ?? '' }}" type="select" :options="$i['options']" required="{{ $required ?? ''}}"  />
+                                <x-partner.form.input1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" value="{{ $i['value'] ?? '' }}" type="select" :options="$i['options']" required="{{ isset($i['required']) ? 'required' : ''}}"  />
                             @else
-                                <x-partner.form.input1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" type="{{ $i['type'] ?? 'text' }}" value="{{ $i['value'] ?? '' }}" required="{{ $required ?? ''}}"  />
+                                <x-partner.form.input1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" type="{{ $i['type'] ?? 'text' }}" value="{{ $i['value'] ?? '' }}" required="{{ isset($i['required']) ? 'required' : ''}}"  />
                             @endif
                                 
                             @endforeach
