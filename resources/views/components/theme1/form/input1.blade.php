@@ -69,5 +69,7 @@
 @endif
 
 @error($name)
-    <x-input-error :messages="$errors->get($name)" class="mt-2" />
+    @foreach ((array) $errors->get($name) as $message)
+        <span class="text-danger"> {!! $message !!} </span>
+    @endforeach
 @enderror
