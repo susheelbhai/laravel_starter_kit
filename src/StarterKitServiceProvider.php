@@ -26,7 +26,12 @@ class StarterKitServiceProvider extends ServiceProvider
     public function registerPublishable()
     {
         $this->publishes([
-            __dir__ . "/" => app_path('/'),
+            __dir__ . "/Helpers" => app_path('/Helpers'),
+            __dir__ . "/Http" => app_path('/Http'),
+            __dir__ . "/Mail" => app_path('/Mail'),
+            __dir__ . "/Models" => app_path('/Models'),
+            __dir__ . "/Providers" => app_path('/Providers'),
+            __dir__ . "/View" => app_path('/View'),
             __dir__ . "/../database" => database_path('/'),
             __dir__ . "/../config" => config_path('/'),
             __dir__ . "/../routes" => base_path('/routes'),
