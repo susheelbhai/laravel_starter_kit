@@ -54,8 +54,7 @@
           <div class="col-12 col-lg-6">
             <div class="card register-card bg-gray p-2 p-sm-4">
               <div class="card-body">
-                <h4>Welcome Back!</h4>
-                <p>Didn't have an account?<a class="ms-2" href="{{ route('register') }}">Sign Up</a></p>
+                
                 <!-- Register Form -->
                 {{ $slot }}
 
