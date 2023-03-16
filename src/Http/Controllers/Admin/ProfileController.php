@@ -43,8 +43,8 @@ class ProfileController extends Controller
           }
           else{
             $image_name=uniqid().'.'.$request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/admin/images/profile'),$image_name);
-            File::delete(public_path('storage/admin/images/profile/'.Auth::guard('admin')->user()->profile_pic));
+            $request->profile_pic->move(public_path('/storage/images/admin/profile'),$image_name);
+            File::delete(public_path('storage/images/admin/profile/'.Auth::guard('admin')->user()->profile_pic));
           }
           Admin::where('admin_id', Auth::guard('admin')->user()->admin_id)->
           update([

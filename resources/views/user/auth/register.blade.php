@@ -1,7 +1,7 @@
 
 <x-user.guest-layout>
     <!-- Session Status -->
-    <h4>Registration</h4>
+    <h4>Create your free account</h4>
     <p>Already Registered?<a class="ms-2" href="{{ route('login') }}">Sign In</a></p>
     <x-user.form.login-form name="" method="POST" action="{{ route('register') }}">
         <x-auth-session-status class="mb-4" :status="session('status')" />

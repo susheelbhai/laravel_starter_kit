@@ -13,7 +13,7 @@
                     @csrf
                     {{ $slot }}
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             @foreach ($details as $key => $i)
                             
                             @if (isset($i['image']))

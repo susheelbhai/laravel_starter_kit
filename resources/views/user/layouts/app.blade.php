@@ -1,9 +1,8 @@
-
 @php
-  $variables = [
-    'home_page_url' => route('admin.dashboard'),
-    'profile_page_url' => route('admin.profile.edit'),
-    'logout_url' => route('admin.logout'),
+    $variables = [
+        'home_page_url' => route('admin.dashboard'),
+        'profile_page_url' => route('admin.profile.edit'),
+        'logout_url' => route('admin.logout'),
     ];
 @endphp
 <x-theme.app :settings="$settings" :theme="$settings->user_theme" :user="$user" :profilepic="$profile_pic" :variables="$variables">
@@ -21,7 +20,13 @@
         @relativeInclude('header')
     </x-slot>
 
-    {{$slot}}
+    @isset($head)
+        <x-slot name="head">
+            {{ $head }}
+        </x-slot>
+    @endisset
+
+    {{ $slot }}
 
 
 </x-theme.app>

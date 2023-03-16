@@ -2,17 +2,16 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="{{ url('storage/css/common.css') }}">
-  @if (isset($common_head_tag))
-      {{ $common_head_tag }}
-  @endif
-  @relativeInclude('head_tag')
-  @if (isset($head_tag))
-    {{ $head_tag }}
-  @endif
+    <link rel="stylesheet" href="{{ url('storage/css/common.css') }}">
+    @if (isset($common_head_tag))
+        {{ $common_head_tag }}
+    @endif
+    @relativeInclude('head_tag')
 
+    @isset($head)
+        {{ $head }}
+    @endisset
 
-    
 </head>
 
 <body data-topbar="dark">
@@ -21,7 +20,7 @@
 
 
         @relativeInclude('header')
-        
+
         @relativeInclude('left_sidebar')
 
         <div class="main-content">
@@ -35,10 +34,10 @@
     </div>
 
     <div class="rightbar-overlay"></div>
-            @relativeInclude('js')
+    @relativeInclude('js')
 
 
-    <script src="{{ url('storage/js/common.js') }}">  </script>
+    <script src="{{ url('storage/js/common.js') }}"></script>
 
 
 

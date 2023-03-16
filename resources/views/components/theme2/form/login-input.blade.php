@@ -1,12 +1,20 @@
 @if ($type == 'text' || $type == 'email' || $type == 'number' || $type == 'password')
     <div class="form-group mb-3">
-        <input name="{{ $name }}" class="form-control" type="{{ $type }}" required=""
+        <input name="{{ $name }}" class="form-control" type="{{ $type }}" {{ $attributes }}
                 placeholder="{{ $lbl }}" value="{{ $value ?? old($name) }}">
             @error($name)
                 @foreach ((array) $errors->get($name) as $message)
                     <span class="text-danger"> {!! $message !!} </span>
                 @endforeach
+                
             @enderror
+
+            @if($errors->updatePassword->get($name) != null)
+                @foreach ((array) $errors->updatePassword->get($name) as $message)
+                    <span class="text-danger"> {!! $message !!} </span>
+                @endforeach
+            @endif
+            
     </div>
 @endif
 

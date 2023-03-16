@@ -1,5 +1,13 @@
 <x-admin.app-layout>
 
+    <x-slot name="head">
+        <style>
+            .avatar-upload .avatar-preview {
+                height: 12rem;
+            }
+        </style>
+    </x-slot>
+
     @php
         $details = [
                     ['name'=> 'name', 'lbl'=>'Name', 'value'=>$user->name],

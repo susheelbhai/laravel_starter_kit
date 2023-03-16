@@ -6,6 +6,13 @@
     ];
 @endphp
 <x-theme.app :settings="$settings" :theme="$settings->partner_theme" :user="$user" :profilepic="$profile_pic" :variables="$variables">
+    
+    @isset($head)
+        <x-slot name="head">
+            {{ $head }}
+        </x-slot>
+    @endisset
+
     <x-slot name="common_head_tag">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

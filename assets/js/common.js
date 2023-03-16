@@ -13,7 +13,7 @@ function readURL(input, preview_id) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-$(".imput_logo").change(function () {
+$(".custom_img_input").change(function () {
   var preview_id = $(this).attr('data-prview_id');
     readURL(this, preview_id);
 });

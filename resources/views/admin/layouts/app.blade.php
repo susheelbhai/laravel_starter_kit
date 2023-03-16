@@ -1,12 +1,17 @@
-
 @php
-  $variables = [
-    'home_page_url' => route('admin.dashboard'),
-    'profile_page_url' => route('admin.profile.edit'),
-    'logout_url' => route('admin.logout'),
+    $variables = [
+        'home_page_url' => route('admin.dashboard'),
+        'profile_page_url' => route('admin.profile.edit'),
+        'logout_url' => route('admin.logout'),
     ];
 @endphp
 <x-theme.app :settings="$settings" :theme="$settings->admin_theme" :user="$user" :profilepic="$profile_pic" :variables="$variables">
+
+    @isset($head)
+        <x-slot name="head">
+            {{ $head }}
+        </x-slot>
+    @endisset
 
     <x-slot name="common_head_tag">
         <meta charset="utf-8" />
@@ -18,10 +23,10 @@
     </x-slot>
 
     <x-slot name="side_menu">
-    @relativeInclude('sidebar')
+        @relativeInclude('sidebar')
     </x-slot>
 
-    {{$slot}}
+    {{ $slot }}
 
 
 </x-theme.app>

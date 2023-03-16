@@ -4,7 +4,7 @@
     <div class="col-xl-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">{{ $heading }}</h4>
+                <h4 class="card-title">{{ $heading ?? '' }}</h4>
                 @if (isset($para))
                     <p class="card-title-desc"> {{ $para }} </p>
                 @endif

@@ -43,8 +43,8 @@ class ProfileController extends Controller
           }
           else{
             $image_name=uniqid().'.'.$request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/partner/images/profile'),$image_name);
-            File::delete(public_path('storage/partner/images/profile/'.Auth::guard('partner')->user()->profile_pic));
+            $request->profile_pic->move(public_path('/storage/images/partner/profile'),$image_name);
+            File::delete(public_path('storage/images/partner/profile/'.Auth::guard('partner')->user()->profile_pic));
           }
           Partner::where('partner_id', Auth::guard('partner')->user()->partner_id)->
           update([
