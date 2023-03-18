@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Business;
-use App\Models\Category;
-use App\Models\ContactUser;
-use App\Models\SubCategory;
+use App\Models\UserQuery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessReview;
-use App\Models\ImportantLink;
 
 class HomeController extends Controller
 {
@@ -55,12 +51,18 @@ class HomeController extends Controller
     public function submitQuery(Request $req)
     {
         // return $req;
-        $query = new ContactUser();
+        $req->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+        ]);
+        $query = new UserQuery();
         $query->name = $req->name;
         $query->phone = $req->phone;
         $query->email = $req->email;
-        $query->subject = $req->message;
-        $query->description = $req->message;
+        $query->subject = $req->subject;
+        $query->description = $req->description;
         $query->save();
         return view('user.pages.contact');
     }

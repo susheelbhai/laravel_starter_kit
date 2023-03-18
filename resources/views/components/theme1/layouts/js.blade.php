@@ -47,3 +47,5 @@
 <script src="{{ url('storage/themes/theme1/libs/admin-resources/bootstrap-filestyle/bootstrap-filestyle.min.js')}}"></script>
 <script src="{{ url('storage/themes/theme1/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
 <script src="{{ url('storage/themes/theme1/js/pages/form-advanced.init.js')}}"></script>
+
+<script src="{{url('storage/themes/theme1/js/pages/fontawesome.init.js')}}"></script>

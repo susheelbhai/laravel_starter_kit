@@ -1,7 +1,7 @@
-@props(['options', 'required'])
+@props(['options', 'required'=>''])
 
 
-@if ($type == 'text' || $type == 'url')
+@if ($type == 'text' || $type == 'email' || $type == 'url')
     <div class="mb-3">
         <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
         <input type="{{ $type }}" class="form-control" id="{{ $name }}" name="{{ $name }}"

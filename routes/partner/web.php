@@ -23,10 +23,7 @@ Route::middleware('auth_partner')->prefix('partner')->name('partner.')->group(fu
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::post('/business/activate', [BusinessController::class,'activate'])->name('business.activate');
-    Route::post('/business/deactivate', [BusinessController::class,'deactivate'])->name('business.deactivate');
-
-    Route::resource('/business', BusinessController::class);
+    
     Route::resource('/product', ProductController::class);
 
 });

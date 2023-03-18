@@ -50,5 +50,5 @@
             </div> <!-- end col -->
         </div> <!-- end row -->
     </div>
-    <script src="{{url('storage/theme/admin/theme1/assets/js/pages/fontawesome.init.js')}}"></script>
+    
 </x-admin.app-layout>

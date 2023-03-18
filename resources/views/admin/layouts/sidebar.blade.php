@@ -12,7 +12,13 @@
 
 <li class="menu-title">Pages</li>
 
-<x-admin.sidebar.li2 icon="ri-account-circle-line" lbl="Layouts">
+<x-admin.sidebar.li2 icon="fas fa-file-alt" lbl="Pages">
+    <x-admin.sidebar.li21 :href="route('admin.pages.homePage')" lbl="Home" />
+    <x-admin.sidebar.li21 :href="route('admin.pages.aboutPage')" lbl="About Us" />
+    <x-admin.sidebar.li21 :href="route('admin.pages.contactPage')" lbl="Contact Us" />
+</x-admin.sidebar.li2>
+
+<x-admin.sidebar.li2 icon="fab fa-pagelines" lbl="Layouts">
     <x-admin.sidebar.li21 :href="route('admin.icons')" lbl="Icons" />
 </x-admin.sidebar.li2>
 
@@ -20,15 +26,6 @@
 <li class="menu-title">Listing</li>
 
 
-<x-admin.sidebar.li2 icon="ri-store-fill" lbl="Category">
-    <x-admin.sidebar.li21 :href="route('admin.category.index')" lbl="All Category" />
-    <x-admin.sidebar.li21 :href="route('admin.subCategory.index')" lbl="All Sub Category" />
-</x-admin.sidebar.li2>
-
-<x-admin.sidebar.li2 icon="ri-store-fill" lbl="Business">
-    <x-admin.sidebar.li21 :href="route('admin.business.index')" lbl="All Business" />
-    <x-admin.sidebar.li21 :href="route('admin.product.index')" lbl="All Products" />
-</x-admin.sidebar.li2>
 
 
 <x-admin.sidebar.li3 icon="ri-calendar-2-line" lbl="Website Setting">

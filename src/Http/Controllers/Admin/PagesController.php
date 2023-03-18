@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\PageHome;
+use App\Models\PageAbout;
+use App\Models\PageContact;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class PageController extends Controller
+class PagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +18,18 @@ class PageController extends Controller
 
      public function homePage()
      {
-        return '';
+        $data = PageHome::where('id', '=', 1)->first();
+        return view('admin.pages.edit_pages.home', compact('data'));
+     }
+     public function aboutPage()
+     {
+        $data = PageAbout::where('id', '=', 1)->first();
+        return view('admin.pages.edit_pages.about', compact('data'));
+     }
+     public function contactPage()
+     {
+        $data = PageContact::where('id', '=', 1)->first();
+        return view('admin.pages.edit_pages.contact', compact('data'));
      }
     public function index()
     {

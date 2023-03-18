@@ -3,7 +3,7 @@
     <x-slot name="head">
         <meta name="description" content="html 5 template">
         <meta name="author" content="">
-        <title>TaxTDS</title>
+        <title>About Us {{ Config::get('settings', 'default')->app_name; }}</title>
     </x-slot>
 
     <!-- Breadcrumb Area-->
