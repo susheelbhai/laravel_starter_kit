@@ -19,3 +19,7 @@
         <script src="{{ url('storage/themes/theme1/libs/jquery/jquery.min.js') }}"></script>
 
         <script src="https://cdn.ckeditor.com/ckeditor5/36.0.0/classic/ckeditor.js"></script>
+
+        <style>
+          .banner_img_input .avatar-preview{width: 100% !important;}
+        </style>

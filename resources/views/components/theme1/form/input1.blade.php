@@ -1,75 +1,84 @@
-@props(['options', 'required'=>''])
+@props(['options', 'class'=>'', 'placeholder'=>'', 'required' => ''])
 
-
-@if ($type == 'text' || $type == 'email' || $type == 'url')
-    <div class="mb-3">
-        <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
-        <input type="{{ $type }}" class="form-control" id="{{ $name }}" name="{{ $name }}"
-            placeholder="{{ $lbl }}" value="{{ $value }}" {{ $required }} />
-    </div>
+@php $col_class = '' @endphp
+@if ($class == 'col50')
+    @php $col_class = 'col-6' @endphp
 @endif
 
-@if ($type == 'color')
-    <div class="mb-3">
-        <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
-        <input type="text" class="form-control colorpicker-default" id="{{ $name }}"
-            name="{{ $name }}" placeholder="{{ $lbl }}" value="{{ $value }}"
-            {{ $required }} />
-    </div>
-@endif
 
-@if ($type == 'select')
-    <div class="mb-3">
-        <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
-        <select class="form-select" name="{{ $name }}" id="{{ $name }}" {{ $required }}>
-            <option value=""> Select ...</option>
-            @foreach ($options as $j)
-                <option value="{{ $j['value'] }}" @if ($j['value'] == $value) selected @endif>
-                    {{ $j['lbl'] }}</option>
-            @endforeach
-        </select>
+<div class="col {{ $col_class }}">
+    
+    @if ($type == 'text' || $type == 'email' || $type == 'url')
+        <div class="mb-3">
+            <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
+            <input type="{{ $type }}" class="form-control" id="{{ $name }}" name="{{ $name }}"
+                placeholder="{{ $placeholder }}" value="{{ $value }}" {{ $required }} />
+        </div>
+    @endif
 
-    </div>
-@endif
+    @if ($type == 'color')
+        <div class="mb-3">
+            <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
+            <input type="text" class="form-control colorpicker-default" id="{{ $name }}"
+                name="{{ $name }}" placeholder="{{ $placeholder }}" value="{{ $value }}"
+                {{ $required }} />
+        </div>
+    @endif
 
-@if ($type == 'editor')
-    <div class="mb-3">
-        <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
-        <textarea {{ $required }} class="form-control" id="{{ $name }}" name="{{ $name }}"
-            placeholder="{{ $lbl }}" rows="5" name="{{ $name }}">{!! $value !!}</textarea>
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#{{ $name }}'))
-                .then(editor => {
-                    console.log(editor);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-        </script>
+    @if ($type == 'select')
+        <div class="mb-3">
+            <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
+            <select class="form-select" name="{{ $name }}" id="{{ $name }}" {{ $required }}>
+                <option value=""> Select ...</option>
+                @foreach ($options as $j)
+                    <option value="{{ $j['value'] }}" @if ($j['value'] == $value) selected @endif>
+                        {{ $j['lbl'] }}</option>
+                @endforeach
+            </select>
 
-    </div>
-@endif
+        </div>
+    @endif
 
-@if ($type == 'switch')
-    <div class="mb-3"> </div>
-    <div class="form-check form-switch mb-3" dir="ltr">
-        <input type="checkbox" class="form-check-input" id="{{ $name }}" name="{{ $name }}"
-            @if ($value == 1) checked @endif>
-        <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
-    </div>
-@endif
+    @if ($type == 'editor')
+        <div class="mb-3">
+            <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
+            <textarea {{ $required }} class="form-control" id="{{ $name }}" name="{{ $name }}"
+                placeholder="{{ $placeholder }}" rows="5" name="{{ $name }}">{!! $value !!}</textarea>
+            <script>
+                ClassicEditor
+                    .create(document.querySelector('#{{ $name }}'))
+                    .then(editor => {
+                        console.log(editor);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            </script>
 
-@if ($type == 'textarea')
-    <div class="mb-3">
-        <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
-        <textarea {{ $required }} class="form-control" id="{{ $name }}" name="{{ $name }}"
-            placeholder="{{ $lbl }}" rows="5" name="{{ $name }}">{{ $value }}</textarea>
-    </div>
-@endif
+        </div>
+    @endif
 
-@error($name)
-    @foreach ((array) $errors->get($name) as $message)
-        <span class="text-danger"> {!! $message !!} </span>
-    @endforeach
-@enderror
+    @if ($type == 'switch')
+        <div class="mb-3"> </div>
+        <div class="form-check form-switch mb-3" dir="ltr">
+            <input type="checkbox" class="form-check-input" id="{{ $name }}" name="{{ $name }}"
+                @if ($value == 1) checked @endif>
+            <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
+        </div>
+    @endif
+
+    @if ($type == 'textarea')
+        <div class="mb-3">
+            <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
+            <textarea {{ $required }} class="form-control" id="{{ $name }}" name="{{ $name }}"
+                placeholder="{{ $placeholder }}" rows="5" name="{{ $name }}">{{ $value }}</textarea>
+        </div>
+    @endif
+
+    @error($name)
+        @foreach ((array) $errors->get($name) as $message)
+            <span class="text-danger"> {!! $message !!} </span>
+        @endforeach
+    @enderror
+
+</div>

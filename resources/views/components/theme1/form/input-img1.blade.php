@@ -1,4 +1,5 @@
-<div class="avatar-upload">
+@props(['class'=>''])
+<div class="avatar-upload {{ $class }}">
     <div class="avatar-preview">
         <div id="{{ $name }}Preview"
             style="background-image: url({{ $value }});">

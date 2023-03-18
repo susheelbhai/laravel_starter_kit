@@ -7,6 +7,8 @@ use App\Models\PageAbout;
 use App\Models\PageContact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class PagesController extends Controller
 {
@@ -31,9 +33,25 @@ class PagesController extends Controller
         $data = PageContact::where('id', '=', 1)->first();
         return view('admin.pages.edit_pages.contact', compact('data'));
      }
-    public function index()
+    public function updateContactPage(Request $req)
     {
-        //
+        $existing_data = PageContact::find(1)->first();
+        $data = PageContact::find(1);
+        if ($req->banner != '') {
+            $banner_name = uniqid() . '.' . $req->file('banner')->getClientOriginalExtension();
+            $req->banner->move(public_path('/storage/images/webpages/banners'), $banner_name);
+            if ($existing_data->banner != 'dummy.png') {
+                File::delete(public_path('storage/images/webpages/banners/' . $existing_data->banner));
+            }
+            $data->banner = $banner_name;
+        }
+        $data->form_heading1 = $req->form_heading1;
+        $data->form_paragraph1 = $req->form_paragraph1;
+        $data->map_embad_url = $req->map_embad_url;
+        $data->working_hour = $req->working_hour;
+        $data->update();
+        return back()->with('msg', 'Updated successfully')->with('msg_class', 'success');
+
     }
 
     /**

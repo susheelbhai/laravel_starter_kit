@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\UserQuery;
+use App\Models\PageContact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\BusinessReview;
 
 class HomeController extends Controller
 {
@@ -28,24 +28,13 @@ class HomeController extends Controller
     }
 
     
-    public function submit_review(Request $req, $id)
-    {
-        // return $req;
-        $review = new BusinessReview();
-        $review->business_id = $req->id;
-        $review->rating = $req->rating;
-        $review->name = $req->name;
-        $review->email = $req->email;
-        $review->phone = $req->phone;
-        $review->review = $req->review;
-        $review->save();
-        return back()->with('msg', 'Review Submitted Successfully');
-    }
+   
 
 
     public function contact()
     {
-        return view('user.pages.contact');
+        $data = PageContact::where('id', '=', 1)->first();
+        return view('user.pages.contact', compact('data'));
     }
     
     public function submitQuery(Request $req)

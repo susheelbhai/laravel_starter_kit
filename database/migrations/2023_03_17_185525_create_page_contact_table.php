@@ -15,6 +15,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('banner')->default('dummy.png');
+            $table->string('form_heading1')->default('dummy');
+            $table->string('form_paragraph1')->default('dummy');
+            $table->longText('map_embad_url')->default('dummy');
+            $table->string('working_hour')->default('dummy');
         });
     }
 
