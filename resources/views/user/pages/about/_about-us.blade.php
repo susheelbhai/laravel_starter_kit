@@ -1,30 +1,80 @@
-<section class="team bg-gray">
+<div class="about-area">
     <div class="container">
-        <div class="sec-title">
-            <h2> <span> Hi! Welcome to  </span>{{ Config::get('settings')->app_name }} </h2>
-            <p>TAXTDS is India's first and most trusted Tax and finance  directory.</p>
-        </div>
-        <div class="row team-all">
-            <!--Team Block-->
-            <div class="team-block col-lg-9 col-md-8 col-xs-12">
-                <p>
-                    Taxtds is designed specifically to bridge the gap & break the geographical boundaries between the Tax and Finance  professionals & customer around the world in relation to tax/finance services in safe & secure manner. We provide options to cutomer to choose professional based on requirement with minimum fees or to find the right professional with right expertise . With over THOUSAND OF Verified, TAX CONSULTANTS,CHARTERED ACCOUNTANT,COST ACCOUNTANT,COMPANY SECREATERY ,MBA,OTHER TAX EXPERT,QULIFIED tax PROFESSIOANALS . Using taxtds.com, taxpayer& tax consultant and professionals can reach to their client very easily and conveniently. If you are a charted Accountant, Cost accountant, company secretory, MBA and tax expert and providing any services related to business. You can get relevant enquiries based on your Service online as well as offline. Here taxpayer can get best tax expertise that is related to their profession with their certification and experience. We are India’s first who deliver right person with right responsibility.
-                </p>
-            </div>
-            
-            <!--Team Block-->
-            <div class="team-block col-lg-3 col-md-4 col-xs-12 pb-none">
-                <div class="inner-box team-details">
-                    <div class="image team-head">
-                        <a href="http://localhost/slist/storage/theme/theme2/#"><img src="{{asset('storage/common/images/team/').'/hemant.png'}}" alt="" /></a>
+      <div class="row align-items-center justify-content-between g-5">
+        <!-- About Content Area -->
+        <div class="col-12 col-lg-7">
+          <div class="about-content">
+            <div class="row g-4 g-xl-5">
+              <!-- Single About Area -->
+              <div class="col-12 col-sm-6">
+                <div class="card about-card">
+                  <div class="card-body">
+                    <div class="icon">
+                      <svg class="bi bi-app-indicator" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z"></path>
+                        <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+                      </svg>
                     </div>
-                    <div class="lower-box">
-                        <h3><a href="http://localhost/slist/storage/theme/theme2/#">Hemant Kumar Bind</a></h3>
-                        <div class="designation">CEO &amp; Co-Founder</div>
-                        <div class="designation">Email: <a href="mailto:info@taxtds.com">info@taxtds.com</a></div>
-                    </div>
+                    <h5 class="mb-3">App Design</h5>
+                    <p class="mb-0">It's crafted with the latest trend of design &amp; coded with all modern approaches.</p>
+                  </div>
                 </div>
+              </div>
+              <!-- Single About Area -->
+              <div class="col-12 col-sm-6">
+                <div class="card about-card">
+                  <div class="card-body">
+                    <div class="icon bg-success">
+                      <svg class="bi bi-lightbulb" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"></path>
+                      </svg>
+                    </div>
+                    <h5 class="mb-3">Branding</h5>
+                    <p class="mb-0">It's crafted with the latest trend of design &amp; coded with all modern approaches.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Single About Area -->
+              <div class="col-12 col-sm-6">
+                <div class="card about-card">
+                  <div class="card-body">
+                    <div class="icon bg-warning">
+                      <svg class="bi bi-bar-chart" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"></path>
+                      </svg>
+                    </div>
+                    <h5 class="mb-3">Marketing</h5>
+                    <p class="mb-0">It's crafted with the latest trend of design &amp; coded with all modern approaches.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Single About Area -->
+              <div class="col-12 col-sm-6">
+                <div class="card about-card border-0 bg-primary">
+                  <div class="card-body">
+                    <div class="icon bg-info">
+                      <svg class="bi bi-basket" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"></path>
+                      </svg>
+                    </div>
+                    <h5 class="mb-3 text-white">Ecommerce</h5>
+                    <p class="mb-0 text-white-50">It's crafted with the latest trend of design &amp; coded with all modern approaches.</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+        <!-- About Text Area -->
+        <div class="col-12 col-sm-10 col-md-9 col-lg-5">
+          <div class="section-heading mb-0 ms-xl-5">
+            <h6>Our key features</h6>
+            <h2>We focus on growth of your business.</h2>
+            <p>It's crafted with the latest trend of design &amp; coded with all modern approaches. It's a robust &amp; multi-dimensional usable template.</p>
+            <div class="about-btn-group"><a class="btn btn-primary mt-5" href="#">Discover More</a><a class="btn btn-link mt-5" href="#">Talk with us</a></div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </div>
+  <div class="mb-120 d-block"></div>

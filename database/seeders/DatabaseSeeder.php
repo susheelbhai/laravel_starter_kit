@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(ImportantLinkSeeder::class);
         $this->call(PageSeeder::class);
+        $this->call(UserQueryStatusSeeder::class);
+        $this->call(Slider1Seeder::class);
 
         // \App\Models\User::factory(10)->create();
 

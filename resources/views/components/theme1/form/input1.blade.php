@@ -1,9 +1,32 @@
-@props(['options', 'class'=>'', 'placeholder'=>'', 'required' => ''])
 
-@php $col_class = '' @endphp
-@if ($class == 'col50')
-    @php $col_class = 'col-6' @endphp
-@endif
+@php
+    $type = 'text';
+    $value = '';
+    $required = '';
+    $placeholder = '';
+    $col_class = '';
+    if (isset($i['type'])) {
+       $type = $i['type'];
+    }
+    if (isset($i['value'])) {
+       $value = $i['value'];
+    }
+    if (isset($i['required'])) {
+       $required = $i['required'];
+    }
+    if (isset($i['placeholder'])) {
+       $placeholder = $i['placeholder'];
+    }
+    if (isset($i['class'])) {
+        if ($i['class'] == 'col50') {
+            $col_class = 'col-6';
+        }
+        
+    }
+    $name = $i['name'];
+    $lbl = $i['lbl'];
+
+@endphp
 
 
 <div class="col {{ $col_class }}">

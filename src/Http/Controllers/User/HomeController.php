@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\PageAbout;
 use App\Models\UserQuery;
 use App\Models\PageContact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Slider1;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        return view('user.pages.home.index');
+        $slider1 = Slider1::all();
+        return view('user.pages.home.index', compact('slider1'));
         
     }
     public function about()
     {
-        // $important_links = ImportantLink::all();
-        return view('user.pages.about.index');
+        $data = PageAbout::where('id', '=', 1)->first();
+        return view('user.pages.about.index', compact('data'));
         
     }
     public function privacy()
@@ -45,14 +48,15 @@ class HomeController extends Controller
             'phone' => 'required',
             'email' => 'required',
             'subject' => 'required',
+            'message' => 'required',
         ]);
         $query = new UserQuery();
         $query->name = $req->name;
         $query->phone = $req->phone;
         $query->email = $req->email;
         $query->subject = $req->subject;
-        $query->description = $req->description;
+        $query->message = $req->message;
         $query->save();
-        return view('user.pages.contact');
+        return back()->with('message', 'Your query has been submitted successfully');
     }
 }

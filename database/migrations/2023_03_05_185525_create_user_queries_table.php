@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('user_queries', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('description');
-            $table->string('subject');
-            $table->string('status')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('message')->nullable();
+            $table->string('subject')->nullable();
+            $table->foreignId('status_id')->default(1)->references('id')->on('user_query_statuses');
             $table->softDeletes();
         });
     }

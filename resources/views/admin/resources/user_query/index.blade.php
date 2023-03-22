@@ -9,7 +9,8 @@
                 <th> Name</th>
                 <th> Email</th>
                 <th> Phone </th>
-                <th> Message </th>
+                <th> Subject </th>
+                <th> Status </th>
                 <th> View </th>
             </tr>
         </x-slot>
@@ -21,7 +22,8 @@
                 <td>{{ $i->name }}</td>
                 <td>{{ $i->email }}</td>
                 <td>{{ $i->phone }}</td>
-                <td>{{ $i->description }}</td>
+                <td>{{ $i->subject }}</td>
+                <td>{{ $i['status']->name }}</td>
                 <td> <a href=""> <i class="fas fa-eye"></i> </a> </td>
             </tr>
             @endforeach

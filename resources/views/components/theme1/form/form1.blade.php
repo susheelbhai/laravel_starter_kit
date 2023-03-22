@@ -16,11 +16,9 @@
                         @foreach ($details as $key => $i)
                             
                             @if (isset($i['image']))
-                                <x-partner.form.input-img1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" type="file" value="{{ $i['value'] ?? '' }}" required="{{ isset($i['required']) ? 'required' : ''}}" class="{{ $i['class'] ?? ''}}" />
-                            @elseif(isset($i['options']))
-                                <x-partner.form.input1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" value="{{ $i['value'] ?? '' }}" type="select" :options="$i['options']" required="{{ isset($i['required']) ? 'required' : ''}}" class="{{ $i['class'] ?? ''}}"  />
+                                @relativeInclude('input-img1')
                             @else
-                                <x-partner.form.input1 name="{{ $i['name'] }}" lbl="{{ $i['lbl'] }}" type="{{ $i['type'] ?? 'text' }}" value="{{ $i['value'] ?? '' }}" required="{{ isset($i['required']) ? 'required' : ''}}" placeholder="{{$i['placeholder'] ?? $i['lbl']}}" class="{{ $i['class'] ?? ''}}"  />
+                                @relativeInclude('input1')
                             @endif
                                 
                             @endforeach

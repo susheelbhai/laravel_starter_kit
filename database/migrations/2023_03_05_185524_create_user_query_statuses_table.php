@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('page_home', function (Blueprint $table) {
+        Schema::create('user_query_statuses', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('banner')->default('dummy.png');
+            $table->string('name');
         });
     }
 
@@ -23,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('page_home');
+        Schema::dropIfExists('user_query_statuses');
     }
 };

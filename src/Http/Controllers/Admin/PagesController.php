@@ -7,6 +7,7 @@ use App\Models\PageAbout;
 use App\Models\PageContact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Slider1;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -21,7 +22,8 @@ class PagesController extends Controller
      public function homePage()
      {
         $data = PageHome::where('id', '=', 1)->first();
-        return view('admin.pages.edit_pages.home', compact('data'));
+        $slider1 = Slider1::all();
+        return view('admin.pages.edit_pages.home', compact('data', 'slider1'));
      }
      public function aboutPage()
      {

@@ -17,9 +17,8 @@
             ],
         ]
     @endphp
-    <x-user.section.banner-breadcrumb :data="$banner_data">
-        
-    </x-user.section.banner-breadcrumb>
+    <x-user.section.banner-breadcrumb :data="$banner_data" />
+    
     <div class="mb-120 d-block"></div>
     <!-- Contact Area-->
     <x-user.section.contact.wrapper>

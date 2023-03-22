@@ -10,7 +10,7 @@
 
     @php
         $details = [
-            ['name'=> 'banner','lbl'=> 'Banner', 'image'=>true, 'value'=>$data->banner ],
+            ['name'=> 'banner','lbl'=> 'Banner', 'image'=>true, 'value'=>asset('storage/images/webpages/banners/' . $data->banner), 'class'=>'banner_img_input'  ],
         ];
     @endphp
     <x-admin.form.form1 method="post" heading=" About Page" :details="$details" :action="route('admin.pages.updateAboutPage')" />

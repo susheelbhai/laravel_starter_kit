@@ -15,7 +15,7 @@ class UserQueryController extends Controller
      */
     public function index()
     {
-        $data = UserQuery::latest();
+        $data = UserQuery::with('status')->latest();
         if (request()->has('search') && !empty(request()->search)) {
            $data->where('name', 'like', '%'. request()->search. '%');
            $data->orWhere('email', 'like', '%'. request()->search. '%');
@@ -25,26 +25,6 @@ class UserQueryController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.

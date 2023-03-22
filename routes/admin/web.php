@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\Slider1Controller;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
 // use App\Http\Controllers\Admin\BusinessController;
@@ -52,6 +52,7 @@ Route::middleware('auth_admin')->prefix('admin')->name('admin.')->group(function
         Route::post('/contactPage', 'updateContactPage')->name('updateContactPage');
     });
 
+    Route::resource('/slider1', Slider1Controller::class);
     Route::resource('/slider', SliderController::class);
     Route::resource('/partner', PartnerController::class);
     Route::resource('/userQuery', UserQueryController::class);

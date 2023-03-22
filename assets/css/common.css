@@ -14,7 +14,7 @@
       display: none;
     }
     .avatar-upload .avatar-edit input + label {
-      width: 192px;
+      /* width: 192px; */
       text-align: center;
       display: inline-block;
       padding: 12px;
@@ -43,8 +43,8 @@
       margin: auto;
     }
     .avatar-upload .avatar-preview {
-      width: 192px;
-      height: 60px;
+      /* width: 192px;
+      height: 60px; */
       position: relative;
       border: 1px solid #F8F8F8;
       box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
