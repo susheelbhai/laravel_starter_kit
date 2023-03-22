@@ -16,6 +16,7 @@
     <x-admin.sidebar.li21 :href="route('admin.pages.homePage')" lbl="Home" />
     <x-admin.sidebar.li21 :href="route('admin.pages.aboutPage')" lbl="About Us" />
     <x-admin.sidebar.li21 :href="route('admin.pages.contactPage')" lbl="Contact Us" />
+    <x-admin.sidebar.li21 :href="route('admin.testimonial.index')" lbl="Testimonial" />
 </x-admin.sidebar.li2>
 
 <x-admin.sidebar.li2 icon="fab fa-pagelines" lbl="Layouts">

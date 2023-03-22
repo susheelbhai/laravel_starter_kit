@@ -8,10 +8,8 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\Slider1Controller;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SettingController;
-// use App\Http\Controllers\Admin\BusinessController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserQueryController;
-use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ImportantLinkController;
 
 /*
@@ -57,6 +55,7 @@ Route::middleware('auth_admin')->prefix('admin')->name('admin.')->group(function
     Route::resource('/partner', PartnerController::class);
     Route::resource('/userQuery', UserQueryController::class);
     Route::resource('/important_links', ImportantLinkController::class);
+    Route::resource('/testimonial', TestimonialController::class);
 
     // Route::resource('/business', BusinessController::class);
     // Route::post('/business/approve', [BusinessController::class,'approve'])->name('business.approve');

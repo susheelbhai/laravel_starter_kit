@@ -8,6 +8,7 @@ use App\Models\PageContact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Slider1;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -20,7 +21,8 @@ class HomeController extends Controller
     public function about()
     {
         $data = PageAbout::where('id', '=', 1)->first();
-        return view('user.pages.about.index', compact('data'));
+        $testimonials = Testimonial::whereIsActive(1)->get();
+        return view('user.pages.about.index', compact('data', 'testimonials'));
         
     }
     public function privacy()

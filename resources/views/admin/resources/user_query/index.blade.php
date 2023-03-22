@@ -24,7 +24,7 @@
                 <td>{{ $i->phone }}</td>
                 <td>{{ $i->subject }}</td>
                 <td>{{ $i['status']->name }}</td>
-                <td> <a href=""> <i class="fas fa-eye"></i> </a> </td>
+                <td> <a href="{{ route('admin.userQuery.show', $i->id) }}"> <i class="fas fa-eye"></i> </a> </td>
             </tr>
             @endforeach
             

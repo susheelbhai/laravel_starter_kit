@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\UserQuery;
+use App\Models\UserQueryStatus;
 use Illuminate\Http\Request;
 
 class UserQueryController extends Controller
@@ -34,19 +35,12 @@ class UserQueryController extends Controller
      */
     public function show($id)
     {
-        //
+        $statuses = UserQueryStatus::all();
+        $data = UserQuery::with('status')->whereId($id)->first();
+        
+        return view('admin.resources.user_query.view', compact('data', 'statuses'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    
 
     /**
      * Update the specified resource in storage.
@@ -57,7 +51,11 @@ class UserQueryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(['status' => 'required']);
+        $data = UserQuery::find($id);
+        $data->status_id = $request->status;
+        $data->update();
+        return redirect()->route('admin.userQuery.index');
     }
 
     /**

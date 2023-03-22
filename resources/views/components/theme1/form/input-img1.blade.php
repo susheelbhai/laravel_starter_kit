@@ -20,8 +20,8 @@
     if (isset($i['class'])) {
         if ($i['class'] == 'col50') {
             $col_class = 'col-6';
-            $class = $i['class'];
         }
+        $class = $i['class'];
         
     }
     $name = $i['name'];
