@@ -1,4 +1,3 @@
-
 @php
     $type = 'text';
     $value = '';
@@ -6,31 +5,39 @@
     $placeholder = '';
     $col_class = '';
     if (isset($i['type'])) {
-       $type = $i['type'];
+        $type = $i['type'];
     }
     if (isset($i['value'])) {
-       $value = $i['value'];
+        $value = $i['value'];
     }
     if (isset($i['required'])) {
-       $required = $i['required'];
+        $required = $i['required'];
     }
     if (isset($i['placeholder'])) {
-       $placeholder = $i['placeholder'];
+        $placeholder = $i['placeholder'];
     }
     if (isset($i['class'])) {
-        if ($i['class'] == 'col50') {
-            $col_class = 'col-6';
+        switch ($i['class']) {
+            case 'col100':
+                $col_class = 'col-12';
+                break;
+            case 'col50':
+                $col_class = 'col-6';
+                break;
+    
+            default:
+                $col_class = 'col-12';
+                break;
         }
-        
     }
     $name = $i['name'];
     $lbl = $i['lbl'];
-
+    
 @endphp
 
 
 <div class="col {{ $col_class }}">
-    
+
     @if ($type == 'text' || $type == 'email' || $type == 'url')
         <div class="mb-3">
             <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>

@@ -17,10 +17,15 @@
     <x-admin.sidebar.li21 :href="route('admin.pages.aboutPage')" lbl="About Us" />
     <x-admin.sidebar.li21 :href="route('admin.pages.contactPage')" lbl="Contact Us" />
     <x-admin.sidebar.li21 :href="route('admin.testimonial.index')" lbl="Testimonial" />
+    <x-admin.sidebar.li21 :href="route('admin.pages.tncPage')" lbl="Terms & Conditions" />
+    <x-admin.sidebar.li21 :href="route('admin.pages.privacyPage')" lbl="Privacy Policy" />
 </x-admin.sidebar.li2>
 
 <x-admin.sidebar.li2 icon="fab fa-pagelines" lbl="Layouts">
     <x-admin.sidebar.li21 :href="route('admin.icons')" lbl="Icons" />
+    <x-admin.sidebar.li32 lbl="Footer">
+        <x-admin.sidebar.li21 href="{{ route('admin.important_links.index') }}" lbl="Important Links" />
+    </x-admin.sidebar.li32>
 </x-admin.sidebar.li2>
 
 
@@ -28,7 +33,7 @@
 
 
 
-
+{{-- 
 <x-admin.sidebar.li3 icon="ri-calendar-2-line" lbl="Website Setting">
     <x-admin.sidebar.li21 :href="route('admin.slider.index')" lbl="Slider" />
     <x-admin.sidebar.li32 lbl="Mail">
@@ -39,5 +44,5 @@
         <x-admin.sidebar.li21 :href="route('admin.important_links.index')" lbl="Important Links" />
         <x-admin.sidebar.li21 href="'" lbl="Calendar" />
     </x-admin.sidebar.li32>
-</x-admin.sidebar.li3>
+</x-admin.sidebar.li3> --}}
 

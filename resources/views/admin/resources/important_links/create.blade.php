@@ -2,9 +2,9 @@
 
     @php
         $details = [
-            ['name'=> 'name','lbl'=> 'Name', ],
-            ['name'=> 'href','lbl'=> 'Href', ],
-            ['name'=> 'image','lbl'=> 'Image', 'image'=>true, ],
+            ['name'=> 'name','lbl'=> 'Name', 'class'=>'col50' ],
+            ['name'=> 'href','lbl'=> 'Href', 'class'=>'col50' ],
+            // ['name'=> 'image','lbl'=> 'Image', 'image'=>true, 'class'=>'logo_input' ],
             ['name'=> 'is_active','lbl'=> 'Active Status', 'type'=>'switch' ],
         ];
     @endphp

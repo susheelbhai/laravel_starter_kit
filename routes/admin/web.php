@@ -48,6 +48,10 @@ Route::middleware('auth_admin')->prefix('admin')->name('admin.')->group(function
         Route::post('/aboutPage', 'updateAboutPage')->name('updateAboutPage');
         Route::get('/contactPage', 'contactPage')->name('contactPage');
         Route::post('/contactPage', 'updateContactPage')->name('updateContactPage');
+        Route::get('/tncPage', 'tncPage')->name('tncPage');
+        Route::post('/tncPage', 'updateTncPage')->name('updateTncPage');
+        Route::get('/privacyPage', 'privacyPage')->name('privacyPage');
+        Route::post('/privacyPage', 'updatePrivacyPage')->name('updatePrivacyPage');
     });
 
     Route::resource('/slider1', Slider1Controller::class);

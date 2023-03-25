@@ -23,5 +23,6 @@
         <style>
           .banner_img_input .avatar-preview{width: 100% !important;}
           .profile_pic_input .avatar-preview{width: 192px !important; padding-top: 20% !important;}
+          .logo_input .avatar-preview{width: 192px !important; padding-top: 10% !important;}
           
         </style>

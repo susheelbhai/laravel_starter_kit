@@ -1,6 +1,6 @@
 @php
     $settings = Config::get('settings');
-    $important_links = \App\Models\ImportantLink::all();
+    $important_links = \App\Models\ImportantLink::whereIsActive(1)->get();
 @endphp
 
 <style>

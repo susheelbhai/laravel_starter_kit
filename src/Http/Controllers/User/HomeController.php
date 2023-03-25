@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\PageTnc;
+use App\Models\Slider1;
 use App\Models\PageAbout;
 use App\Models\UserQuery;
 use App\Models\PageContact;
+use App\Models\PagePrivacy;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Slider1;
-use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -25,10 +27,18 @@ class HomeController extends Controller
         return view('user.pages.about.index', compact('data', 'testimonials'));
         
     }
+    public function tnc()
+    {
+        $data = PageTnc::where('id', '=', 1)->first();
+        return view('user.pages.tnc', compact('data'));
+        
+    }
+
+    
     public function privacy()
     {
-        
-        return view('user.pages.privacy.index');
+        $data = PagePrivacy::where('id', '=', 1)->first();
+        return view('user.pages.privacy', compact('data'));
         
     }
 

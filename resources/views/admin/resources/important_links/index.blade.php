@@ -8,7 +8,7 @@
                 <th>#</th>
                 <th> Name</th>
                 <th> Href</th>
-                <th> Image </th>
+                {{-- <th> Image </th> --}}
                 <th> Status </th>
                 <th> View </th>
             </tr>
@@ -20,7 +20,7 @@
                 <th scope="row">{{ $i->id }}</th>
                 <td>{{ $i->name }}</td>
                 <td> {{ $i->href }} </td>
-                <td> <img src="{{ asset('storage/common/images/important_link/').'/'.$i->image  }}" alt=""> </td>
+                {{-- <td> <img src="{{ asset('storage/common/images/important_link/').'/'.$i->image  }}" alt=""> </td> --}}
                 @if ($i->is_active == 1)
                 <td> Active </td>
                 @else

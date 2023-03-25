@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Models\PageHome;
 use App\Models\PageAbout;
 use App\Models\PageContact;
+use App\Models\PageTnc;
+use App\Models\PagePrivacy;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Slider1;
@@ -51,6 +53,34 @@ class PagesController extends Controller
         $data->form_paragraph1 = $req->form_paragraph1;
         $data->map_embad_url = $req->map_embad_url;
         $data->working_hour = $req->working_hour;
+        $data->update();
+        return back()->with('msg', 'Updated successfully')->with('msg_class', 'success');
+
+    }
+     public function tncPage()
+     {
+        $data = PageTnc::where('id', '=', 1)->first();
+        return view('admin.pages.edit_pages.tnc', compact('data'));
+     }
+    public function updateTncPage(Request $req)
+    {
+        // return $req;
+        $data = PageTnc::find(1);
+        $data->content = $req->content;
+        $data->update();
+        return back()->with('msg', 'Updated successfully')->with('msg_class', 'success');
+
+    }
+     public function privacyPage()
+     {
+        $data = PagePrivacy::where('id', '=', 1)->first();
+        return view('admin.pages.edit_pages.privacy', compact('data'));
+     }
+    public function updatePrivacyPage(Request $req)
+    {
+        // return $req;
+        $data = PagePrivacy::find(1);
+        $data->content = $req->content;
         $data->update();
         return back()->with('msg', 'Updated successfully')->with('msg_class', 'success');
 

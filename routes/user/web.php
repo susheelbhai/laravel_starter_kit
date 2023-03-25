@@ -26,6 +26,8 @@ Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/tnc', [HomeController::class, 'contact'])->name('tnc');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contact', [HomeController::class, 'submitQuery']);
+Route::get('/tnc', [HomeController::class, 'tnc'])->name('tnc');
+Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 
 Route::middleware('auth_user')->prefix('user')->name('user.')->group(function () {
     Route::get('/', [HomeController::class, 'home'])->name('dashboard');
