@@ -60,7 +60,7 @@
             <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
             <select class="form-select" name="{{ $name }}" id="{{ $name }}" {{ $required }}>
                 <option value=""> Select ...</option>
-                @foreach ($options as $j)
+                @foreach ($i['options'] as $j)
                     <option value="{{ $j['value'] }}" @if ($j['value'] == $value) selected @endif>
                         {{ $j['lbl'] }}</option>
                 @endforeach
