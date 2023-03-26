@@ -38,7 +38,7 @@
 
 <div class="col {{ $col_class }}">
 
-    @if ($type == 'text' || $type == 'email' || $type == 'url')
+    @if ($type == 'text' || $type == 'email' || $type == 'date' || $type == 'url')
         <div class="mb-3">
             <label for="{{ $name }}" class="form-label">{{ $lbl }}</label>
             <input type="{{ $type }}" class="form-control" id="{{ $name }}" name="{{ $name }}"
