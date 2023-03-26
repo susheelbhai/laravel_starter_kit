@@ -22,7 +22,7 @@
                 $col_class = 'col-12';
                 break;
             case 'col50':
-                $col_class = 'col-6';
+                $col_class = 'col-12 col-lg-6';
                 break;
     
             default:
