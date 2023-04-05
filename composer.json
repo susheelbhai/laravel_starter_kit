@@ -16,6 +16,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "laravel/breeze": "^1.19"
+        "laravel/breeze": "^1.19",
+        "intervention/image": "^2.7",
+        "livewire/livewire": "^2.12"
     }
 }
