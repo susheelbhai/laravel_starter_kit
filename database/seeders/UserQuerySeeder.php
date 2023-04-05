@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\UserQuery;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\ImportantLink;
 
-class ImportantLinkSeeder extends Seeder
+class UserQuerySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,8 @@ class ImportantLinkSeeder extends Seeder
      */
     public function run()
     {
-
-        include('data/data.php');
-
-        ImportantLink::insert($important_links);
+        \App\Models\UserQuery::factory(101)->create();
+        // include('data/data.php');
+        // UserQuery::insert($contact_users);
     }
 }

@@ -15,17 +15,8 @@ class UserGenderSeeder extends Seeder
      */
     public function run()
     {
-        UserGender::create([
-            'gender_id' => '1',
-            'gender' => 'Male',
-        ]);
-        UserGender::create([
-            'gender_id' => '2',
-            'gender' => 'Female',
-        ]);
-        UserGender::create([
-            'gender_id' => '3',
-            'gender' => 'Others',
-        ]);
+
+        include('data/data.php');
+        UserGender::insert($user_genders);
     }
 }
