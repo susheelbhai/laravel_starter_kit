@@ -1,12 +1,12 @@
 @php
-  $variables = [
-    'home_page_url' => route('partner.dashboard'),
-    'profile_page_url' => route('partner.profile.edit'),
-    'logout_url' => route('partner.logout'),
+    $variables = [
+        'home_page_url' => route('partner.dashboard'),
+        'profile_page_url' => route('partner.profile.edit'),
+        'logout_url' => route('partner.logout'),
     ];
 @endphp
 <x-theme.app :settings="$settings" :theme="$settings->partner_theme" :user="$user" :profilepic="$profile_pic" :variables="$variables">
-    
+
     @isset($head)
         <x-slot name="head">
             {{ $head }}
@@ -20,13 +20,14 @@
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('storage/images/webpages/logo/' . $settings->favicon) }}">
-
+        @livewireStyles
     </x-slot>
 
     <x-slot name="side_menu">
-    @relativeInclude('sidebar')
+        @relativeInclude('sidebar')
     </x-slot>
 
 
-    {{$slot}}
+    {{ $slot }}
+    @livewireScripts
 </x-theme.app>

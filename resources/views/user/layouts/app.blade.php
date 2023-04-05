@@ -14,6 +14,7 @@
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('storage/common/images/logo/' . $settings->favicon) }}">
+        @livewireStyles
     </x-slot>
 
     <x-slot name="header">
@@ -28,5 +29,5 @@
 
     {{ $slot }}
 
-
+    @livewireScripts
 </x-theme.app>

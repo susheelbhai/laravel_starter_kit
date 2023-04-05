@@ -20,6 +20,7 @@
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('storage/images/webpages/logo/' . $settings->favicon) }}">
+        @livewireStyles
     </x-slot>
 
     <x-slot name="side_menu">
@@ -29,4 +30,5 @@
     {{ $slot }}
 
 
+    @livewireScripts
 </x-theme.app>

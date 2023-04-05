@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->usePublicPath(base_path().'/../public');
+        $this->app->usePublicPath(base_path().'/../public_html');
     }
 
     /**
@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrapFive();
-        $settings = Setting::where('id', 1)->first();
-        Config::set('settings', $settings);
+        // $settings = Setting::where('id', 1)->first();
+        // Config::set('settings', $settings);
     }
 }
