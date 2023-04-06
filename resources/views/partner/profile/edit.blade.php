@@ -5,10 +5,10 @@
 
     @php
         $details = [
-                    ['name'=> 'name', 'lbl'=>'Name', 'value'=>$user->name],
-                    ['name'=> 'email', 'lbl'=>'Email Adress', 'value'=>$user->email],
-                    ['name'=> 'phone', 'lbl'=>'Phone Number', 'value'=>$user->phone],
-                    ['name'=> 'profile_pic', 'lbl'=>'Profile Pic', 'type'=>'file', 'image'=>true, 'value'=>url('storage/images/partner/profile/').'/'.$user->profile_pic],
+                    ['name'=> 'name', 'lbl'=>'Name', 'value'=>$user->name, 'class'=>'col50'],
+                    ['name'=> 'email', 'lbl'=>'Email Adress', 'value'=>$user->email, 'class'=>'col50'],
+                    ['name'=> 'phone', 'lbl'=>'Phone Number', 'value'=>$user->phone, 'class'=>'col50'],
+                    ['name'=> 'profile_pic', 'lbl'=>'Profile Pic', 'type'=>'file', 'image'=>true, 'value'=>url('storage/images/partner/profile/').'/'.$user->profile_pic, 'class'=>'profile_pic_input'],
         ];
     @endphp
     <x-partner.form.form1 method="post" heading="Edit Profile" :details="$details" :action="route('partner.profile.update')" >
