@@ -1,4 +1,7 @@
 <x-admin.app-layout>
+    <x-slot name="head">
+        <title> Admin Dashboard | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
     
     <div class="container-fluid">
         <x-admin.dashboard.heading1 heading="Dashboard" />

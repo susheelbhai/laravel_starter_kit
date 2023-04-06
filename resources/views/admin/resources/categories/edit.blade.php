@@ -1,4 +1,7 @@
 <x-admin-layout>
+    <x-slot name="head">
+        <title> Edit Category  | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
 
     @php
         $details = [

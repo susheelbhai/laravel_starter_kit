@@ -32,6 +32,22 @@ class PagesController extends Controller
         $data = PageAbout::where('id', '=', 1)->first();
         return view('admin.pages.edit_pages.about', compact('data'));
      }
+     public function updateAboutPage(Request $req)
+     {
+         $existing_data = PageAbout::find(1)->first();
+         $data = PageAbout::find(1);
+         if ($req->banner != '') {
+             $banner_name = uniqid() . '.' . $req->file('banner')->getClientOriginalExtension();
+             $req->banner->move(public_path('/storage/images/webpages/banners'), $banner_name);
+             if ($existing_data->banner != 'dummy.png') {
+                 File::delete(public_path('storage/images/webpages/banners/' . $existing_data->banner));
+             }
+             $data->banner = $banner_name;
+         }
+         $data->update();
+         return back()->with('msg', 'Updated successfully')->with('msg_class', 'success');
+ 
+     }
      public function contactPage()
      {
         $data = PageContact::where('id', '=', 1)->first();

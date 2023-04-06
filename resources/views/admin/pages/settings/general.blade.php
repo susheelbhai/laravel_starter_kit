@@ -1,7 +1,7 @@
 
 <x-admin.app-layout>
     
-  <x-slot name="head_tag">
+  <x-slot name="head">
       <title> General Settings </title>
   </x-slot>
 

@@ -1,4 +1,7 @@
 <x-partner.guest-layout>
+    <x-slot name="head">
+        <title> Partner Registration | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
 
     <x-partner.form.login-form name="Register" method="POST" action="{{ route('partner.register') }}"> 
             

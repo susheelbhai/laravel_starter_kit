@@ -1,4 +1,8 @@
 <x-partner.app-layout>
+    <x-slot name="head">
+        <title> Partner Dashboard | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
+    
 
     <div class="container-fluid">
         <x-partner.dashboard.heading1 heading="Dashboard" />

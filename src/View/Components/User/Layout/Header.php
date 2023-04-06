@@ -4,6 +4,7 @@ namespace App\View\Components\User\Layout;
 
 use App\Models\Setting;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Config;
 
 class Header extends Component
 {
@@ -16,7 +17,7 @@ class Header extends Component
     public $menu;
     public function __construct($menu)
     {
-        $this->settings = Setting::where('id', 1)->first();
+        $this->settings = Config::get('settings');
         $this->menu = $menu;
     }
 

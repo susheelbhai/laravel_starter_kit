@@ -1,7 +1,7 @@
 @if ($type == 'text' || $type == 'email' || $type == 'number' || $type == 'password')
     <div class="form-group mb-3 row">
         <div class="col-12">
-            <input name="{{ $name }}" class="form-control" type="{{ $type }}" required=""
+            <input name="{{ $name }}" id="{{ $name }}" class="form-control" type="{{ $type }}" required=""
                 placeholder="{{ $lbl }}" value="{{ $value ?? old($name) }}">
             @error($name)
                 @foreach ((array) $errors->get($name) as $message)
@@ -38,7 +38,7 @@
 @if ($type == 'submit')
     <div class="form-group mb-3 text-center row mt-3 pt-1">
         <div class="col-12">
-            <button class="btn btn-info w-100 waves-effect waves-light" type="submit"> {{ $lbl }} </button>
+            <button id="{{ $name }}" class="btn btn-info w-100 waves-effect waves-light" type="submit"> {{ $lbl }} </button>
         </div>
     </div>
 @endif

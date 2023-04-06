@@ -1,4 +1,7 @@
 <x-admin-layout>
+    <x-slot name="head">
+        <title> User Query  | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
 
 
     <x-admin.table.table1 heading="All Queries">

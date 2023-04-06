@@ -1,4 +1,8 @@
 <x-admin.app-layout>
+    
+    <x-slot name="head">
+        <title> Home Page Settings | {{ Config::get('settings', 'default')->app_name }}</title>
+    </x-slot>
 
 
     <x-admin.table.table1 heading="Banner Slider" :addUrl="route('admin.slider1.create')">

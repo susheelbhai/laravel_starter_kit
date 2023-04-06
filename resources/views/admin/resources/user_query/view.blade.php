@@ -1,4 +1,7 @@
 <x-admin.app-layout>
+    <x-slot name="head">
+        <title> View User Query  | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
 
     @php
         $details = [

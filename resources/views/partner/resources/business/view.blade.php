@@ -1,4 +1,7 @@
 <x-partner-layout>
+    <x-slot name="head">
+        <title> View Business Detail  | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
 
     @php
         $details = [

@@ -1,4 +1,7 @@
 <x-admin.app-layout>
+    <x-slot name="head">
+        <title> All Important Link  | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
 
 
     <x-admin.table.table1 heading="All Link" :addUrl="route('admin.important_links.create')"  >

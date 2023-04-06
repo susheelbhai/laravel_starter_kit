@@ -1,6 +1,6 @@
-<x-partner.app-layout>
+<x-admin.app-layout>
     <x-slot name="head">
-        <title> Edit Profile | {{ Config::get('settings')->app_name }}</title>
+        <title> Edit Partner  | {{ Config::get('settings')->app_name }}</title>
     </x-slot>
 
     @php
@@ -11,9 +11,9 @@
                     ['name'=> 'profile_pic', 'lbl'=>'Profile Pic', 'type'=>'file', 'image'=>true, 'value'=>url('storage/images/partner/profile/').'/'.$user->profile_pic],
         ];
     @endphp
-    <x-partner.form.form1 method="post" heading="Edit Profile" :details="$details" :action="route('partner.profile.update')" >
+    <x-admin.form.form1 method="post" heading="Edit Partner" :details="$details" :action="route('admin.partner.update', $user->partner_id)" >
         @method('patch')
        
-    </x-partner.form.form1>
+    </x-admin.form.form1>
 
-</x-partner.app-layout>
+</x-admin.app-layout>

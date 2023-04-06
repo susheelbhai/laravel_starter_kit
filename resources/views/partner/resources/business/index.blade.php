@@ -1,4 +1,7 @@
 <x-partner-layout>
+    <x-slot name="head">
+        <title> All Business  | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
 
 
     <x-partner.table.table1 heading="All Business" :addUrl="route('partner.business.create')"  >

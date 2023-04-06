@@ -1,4 +1,7 @@
 <x-admin-layout>
+    <x-slot name="head">
+        <title> All Category  | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
 
 
     <x-admin.table.table1 heading="All Business" :addUrl="route('admin.category.create')"  >

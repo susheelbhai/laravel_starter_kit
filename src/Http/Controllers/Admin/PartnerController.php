@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Partner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\File;
 
 class PartnerController extends Controller
 {
@@ -48,7 +50,8 @@ class PartnerController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Partner::find($id);
+        return view('admin.resources.partner.show', compact('data'));
     }
 
     /**
@@ -59,7 +62,9 @@ class PartnerController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.resources.partner.edit', [
+            'user' => Partner::find($id),
+        ]);
     }
 
     /**
@@ -71,7 +76,26 @@ class PartnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Partner::find($id);
+
+        if($request->profile_pic==''){
+            $image_name=$data->profile_pic;
+          }
+          else{
+            $image_name=uniqid().'.'.$request->file('profile_pic')->getClientOriginalExtension();
+            $request->profile_pic->move(public_path('/storage/images/partner/profile'),$image_name);
+            File::delete(public_path('storage/images/partner/profile/'.$data->profile_pic));
+          }
+          Partner::where('partner_id', $data->partner_id)->
+          update([
+              'name' => $request->name,
+              'phone' => $request->phone,
+              'email' => $request->email,
+              'profile_pic' => $image_name,
+            ]);
+
+
+        return Redirect::route('admin.partner.update', $id)->with('status', 'profile-updated');
     }
 
     /**

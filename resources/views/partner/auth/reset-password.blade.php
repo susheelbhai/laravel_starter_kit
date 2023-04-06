@@ -1,4 +1,7 @@
 <x-partner.guest-layout>
+    <x-slot name="head">
+        <title> Partner Reset password | {{ Config::get('settings')->app_name }}</title>
+    </x-slot>
     <x-partner.form.login-form name="Login" method="POST" action="{{ route('partner.password.store') }}">
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
