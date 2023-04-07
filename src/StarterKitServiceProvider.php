@@ -21,6 +21,13 @@ class StarterKitServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerPublishable();
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \Susheelbhai\StarterKit\Commands\initial_settings::class,
+            ]);
+        }
+
     }
 
     public function registerPublishable()

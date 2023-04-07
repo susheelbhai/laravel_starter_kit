@@ -26,7 +26,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Config::set('app.timezone', 'Asia/Kolkata');
         Paginator::useBootstrapFive();
         // $settings = Setting::where('id', 1)->first();
         // Config::set('settings', $settings);

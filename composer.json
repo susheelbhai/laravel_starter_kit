@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "Susheelbhai\\StarterKit\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {
