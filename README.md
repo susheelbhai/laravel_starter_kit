@@ -22,14 +22,7 @@ Require this package in your composer.json and update composer. This will downlo
 
 ## Configuration
 
-### Service Provider
 
-Register the service Provider in  `config/app.php`
-
-  ```
-  Susheelbhai\StarterKit\StarterKitServiceProvider::class,
-  ```
-  
 ### Vendor Publish
 
 Publish all the required files using the following command 

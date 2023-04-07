@@ -8,6 +8,17 @@
             "Susheelbhai\\StarterKit\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Susheelbhai\\StarterKit\\StarterKitServiceProvider",
+                "Susheelbhai\\StarterKit\\BladeServiceProvider"
+            ],
+            "aliases": {
+                "Larapay": "Susheelbhai\\Larapay\\Facade"
+            }
+        }
+    },
     "authors": [
         {
             "name": "Susheel Kumar Singh",

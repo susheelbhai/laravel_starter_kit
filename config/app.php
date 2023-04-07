@@ -185,8 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Susheelbhai\StarterKit\StarterKitServiceProvider::class,
-        Susheelbhai\StarterKit\BladeServiceProvider::class,
+        
         /*
          * Application Service Providers...
          */
