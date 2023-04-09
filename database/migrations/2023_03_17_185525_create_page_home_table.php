@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('page_home', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('banner')->default('dummy.png');
+            $table->string('banner1')->default('1');
+            $table->string('slider1')->default('1');
+            $table->string('why_us')->default('1');
+            $table->string('testimonials')->default('1');
+            $table->string('video')->default('1');
+            $table->string('blogs')->default('1');
+            $table->string('listings')->default('1');
         });
     }
 

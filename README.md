@@ -44,6 +44,7 @@ Migrate  databse tables and seed with the following commands
   ```
   php artisan migrate
   php artisan db:seed
+  
   ```
 ### Final Step
 Uncomment 2 line in ```app_name/project/app/Providers/AppServiceProvider.php```
