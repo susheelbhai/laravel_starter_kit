@@ -35,6 +35,11 @@
     @endif
 
     @if ($page_home->video == 1)
+        @relativeInclude('_counter')
+    @endif
+
+
+    @if ($page_home->video == 1)
         @relativeInclude('_video')
     @endif
 
@@ -42,6 +47,9 @@
         @relativeInclude('_testimonials')
     @endif
 
+    @if ($page_home->blogs == 1)
+        @relativeInclude('_contact')
+    @endif
     @if ($page_home->blogs == 1)
         @relativeInclude('_blogs')
     @endif

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('banner1')->default('1');
-            $table->string('slider1')->default('1');
+            $table->string('slider1')->default('0');
             $table->string('why_us')->default('1');
             $table->string('testimonials')->default('1');
             $table->string('video')->default('1');

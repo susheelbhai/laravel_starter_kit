@@ -34,7 +34,7 @@ class SettingSeeder extends Seeder
             'google_map' => 'Dummy',
             'whatsapp' => 'Dummy',
             'admin_theme' => 'theme1',
-            'user_theme' => 'theme2',
+            'user_theme' => 'tefri',
             'partner_theme' => 'theme1',
             'color1' => 'green',
             'color2' => '#f5f6ff',

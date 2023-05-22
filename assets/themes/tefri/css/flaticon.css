@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("../fonts/flaticon36f9.ttf?1256f13dadf6ea43ed1920521099e568") format("truetype"),
+url("../fonts/flaticon36f9.woff?1256f13dadf6ea43ed1920521099e568") format("woff"),
+url("../fonts/flaticon36f9.woff2?1256f13dadf6ea43ed1920521099e568") format("woff2"),
+url("../fonts/flaticon36f9.eot?1256f13dadf6ea43ed1920521099e568#iefix") format("embedded-opentype"),
+url("../fonts/flaticon36f9.svg?1256f13dadf6ea43ed1920521099e568#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-facebook-app-symbol:before {
+    content: "\f101";
+}
+.flaticon-youtube:before {
+    content: "\f102";
+}
+.flaticon-customer-service:before {
+    content: "\f103";
+}
+.flaticon-mental-health:before {
+    content: "\f104";
+}
+.flaticon-intestine:before {
+    content: "\f105";
+}
+.flaticon-consult:before {
+    content: "\f106";
+}
+.flaticon-examination:before {
+    content: "\f107";
+}
+.flaticon-left-arrow:before {
+    content: "\f108";
+}
+.flaticon-right-arrow:before {
+    content: "\f109";
+}
+.flaticon-down-arrow:before {
+    content: "\f10a";
+}
+.flaticon-twitter:before {
+    content: "\f10b";
+}
+.flaticon-linkedin:before {
+    content: "\f10c";
+}
+.flaticon-drug:before {
+    content: "\f10d";
+}
+.flaticon-technology:before {
+    content: "\f10e";
+}
+.flaticon-integrity:before {
+    content: "\f10f";
+}
+.flaticon-pediatrics:before {
+    content: "\f110";
+}

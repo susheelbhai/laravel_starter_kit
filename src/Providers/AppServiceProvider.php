@@ -16,7 +16,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->usePublicPath(base_path().'/../public_html');
+        if (config('app.env') == 'production') {
+            $this->app->usePublicPath(base_path() . '/../public_html');
+            $this->app->useStoragePath(base_path() . '/../public_html/storage');
+        }
+        if (config('app.env') == 'testing') {
+            $this->app->usePublicPath(base_path() . '/../public_html');
+            $this->app->useStoragePath(base_path() . '/../public_html/storage');
+        }
+        if (config('app.env') == 'local') {
+            $this->app->usePublicPath(base_path() . '/../public_html');
+            $this->app->useStoragePath(base_path() . '/../public_html/storage');
+        }
     }
 
     /**
@@ -27,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrapFive();
-        // $settings = Setting::where('id', 1)->first();
-        // Config::set('settings', $settings);
+        $settings = Setting::where('id', 1)->first();
+        Config::set('settings', $settings);
     }
 }

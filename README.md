@@ -54,6 +54,11 @@ $settings = Setting::where('id', 1)->first();
 Config::set('settings', $settings);
 ```
 
+Change initial settings by runnung the command
+```
+php artisan starter_kit:initial_settings
+```
+
 ### License
 
 This Multi Auth Package is developed by susheelbhai for personal use software licensed under the [MIT license](http://opensource.org/licenses/MIT)
