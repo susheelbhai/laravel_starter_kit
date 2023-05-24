@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrapFive();
-        $settings = Setting::where('id', 1)->first();
-        Config::set('settings', $settings);
+        // $settings = Setting::where('id', 1)->first();
+        // Config::set('settings', $settings);
     }
 }

@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Mail\Auth\ResetPassword;
-use App\Models\Admin;
 use Carbon\Carbon;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Password;
+use App\Models\Admin;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Jobs\SendPasswordResetLink;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 
 class PasswordResetLinkController extends Controller
 {
@@ -48,7 +46,7 @@ class PasswordResetLinkController extends Controller
                 'created_at' => Carbon::now()
             ]
         );
-        Mail::to($request->email)->send(new ResetPassword($data, $token_url));
+        dispatch(new SendPasswordResetLink($data, $token_url));
 
         return back()->with('status', 'We have e-mailed your password reset link!');
 
