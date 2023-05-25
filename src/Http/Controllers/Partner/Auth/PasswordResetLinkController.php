@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendPasswordResetLink;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 
@@ -47,7 +48,7 @@ class PasswordResetLinkController extends Controller
                 'created_at' => Carbon::now()
             ]
         );
-        Mail::to($request->email)->send(new ResetPassword($data, $token_url));
+        dispatch(new SendPasswordResetLink($data, $token_url));
 
         return back()->with('status', 'We have e-mailed your password reset link!');
 

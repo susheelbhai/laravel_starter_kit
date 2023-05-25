@@ -39,6 +39,7 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/Mail" => app_path('/Mail'),
             __dir__ . "/Models" => app_path('/Models'),
             __dir__ . "/Providers" => app_path('/Providers'),
+            __dir__ . "/Jobs" => app_path('/Jobs'),
             __dir__ . "/View" => app_path('/View'),
             __dir__ . "/../database" => database_path('/'),
             __dir__ . "/../config" => config_path('/'),
