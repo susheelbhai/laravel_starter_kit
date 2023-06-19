@@ -18,7 +18,7 @@ class AuthUser
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::guard('user')->check()) {
-            return redirect()->route('user.login')->with('message', 'Please login first');
+            return redirect()->route('login')->with('message', 'Please login first');
         }
         return $next($request);
     }
