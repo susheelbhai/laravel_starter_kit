@@ -72,6 +72,21 @@
                                     <a href="#contact" class="nav-link">Contact Us</a>
                                 </li>
                                 <li class="nav-item">
+                                    @auth('user')
+                                    <form action="{{  route('logout')  }}" method="post" id="logoutForm">
+                                        @csrf
+                                        <a onclick="logout()" href="#" class="nav-link">Logout</a>
+                                    </form>
+                                    <script>
+                                        function logout() {
+                                            document.getElementById("logoutForm").submit();
+                                        }
+                                    </script>
+                                    @else
+                                    <a href="{{ route('login') }}" class="nav-link">Login</a>
+                                    @endauth
+                                </li>
+                                <li class="nav-item">
                                     <a href="#" class="nav-link dropdown-toggle">
                                         User
                                     </a>
