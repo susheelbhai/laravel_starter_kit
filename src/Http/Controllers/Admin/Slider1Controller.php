@@ -11,33 +11,18 @@ use Illuminate\Support\Facades\File;
 
 class Slider1Controller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $data = Slider1::all();
         return view('admin.resources.slider.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.resources.slider1.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -48,15 +33,14 @@ class Slider1Controller extends Controller
 
         if ($request->image1 != '') {
             $image1_name = uniqid() . '.' . $request->file('image1')->getClientOriginalExtension();
-            $request->image1->move(public_path('/storage/images/webpages/banners'), $image1_name);
-            File::delete(public_path('/storage/images/webpages/banners' . Auth::guard('admin')->user()->image1));
+            $request->image1->move(public_path('/storage/images/slider'), $image1_name);
             $slider1->image1 = $image1_name;
         }
 
         if ($request->image2 != '') {
             $image2_name = uniqid() . '.' . $request->file('image2')->getClientOriginalExtension();
-            $request->image2->move(public_path('/storage/images/webpages/banners'), $image2_name);
-            File::delete(public_path('/storage/images/webpages/banners' . Auth::guard('admin')->user()->image2));
+            $request->image2->move(public_path('/storage/images/slider'), $image2_name);
+            File::delete(public_path('/storage/images/slider' . Auth::guard('admin')->user()->image2));
             $slider1->image2 = $image2_name;
         }
 
@@ -76,39 +60,14 @@ class Slider1Controller extends Controller
         return redirect()->route('admin.pages.homePage');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $data = Slider1::find($id);
         return view('admin.resources.slider1.edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        // return $request;
         $request->validate([
             'heading1' => 'required',
         ]);
@@ -116,15 +75,20 @@ class Slider1Controller extends Controller
 
         if ($request->image1 != '') {
             $image1_name = uniqid() . '.' . $request->file('image1')->getClientOriginalExtension();
-            $request->image1->move(public_path('/storage/images/webpages/banners'), $image1_name);
-            File::delete(public_path('/storage/images/webpages/banners' . Auth::guard('admin')->user()->image1));
+            $request->image1->move(public_path('/storage/images/slider'), $image1_name);
+            if ($slider1->image1 != 'dummy.png') {
+                File::delete(public_path('/storage/images/slider' . $slider1->image1));
+            }
+            
             $slider1->image1 = $image1_name;
         }
 
         if ($request->image2 != '') {
             $image2_name = uniqid() . '.' . $request->file('image2')->getClientOriginalExtension();
-            $request->image2->move(public_path('/storage/images/webpages/banners'), $image2_name);
-            File::delete(public_path('/storage/images/webpages/banners' . Auth::guard('admin')->user()->image2));
+            $request->image2->move(public_path('/storage/images/slider'), $image2_name);
+            if ($slider1->image2 != 'dummy.png') {
+                File::delete(public_path('/storage/images/slider' . $slider1->image2));
+            }
             $slider1->image2 = $image2_name;
         }
 

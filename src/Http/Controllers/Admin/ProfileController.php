@@ -7,11 +7,10 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Requests\Auth\AdminProfileUpdateRequest;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -20,15 +19,15 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('admin.profile.edit', [
-            'user' => Auth::guard('admin')->user(),
+        return view('separate.admin.profile.edit', [
+            'user' => $request->user(),
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(AdminProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user('admin')->fill($request->validated());
 
@@ -36,19 +35,16 @@ class ProfileController extends Controller
             $request->user('admin')->email_verified_at = null;
         }
 
-        $img_path = public_path('/storage/images/admin/profile/');
         $image_name = Auth::guard('admin')->user()->profile_pic;
         if ($request->hasFile('profile_pic')) {
             $image_name = uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $profile_pic = Image::make($request->file('profile_pic'));
-            $profile_pic->resize(240,240);
-            $profile_pic->save($img_path . $image_name);
+            $request->profile_pic->move(public_path('/storage/images/profile_pic/admin/'), $image_name);
             if (Auth::guard('admin')->user()->profile_pic != 'dummy.png') {
-                File::delete(public_path('storage/images/admin/profile/' . Auth::guard('admin')->user()->profile_pic));
+                File::delete(public_path('storage/images/profile_pic/admin/' . Auth::guard('admin')->user()->profile_pic));
             }
         }
 
-        Admin::where('admin_id', Auth::guard('admin')->user()->admin_id)->update([
+        Admin::where('id', Auth::guard('admin')->user()->id)->update([
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
@@ -57,5 +53,26 @@ class ProfileController extends Controller
 
 
         return Redirect::route('admin.profile.edit')->with('status', 'profile-updated');
+    }
+
+    /**
+     * Delete the user's account.
+     */
+    public function destroy(Request $request): RedirectResponse
+    {
+        $request->validateWithBag('userDeletion', [
+            'password' => ['required', 'current_password'],
+        ]);
+
+        $user = $request->user();
+
+        Auth::logout();
+
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::to('/');
     }
 }

@@ -15,8 +15,7 @@ class UserQuerySeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\UserQuery::factory(101)->create();
-        // include('data/data.php');
-        // UserQuery::insert($contact_users);
+        include('data/data.php');
+        UserQuery::insert($user_queries);
     }
 }

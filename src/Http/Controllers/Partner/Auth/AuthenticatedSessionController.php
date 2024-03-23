@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Partner\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\PartnerLoginRequest;
-use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Partner;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,19 +17,21 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('partner.auth.login');
+        return view('separate.partner.auth.login');
     }
 
     /**
      * Handle an incoming authentication request.
      */
-    public function store(PartnerLoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
-
+        $user = Partner::whereEmail($request['email'])
+        ->orWhere('phone', $request['email'])
+        ->first();
+        $request->authenticate($user,'partner');
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::PARTNER);
+        return redirect()->intended(route('partner.dashboard', absolute: false));
     }
 
     /**
@@ -43,6 +45,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('partner.dashboard');
+        return redirect('/');
     }
 }

@@ -18,7 +18,8 @@ class PartnerController extends Controller
     public function index()
     {
         $data = Partner::all();
-        return view('admin.resources.partner.index', compact('data'));
+        // return $data;
+        return view('separate.admin.resources.partner.index', compact('data'));
     }
 
     /**
@@ -51,7 +52,7 @@ class PartnerController extends Controller
     public function show($id)
     {
         $data = Partner::find($id);
-        return view('admin.resources.partner.show', compact('data'));
+        return view('separate.admin.resources.partner.show', compact('data'));
     }
 
     /**
@@ -62,7 +63,7 @@ class PartnerController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.resources.partner.edit', [
+        return view('separate.admin.resources.partner.edit', [
             'user' => Partner::find($id),
         ]);
     }
@@ -83,14 +84,15 @@ class PartnerController extends Controller
           }
           else{
             $image_name=uniqid().'.'.$request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/partner/profile'),$image_name);
-            File::delete(public_path('storage/images/partner/profile/'.$data->profile_pic));
+            $request->profile_pic->move(public_path('/storage/images/profile_pic/partner'),$image_name);
+            File::delete(public_path('storage/images/profile_pic/partner/'.$data->profile_pic));
           }
-          Partner::where('partner_id', $data->partner_id)->
+          Partner::where('id', $data->id)->
           update([
               'name' => $request->name,
               'phone' => $request->phone,
               'email' => $request->email,
+              'dob' => $request->dob,
               'profile_pic' => $image_name,
             ]);
 

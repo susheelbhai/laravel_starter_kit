@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers\User\Auth;
 
-use Carbon\Carbon;
-use App\Models\User;
-use Illuminate\View\View;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Jobs\SendPasswordResetLink;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use Illuminate\View\View;
 
 class PasswordResetLinkController extends Controller
 {
@@ -19,7 +15,7 @@ class PasswordResetLinkController extends Controller
      */
     public function create(): View
     {
-        return view('user.auth.forgot-password');
+        return view('separate.user.auth.forgot-password');
     }
 
     /**
@@ -30,24 +26,19 @@ class PasswordResetLinkController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'email' => 'required|email|exists:users',
+            'email' => ['required', 'email'],
         ]);
 
-        $token = Str::random(64);
-        $token_url = route('password.reset',$token).'?email='.$request->email;
-        $data = User::whereEmail($request->email)->first();
-        DB::table('password_resets')->updateOrInsert(
-            [
-                'email' => $request->email,
-                'user_type_id' => 3,
-            ],
-            [
-                'token' => $token,
-                'created_at' => Carbon::now()
-            ]
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        $status = Password::sendResetLink(
+            $request->only('email')
         );
-        dispatch(new SendPasswordResetLink($data, $token_url));
 
-        return back()->with('status', 'We have e-mailed your password reset link!');
+        return $status == Password::RESET_LINK_SENT
+                    ? back()->with('status', __($status))
+                    : back()->withInput($request->only('email'))
+                            ->withErrors(['email' => __($status)]);
     }
 }

@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Partner;
 
-use App\Models\Partner;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use App\Http\Requests\Auth\PartnerProfileUpdateRequest;
+use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Partner;
 
 class ProfileController extends Controller
 {
@@ -21,14 +20,14 @@ class ProfileController extends Controller
     public function edit(Request $request): View
     {
         return view('partner.profile.edit', [
-            'user' => Auth::guard('partner')->user(),
+            'user' => $request->user(),
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(PartnerProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user('partner')->fill($request->validated());
 
@@ -36,25 +35,44 @@ class ProfileController extends Controller
             $request->user('partner')->email_verified_at = null;
         }
 
-        $img_path = public_path('/storage/images/partner/profile/');
         $image_name = Auth::guard('partner')->user()->profile_pic;
         if ($request->hasFile('profile_pic')) {
             $image_name = uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $profile_pic = Image::make($request->file('profile_pic'));
-            $profile_pic->resize(240, 240);
-            $profile_pic->save($img_path . $image_name);
+            $request->profile_pic->move(public_path('/storage/images/profile_pic/partner/'), $image_name);
             if (Auth::guard('partner')->user()->profile_pic != 'dummy.png') {
-                File::delete(public_path('storage/images/partner/profile/' . Auth::guard('partner')->user()->profile_pic));
+                File::delete(public_path('storage/images/profile_pic/partner/' . Auth::guard('partner')->user()->profile_pic));
             }
         }
-        Partner::where('partner_id', Auth::guard('partner')->user()->partner_id)->update([
-                'name' => $request->name,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'profile_pic' => $image_name,
-            ]);
+
+        Partner::where('id', Auth::guard('partner')->user()->id)->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'profile_pic' => $image_name,
+        ]);
 
 
         return Redirect::route('partner.profile.edit')->with('status', 'profile-updated');
+    }
+
+    /**
+     * Delete the user's account.
+     */
+    public function destroy(Request $request): RedirectResponse
+    {
+        $request->validateWithBag('userDeletion', [
+            'password' => ['required', 'current_password'],
+        ]);
+
+        $user = $request->user();
+
+        Auth::logout();
+
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::to('/');
     }
 }

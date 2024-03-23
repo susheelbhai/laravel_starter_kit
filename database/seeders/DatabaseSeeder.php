@@ -9,26 +9,17 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.
-     *
-     * @return void
      */
-    public function run()
+    public function run(): void
     {
         $this->call(SettingSeeder::class);
-        $this->call(UserGenderSeeder::class);
-        $this->call(UserTypeSeeder::class);
-        $this->call(AdminSeeder::class);
-        $this->call(ImportantLinkSeeder::class);
         $this->call(PageSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(AdminSeeder::class);
+        $this->call(PartnerSeeder::class);
         $this->call(UserQueryStatusSeeder::class);
         $this->call(UserQuerySeeder::class);
-        $this->call(Slider1Seeder::class);
 
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        
     }
 }

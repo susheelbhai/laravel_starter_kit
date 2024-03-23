@@ -15,9 +15,7 @@ class ImportantLinkSeeder extends Seeder
      */
     public function run()
     {
-
         include('data/data.php');
-
         ImportantLink::insert($important_links);
     }
 }

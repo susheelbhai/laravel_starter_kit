@@ -25,7 +25,10 @@ class initial_settings extends Command
      */
 
     public $env_values = array(
-        'MAIL_HOST' => '127.0.0.1'
+        'MAIL_HOST' => '127.0.0.1',
+        'APP_TIMEZONE' => 'Asia/Kolkata',
+        'ASSET_URL' => 'http://localhost',
+        'MAIL_PORT' => '1025',
     );
     public $config_values = array(
         'timezone' => 'Asia/Kolkata'

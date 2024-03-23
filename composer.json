@@ -1,25 +1,19 @@
 {
     "name": "susheelbhai/laravel_starter_kit",
-    "description": "Multi authentication starter kit with 3 types of user.",
+    "description": "Starter Kit developed for Laravel 11.",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Susheelbhai\\StarterKit\\": "src/"
-        },
-        "files": [
-            "src/Helpers/helpers.php"
-        ]
+        }
     },
     "extra": {
         "laravel": {
             "providers": [
                 "Susheelbhai\\StarterKit\\StarterKitServiceProvider",
                 "Susheelbhai\\StarterKit\\BladeServiceProvider"
-            ],
-            "aliases": {
-                "Larapay": "Susheelbhai\\Larapay\\Facade"
-            }
+            ]
         }
     },
     "authors": [
@@ -30,9 +24,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "laravel/breeze": "^1.26",
-        "barryvdh/laravel-debugbar": "^3.8",
-        "intervention/image": "^2.7",
-        "livewire/livewire": "^2.12"
+        "livewire/livewire": "^3.4"
     }
 }

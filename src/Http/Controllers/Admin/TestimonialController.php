@@ -44,19 +44,19 @@ class TestimonialController extends Controller
             'name' => 'required',
             'message' => 'required',
         ]);
+        $image_name = 'dummy.png';
         $testimonial = new Testimonial();
 
         if ($request->image != '') {
             $image_name = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->image->move(public_path('/storage/common/images/testimonials'), $image_name);
-            File::delete(public_path('storage/common/images/testimonials/' . Auth::guard('admin')->user()->image));
-            $testimonial->image = $image_name;
+            $request->image->move(public_path('/storage/images/testimonials'), $image_name);
         }
-
+        
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
         $testimonial->organisation = $request->organisation;
         $testimonial->message = $request->message;
+        $testimonial->image = $image_name;
         if (isset($request->is_active)) {
             $testimonial->is_active = 1;
         } else {
@@ -75,7 +75,7 @@ class TestimonialController extends Controller
     public function show($id)
     {
         $data = Testimonial::find($id);
-        return view('admin.resources.testimonial.view', compact('data'));
+        return view('separate.admin.resources.testimonial.show', compact('data'));
     }
 
     /**
@@ -87,7 +87,7 @@ class TestimonialController extends Controller
     public function edit($id)
     {
         $data = Testimonial::find($id);
-        return view('admin.resources.testimonial.edit', compact('data'));
+        return view('separate.admin.resources.testimonial.edit', compact('data'));
     }
 
     /**
@@ -108,8 +108,10 @@ class TestimonialController extends Controller
 
         if ($request->image != '') {
             $image_name = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->image->move(public_path('/storage/common/images/testimonials'), $image_name);
-            File::delete(public_path('storage/common/images/testimonials/' . Auth::guard('admin')->user()->image));
+            $request->image->move(public_path('/storage/images/testimonials'), $image_name);
+            if ($testimonial->image != 'dummy.png') {
+                File::delete(public_path('storage/images/testimonials/' .$testimonial->image));
+            }
             $testimonial->image = $image_name;
         }
 

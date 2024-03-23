@@ -10,7 +10,6 @@ use App\Models\PagePrivacy;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Slider1;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class PagesController extends Controller
@@ -25,12 +24,12 @@ class PagesController extends Controller
      {
         $data = PageHome::where('id', '=', 1)->first();
         $slider1 = Slider1::all();
-        return view('admin.pages.edit_pages.home', compact('data', 'slider1'));
+        return view('admin.resources.edit_pages.home', compact('data', 'slider1'));
      }
      public function aboutPage()
      {
         $data = PageAbout::where('id', '=', 1)->first();
-        return view('admin.pages.edit_pages.about', compact('data'));
+        return view('admin.resources.edit_pages.about', compact('data'));
      }
      public function updateAboutPage(Request $req)
      {
@@ -51,7 +50,7 @@ class PagesController extends Controller
      public function contactPage()
      {
         $data = PageContact::where('id', '=', 1)->first();
-        return view('admin.pages.edit_pages.contact', compact('data'));
+        return view('admin.resources.edit_pages.contact', compact('data'));
      }
     public function updateContactPage(Request $req)
     {
@@ -76,7 +75,7 @@ class PagesController extends Controller
      public function tncPage()
      {
         $data = PageTnc::where('id', '=', 1)->first();
-        return view('admin.pages.edit_pages.tnc', compact('data'));
+        return view('admin.resources.edit_pages.tnc', compact('data'));
      }
     public function updateTncPage(Request $req)
     {
@@ -90,7 +89,7 @@ class PagesController extends Controller
      public function privacyPage()
      {
         $data = PagePrivacy::where('id', '=', 1)->first();
-        return view('admin.pages.edit_pages.privacy', compact('data'));
+        return view('admin.resources.edit_pages.privacy', compact('data'));
      }
     public function updatePrivacyPage(Request $req)
     {

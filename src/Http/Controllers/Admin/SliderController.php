@@ -16,7 +16,7 @@ class SliderController extends Controller
     public function index()
     {
         $data = Slider::all();
-        return view('admin.resources.slider.index', compact('data'));
+        return view('separate.admin.resources.slider.index', compact('data'));
     }
 
     /**

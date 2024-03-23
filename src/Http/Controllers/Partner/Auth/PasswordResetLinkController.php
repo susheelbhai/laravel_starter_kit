@@ -3,16 +3,10 @@
 namespace App\Http\Controllers\Partner\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Mail\Auth\ResetPassword;
-use App\Models\Partner;
-use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
-use App\Jobs\SendPasswordResetLink;
+use Illuminate\Support\Facades\Password;
 use Illuminate\View\View;
-use Illuminate\Support\Str;
 
 class PasswordResetLinkController extends Controller
 {
@@ -31,26 +25,21 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // return $request;
         $request->validate([
-            'email' => 'required|email|exists:partners',
+            'email' => ['required', 'email'],
         ]);
 
-        $token = Str::random(64);
-        $token_url = route('partner.password.reset',$token).'?email='.$request->email;
-        $data = Partner::whereEmail($request->email)->first();
-        DB::table('password_resets')->updateOrInsert(
-            [
-                'email' => $request->email,
-                'user_type_id' => 2,
-            ],
-            [
-                'token' => $token,
-                'created_at' => Carbon::now()
-            ]
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        $status = Password::broker('partners')->sendResetLink(
+            $request->only('email')
         );
-        dispatch(new SendPasswordResetLink($data, $token_url));
 
-        return back()->with('status', 'We have e-mailed your password reset link!');
-
+        return $status == Password::RESET_LINK_SENT
+                    ? back()->with('status', __($status))
+                    : back()->withInput($request->only('email'))
+                            ->withErrors(['email' => __($status)]);
     }
 }

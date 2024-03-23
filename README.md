@@ -46,13 +46,6 @@ Migrate  databse tables and seed with the following commands
   php artisan db:seed
   
   ```
-### Final Step
-Uncomment 2 line in ```app_name/project/app/Providers/AppServiceProvider.php```
-
-```
-$settings = Setting::where('id', 1)->first();
-Config::set('settings', $settings);
-```
 
 Change initial settings by runnung the command
 ```

@@ -38,6 +38,9 @@ return new class extends Migration
             $table->string('color1')->nullable();
             $table->string('color2')->nullable();
             $table->string('color3')->nullable();
+            $table->string('color4')->nullable();
+            $table->string('color5')->nullable();
+            $table->string('color6')->nullable();
         });
     }
 
