@@ -4,6 +4,7 @@ namespace Susheelbhai\StarterKit\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 
 class initial_settings extends Command
 {
@@ -39,6 +40,7 @@ class initial_settings extends Command
         $this->question("Set Environment variable");
         $app_url = $this->ask("APP_URL", 'http://localhost/new/public_html');
         $asset_url = $this->ask("ASSET_URL", 'http://localhost/new/public_html/storage');
+        $custom_path_after_root_url = $this->ask("custom path after root url", 'new/public_html');
         try {      
             $this->env_values['APP_URL'] = $app_url;  
             $this->env_values['ASSET_URL'] = $asset_url;  
@@ -47,11 +49,13 @@ class initial_settings extends Command
             $this->error($e->getMessage());
         }
         
+        $this->updateIndexFile();
+        $this->updateAppServiceProvider($custom_path_after_root_url);
         $this->setEnvironmentValue($this->env_values);
         $this->setConfigValue($this->config_values);
     }
 
-    public function setEnvironmentValue(array $values)
+    private function setEnvironmentValue(array $values)
     {
 
         $envFile = app()->environmentFilePath();
@@ -80,7 +84,7 @@ class initial_settings extends Command
         return true;
     }
 
-    public function setConfigValue(array $values)
+    private function setConfigValue(array $values)
     {
         $path = base_path('config/app.php');
         $str = file_get_contents($path);
@@ -105,6 +109,29 @@ class initial_settings extends Command
         $str = substr($str, 0, -1);
         if (!file_put_contents($path, $str)) return false;
         $this->line("Config Variable changed");
+        return true;
+    }
+
+    private function updateIndexFile() {
+        $path = base_path('public/index.php');
+        $str = file_get_contents($path);
+        $str = str_replace("__DIR__.'/../storage", "__DIR__.'/../project/storage", $str);
+        $str = str_replace("__DIR__.'/../vendor", "__DIR__.'/../project/vendor", $str);
+        $str = str_replace("__DIR__.'/../bootstrap", "__DIR__.'/../project/bootstrap", $str);
+        if (!file_put_contents($path, $str)) return false;
+        $this->line("index file updated");
+        if (!File::copyDirectory(base_path('public'), base_path('../public_htmls'))) return false;
+        if (!File::deleteDirectories(base_path('public'))) return false;
+        $this->line("public folder renamed and moved");
+        return true;
+    }
+
+    private function updateAppServiceProvider($custom_path_after_root_url) {
+        $path = base_path('app/Providers/AppServiceProvider.php');
+        $str = file_get_contents($path);
+        $str = str_replace("{custom_path_after_root_url}", $custom_path_after_root_url, $str);
+        if (!file_put_contents($path, $str)) return false;
+        $this->line("AppServiceProvider file updated");
         return true;
     }
 }

@@ -75,20 +75,6 @@ Change initial settings by runnung the command
   ``` 
 
 
-### Final Step
-Change 2 line in ```app_name/project/app/Providers/AppServiceProvider.php```
-Replace {APP_NAME} with your actual project folder name
-
-  ```
-  Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/{APP_NAME}/public_html/livewire/livewire.js', $handle);
-  });
-  Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/{APP_NAME}/public_html/livewire/update', $handle);
-  });
-  ```
-
-
 ### License
 
 This Multi Auth Package is developed by susheelbhai for personal use software licensed under the [MIT license](http://opensource.org/licenses/MIT)
