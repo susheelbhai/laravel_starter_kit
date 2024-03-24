@@ -61,6 +61,8 @@ Change initial settings by runnung the command
   php artisan starter_kit:initial_settings
   ```
 
+
+
 ## Installation with single action
 
   ```
@@ -93,6 +95,7 @@ Change env variable manually
   APP_URL=
   ASSET_URL=
   ```
+
 
 
 ### License
