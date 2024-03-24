@@ -4,6 +4,7 @@
 Before starting with this package, please do the needful changes as follows
  
  1. install new project using ```laravel new app_name```
+    Please do not install with any starter kit
  2. create a new folder named ```project``` inside the root directory of the project ```app_name/project```
  3. Move all the files and folders *except public* to the new created folder ```app_name/project```
  4. Rename **public** folder to ```public_html``` 
@@ -47,10 +48,51 @@ Migrate  databse tables and seed with the following commands
   
   ```
 
+Alternatively you can refresh the database and seed with the following commands
+
+  ```
+  php artisan migrate:fresh --seed
+  
+  ```
+
+  ```
+
 Change initial settings by runnung the command
 ```
 php artisan starter_kit:initial_settings
 ```
+
+## Installation with single action
+```
+  composer require susheelbhai/laravel_starter_kit
+  php artisan vendor:publish --tag="starter_kit" --force
+  php artisan vendor:publish --tag="starter_kit_themes" --force
+  php artisan migrate:fresh --seed
+  php artisan starter_kit:initial_settings
+
+``` 
+
+
+### Final Step
+Change 2 line in ```app_name/project/app/Providers/AppServiceProvider.php```
+Replace {APP_NAME} with your actual project folder name
+
+```
+Livewire::setScriptRoute(function ($handle) {
+  return Route::get('/{APP_NAME}/public_html/livewire/livewire.js', $handle);
+});
+Livewire::setUpdateRoute(function ($handle) {
+  return Route::post('/{APP_NAME}/public_html/livewire/update', $handle);
+});
+```
+
+Change env variable manually
+```
+APP_NAME=
+APP_URL=
+ASSET_URL=
+```
+
 
 ### License
 
