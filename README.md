@@ -88,15 +88,6 @@ Replace {APP_NAME} with your actual project folder name
   });
   ```
 
-Change env variable manually
-
-  ```
-  APP_NAME=
-  APP_URL=
-  ASSET_URL=
-  ```
-
-
 
 ### License
 

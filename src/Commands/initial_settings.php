@@ -2,6 +2,7 @@
 
 namespace Susheelbhai\StarterKit\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
 
 class initial_settings extends Command
@@ -27,7 +28,6 @@ class initial_settings extends Command
     public $env_values = array(
         'MAIL_HOST' => '127.0.0.1',
         'APP_TIMEZONE' => 'Asia/Kolkata',
-        'ASSET_URL' => 'http://localhost',
         'MAIL_PORT' => '1025',
     );
     public $config_values = array(
@@ -36,7 +36,17 @@ class initial_settings extends Command
 
     public function handle()
     {
-
+        $this->question("Set Environment variable");
+        $app_url = $this->ask("APP_URL", 'http://localhost/new/public_html');
+        $asset_url = $this->ask("ASSET_URL", 'http://localhost/new/public_html/storage');
+        try {      
+            $this->env_values['APP_URL'] = $app_url;  
+            $this->env_values['ASSET_URL'] = $asset_url;  
+            
+        } catch (Exception $e) {
+            $this->error($e->getMessage());
+        }
+        
         $this->setEnvironmentValue($this->env_values);
         $this->setConfigValue($this->config_values);
     }
