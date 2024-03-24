@@ -63,12 +63,13 @@ php artisan starter_kit:initial_settings
 ```
 
 ## Installation with single action
+
 ```
-  composer require susheelbhai/laravel_starter_kit
-  php artisan vendor:publish --tag="starter_kit" --force
-  php artisan vendor:publish --tag="starter_kit_themes" --force
-  php artisan migrate:fresh --seed
-  php artisan starter_kit:initial_settings
+composer require susheelbhai/laravel_starter_kit
+php artisan vendor:publish --tag="starter_kit" --force
+php artisan vendor:publish --tag="starter_kit_themes" --force
+php artisan migrate:fresh --seed
+php artisan starter_kit:initial_settings
 
 ``` 
 
