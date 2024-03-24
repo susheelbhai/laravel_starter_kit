@@ -120,7 +120,7 @@ class initial_settings extends Command
         $str = str_replace("__DIR__.'/../bootstrap", "__DIR__.'/../project/bootstrap", $str);
         if (!file_put_contents($path, $str)) return false;
         $this->line("index file updated");
-        if (!File::copyDirectory(base_path('public'), base_path('../public_htmls'))) return false;
+        if (!File::copyDirectory(base_path('public'), base_path('../public_html'))) return false;
         if (!File::deleteDirectories(base_path('public'))) return false;
         $this->line("public folder renamed and moved");
         return true;
