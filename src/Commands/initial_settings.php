@@ -38,9 +38,10 @@ class initial_settings extends Command
     public function handle()
     {
         $this->question("Set Environment variable");
-        $app_url = $this->ask("APP_URL", 'http://localhost/new/public_html');
-        $asset_url = $this->ask("ASSET_URL", 'http://localhost/new/public_html/storage');
-        $custom_path_after_root_url = $this->ask("custom path after root url", 'new/public_html');
+        $folder_name = $this->ask("Folder Name", 'new');
+        $app_url = $this->ask("APP_URL", 'http://localhost/'.$folder_name.'/public_html');
+        $asset_url = $this->ask("ASSET_URL", 'http://localhost/'.$folder_name.'/public_html/storage');
+        $custom_path_after_root_url = $this->ask("custom path after root url", $folder_name.'/public_html');
         try {      
             $this->env_values['APP_URL'] = $app_url;  
             $this->env_values['ASSET_URL'] = $asset_url;  
@@ -49,10 +50,10 @@ class initial_settings extends Command
             $this->error($e->getMessage());
         }
         
-        $this->updateIndexFile();
         $this->updateAppServiceProvider($custom_path_after_root_url);
         $this->setEnvironmentValue($this->env_values);
         $this->setConfigValue($this->config_values);
+        $this->updateIndexFile();
     }
 
     private function setEnvironmentValue(array $values)

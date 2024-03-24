@@ -63,22 +63,13 @@ Change initial settings by runnung the command
 
 
 
-## Installation with single action after creating new laravel project using above instruction
-
-  ```
-  composer require susheelbhai/laravel_starter_kit
-  php artisan vendor:publish --tag="starter_kit" --force
-  php artisan vendor:publish --tag="starter_kit_themes" --force
-  php artisan migrate:fresh --seed
-  php artisan starter_kit:initial_settings
-
-  ``` 
-
-
-## Installation with single action without Laravel installation
+## Installation with single action
 
   ```
   laravel new project
+  ```
+
+  ```
   cd project
   composer require susheelbhai/laravel_starter_kit
   php artisan vendor:publish --tag="starter_kit" --force
