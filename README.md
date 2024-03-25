@@ -67,6 +67,10 @@ Change initial settings by runnung the command
 
   ```
   laravel new project
+  none
+  1
+  yes
+  sqlite
   ```
 
   ```

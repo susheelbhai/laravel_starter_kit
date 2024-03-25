@@ -52,7 +52,7 @@ class initial_settings extends Command
         
         $this->updateAppServiceProvider($custom_path_after_root_url);
         $this->setEnvironmentValue($this->env_values);
-        $this->setConfigValue($this->config_values);
+        // $this->setConfigValue($this->config_values);
         $this->updateIndexFile();
     }
 
@@ -61,11 +61,11 @@ class initial_settings extends Command
 
         $envFile = app()->environmentFilePath();
         $str = file_get_contents($envFile);
+        $str = str_replace("APP_URL=http://localhost", "APP_URL=http://localhost"."\n"."ASSET_URL=http://localhost", $str);
 
         if (count($values) > 0) {
+            $str .= "\n"; // In case the searched variable is in the last line without \n
             foreach ($values as $envKey => $envValue) {
-
-                $str .= "\n"; // In case the searched variable is in the last line without \n
                 $keyPosition = strpos($str, "{$envKey}=");
                 $endOfLinePosition = strpos($str, "\n", $keyPosition);
                 $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
@@ -91,9 +91,8 @@ class initial_settings extends Command
         $str = file_get_contents($path);
 
         if (count($values) > 0) {
+            $str .= "\n'"; // In case the searched variable is in the last line without \n
             foreach ($values as $configKey => $configValue) {
-
-                $str .= "\n'"; // In case the searched variable is in the last line without \n
                 $keyPosition = strpos($str, "{$configKey}' => ");
                 $endOfLinePosition = strpos($str, "\n", $keyPosition);
                 $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
