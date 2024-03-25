@@ -58,7 +58,7 @@ class initial_settings extends Command
             $this->error($e->getMessage());
         }
         
-        $this->setEnvironmentValueMySql($db_type, $folder_name);
+        $this->setEnvironmentValueDatabase($db_type, $folder_name);
         $this->updateAppServiceProvider($custom_path_after_root_url);
         $this->setEnvironmentValue($this->env_values);
         // $this->setConfigValue($this->config_values);
@@ -94,32 +94,51 @@ class initial_settings extends Command
         return true;
     }
 
-    private function setEnvironmentValueMySql($db_type, $folder_name) {
+    private function setEnvironmentValueDatabase($db_type, $folder_name) {
+        if ($db_type == 'sqlite') {
+            return $this->setEnvironmentValueSqlite();
+        }
+        if ($db_type == 'mysql') {
+            return $this->setEnvironmentValueMySql($folder_name);
+        }
+    }
+
+    private function setEnvironmentValueSqlite() {
         $envFile = app()->environmentFilePath();
         $str = file_get_contents($envFile);
-        if ($db_type == 'mysql') {
-            $str = str_replace("# DB_HOST", "DB_HOST", $str);
-            $str = str_replace("# DB_PORT", "DB_PORT", $str);
-            $str = str_replace("# DB_DATABASE", "DB_DATABASE", $str);
-            $str = str_replace("# DB_USERNAME", "DB_USERNAME", $str);
-            $str = str_replace("# DB_PASSWORD", "DB_PASSWORD", $str);
-        }
+        $str = str_replace("DB_HOST", "# DB_HOST", $str);
+        $str = str_replace("DB_PORT", "# DB_PORT", $str);
+        $str = str_replace("DB_DATABASE", "# DB_DATABASE", $str);
+        $str = str_replace("DB_USERNAME", "# DB_USERNAME", $str);
+        $str = str_replace("DB_PASSWORD", "# DB_PASSWORD", $str);
+
+        if (!file_put_contents($envFile, $str)) return false;
+        $this->env_values['DB_CONNECTION'] = 'sqlite';  
+    }
+
+    private function setEnvironmentValueMySql($folder_name) {
+        $envFile = app()->environmentFilePath();
+        $str = file_get_contents($envFile);
+        $str = str_replace("# DB_HOST", "DB_HOST", $str);
+        $str = str_replace("# DB_PORT", "DB_PORT", $str);
+        $str = str_replace("# DB_DATABASE", "DB_DATABASE", $str);
+        $str = str_replace("# DB_USERNAME", "DB_USERNAME", $str);
+        $str = str_replace("# DB_PASSWORD", "DB_PASSWORD", $str);
+
         if (!file_put_contents($envFile, $str)) return false;
         
-        if ($db_type == 'mysql') {
-            $db_host = $this->ask("DB_HOST", '127.0.0.1');
-            $db_port = $this->ask("DB_PORT", '3306');
-            $db_user_name = $this->ask("DB_USERNAME", 'root');
-            $db_password = $this->ask("DB_PASSWORD", '');
-            $this->env_values['DB_CONNECTION'] = $db_type;  
-            $this->env_values['DB_DATABASE'] = $folder_name;  
-            $this->env_values['DB_HOST'] = $db_host;  
-            $this->env_values['DB_PORT'] = $db_port;  
-            $this->env_values['DB_USERNAME'] = $db_user_name;  
-            $this->env_values['DB_PASSWORD'] = $db_password;  
-            $pdo = new PDO('mysql:host=' . $db_host, $db_user_name, $db_password);
-            $pdo->exec('CREATE DATABASE ' . $folder_name);
-        }
+        $db_host = $this->ask("DB_HOST", '127.0.0.1');
+        $db_port = $this->ask("DB_PORT", '3306');
+        $db_user_name = $this->ask("DB_USERNAME", 'root');
+        $db_password = $this->ask("DB_PASSWORD", '');
+        $this->env_values['DB_CONNECTION'] = 'mysql';  
+        $this->env_values['DB_DATABASE'] = $folder_name;  
+        $this->env_values['DB_HOST'] = $db_host;  
+        $this->env_values['DB_PORT'] = $db_port;  
+        $this->env_values['DB_USERNAME'] = $db_user_name;  
+        $this->env_values['DB_PASSWORD'] = $db_password;  
+        $pdo = new PDO('mysql:host=' . $db_host, $db_user_name, $db_password);
+        $pdo->exec('CREATE DATABASE ' . $folder_name);
     }
 
     private function setConfigValue(array $values)
