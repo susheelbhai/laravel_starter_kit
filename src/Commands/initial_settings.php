@@ -2,6 +2,7 @@
 
 namespace Susheelbhai\StarterKit\Commands;
 
+use PDO;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -37,7 +38,6 @@ class initial_settings extends Command
 
     public function handle()
     {
-
         $this->question("Set Environment variable");
         $folder_name = $this->ask("Folder Name", 'new');
         $db_type = $this->choice(
@@ -105,9 +105,20 @@ class initial_settings extends Command
             $str = str_replace("# DB_PASSWORD", "DB_PASSWORD", $str);
         }
         if (!file_put_contents($envFile, $str)) return false;
+        
         if ($db_type == 'mysql') {
+            $db_host = $this->ask("DB_HOST", '127.0.0.1');
+            $db_port = $this->ask("DB_PORT", '3306');
+            $db_user_name = $this->ask("DB_USERNAME", 'root');
+            $db_password = $this->ask("DB_PASSWORD", '');
             $this->env_values['DB_CONNECTION'] = $db_type;  
             $this->env_values['DB_DATABASE'] = $folder_name;  
+            $this->env_values['DB_HOST'] = $db_host;  
+            $this->env_values['DB_PORT'] = $db_port;  
+            $this->env_values['DB_USERNAME'] = $db_user_name;  
+            $this->env_values['DB_PASSWORD'] = $db_password;  
+            $pdo = new PDO('mysql:host=' . $db_host, $db_user_name, $db_password);
+            $pdo->exec('CREATE DATABASE ' . $folder_name);
         }
     }
 
