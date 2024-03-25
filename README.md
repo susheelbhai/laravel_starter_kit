@@ -1,21 +1,9 @@
 # Starter Kit for Laravel Project
 
-## Initial setup before installing the packagge
-Before starting with this package, please do the needful changes as follows
- 
- 1. install new project using ```laravel new app_name```
-    Please do not install with any starter kit
- 2. create a new folder named ```project``` inside the root directory of the project ```app_name/project```
- 3. Move all the files and folders *except public* to the new created folder ```app_name/project```
- 4. Rename **public** folder to ```public_html``` 
- 5. Modify index file ```app_name/public_html/index.php``` from ```__DIR__.'/../``` to ```__DIR__.'/../project/```
- 6. Go to project directory using ```cd app_name/project```
-
-
 ## Installation
 
 ### Laravel
-Require this package in your composer.json and update composer. This will download the package and install breeze package.
+Require this package in your composer.json and update composer. This will download the package.
 
 :warning: This package must be installed just after creating new laravel project. Installing in working project may cause overwriting your important files.
 
@@ -65,12 +53,10 @@ Change initial settings by runnung the command
 
 ## Installation with single action
 
+  create a new folder with the appropriate project name, open terminal and run the following command.
+
   ```
   laravel new project
-  none
-  1
-  yes
-  sqlite
   ```
 
   ```

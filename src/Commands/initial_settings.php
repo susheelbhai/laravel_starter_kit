@@ -37,19 +37,28 @@ class initial_settings extends Command
 
     public function handle()
     {
+
         $this->question("Set Environment variable");
         $folder_name = $this->ask("Folder Name", 'new');
+        $db_type = $this->choice(
+            'DB_CONNECTION',
+            ['sqlite', 'mysql', 'mariadb', 'pgsql', 'sqlsrv'],
+            0,
+            $maxAttempts = null,
+            $allowMultipleSelections = false
+        );
+        
         $app_url = $this->ask("APP_URL", 'http://localhost/'.$folder_name.'/public_html');
         $asset_url = $this->ask("ASSET_URL", 'http://localhost/'.$folder_name.'/public_html/storage');
         $custom_path_after_root_url = $this->ask("custom path after root url", $folder_name.'/public_html');
         try {      
             $this->env_values['APP_URL'] = $app_url;  
             $this->env_values['ASSET_URL'] = $asset_url;  
-            
         } catch (Exception $e) {
             $this->error($e->getMessage());
         }
         
+        $this->setEnvironmentValueMySql($db_type, $folder_name);
         $this->updateAppServiceProvider($custom_path_after_root_url);
         $this->setEnvironmentValue($this->env_values);
         // $this->setConfigValue($this->config_values);
@@ -83,6 +92,23 @@ class initial_settings extends Command
         if (!file_put_contents($envFile, $str)) return false;
         $this->line("Environment Variable changed");
         return true;
+    }
+
+    private function setEnvironmentValueMySql($db_type, $folder_name) {
+        $envFile = app()->environmentFilePath();
+        $str = file_get_contents($envFile);
+        if ($db_type == 'mysql') {
+            $str = str_replace("# DB_HOST", "DB_HOST", $str);
+            $str = str_replace("# DB_PORT", "DB_PORT", $str);
+            $str = str_replace("# DB_DATABASE", "DB_DATABASE", $str);
+            $str = str_replace("# DB_USERNAME", "DB_USERNAME", $str);
+            $str = str_replace("# DB_PASSWORD", "DB_PASSWORD", $str);
+        }
+        if (!file_put_contents($envFile, $str)) return false;
+        if ($db_type == 'mysql') {
+            $this->env_values['DB_CONNECTION'] = $db_type;  
+            $this->env_values['DB_DATABASE'] = $folder_name;  
+        }
     }
 
     private function setConfigValue(array $values)
