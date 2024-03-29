@@ -31,9 +31,10 @@ class initial_settings extends Command
         'MAIL_HOST' => '127.0.0.1',
         'APP_TIMEZONE' => 'Asia/Kolkata',
         'MAIL_PORT' => '1025',
+        'WATERMARK' => 1
     );
     public $config_values = array(
-        'timezone' => 'Asia/Kolkata'
+        'watermark' => "env('WATERMARK', 1)",
     );
 
     public function handle()
@@ -61,7 +62,7 @@ class initial_settings extends Command
         $this->setEnvironmentValueDatabase($db_type, $folder_name);
         $this->updateAppServiceProvider($custom_path_after_root_url);
         $this->setEnvironmentValue($this->env_values);
-        // $this->setConfigValue($this->config_values);
+        $this->setConfigValue($this->config_values);
         $this->updateIndexFile();
     }
 

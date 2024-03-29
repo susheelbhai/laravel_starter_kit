@@ -63,7 +63,19 @@
     
     @relativeInclude('js')
 
-
+    @if (config('app.watermark') == 1)
+    <script>
+        var textWatermark = 'Testing';
+        var body = document.getElementsByTagName('body')[0];
+        var header = document.getElementsByClassName('header')[0];
+        var dlabnav = document.getElementsByClassName('dlabnav')[0];
+        var background = "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='100px' width='100px'>" +
+            "<text transform='translate(20, 100) rotate(-30)' fill='rgba(128,128,128, 0.1)' font-size='20' >" + textWatermark + "</text></svg>\")";
+        body.style.backgroundImage = background
+        header.style.backgroundImage = background
+        dlabnav.style.backgroundImage = background
+    </script>
+    @endif
 	
 
 </body>

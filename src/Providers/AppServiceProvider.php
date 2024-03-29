@@ -32,11 +32,13 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        Livewire::setScriptRoute(function ($handle) {
-            return Route::get('/{custom_path_after_root_url}/livewire/livewire.js', $handle);
-        });
-        Livewire::setUpdateRoute(function ($handle) {
-            return Route::post('/{custom_path_after_root_url}/livewire/update', $handle);
-        });
+        if (config('app.env') == 'local') {
+            Livewire::setScriptRoute(function ($handle) {
+                return Route::get('/{custom_path_after_root_url}/livewire/livewire.js', $handle);
+            });
+            Livewire::setUpdateRoute(function ($handle) {
+                return Route::post('/{custom_path_after_root_url}/livewire/update', $handle);
+            });
+        }
     }
 }
