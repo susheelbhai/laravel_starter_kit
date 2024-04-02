@@ -12,9 +12,9 @@
 @endphp
 @if ($type == 'add')
     <div class="mb-3 {{ $col_class }}">
-        <button type="button" class="btn btn-primary" {{ $attributes }}> <i class="fa fa-plus"></i>
+        <a class="btn btn-primary" {{ $attributes }}> <i class="fa fa-plus"></i>
             <span class="btn-icon-end"> {{ $title }} </span>
-        </button>
+        </a>
     </div>
 @endif
 

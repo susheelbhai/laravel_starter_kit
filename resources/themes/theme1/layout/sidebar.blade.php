@@ -17,7 +17,7 @@
         </div>
         <ul class="metismenu" id="menu">
 
-            {{ $sidebar }}
+            {{ $sidebar ?? ''}}
             
         </ul>
         

@@ -46,7 +46,7 @@
         <input class="custom_img_input" data-prview_id="{{ $name }}Preview" name="{{ $name }}" type='file' id="{{ $name }}"
             accept=".png, .jpg, .jpeg" {{ $required }} />
         <label for="{{ $name }}"> 
-            {{ $name }}
+            {{ $label }}
             {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
         </label>
     </div>

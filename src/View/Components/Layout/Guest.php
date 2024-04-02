@@ -12,7 +12,7 @@ class Guest extends Component
 {
     public function __construct()
     {
-        $setting = Setting::find(1);
+        $setting = Setting::firstOrNew(['id'=>1]);
         Config::set('app.name', $setting['app_name']);
         Config::set('app.dark_logo', $setting['dark_logo']);
         Config::set('app.light_logo', $setting['light_logo']);

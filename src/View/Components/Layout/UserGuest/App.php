@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Layout\User;
+namespace App\View\Components\Layout\UserGuest;
 
 use App\Models\Setting;
 use Closure;
@@ -15,8 +15,8 @@ class App extends Component
     public function __construct()
     {
         $user = Auth::guard('web')->user();
-        $setting = Setting::firstOrCreate(['id'=>1]);
-        $theme = 'theme1';
+        $setting = Setting::find(1);
+        $theme = 'user1';
         $user = [
             'login' => $user,
             'theme' => $theme,
@@ -30,6 +30,6 @@ class App extends Component
 
     public function render(): View|Closure|string
     {
-        return view('components.layout.user.app');
+        return view('components.layout.user_guest.app');
     }
 }
