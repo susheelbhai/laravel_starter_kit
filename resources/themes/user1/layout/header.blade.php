@@ -47,13 +47,13 @@
                     <!-- single -->
                     <div class="single">
                         <i class="fas fa-phone-alt"></i>
-                        <a href="tel:{{ config('business.phone') }}">{{ config('business.phone') }}</a>
+                        <a href="tel:{{ config('app.phone') }}">{{ config('app.phone') }}</a>
                     </div>
                     <!-- single ENd -->
                     <!-- single -->
                     <div class="single">
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:{{ config('business.email') }}">{{ config('business.email') }}</a>
+                        <a href="mailto:{{ config('app.email') }}">{{ config('app.email') }}</a>
                     </div>
                     <!-- single ENd -->
                     <!-- single -->
@@ -66,17 +66,17 @@
                     <div class="single">
                         <i class="fas fa-map-marker-alt"></i>
                         <a href="#">
-                            {{ config('business.address') }}
+                            {{ config('app.address') }}
                         </a>
                     </div>
                     <!-- single ENd -->
                 </div>
                 <div class="social-wrapper-two menu">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
+                    <a href="{{ config('app.facebook') }}"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ config('app.twitter') }}"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ config('app.instagram') }}"><i class="fab fa-instagram"></i></a>
+                    <a href="{{ config('app.whatsapp') }}"><i class="fab fa-whatsapp"></i></a>
+                    <a href="{{ config('app.linkedin') }}"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -87,11 +87,11 @@
                 </ul>
             </nav>
             <div class="social-wrapper-two menu mobile-menu">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
+                <a href="{{ config('app.facebook') }}"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{ config('app.twitter') }}"><i class="fab fa-twitter"></i></a>
+                <a href="{{ config('app.instagram') }}"><i class="fab fa-instagram"></i></a>
+                <a href="{{ config('app.whatsapp') }}"><i class="fab fa-whatsapp"></i></a>
+                <a href="{{ config('app.linkedin') }}"><i class="fab fa-linkedin"></i></a>
             </div>
             <a href="#" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btnmenu">Get Quote</a>
         </div>

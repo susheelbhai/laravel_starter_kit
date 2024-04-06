@@ -29,6 +29,10 @@ class App extends Component
         Config::set('app.dark_logo', $setting['dark_logo']);
         Config::set('app.light_logo', $setting['light_logo']);
         Config::set('app.favicon', $setting['favicon']);
+        Config::set('app.facebook', $setting['facebook']);
+        Config::set('app.twitter', $setting['twitter']);
+        Config::set('app.linkedin', $setting['linkedin']);
+        Config::set('app.instagram', $setting['instagram']);
     }
 
     public function render(): View|Closure|string

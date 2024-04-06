@@ -28,6 +28,7 @@ class initial_settings extends Command
      */
 
     public $env_values = array(
+        'MAIL_MAILER' => 'smtp',
         'MAIL_HOST' => '127.0.0.1',
         'APP_TIMEZONE' => 'Asia/Kolkata',
         'MAIL_PORT' => '1025',
@@ -39,6 +40,7 @@ class initial_settings extends Command
 
     public function handle()
     {
+        
         $this->question("Set Environment variable");
         $folder_name = $this->ask("Folder Name", 'new');
         $db_type = $this->choice(
@@ -149,6 +151,7 @@ class initial_settings extends Command
 
         if (count($values) > 0) {
             $str .= "\n'"; // In case the searched variable is in the last line without \n
+            $str = str_replace("];", "", $str);
             foreach ($values as $configKey => $configValue) {
                 $keyPosition = strpos($str, "{$configKey}' => ");
                 $endOfLinePosition = strpos($str, "\n", $keyPosition);
@@ -156,11 +159,12 @@ class initial_settings extends Command
 
                 // If key does not exist, add it
                 if (!$keyPosition || !$endOfLinePosition || !$oldLine) {
-                    $str .= "{$configKey}' => '{$configValue}',\n";
+                    $str .= "{$configKey}' => {$configValue},\n";
                 } else {
-                    $str = str_replace($oldLine, "{$configKey}' => '{$configValue}',", $str);
+                    $str = str_replace($oldLine, "{$configKey}' => {$configValue},", $str);
                 }
             }
+            $str .= "];;";
         }
 
         $str = substr($str, 0, -1);
