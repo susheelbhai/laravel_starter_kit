@@ -1,46 +1,43 @@
-<section class="feature-area">
-    <div class="custom-container">
-        <div class="custom-row align-items-center">
-            <div class="feature-left d-flex">
-                <div class="feature-img-card">
-                    <h3>Start your <br>
-                        project from <br>
-                        your pocket.</h3>
-                    <img src="{{ asset('themes/guest') }}/assets/imgs/feature-img-1.png" alt="Feature" />
-                </div>
-                <div class="feature-img-card">
-                    <h3>Available on <br>
-                        all responsive <br>
-                        devices.</h3>
-                        <img src="{{ asset('themes/guest') }}/assets/imgs/feature-img-2.png" alt="Feature" />
+<div class="rts-feature-area rts-section-gap">
+    <div class="container-fluid padding-controler plr--120">
+        <div class="row bg-white-feature  pt--120 pb--120">
+            <div class="col-xl-6 col-lg-12">
+                <div class="feature-left-area">
+                    <img src="{{ asset('themes/guest') }}/images/feature/01.png" alt="">
                 </div>
             </div>
+            <div class="col-xl-6 col-lg-12">
+                <div class="rts-title-area feature text-start pl--30 pl_sm--0">
+                    <p class="pre-title">
+                        Boost Your Business Today
+                    </p>
+                    <h2 class="title feature-title">Most Reliable Efficient <br>
+                        Consulting Agency</h2>
+                    <p>Porttitor ornare fermentum aliquam pharetra ut facilisis gravida risus suscipit feugiat fusce
+                        conubia ridiculus tristique solving parturient natoque vulputate risu hasellus quam
+                        tincidunt posuere aliquam accumsan</p>
 
-            <div class="feature-right">
-                <div class="feature-content">
-                    <h5 class="section-subtitle">FEATURED PRODUCT</h5>
-                    <h1 class="section-title">Seamless productivity with our new app</h1>
-                    <p>Download Slack and experience a new era of organization and accomplishment.</p>
-                    <ul>
-                        <li>
-                            <i class="las la-check"></i> PPD Development
-                        </li>
-                        <li>
-                            <i class="las la-check"></i> Easy to Use
-                        </li>
-                    </ul>
-                    <div class="btns-group">
-                        <a href="{{ asset('themes/guest') }}/#" class="theme-simple-btn">
-                            <i class="lab la-apple"></i>
-                                 Get it on App Store
-                        </a>
-                        <a href="{{ asset('themes/guest') }}/#" class="theme-simple-btn">
-                            <i class="lab la-google-play"></i>
-                                 Get it on Play Store
-                        </a>
+                </div>
+
+                <div class="feature-one-wrapper pl--30 mt--40 pl_sm--0">
+                    <div class="single-feature-one">
+                        <i class="fal fa-check"></i>
+                        <p>Fast Growing Sells</p>
+                    </div>
+                    <div class="single-feature-one">
+                        <i class="fal fa-check"></i>
+                        <p>24/7 Quality Services</p>
+                    </div>
+                    <div class="single-feature-one">
+                        <i class="fal fa-check"></i>
+                        <p>Expert Members</p>
+                    </div>
+                    <div class="single-feature-one">
+                        <i class="fal fa-check"></i>
+                        <p>Best Quality Services</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>

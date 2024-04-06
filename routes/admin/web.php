@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\Slider1Controller;
 use App\Http\Controllers\Admin\UserQueryController;
@@ -44,6 +47,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(functi
     Route::resource('/userQuery', UserQueryController::class);
     Route::resource('/important_links', ImportantLinkController::class);
     Route::resource('/testimonial', TestimonialController::class);
+    Route::resource('/service', ServiceController::class);
+    Route::resource('/blog', BlogController::class);
+    Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter.index');
 });
 
 require __DIR__ . '/auth.php';

@@ -55,7 +55,7 @@
 
 @if ($type == 'multi_img')
 <div class="avatar-edit {{ $class }} {{ $col_class }}">
-    <input class="custom_img_input" data-prview_id="{{ $name }}Preview" name="{{ $name }}" type='file' id="{{ $name }}"
+    <input class="custom_img_input" data-prview_id="{{ $name }}Preview" name="{{ $name }}" type='file' id="{{ $label }}"
         accept=".png, .jpg, .jpeg" multiple />
     <label for="{{ $name }}"> {{ $label }}</label>
 </div>

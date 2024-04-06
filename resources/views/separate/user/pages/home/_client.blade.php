@@ -1,35 +1,21 @@
-<section class="client-area">
-    <div class="clients clients-marquee d-flex align-items-center">
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo1.svg" alt="Client" />
+<div class="rts-trusted-client rts-section-gapBottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="title-area-client text-center">
+                    <p class="client-title">Our Trusted Clients</p>
+                </div>
+            </div>
         </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo2.svg" alt="Client" />
+        <div class="row">
+            <div class="client-wrapper-one">
+                <a href="#"><img src="{{ asset('themes/guest') }}/images/client/01.png" alt="business_finbiz"></a>
+                <a href="#"><img src="{{ asset('themes/guest') }}/images/client/02.png" alt="business_finbiz"></a>
+                <a href="#"><img src="{{ asset('themes/guest') }}/images/client/03.png" alt="business_finbiz"></a>
+                <a href="#"><img src="{{ asset('themes/guest') }}/images/client/04.png" alt="business_finbiz"></a>
+                <a href="#"><img src="{{ asset('themes/guest') }}/images/client/05.png" alt="business_finbiz"></a>
+                <a href="#"><img src="{{ asset('themes/guest') }}/images/client/06.png" alt="business_finbiz"></a>
+            </div>
         </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo3.svg" alt="Client" />
-        </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo4.svg" alt="Client" />
-        </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo5.svg" alt="Client" />
-        </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo2.svg" alt="Client" />
-        </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo3.svg" alt="Client" />
-        </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo4.svg" alt="Client" />
-        </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo5.svg" alt="Client" />
-        </div>
-        <div class="client-logo simple-shadow">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/client-logo2.svg" alt="Client" />
-        </div>
-        <div class="client-logo" style="min-width: 0;"></div>
     </div>
-</section>
+</div>

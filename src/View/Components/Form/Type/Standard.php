@@ -13,10 +13,8 @@ class Standard extends Component
     public $action;
     public $method;
     public $submitName;
-    public $div;
-    public function __construct($title, $action="#", $method="post", $submitName="Submit", $div=1)
+    public function __construct($title, $action="#", $method="post", $submitName="Submit")
     {
-        $this->div = $div;
         $this->title = $title;
         $this->action = $action;
         $this->method = $method;

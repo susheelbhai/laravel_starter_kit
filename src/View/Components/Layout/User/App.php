@@ -15,14 +15,17 @@ class App extends Component
     public function __construct()
     {
         $user = Auth::guard('web')->user();
-        $setting = Setting::firstOrCreate(['id'=>1]);
-        $theme = 'theme1';
+        $setting = Setting::find(1);
+        $theme = 'user1';
         $user = [
             'login' => $user,
             'theme' => $theme,
         ];
         Session::put('user',$user);
         Config::set('app.name', $setting['app_name']);
+        Config::set('app.phone', $setting['phone']);
+        Config::set('app.email', $setting['email']);
+        Config::set('app.address', $setting['address']);
         Config::set('app.dark_logo', $setting['dark_logo']);
         Config::set('app.light_logo', $setting['light_logo']);
         Config::set('app.favicon', $setting['favicon']);

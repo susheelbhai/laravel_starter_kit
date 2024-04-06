@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(PartnerSeeder::class);
         $this->call(UserQueryStatusSeeder::class);
-        $this->call(UserQuerySeeder::class);
+        $this->call(UserQuerySeeder::class); 
+        $this->call(BlogSeeder::class); 
+        $this->call(BlogCommentSeeder::class); 
+        $this->call(ServiceSeeder::class); 
 
         
     }

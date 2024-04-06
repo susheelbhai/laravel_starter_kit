@@ -1,9 +1,7 @@
+<li class="has-droupdown">
+  <a class="nav-link" href="javascript:void()">{{ $name }}</a>
+  <ul class="submenu menu-link1">
+      {{ $slot }}
 
-<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-  <i class="fas fa-clone"></i>
-  <span class="nav-text">{{ $name }}</span>
-</a>
-<ul aria-expanded="false">
-  {{ $slot }}
-</ul>
+  </ul>
 </li>

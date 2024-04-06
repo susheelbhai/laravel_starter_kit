@@ -1,107 +1,58 @@
-<section class="how-we-do-area">
-    <div class="custom-container">
-        <div class="custom-row">
-            <img src="{{ asset('themes/guest') }}/assets/imgs/bg-shape-1.svg" alt="Shape" class="animation-slide-left how-we-do-bg" />
-            <div class="how-we-do-left-content">
-                <div class="top">
-                    <h5 class="section-subtitle">Our Model</h5>
-                    <h1 class="section-title">How we do</h1>
-                    <p>Save time and money with our powerful method.</p>
+<div class="rts-business-goal mt--0 rts-section-gapBottom">
+    <div class="container">
+        <div class="row">
+            <!-- business goal left -->
+            <div class="col-lg-6">
+                <div class="business-goal-one">
+                    <img src="{{ asset('themes/guest') }}/images/business-goal/01.jpg" alt="Business_Goal">
+                    <img class="small" src="{{ asset('themes/guest') }}/images/business-goal/sm-01.jpg" alt="Business_Goal">
                 </div>
-                <a href="{{ asset('themes/guest') }}/how-we-do.html" class="theme-btn">
-                    Learn More
-                    <i class="iconoir-arrow-up-right"></i>
-                </a>
             </div>
-            <div class="how-we-do-right-content">
-                <div class="how-we-do-items d-flex align-items-center justify-content-center">
+            <!-- business goal right -->
 
-                    <div class="how-we-do-card">
-                        <div class="circle-shape"></div>
-                        <div class="line-shape"></div>
-
-                        <div class="how-we-do-icon">
-                            <img src="{{ asset('themes/guest') }}/assets/imgs/hwd-icon-1.svg" alt="How we do" />
-                        </div>
-                        <div class="how-we-do-content">
-                            <h4>Brainstroming</h4>
-                            <p>Ideas</p>
-                        </div>
+            <!-- right area business -->
+            <div class="col-lg-6 mt--35 mt_md--70 mt_sm--70">
+                <div class="business-goal-right">
+                    <div class="rts-title-area business text-start pl--30">
+                        <p class="pre-title">
+                            JUST A CONSULTANCY
+                        </p>
+                        <h2 class="title">We know how to manage
+                            business globally</h2>
                     </div>
-
-                    <div class="how-we-do-card">
-                        <div class="circle-shape"></div>
-                        <div class="line-shape"></div>
-
-                        <div class="how-we-do-icon">
-                            <img src="{{ asset('themes/guest') }}/assets/imgs/hwd-icon-2.svg" alt="How we do" />
+                    <div class="rts-business-goal pl--30">
+                        <div class="single-goal">
+                            <img src="{{ asset('themes/guest') }}/images/business-goal/icon/01.svg" alt="business_Icone" class="thumb">
+                            <div class="goal-wrapper">
+                                <h6 class="title">Best Business Consulting</h6>
+                                <p class="disc">Fusce condimentum mattis placerat odio donec lacus porta torquent,
+                                    mauris gravida rutrum</p>
+                            </div>
                         </div>
-                        <div class="how-we-do-content">
-                            <h4>Product</h4>
-                            <p>Design</p>
+                        <div class="single-goal">
+                            <img src="{{ asset('themes/guest') }}/images/business-goal/icon/02.svg" alt="business_Icone" class="thumb">
+                            <div class="goal-wrapper">
+                                <h6 class="title">24/7 Customer Support</h6>
+                                <p class="disc">Fusce condimentum mattis placerat odio donec lacus porta torquent,
+                                    mauris gravida rutrum</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="how-we-do-card">
-                        <div class="circle-shape"></div>
-                        <div class="line-shape"></div>
-
-                        <div class="how-we-do-icon">
-                            <img src="{{ asset('themes/guest') }}/assets/imgs/hwd-icon-3.svg" alt="How we do" />
-                        </div>
-                        <div class="how-we-do-content">
-                            <h4>Front-End</h4>
-                            <p>Development</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="how-we-do-items d-flex align-items-center justify-content-center">
-                    <div class="how-we-do-card">
-                        <div class="circle-shape"></div>
-                        <div class="line-shape"></div>
-
-                        <div class="how-we-do-icon">
-                            <img src="{{ asset('themes/guest') }}/assets/imgs/hwd-icon-4.svg" alt="How we do" />
-                        </div>
-                        <div class="how-we-do-content">
-                            <h4>SEO</h4>
-                            <p>Optimization</p>
-                        </div>
-                    </div>
-
-                    <div class="how-we-do-card">
-                        <div class="circle-shape"></div>
-                        <div class="line-shape"></div>
-
-                        <div class="how-we-do-icon">
-                            <img src="{{ asset('themes/guest') }}/assets/imgs/hwd-icon-5.svg" alt="How we do" />
-                        </div>
-                        <div class="how-we-do-content">
-                            <h4>Back-End</h4>
-                            <p>Development</p>
+                        <div class="goal-button-wrapper mt--70">
+                            <a href="contactus.html" class="rts-btn btn-primary color-h-black">Contact Us</a>
+                            <div class="vedio-icone">
+                                <a id="play-video" class="video-play-button" href="#">
+                                    <span></span>
+                                    <span class="outer-text">Watch Video</span>
+                                </a>
+                                <div id="video-overlay" class="video-overlay">
+                                    <a class="video-overlay-close">×</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="how-we-do-items d-flex align-items-center justify-content-center">
-
-                    <div class="how-we-do-card">
-                        <div class="circle-shape"></div>
-                        <div class="line-shape"></div>
-
-                        <div class="how-we-do-icon">
-                            <img src="{{ asset('themes/guest') }}/assets/imgs/hwd-icon-6.svg" alt="How we do" />
-                        </div>
-                        <div class="how-we-do-content">
-                            <h4>Digital</h4>
-                            <p>Marketing</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+            <!-- right area business ENd -->
         </div>
     </div>
-</section>
+</div>

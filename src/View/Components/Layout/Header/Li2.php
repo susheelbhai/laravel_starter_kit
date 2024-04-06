@@ -11,10 +11,12 @@ class Li2 extends Component
 {
     public $name;
     public $icon;
-    public function __construct($name, $icon)
+    public $style;
+    public function __construct($name, $icon = '', $style='1')
     {
         $this->name = $name;
         $this->icon = $icon;
+        $this->style = $style;
     }
 
     public function render(): View|Closure|string

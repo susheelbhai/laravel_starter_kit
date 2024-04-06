@@ -30,7 +30,7 @@
                                     <h2><a href="{{ asset('themes/guest') }}/portfolio-details.html">E-commerce <br>
                                         platform <br>
                                         development.</a></h2>
-                                    <img src="{{ asset('themes/guest') }}/assets/imgs/project-1.png" alt="Project"/>
+                                    <img src="{{ asset('themes/guest') }}/imgs/project-1.png" alt="Project"/>
                                 </div>
                             </div>
                             <div class="swiper-slide project-item">
@@ -38,7 +38,7 @@
                                     <h2><a href="{{ asset('themes/guest') }}/portfolio-details.html">Software as a <br>
                                         Service <br>
                                         integration</a></h2>
-                                    <img src="{{ asset('themes/guest') }}/assets/imgs/project-2.png" alt="Project"/>
+                                    <img src="{{ asset('themes/guest') }}/imgs/project-2.png" alt="Project"/>
                                 </div>
                             </div>
                             <div class="swiper-slide project-item">
@@ -46,7 +46,7 @@
                                     <h2><a href="{{ asset('themes/guest') }}/portfolio-details.html">Mobile <br>
                                         Platform <br>
                                     Development</a></h2>
-                                    <img src="{{ asset('themes/guest') }}/assets/imgs/project-3.png" alt="Project"/>
+                                    <img src="{{ asset('themes/guest') }}/imgs/project-3.png" alt="Project"/>
                                 </div>
                             </div>
                             <div class="swiper-slide project-item">
@@ -55,7 +55,7 @@
                                         Enter into a <br>
                                         Virtual Reality <br>
                                         World.</a></h2>
-                                    <img src="{{ asset('themes/guest') }}/assets/imgs/project-4.png" alt="Project"/>
+                                    <img src="{{ asset('themes/guest') }}/imgs/project-4.png" alt="Project"/>
                                 </div>
                         </div>
                             <div class="swiper-slide project-item">
@@ -64,7 +64,7 @@
                                         Custom CRM <br>
                                         system for a <br>
                                         sales team.</a></h2>
-                                    <img src="{{ asset('themes/guest') }}/assets/imgs/project-5-new.png" alt="Project"/>
+                                    <img src="{{ asset('themes/guest') }}/imgs/project-5-new.png" alt="Project"/>
                                </div>
                             </div>
                             <div class="swiper-slide project-item">
@@ -73,7 +73,7 @@
                                         Wrist App<br>
                                       For Your <br>
                                         Productivity.</a></h2>
-                                    <img src="{{ asset('themes/guest') }}/assets/imgs/project-6-new.png" alt="Project"/>
+                                    <img src="{{ asset('themes/guest') }}/imgs/project-6-new.png" alt="Project"/>
                                 </div>
                             </div>
                         </div>

@@ -36,16 +36,16 @@
                         <div class="left d-flex flex-1">
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">Web Development</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-1-1.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-1-1.jpg" alt="Case Studio" />
                             </div>
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">Mobile Development</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-2-2.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-2-2.jpg" alt="Case Studio" />
                             </div>
                         </div>
                         <div class="right">
                             <div class="case-studio-contents service-card card-h">
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/service-icon-1.svg" alt="ICON" />
+                                <img src="{{ asset('themes/guest') }}/imgs/service-icon-1.svg" alt="ICON" />
                                 <h3>Development</h3>
                                 <p>Software development is a dynamic and rapidly evolving field that plays a
                                     pivotal role in shaping the digital landscape we live in today. It
@@ -63,16 +63,16 @@
                         <div class="left d-flex flex-1">
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">electro.</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-3.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-3.jpg" alt="Case Studio" />
                             </div>
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">Visit Site Now</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-4.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-4.jpg" alt="Case Studio" />
                             </div>
                         </div>
                         <div class="right">
                             <div class="case-studio-contents service-card card-h">
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/service-icon-2.svg" alt="ICON" />
+                                <img src="{{ asset('themes/guest') }}/imgs/service-icon-2.svg" alt="ICON" />
                                 <h3>Woo Commerce</h3>
                                 <p>Software development is a dynamic and rapidly evolving field that plays a
                                     pivotal role in shaping the digital landscape we live in today. It
@@ -90,16 +90,16 @@
                         <div class="left d-flex flex-1">
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">CRM Solutions</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-5.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-5.jpg" alt="Case Studio" />
                             </div>
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">Mobile Development</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-6.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-6.jpg" alt="Case Studio" />
                             </div>
                         </div>
                         <div class="right">
                             <div class="case-studio-contents service-card card-h">
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/service-icon-3.svg" alt="ICON" />
+                                <img src="{{ asset('themes/guest') }}/imgs/service-icon-3.svg" alt="ICON" />
                                 <h3>CRM Solutions</h3>
                                 <p>Software development is a dynamic and rapidly evolving field that plays a
                                     pivotal role in shaping the digital landscape we live in today. It
@@ -117,16 +117,16 @@
                         <div class="left d-flex flex-1">
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">Web Designing</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-7.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-7.jpg" alt="Case Studio" />
                             </div>
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">Mobile Development</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-8.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-8.jpg" alt="Case Studio" />
                             </div>
                         </div>
                         <div class="right">
                             <div class="case-studio-contents service-card card-h">
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/service-icon-4.svg" alt="ICON" />
+                                <img src="{{ asset('themes/guest') }}/imgs/service-icon-4.svg" alt="ICON" />
                                 <h3>Web Designing</h3>
                                 <p>Software development is a dynamic and rapidly evolving field that plays a
                                     pivotal role in shaping the digital landscape we live in today. It
@@ -144,16 +144,16 @@
                         <div class="left d-flex flex-1">
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">IT Support</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-9.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-9.jpg" alt="Case Studio" />
                             </div>
                             <div class="case-studio-img-card simple-shadow">
                                 <a href="{{ asset('themes/guest') }}/#" class="case-studio-cat">Mobile Development</a>
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/case-studio-10.jpg" alt="Case Studio" />
+                                <img src="{{ asset('themes/guest') }}/imgs/case-studio-10.jpg" alt="Case Studio" />
                             </div>
                         </div>
                         <div class="right">
                             <div class="case-studio-contents service-card card-h">
-                                <img src="{{ asset('themes/guest') }}/assets/imgs/service-icon-5.svg" alt="ICON" />
+                                <img src="{{ asset('themes/guest') }}/imgs/service-icon-5.svg" alt="ICON" />
                                 <h3>IT Support</h3>
                                 <p>Software development is a dynamic and rapidly evolving field that plays a
                                     pivotal role in shaping the digital landscape we live in today. It

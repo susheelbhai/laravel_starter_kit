@@ -1,10 +1,6 @@
-
-  <li>
-      <a class="has-arrow " href="javascript:void()" aria-expanded="false">
-          <i class="{{ $icon }}"></i>
-          <span class="nav-text">{{ $name }}</span>
-      </a>
-      <ul aria-expanded="false">
-          {{ $slot }}
-      </ul>
-  </li>
+<li class="has-droupdown">
+    <a class="nav-link" href="javascript:void()">{{ $name }}</a>
+    <ul class="submenu @if($style==2) menu-link1 @endif">
+        {{ $slot }}
+    </ul>
+</li>

@@ -11,7 +11,11 @@
         }
     </style>
     @if ($addUrl != '#')
-    <x-form.element.button1 :href="$addUrl" title="Add New" type="add" div="4" />
+        <div class="col-12 py-3">
+            <a href="{{ $addUrl }}" type="button" class="btn btn-primary"> <i class="fa fa-plus"></i>
+                <span class="btn-icon-end"> Add New </span>
+            </a>
+        </div>
     @endif
 
     <div class="col-lg-12">
