@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('designation');
             $table->string('organisation');
-            $table->string('message');
+            $table->longText('message');
             $table->string('image')->default('dummy.png');
             $table->boolean('is_active')->default(1);
         });

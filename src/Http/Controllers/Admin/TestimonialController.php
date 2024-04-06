@@ -44,11 +44,11 @@ class TestimonialController extends Controller
             'name' => 'required',
             'message' => 'required',
         ]);
-        $image_name = 'dummy.png';
+        $image_name = 'images/testimonials/dummy.png';
         $testimonial = new Testimonial();
 
         if ($request->image != '') {
-            $image_name = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+            $image_name = 'images/testimonials/'.uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
             $request->image->move(public_path('/storage/images/testimonials'), $image_name);
         }
         
@@ -74,7 +74,7 @@ class TestimonialController extends Controller
      */
     public function show($id)
     {
-        $data = Testimonial::find($id);
+        $data = Testimonial::findOrFail($id);
         return view('separate.admin.resources.testimonial.show', compact('data'));
     }
 
@@ -107,10 +107,10 @@ class TestimonialController extends Controller
         $testimonial =  Testimonial::find($id);
 
         if ($request->image != '') {
-            $image_name = uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
+            $image_name = 'images/testimonials/'.uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
             $request->image->move(public_path('/storage/images/testimonials'), $image_name);
             if ($testimonial->image != 'dummy.png') {
-                File::delete(public_path('storage/images/testimonials/' .$testimonial->image));
+                File::delete(public_path('storage/' .$testimonial->image));
             }
             $testimonial->image = $image_name;
         }

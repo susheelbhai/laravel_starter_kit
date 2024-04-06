@@ -23,7 +23,7 @@
                     <x-table.element.td :data="$i['designation']" />
                     <x-table.element.td :data="$i['organisation']" />
                     <x-table.element.td >
-                        <img src="{{ asset('images/testimonials/').'/'.$i->image  }}" width="30px" alt="">
+                        <img src="{{ asset($i->image) }}" width="30px" alt="">
                     </x-table.element.td>
                     <x-table.element.td>
                         @if ($i->is_active == 1)

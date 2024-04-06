@@ -6,15 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Newsletter;
 use App\Models\Service;
+use App\Models\Testimonial;
 use App\Models\UserQuery;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    function index(): View
+    function dashboard(): View
     {
         return view('user.dashboard');
+    }
+    function home(): View
+    {
+        $testimonials = Testimonial::whereIsActive(1)->get();
+        return view('user.pages.home.index', compact('testimonials'));
     }
     function about(): View
     {

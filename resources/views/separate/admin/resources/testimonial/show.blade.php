@@ -22,7 +22,7 @@
             <x-table.element.tr>
                 <x-table.element.th data="Image"/>
                 <x-table.element.td>
-                    <img src="{{ asset('images/testimonials/').'/'.$data->image }}" width="120px">
+                    <img src="{{ asset($data->image) }}" width="120px">
                 </x-table.element.td>
             </x-table.element.tr>
             <x-table.element.tr>

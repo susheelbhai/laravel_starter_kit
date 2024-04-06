@@ -16,7 +16,6 @@
     <x-layout.sidebar.li21 :href="route('admin.pages.aboutPage')" name="About Us" />
     <x-layout.sidebar.li21 :href="route('admin.pages.contactPage')" name="Contact Us" />
     <x-layout.sidebar.li21 :href="route('admin.testimonial.index')" name="Testimonial" />
-    <x-layout.sidebar.li21 :href="route('admin.testimonial.index')" name="Testimonial" />
     <x-layout.sidebar.li21 :href="route('admin.pages.tncPage')" name="Terms & Conditions" />
     <x-layout.sidebar.li21 :href="route('admin.pages.privacyPage')" name="Privacy Policy" />
 </x-layout.sidebar.li2>

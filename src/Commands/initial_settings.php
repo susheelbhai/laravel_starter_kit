@@ -66,6 +66,7 @@ class initial_settings extends Command
         $this->setEnvironmentValue($this->env_values);
         $this->setConfigValue($this->config_values);
         $this->updateIndexFile();
+        $this->deleteUnusedFolder();
     }
 
     private function setEnvironmentValue(array $values)
@@ -182,16 +183,18 @@ class initial_settings extends Command
         if (!file_put_contents($path, $str)) return false;
         $this->line("index file updated");
         if (!File::copyDirectory(base_path('public'), base_path('../public_html'))) return false;
-        if (!File::deleteDirectories(base_path('public'))) return false;
         $this->line("public folder renamed and moved");
         return true;
     }
 
     private function deleteUnusedFolder() {
-        
-        if (!File::deleteDirectories(base_path('public'))) return false;
-        if (!File::deleteDirectories(base_path('resources/css'))) return false;
-        if (!File::deleteDirectories(base_path('resources/js'))) return false;
+        try {
+            File::deleteDirectory(base_path('public'));
+            File::deleteDirectory(base_path('resources/css'));
+            File::deleteDirectory(base_path('resources/js'));
+        } catch (\Throwable $th) {
+            return $th;
+        }
         $this->line("Unused files and folders removed");
         return true;
     }

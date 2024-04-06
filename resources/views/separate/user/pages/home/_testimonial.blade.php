@@ -17,70 +17,28 @@
                     <!-- swiper area start -->
                     <div class="swiper mySwipertestimonial">
                         <div class="swiper-wrapper">
+                            @foreach ($testimonials as $i)
                             <div class="swiper-slide">
                                 <div class="testimonial-inner">
                                     <p class="disc text-start">
-                                        “Consectetur adipiscing elit velit porta sapien purus erat nec, a ornare
-                                        laoreet sem gravida accumsan in commodo aliquet nascetur maecenas. Sem
-                                        tempus hendrerit diam mauris leo magna sociosqu viverra, accumsan massa
-                                        tristique egestas cum sodales hac lacinia feugiat scelerisque porttitor”
+                                        “ {{ $i['message'] }}”
                                     </p>
                                     <div class="testimonial-bottom-one">
                                         <div class="thumbnail">
-                                            <img src="{{ asset('images/testimonials/susheel.png') }}" alt="business-testimonials">
+                                            <img src="{{ asset($i['image']) }}" alt="business-testimonials">
                                         </div>
                                         <div class="details">
                                             <a href="#">
-                                                <h5 class="title"> Susheel Kumar Singh </h5>
+                                                <h5 class="title"> {{ $i['name'] }} </h5>
                                             </a>
-                                            <span>Managing Director</span> <br>
-                                            <span>Digamite Private Limited</span>
+                                            <span>{{ $i['designation'] }}</span> <br>
+                                            <span>{{ $i['organisation'] }}</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-inner">
-                                    <p class="disc text-start">
-                                        “Consectetur adipiscing elit velit porta sapien purus erat nec, a ornare
-                                        laoreet sem gravida accumsan in commodo aliquet nascetur maecenas. Sem
-                                        tempus hendrerit diam mauris leo magna sociosqu viverra, accumsan massa
-                                        tristique egestas cum sodales hac lacinia feugiat scelerisque porttitor”
-                                    </p>
-                                    <div class="testimonial-bottom-one">
-                                        <div class="thumbnail">
-                                            <img src="{{ asset('themes/guest') }}/images/testimonials/02.png" alt="business-testimonials">
-                                        </div>
-                                        <div class="details">
-                                            <a href="#">
-                                                <h5 class="title">David Smith</h5>
-                                            </a>
-                                            <span>JHKL Owner</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-inner">
-                                    <p class="disc text-start">
-                                        “Consectetur adipiscing elit velit porta sapien purus erat nec, a ornare
-                                        laoreet sem gravida accumsan in commodo aliquet nascetur maecenas. Sem
-                                        tempus hendrerit diam mauris leo magna sociosqu viverra, accumsan massa
-                                        tristique egestas cum sodales hac lacinia feugiat scelerisque porttitor”
-                                    </p>
-                                    <div class="testimonial-bottom-one">
-                                        <div class="thumbnail">
-                                            <img src="{{ asset('themes/guest') }}/images/testimonials/02.png" alt="business-testimonials">
-                                        </div>
-                                        <div class="details">
-                                            <a href="#">
-                                                <h5 class="title">David Smith</h5>
-                                            </a>
-                                            <span>JHKL Owner</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>

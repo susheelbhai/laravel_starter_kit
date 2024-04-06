@@ -14,7 +14,7 @@
             </div>
         </div>
         
-        <x-form.element.input-img name="image" :value="asset('images/testimonials/'.$data['image'])" label="Profile Pic" type="image" div="4" ratio="125" />
+        <x-form.element.input-img name="image" :value="asset($data['image'])" label="Profile Pic" type="image" div="4" ratio="125" />
     </x-form.type.standard>
 
 </x-admin.app-layout>
