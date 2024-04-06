@@ -72,11 +72,11 @@
                     <!-- single ENd -->
                 </div>
                 <div class="social-wrapper-two menu">
-                    <a href="{{ config('app.facebook') }}"><i class="fab fa-facebook-f"></i></a>
-                    <a href="{{ config('app.twitter') }}"><i class="fab fa-twitter"></i></a>
-                    <a href="{{ config('app.instagram') }}"><i class="fab fa-instagram"></i></a>
-                    <a href="{{ config('app.whatsapp') }}"><i class="fab fa-whatsapp"></i></a>
-                    <a href="{{ config('app.linkedin') }}"><i class="fab fa-linkedin"></i></a>
+                    <a href="{{ config('app.facebook') }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ config('app.twitter') }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="{{ config('app.instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="{{ config('app.whatsapp') }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="{{ config('app.linkedin') }}" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -87,11 +87,11 @@
                 </ul>
             </nav>
             <div class="social-wrapper-two menu mobile-menu">
-                <a href="{{ config('app.facebook') }}"><i class="fab fa-facebook-f"></i></a>
-                <a href="{{ config('app.twitter') }}"><i class="fab fa-twitter"></i></a>
-                <a href="{{ config('app.instagram') }}"><i class="fab fa-instagram"></i></a>
-                <a href="{{ config('app.whatsapp') }}"><i class="fab fa-whatsapp"></i></a>
-                <a href="{{ config('app.linkedin') }}"><i class="fab fa-linkedin"></i></a>
+                <a href="{{ config('app.facebook') }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{ config('app.twitter') }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="{{ config('app.instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="{{ config('app.whatsapp') }}" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="{{ config('app.linkedin') }}" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
             <a href="#" class="rts-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btnmenu">Get Quote</a>
         </div>

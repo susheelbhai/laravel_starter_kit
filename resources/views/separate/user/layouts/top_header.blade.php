@@ -19,10 +19,10 @@
                         <li><a href="{{route('contact')}}">Contact</a></li>
                     </ul>
                     <ul class="social-wrapper-one">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a class="mr--0" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li><a href="{{ config('app.facebook') }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="{{ config('app.twitter') }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="{{ config('app.instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a class="mr--0" href="{{ config('app.linkedin') }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
                     </ul>
                 </div>
             </div>

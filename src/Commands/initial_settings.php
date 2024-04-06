@@ -187,6 +187,15 @@ class initial_settings extends Command
         return true;
     }
 
+    private function deleteUnusedFolder() {
+        
+        if (!File::deleteDirectories(base_path('public'))) return false;
+        if (!File::deleteDirectories(base_path('resources/css'))) return false;
+        if (!File::deleteDirectories(base_path('resources/js'))) return false;
+        $this->line("Unused files and folders removed");
+        return true;
+    }
+
     private function updateAppServiceProvider($custom_path_after_root_url) {
         $path = base_path('app/Providers/AppServiceProvider.php');
         $str = file_get_contents($path);

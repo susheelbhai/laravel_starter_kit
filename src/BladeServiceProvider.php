@@ -2,9 +2,6 @@
 
 namespace Susheelbhai\StarterKit;
 
-use App\Models\Setting;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class BladeServiceProvider extends ServiceProvider
