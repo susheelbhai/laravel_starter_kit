@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog;
 use App\Models\Newsletter;
 use App\Models\Portfolio;
 use App\Models\Service;
@@ -28,16 +27,7 @@ class HomeController extends Controller
     {
         return view('user.pages.about.index');
     }
-    function blogs(): View
-    {
-        $data = Blog::whereIsActive(1)->paginate();
-        return view('user.pages.blog.index', compact('data'));
-    }
-    function blogDetail($slug): View
-    {
-        $data = Blog::whereSlug($slug)->whereIsActive(1)->firstOrFail();
-        return view('user.pages.blog.detail', compact('data'));
-    }
+    
     function services(): View
     {
         $data = Service::whereIsActive(1)->paginate();

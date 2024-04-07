@@ -24,4 +24,4 @@
     <x-layout.header.li1 :href="route('home')" name="Labour Welfare Fund" />
 </x-layout.header.li2>
 
-<x-layout.header.li1 :href="route('blogs')" name="Blogs" />
+<x-layout.header.li1 :href="route('blog.index')" name="Blogs" />

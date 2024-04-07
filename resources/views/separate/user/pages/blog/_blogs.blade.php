@@ -9,7 +9,7 @@
                         <!-- start blog grid inner -->
                         <div class="blog-grid-inner">
                             <div class="blog-header">
-                                <a class="thumbnail" href="{{ route('blogDetail',$i['slug']) }}">
+                                <a class="thumbnail" href="{{ route('blog.show',$i['slug']) }}">
                                     <img src="{{ asset($i['display_img']) }}" alt="Business_Blog">
                                 </a>
                                 <div class="blog-info">
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="blog-body">
-                                <a href="{{ route('blogDetail',$i['slug']) }}">
+                                <a href="{{ route('blog.show',$i['slug']) }}">
                                     <h5 class="title">
                                         {{ $i['title'] }}
                                     </h5>

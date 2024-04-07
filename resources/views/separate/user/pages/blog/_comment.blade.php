@@ -1,34 +1,44 @@
 <hr>
 <div class="replay-area-details">
     <h4 class="title">Leave a Reply</h4>
-    <form action="#">
+    <form action="{{ route('blog.comment', $data['id']) }}" method="POST">
+        @csrf
         <div class="row g-4">
-            <div class="col-lg-6">
-                <input type="text" placeholder="Your Name">
-            </div>
-            <div class="col-lg-6">
-                <input type="text" placeholder="Your Name">
-            </div>
+            @guest('web')
+                <div class="col-lg-6">
+                    <input type="text" name="name" placeholder="Your Name">
+                </div>
+                <div class="col-lg-6">
+                    <input type="tel" name="phone" placeholder="Your Phone">
+                </div>
+                <div class="col-12">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+            @else
+                
+                <span>
+                    <img src="{{ asset(Auth::user()->profile_pic) }}" alt="finbiz_buseness" style="width:48px !important">
+                    {{ Auth::user()->name }}
+                </span>
+            @endguest
+            
             <div class="col-12">
-                <input type="text" placeholder="Select Topic">
-                <textarea></textarea>
+                <textarea name="comment"></textarea>
             </div>
         </div>
+        <button class="rts-btn btn-primary" >Submit Comment</button>
     </form>
 </div>
-<a class="rts-btn btn-primary" href="#">Submit Message</a>
 
-<div class="author-area">
-    <div class="thumbnail details mb_sm--15">
-        <img src="{{ asset('themes/guest') }}/images/blog/details/author.jpg" alt="finbiz_buseness">
-    </div>
-    <div class="author-details team">
-        <span>Brand Designer</span>
-        <h5>Angelina H. Dekato</h5>
-        <p class="disc">
-            Nullam varius luctus pharetra ultrices volpat facilisis donec tortor, nibhkisys
-            habitant curabitur at nunc nisl magna ac rhoncus vehicula sociis tortor nist
-            hendrerit molestie integer.
+<div>
+    @foreach ($comments as $i)
+    <div class="comment-area my-2">
+        <img src="{{ asset($i['user']['profile_pic']) }}" alt="finbiz_buseness" width="24px">
+        <span>{{ $i['user']['name'] }}</span>
+        <p>
+            {{ $i['message'] }}
         </p>
+        
     </div>
+    @endforeach
 </div>

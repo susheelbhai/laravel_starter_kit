@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
         $image_name = Auth::guard('partner')->user()->profile_pic;
         if ($request->hasFile('profile_pic')) {
-            $image_name = uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
+            $image_name = 'images/profile_pic/partner/'.uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
             $request->profile_pic->move(public_path('/storage/images/profile_pic/partner/'), $image_name);
             if (Auth::guard('partner')->user()->profile_pic != 'dummy.png') {
                 File::delete(public_path('storage/images/profile_pic/partner/' . Auth::guard('partner')->user()->profile_pic));

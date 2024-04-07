@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blog_comments', function (Blueprint $table) {
+        Schema::create('blog_views', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->ipAddress();
             $table->foreignId('blog_id')->default(1)->references('id')->on('blogs');
-            $table->foreignId('user_id')->default(1)->references('id')->on('users');
-            $table->longText('message');
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blog_comments');
+        Schema::dropIfExists('blog_views');
     }
 };
