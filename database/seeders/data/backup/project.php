@@ -5,15 +5,15 @@
  */
 
 /**
- * Database `new3`
+ * Database `new5`
  */
 
-/* `new3`.`admins` */
+/* `new5`.`admins` */
 $admins = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-04-06 00:33:39','name' => 'Susheel Kumar Singh','email' => 'admin@gmail.com','phone' => '9090653356','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','profile_pic' => '65fe9fbf824d2.jpg','remember_token' => 'c983AmI82JJZf7maNXNXqxI5tJaQWcOjjf6yz0DigEGdl4xuzWkCwCnNCoiQ')
 );
 
-/* `new3`.`blogs` */
+/* `new5`.`blogs` */
 $blogs = array(
   array('id' => '1','created_at' => '2024-04-06 00:38:32','updated_at' => '2024-04-06 00:42:46','created_by' => NULL,'title' => 'Profitable business makes your profit','slug' => 'profitable-business-makes-your-profit','display_img' => 'images/blogs/66104c30dd040.jpg','category' => 'Business','author' => 'Susheel Singh','tags' => 'business, profit','short_description' => 'Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services','long_description1' => '<p>Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services</p>
 
@@ -52,35 +52,44 @@ $blogs = array(
 </div>','highlighted_text1' => '“Placerat pretium tristique mattis tellus accuan metus dictumst vivamus odio nulla fusce auctor into suscipit habitasse class congue potenti iaculis”','highlighted_text2' => NULL,'ad_img' => 'images/blogs/ads/66104c30ddd8c.png','ad_url' => 'https://www.gst.gov.in/','views' => NULL,'is_active' => '1')
 );
 
-/* `new3`.`blog_comments` */
+/* `new5`.`blog_comments` */
 $blog_comments = array(
 );
 
-/* `new3`.`cache` */
+/* `new5`.`cache` */
 $cache = array(
 );
 
-/* `new3`.`cache_locks` */
+/* `new5`.`cache_locks` */
 $cache_locks = array(
 );
 
-/* `new3`.`failed_jobs` */
+/* `new5`.`clients` */
+$clients = array(
+  array('id' => '1','created_at' => '2024-04-07 08:55:42','updated_at' => '2024-04-07 08:57:50','name' => 'Zoe Hansen','url' => 'https://www.dixurono.org.uk','logo' => 'images/portfolios/661212b6b6f8d.png','is_active' => '1'),
+  array('id' => '2','created_at' => '2024-04-07 08:58:31','updated_at' => '2024-04-07 08:58:31','name' => 'Rashad Randall','url' => 'https://www.rexazosyr.com.au','logo' => 'images/portfolios/661212df050fa.png','is_active' => '1'),
+  array('id' => '3','created_at' => '2024-04-07 08:58:56','updated_at' => '2024-04-07 08:58:56','name' => 'Willa Thompson','url' => 'https://www.kec.tv','logo' => 'images/portfolios/661212f8c72d9.png','is_active' => '1'),
+  array('id' => '4','created_at' => '2024-04-07 08:59:13','updated_at' => '2024-04-07 08:59:13','name' => 'Xerxes Collier','url' => 'https://www.pitepycogapig.net','logo' => 'images/portfolios/66121309ceef6.png','is_active' => '1'),
+  array('id' => '5','created_at' => '2024-04-07 08:59:24','updated_at' => '2024-04-07 08:59:24','name' => 'Tallulah Mcdaniel','url' => 'https://www.mazufuvaw.net','logo' => 'images/portfolios/66121314bbfd1.png','is_active' => '1')
+);
+
+/* `new5`.`failed_jobs` */
 $failed_jobs = array(
 );
 
-/* `new3`.`important_links` */
+/* `new5`.`important_links` */
 $important_links = array(
 );
 
-/* `new3`.`jobs` */
+/* `new5`.`jobs` */
 $jobs = array(
 );
 
-/* `new3`.`job_batches` */
+/* `new5`.`job_batches` */
 $job_batches = array(
 );
 
-/* `new3`.`migrations` */
+/* `new5`.`migrations` */
 $migrations = array(
   array('id' => '1','migration' => '0001_01_01_000000_create_users_table','batch' => '1'),
   array('id' => '2','migration' => '0001_01_01_000001_create_cache_table','batch' => '1'),
@@ -101,30 +110,30 @@ $migrations = array(
   array('id' => '17','migration' => '2024_04_05_185756_create_services_table','batch' => '1'),
   array('id' => '18','migration' => '2024_04_05_190924_create_blogs_table','batch' => '1'),
   array('id' => '19','migration' => '2024_04_05_213336_create_blog_comments_table','batch' => '1'),
-  array('id' => '20','migration' => '2024_04_06_131412_create_newsletters_table','batch' => '1')
+  array('id' => '20','migration' => '2024_04_06_131412_create_newsletters_table','batch' => '1'),
+  array('id' => '21','migration' => '2024_04_07_083432_create_portfolios_table','batch' => '2')
 );
 
-/* `new3`.`newsletters` */
+/* `new5`.`newsletters` */
 $newsletters = array(
-  array('id' => '1','created_at' => '2024-04-06 18:35:15','updated_at' => '2024-04-06 18:35:15','email' => 'susheelkrsingh306@gmail.com','unsubscribed_at' => NULL)
 );
 
-/* `new3`.`page_about` */
+/* `new5`.`page_about` */
 $page_about = array(
-  array('id' => '1','created_at' => '2024-04-06 18:34:17','updated_at' => '2024-04-06 18:34:17','banner' => 'dummy.png')
+  array('id' => '1','created_at' => '2024-04-06 21:24:23','updated_at' => '2024-04-06 21:24:23','banner' => 'dummy.png')
 );
 
-/* `new3`.`page_contact` */
+/* `new5`.`page_contact` */
 $page_contact = array(
-  array('id' => '1','created_at' => '2024-04-06 18:34:17','updated_at' => '2024-04-06 18:34:17','banner' => 'dummy.png','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
+  array('id' => '1','created_at' => '2024-04-06 21:24:23','updated_at' => '2024-04-06 21:24:23','banner' => 'dummy.png','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
 );
 
-/* `new3`.`page_home` */
+/* `new5`.`page_home` */
 $page_home = array(
-  array('id' => '1','created_at' => '2024-04-06 18:34:17','updated_at' => '2024-04-06 18:34:17','banner1' => '1','slider1' => '0','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
+  array('id' => '1','created_at' => '2024-04-06 21:24:23','updated_at' => '2024-04-06 21:24:23','banner1' => '1','slider1' => '0','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
 );
 
-/* `new3`.`page_privacy` */
+/* `new5`.`page_privacy` */
 $page_privacy = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2023-03-25 23:28:54','content' => '<p><strong>PRIVACY POLICY</strong></p>
 
@@ -533,21 +542,21 @@ $page_privacy = array(
   <p>You have the right to request access to the personal information we collect from you, change that information, or delete it.&nbsp;To request to review, update, or delete your personal information, please&nbsp;fill out and submit a&nbsp;<a href="https://app.termly.io/notify/218e1c3a-3949-4d1b-928a-2f872ec63fb0" rel="noopener noreferrer" target="_blank">data subject access request</a>.</p>')
 );
 
-/* `new3`.`page_tnc` */
+/* `new5`.`page_tnc` */
 $page_tnc = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2023-03-25 23:43:32','content' => '<h3><strong>Using home networks&nbsp;</strong></h3><p>You agree and understand that www.homenetworks.in is an internet enabled electronic platform that facilitates communication for the purposes of advertising and distributing information pertaining to services.&nbsp;</p><p>BY USING THE SERVICES IN ANY WAY, BY CREATING AN ACCOUNT ON THE SERVICES, OR BY VISITING THE WEBSITE, YOU AFFIRM THAT YOU HAVE READ, UNDERSTOOD, AND CONSENT TO THE PRACTICES DESCRIBED IN THIS PRIVACY POLICY AND OUR TERMS OF SERVICE AND THAT YOU GIVE US YOUR CONSENT TO COLLECT, PROCESS, USE, STORE, AND DISCLOSE PERSONAL INFORMATION THAT YOU SUBMIT OR CONVEY THROUGH YOUR USE OF THE SERVICES, IN ACCORDANCE WITH THIS PRIVACY POLICY. IF YOU DO NOT AGREE TO THESE TERMS, THEN YOU HAVE NO RIGHT TO ACCESS OR USE THE SERVICES.</p><p>While interacting with other users on our site, with respect to any listing, posting or information we strongly encourage you to exercise reasonable diligence as you would in traditional off line channels and practice judgment and common sense.</p>')
 );
 
-/* `new3`.`partners` */
+/* `new5`.`partners` */
 $partners = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-06 17:54:52','name' => 'Susheel Kumar Singh','email' => 'partner@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$xqgJ.4gcxojQHrLRckOn/ujnIzYCzIvXoB2YpdLYW22k86KknELOe','profile_pic' => '65fe9f72b1054.jpg','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
 );
 
-/* `new3`.`password_reset_tokens` */
+/* `new5`.`password_reset_tokens` */
 $password_reset_tokens = array(
 );
 
-/* `new3`.`services` */
+/* `new5`.`services` */
 $services = array(
   array('id' => '1','created_at' => '2024-04-06 09:23:05','updated_at' => '2024-04-06 09:23:05','created_by' => NULL,'title' => 'Business Growth Mangment','slug' => 'business-growth-mangment','category' => 'Business','display_img' => 'images/services/6610c721de1e9.jpg','tags' => 'jsh,df','short_description' => 'Catalysts for change before fully tested markets are maintain wireless scenarios after intermandated applications predominate revolutionary.','long_description1' => '<p>Continually myocardinate holistic mindshare with client-based web services. Assertively e-enable catalysts for change before tested markets. Phosfluorescently maintain wireless scenarios after intermandated applications. Conveniently predominate revolutionary quality vectors through future-proof manufactured products. Enthusiastically transform distinctive collaboration.</p>
 
@@ -661,30 +670,31 @@ $services = array(
 </div>','is_active' => '1')
 );
 
-/* `new3`.`sessions` */
+/* `new5`.`sessions` */
 $sessions = array(
-  array('id' => '7h6ULJoWI7EXq8kfs2Wnt9LvIRl0wRbA7mXXErQ3','user_id' => '1','ip_address' => '::1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36','payload' => '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','last_activity' => '1712409272')
+  array('id' => 'e5SaNC2zXKi0BqhssXPuFzNXzj5W5DZXrHVFJrLV','user_id' => NULL,'ip_address' => '::1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36','payload' => 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiUjJISlNmbEl6MzdBdmVPWmdUdXhVaDlJR1d5RldlSjdpbWFndzFBciI7czo0OiJ1c2VyIjthOjI6e3M6NToibG9naW4iO047czo1OiJ0aGVtZSI7czo1OiJ1c2VyMSI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMzOiJodHRwOi8vbG9jYWxob3N0L25ldzUvcHVibGljX2h0bWwiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=','last_activity' => '1712460758')
 );
 
-/* `new3`.`settings` */
+/* `new5`.`settings` */
 $settings = array(
   array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2024-04-06 18:44:17','app_name' => 'Application Name','favicon' => '66113f818b9cb.png','dark_logo' => '66113f818c096.png','light_logo' => '66113f818c286.png','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '+1 (556) 675-2551','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','google_map' => NULL,'whatsapp' => NULL,'admin_theme' => NULL,'user_theme' => NULL,'partner_theme' => NULL,'color1' => '#b08b1a','color2' => '#f1c232','color3' => '#3271f1','color4' => '#f1c232','color5' => '#f1c232','color6' => '#f1c232')
 );
 
-/* `new3`.`slider1` */
+/* `new5`.`slider1` */
 $slider1 = array(
 );
 
-/* `new3`.`testimonials` */
+/* `new5`.`testimonials` */
 $testimonials = array(
+  array('id' => '1','created_at' => '2024-04-06 21:26:09','updated_at' => '2024-04-06 21:26:09','name' => 'Rhona Cervantes','designation' => 'Aut earum perferendi','organisation' => 'Bonner and Best Co','message' => 'Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem','image' => 'images/testimonials/dummy.png','is_active' => '1')
 );
 
-/* `new3`.`users` */
+/* `new5`.`users` */
 $users = array(
   array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => NULL,'email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-03-23 09:22:02')
 );
 
-/* `new3`.`user_queries` */
+/* `new5`.`user_queries` */
 $user_queries = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Alexa Wolf I','email' => 'brionna74@example.com','phone' => '1-930-284-0965','message' => 'Calista Powlowski DDS','subject' => 'Lizeth Greenfelder II','status_id' => '1','deleted_at' => NULL),
   array('id' => '2','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Dr. Cathryn Beer DDS','email' => 'apredovic@example.com','phone' => '1-480-716-4461','message' => 'Alexandro Weber','subject' => 'Gabrielle Grant','status_id' => '1','deleted_at' => NULL),
@@ -789,7 +799,7 @@ $user_queries = array(
   array('id' => '101','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Muhammad Hoppe','email' => 'mraz.cyril@example.org','phone' => '+1-318-784-0552','message' => 'Jennifer Kreiger Sr.','subject' => 'Reba Feest','status_id' => '1','deleted_at' => NULL)
 );
 
-/* `new3`.`user_query_statuses` */
+/* `new5`.`user_query_statuses` */
 $user_query_statuses = array(
   array('id' => '1','name' => 'Unread'),
   array('id' => '2','name' => 'Viewd'),

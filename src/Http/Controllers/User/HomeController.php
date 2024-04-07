@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Newsletter;
+use App\Models\Portfolio;
 use App\Models\Service;
 use App\Models\Testimonial;
 use App\Models\UserQuery;
@@ -20,7 +21,8 @@ class HomeController extends Controller
     function home(): View
     {
         $testimonials = Testimonial::whereIsActive(1)->get();
-        return view('user.pages.home.index', compact('testimonials'));
+        $clients = Portfolio::whereIsActive(1)->get();
+        return view('user.pages.home.index', compact('testimonials', 'clients'));
     }
     function about(): View
     {
