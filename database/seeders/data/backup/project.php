@@ -5,15 +5,15 @@
  */
 
 /**
- * Database `new5`
+ * Database `new7`
  */
 
-/* `new5`.`admins` */
+/* `new7`.`admins` */
 $admins = array(
-  array('id' => '1','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-04-06 00:33:39','name' => 'Susheel Kumar Singh','email' => 'admin@gmail.com','phone' => '9090653356','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','profile_pic' => '65fe9fbf824d2.jpg','remember_token' => 'c983AmI82JJZf7maNXNXqxI5tJaQWcOjjf6yz0DigEGdl4xuzWkCwCnNCoiQ')
+  array('id' => '1','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-04-07 14:24:26','name' => 'Susheel Kumar Singh','email' => 'admin@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','profile_pic' => 'images/profile_pic/admin/66125f2687807.jpg','remember_token' => 'c983AmI82JJZf7maNXNXqxI5tJaQWcOjjf6yz0DigEGdl4xuzWkCwCnNCoiQ')
 );
 
-/* `new5`.`blogs` */
+/* `new7`.`blogs` */
 $blogs = array(
   array('id' => '1','created_at' => '2024-04-06 00:38:32','updated_at' => '2024-04-06 00:42:46','created_by' => NULL,'title' => 'Profitable business makes your profit','slug' => 'profitable-business-makes-your-profit','display_img' => 'images/blogs/66104c30dd040.jpg','category' => 'Business','author' => 'Susheel Singh','tags' => 'business, profit','short_description' => 'Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services','long_description1' => '<p>Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services</p>
 
@@ -52,19 +52,23 @@ $blogs = array(
 </div>','highlighted_text1' => '“Placerat pretium tristique mattis tellus accuan metus dictumst vivamus odio nulla fusce auctor into suscipit habitasse class congue potenti iaculis”','highlighted_text2' => NULL,'ad_img' => 'images/blogs/ads/66104c30ddd8c.png','ad_url' => 'https://www.gst.gov.in/','views' => NULL,'is_active' => '1')
 );
 
-/* `new5`.`blog_comments` */
+/* `new7`.`blog_comments` */
 $blog_comments = array(
 );
 
-/* `new5`.`cache` */
+/* `new7`.`blog_views` */
+$blog_views = array(
+);
+
+/* `new7`.`cache` */
 $cache = array(
 );
 
-/* `new5`.`cache_locks` */
+/* `new7`.`cache_locks` */
 $cache_locks = array(
 );
 
-/* `new5`.`clients` */
+/* `new7`.`clients` */
 $clients = array(
   array('id' => '1','created_at' => '2024-04-07 08:55:42','updated_at' => '2024-04-07 08:57:50','name' => 'Zoe Hansen','url' => 'https://www.dixurono.org.uk','logo' => 'images/portfolios/661212b6b6f8d.png','is_active' => '1'),
   array('id' => '2','created_at' => '2024-04-07 08:58:31','updated_at' => '2024-04-07 08:58:31','name' => 'Rashad Randall','url' => 'https://www.rexazosyr.com.au','logo' => 'images/portfolios/661212df050fa.png','is_active' => '1'),
@@ -73,23 +77,23 @@ $clients = array(
   array('id' => '5','created_at' => '2024-04-07 08:59:24','updated_at' => '2024-04-07 08:59:24','name' => 'Tallulah Mcdaniel','url' => 'https://www.mazufuvaw.net','logo' => 'images/portfolios/66121314bbfd1.png','is_active' => '1')
 );
 
-/* `new5`.`failed_jobs` */
+/* `new7`.`failed_jobs` */
 $failed_jobs = array(
 );
 
-/* `new5`.`important_links` */
+/* `new7`.`important_links` */
 $important_links = array(
 );
 
-/* `new5`.`jobs` */
+/* `new7`.`jobs` */
 $jobs = array(
 );
 
-/* `new5`.`job_batches` */
+/* `new7`.`job_batches` */
 $job_batches = array(
 );
 
-/* `new5`.`migrations` */
+/* `new7`.`migrations` */
 $migrations = array(
   array('id' => '1','migration' => '0001_01_01_000000_create_users_table','batch' => '1'),
   array('id' => '2','migration' => '0001_01_01_000001_create_cache_table','batch' => '1'),
@@ -111,29 +115,30 @@ $migrations = array(
   array('id' => '18','migration' => '2024_04_05_190924_create_blogs_table','batch' => '1'),
   array('id' => '19','migration' => '2024_04_05_213336_create_blog_comments_table','batch' => '1'),
   array('id' => '20','migration' => '2024_04_06_131412_create_newsletters_table','batch' => '1'),
-  array('id' => '21','migration' => '2024_04_07_083432_create_portfolios_table','batch' => '2')
+  array('id' => '21','migration' => '2024_04_07_083432_create_portfolios_table','batch' => '1'),
+  array('id' => '22','migration' => '2024_04_07_123531_create_blog_views_table','batch' => '1')
 );
 
-/* `new5`.`newsletters` */
+/* `new7`.`newsletters` */
 $newsletters = array(
 );
 
-/* `new5`.`page_about` */
+/* `new7`.`page_about` */
 $page_about = array(
-  array('id' => '1','created_at' => '2024-04-06 21:24:23','updated_at' => '2024-04-06 21:24:23','banner' => 'dummy.png')
+  array('id' => '1','created_at' => '2024-04-07 14:21:28','updated_at' => '2024-04-07 14:21:28','banner' => 'dummy.png')
 );
 
-/* `new5`.`page_contact` */
+/* `new7`.`page_contact` */
 $page_contact = array(
-  array('id' => '1','created_at' => '2024-04-06 21:24:23','updated_at' => '2024-04-06 21:24:23','banner' => 'dummy.png','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
+  array('id' => '1','created_at' => '2024-04-07 14:21:28','updated_at' => '2024-04-07 14:21:28','banner' => 'dummy.png','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
 );
 
-/* `new5`.`page_home` */
+/* `new7`.`page_home` */
 $page_home = array(
-  array('id' => '1','created_at' => '2024-04-06 21:24:23','updated_at' => '2024-04-06 21:24:23','banner1' => '1','slider1' => '0','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
+  array('id' => '1','created_at' => '2024-04-07 14:21:28','updated_at' => '2024-04-07 14:21:28','banner1' => '1','slider1' => '0','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
 );
 
-/* `new5`.`page_privacy` */
+/* `new7`.`page_privacy` */
 $page_privacy = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2023-03-25 23:28:54','content' => '<p><strong>PRIVACY POLICY</strong></p>
 
@@ -542,21 +547,21 @@ $page_privacy = array(
   <p>You have the right to request access to the personal information we collect from you, change that information, or delete it.&nbsp;To request to review, update, or delete your personal information, please&nbsp;fill out and submit a&nbsp;<a href="https://app.termly.io/notify/218e1c3a-3949-4d1b-928a-2f872ec63fb0" rel="noopener noreferrer" target="_blank">data subject access request</a>.</p>')
 );
 
-/* `new5`.`page_tnc` */
+/* `new7`.`page_tnc` */
 $page_tnc = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2023-03-25 23:43:32','content' => '<h3><strong>Using home networks&nbsp;</strong></h3><p>You agree and understand that www.homenetworks.in is an internet enabled electronic platform that facilitates communication for the purposes of advertising and distributing information pertaining to services.&nbsp;</p><p>BY USING THE SERVICES IN ANY WAY, BY CREATING AN ACCOUNT ON THE SERVICES, OR BY VISITING THE WEBSITE, YOU AFFIRM THAT YOU HAVE READ, UNDERSTOOD, AND CONSENT TO THE PRACTICES DESCRIBED IN THIS PRIVACY POLICY AND OUR TERMS OF SERVICE AND THAT YOU GIVE US YOUR CONSENT TO COLLECT, PROCESS, USE, STORE, AND DISCLOSE PERSONAL INFORMATION THAT YOU SUBMIT OR CONVEY THROUGH YOUR USE OF THE SERVICES, IN ACCORDANCE WITH THIS PRIVACY POLICY. IF YOU DO NOT AGREE TO THESE TERMS, THEN YOU HAVE NO RIGHT TO ACCESS OR USE THE SERVICES.</p><p>While interacting with other users on our site, with respect to any listing, posting or information we strongly encourage you to exercise reasonable diligence as you would in traditional off line channels and practice judgment and common sense.</p>')
 );
 
-/* `new5`.`partners` */
+/* `new7`.`partners` */
 $partners = array(
-  array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-06 17:54:52','name' => 'Susheel Kumar Singh','email' => 'partner@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$xqgJ.4gcxojQHrLRckOn/ujnIzYCzIvXoB2YpdLYW22k86KknELOe','profile_pic' => '65fe9f72b1054.jpg','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
+  array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-07 14:23:25','name' => 'Susheel Kumar Singh','email' => 'partner@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$xqgJ.4gcxojQHrLRckOn/ujnIzYCzIvXoB2YpdLYW22k86KknELOe','profile_pic' => 'images/profile_pic/partner/66125f056ed84.jpg','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
 );
 
-/* `new5`.`password_reset_tokens` */
+/* `new7`.`password_reset_tokens` */
 $password_reset_tokens = array(
 );
 
-/* `new5`.`services` */
+/* `new7`.`services` */
 $services = array(
   array('id' => '1','created_at' => '2024-04-06 09:23:05','updated_at' => '2024-04-06 09:23:05','created_by' => NULL,'title' => 'Business Growth Mangment','slug' => 'business-growth-mangment','category' => 'Business','display_img' => 'images/services/6610c721de1e9.jpg','tags' => 'jsh,df','short_description' => 'Catalysts for change before fully tested markets are maintain wireless scenarios after intermandated applications predominate revolutionary.','long_description1' => '<p>Continually myocardinate holistic mindshare with client-based web services. Assertively e-enable catalysts for change before tested markets. Phosfluorescently maintain wireless scenarios after intermandated applications. Conveniently predominate revolutionary quality vectors through future-proof manufactured products. Enthusiastically transform distinctive collaboration.</p>
 
@@ -670,31 +675,30 @@ $services = array(
 </div>','is_active' => '1')
 );
 
-/* `new5`.`sessions` */
+/* `new7`.`sessions` */
 $sessions = array(
-  array('id' => 'e5SaNC2zXKi0BqhssXPuFzNXzj5W5DZXrHVFJrLV','user_id' => NULL,'ip_address' => '::1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36','payload' => 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiUjJISlNmbEl6MzdBdmVPWmdUdXhVaDlJR1d5RldlSjdpbWFndzFBciI7czo0OiJ1c2VyIjthOjI6e3M6NToibG9naW4iO047czo1OiJ0aGVtZSI7czo1OiJ1c2VyMSI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMzOiJodHRwOi8vbG9jYWxob3N0L25ldzUvcHVibGljX2h0bWwiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=','last_activity' => '1712460758')
+  array('id' => 'FGu8j87X1EtP3UkwHJdlGLF9wArbLbjBoAW1Q6c5','user_id' => '1','ip_address' => '::1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36','payload' => 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiYXBvNlVNaXNwN0RsYnNJeGdjUnRZR2FIWjhOU3EyRW5XT0hOVVJKUSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ5OiJodHRwOi8vbG9jYWxob3N0L25ldzcvcHVibGljX2h0bWwvcGFydG5lci9wcm9maWxlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1NDoibG9naW5fcGFydG5lcl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo0OiJ1c2VyIjthOjI6e3M6NToibG9naW4iO086MTg6IkFwcFxNb2RlbHNcUGFydG5lciI6MzI6e3M6MTM6IgAqAGNvbm5lY3Rpb24iO3M6NToibXlzcWwiO3M6ODoiACoAdGFibGUiO3M6ODoicGFydG5lcnMiO3M6MTM6IgAqAHByaW1hcnlLZXkiO3M6MjoiaWQiO3M6MTA6IgAqAGtleVR5cGUiO3M6MzoiaW50IjtzOjEyOiJpbmNyZW1lbnRpbmciO2I6MTtzOjc6IgAqAHdpdGgiO2E6MDp7fXM6MTI6IgAqAHdpdGhDb3VudCI7YTowOnt9czoxOToicHJldmVudHNMYXp5TG9hZGluZyI7YjowO3M6MTA6IgAqAHBlclBhZ2UiO2k6MTU7czo2OiJleGlzdHMiO2I6MTtzOjE4OiJ3YXNSZWNlbnRseUNyZWF0ZWQiO2I6MDtzOjI4OiIAKgBlc2NhcGVXaGVuQ2FzdGluZ1RvU3RyaW5nIjtiOjA7czoxMzoiACoAYXR0cmlidXRlcyI7YToxMTp7czoyOiJpZCI7aToxO3M6MTA6ImNyZWF0ZWRfYXQiO3M6MTk6IjIwMjQtMDMtMjMgMDk6MjI6MDMiO3M6MTA6InVwZGF0ZWRfYXQiO3M6MTk6IjIwMjQtMDQtMDcgMTQ6MjM6MjUiO3M6NDoibmFtZSI7czoxOToiU3VzaGVlbCBLdW1hciBTaW5naCI7czo1OiJlbWFpbCI7czoxNzoicGFydG5lckBnbWFpbC5jb20iO3M6NToicGhvbmUiO3M6MTA6Ijc5Nzk4NTE0ODUiO3M6MTc6ImVtYWlsX3ZlcmlmaWVkX2F0IjtzOjE5OiIyMDI0LTAzLTIzIDA5OjIyOjAyIjtzOjg6InBhc3N3b3JkIjtzOjYwOiIkMnkkMTIkeHFnSi40Z2N4b2pRSHJMUmNrT24vdWpuSXpZQ3pJdlhvQjJZcGRMWVcyMms4NktrbkVMT2UiO3M6MTE6InByb2ZpbGVfcGljIjtzOjQ0OiJpbWFnZXMvcHJvZmlsZV9waWMvcGFydG5lci82NjEyNWYwNTZlZDg0LmpwZyI7czozOiJkb2IiO3M6MTA6IjIwMjQtMTItMTIiO3M6MTQ6InJlbWVtYmVyX3Rva2VuIjtzOjYwOiJXZkowOFRWRUpiclIzYXFveWtzdTN2VEJ6N0N1Q005R1RxN25BYjNYNE9zZnhoT0gwcGJJbFJqOXR3YUkiO31zOjExOiIAKgBvcmlnaW5hbCI7YToxMTp7czoyOiJpZCI7aToxO3M6MTA6ImNyZWF0ZWRfYXQiO3M6MTk6IjIwMjQtMDMtMjMgMDk6MjI6MDMiO3M6MTA6InVwZGF0ZWRfYXQiO3M6MTk6IjIwMjQtMDQtMDcgMTQ6MjM6MjUiO3M6NDoibmFtZSI7czoxOToiU3VzaGVlbCBLdW1hciBTaW5naCI7czo1OiJlbWFpbCI7czoxNzoicGFydG5lckBnbWFpbC5jb20iO3M6NToicGhvbmUiO3M6MTA6Ijc5Nzk4NTE0ODUiO3M6MTc6ImVtYWlsX3ZlcmlmaWVkX2F0IjtzOjE5OiIyMDI0LTAzLTIzIDA5OjIyOjAyIjtzOjg6InBhc3N3b3JkIjtzOjYwOiIkMnkkMTIkeHFnSi40Z2N4b2pRSHJMUmNrT24vdWpuSXpZQ3pJdlhvQjJZcGRMWVcyMms4NktrbkVMT2UiO3M6MTE6InByb2ZpbGVfcGljIjtzOjQ0OiJpbWFnZXMvcHJvZmlsZV9waWMvcGFydG5lci82NjEyNWYwNTZlZDg0LmpwZyI7czozOiJkb2IiO3M6MTA6IjIwMjQtMTItMTIiO3M6MTQ6InJlbWVtYmVyX3Rva2VuIjtzOjYwOiJXZkowOFRWRUpiclIzYXFveWtzdTN2VEJ6N0N1Q005R1RxN25BYjNYNE9zZnhoT0gwcGJJbFJqOXR3YUkiO31zOjEwOiIAKgBjaGFuZ2VzIjthOjA6e31zOjg6IgAqAGNhc3RzIjthOjI6e3M6MTc6ImVtYWlsX3ZlcmlmaWVkX2F0IjtzOjg6ImRhdGV0aW1lIjtzOjg6InBhc3N3b3JkIjtzOjY6Imhhc2hlZCI7fXM6MTc6IgAqAGNsYXNzQ2FzdENhY2hlIjthOjA6e31zOjIxOiIAKgBhdHRyaWJ1dGVDYXN0Q2FjaGUiO2E6MDp7fXM6MTM6IgAqAGRhdGVGb3JtYXQiO047czoxMDoiACoAYXBwZW5kcyI7YTowOnt9czoxOToiACoAZGlzcGF0Y2hlc0V2ZW50cyI7YTowOnt9czoxNDoiACoAb2JzZXJ2YWJsZXMiO2E6MDp7fXM6MTI6IgAqAHJlbGF0aW9ucyI7YTowOnt9czoxMDoiACoAdG91Y2hlcyI7YTowOnt9czoxMDoidGltZXN0YW1wcyI7YjoxO3M6MTM6InVzZXNVbmlxdWVJZHMiO2I6MDtzOjk6IgAqAGhpZGRlbiI7YToyOntpOjA7czo4OiJwYXNzd29yZCI7aToxO3M6MTQ6InJlbWVtYmVyX3Rva2VuIjt9czoxMDoiACoAdmlzaWJsZSI7YTowOnt9czoxMToiACoAZmlsbGFibGUiO2E6Mzp7aTowO3M6NDoibmFtZSI7aToxO3M6NToiZW1haWwiO2k6MjtzOjg6InBhc3N3b3JkIjt9czoxMDoiACoAZ3VhcmRlZCI7YToxOntpOjA7czoxOiIqIjt9czoxOToiACoAYXV0aFBhc3N3b3JkTmFtZSI7czo4OiJwYXNzd29yZCI7czoyMDoiACoAcmVtZW1iZXJUb2tlbk5hbWUiO3M6MTQ6InJlbWVtYmVyX3Rva2VuIjt9czo1OiJ0aGVtZSI7czo2OiJ0aGVtZTEiO31zOjUyOiJsb2dpbl9hZG1pbl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==','last_activity' => '1712480079')
 );
 
-/* `new5`.`settings` */
+/* `new7`.`settings` */
 $settings = array(
   array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2024-04-06 18:44:17','app_name' => 'Application Name','favicon' => '66113f818b9cb.png','dark_logo' => '66113f818c096.png','light_logo' => '66113f818c286.png','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '+1 (556) 675-2551','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','google_map' => NULL,'whatsapp' => NULL,'admin_theme' => NULL,'user_theme' => NULL,'partner_theme' => NULL,'color1' => '#b08b1a','color2' => '#f1c232','color3' => '#3271f1','color4' => '#f1c232','color5' => '#f1c232','color6' => '#f1c232')
 );
 
-/* `new5`.`slider1` */
+/* `new7`.`slider1` */
 $slider1 = array(
 );
 
-/* `new5`.`testimonials` */
+/* `new7`.`testimonials` */
 $testimonials = array(
-  array('id' => '1','created_at' => '2024-04-06 21:26:09','updated_at' => '2024-04-06 21:26:09','name' => 'Rhona Cervantes','designation' => 'Aut earum perferendi','organisation' => 'Bonner and Best Co','message' => 'Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem Dolores voluptatem','image' => 'images/testimonials/dummy.png','is_active' => '1')
 );
 
-/* `new5`.`users` */
+/* `new7`.`users` */
 $users = array(
-  array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => NULL,'email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-03-23 09:22:02')
+  array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => NULL,'profile_pic' => 'dummy.png','email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-03-23 09:22:02')
 );
 
-/* `new5`.`user_queries` */
+/* `new7`.`user_queries` */
 $user_queries = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Alexa Wolf I','email' => 'brionna74@example.com','phone' => '1-930-284-0965','message' => 'Calista Powlowski DDS','subject' => 'Lizeth Greenfelder II','status_id' => '1','deleted_at' => NULL),
   array('id' => '2','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Dr. Cathryn Beer DDS','email' => 'apredovic@example.com','phone' => '1-480-716-4461','message' => 'Alexandro Weber','subject' => 'Gabrielle Grant','status_id' => '1','deleted_at' => NULL),
@@ -799,7 +803,7 @@ $user_queries = array(
   array('id' => '101','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Muhammad Hoppe','email' => 'mraz.cyril@example.org','phone' => '+1-318-784-0552','message' => 'Jennifer Kreiger Sr.','subject' => 'Reba Feest','status_id' => '1','deleted_at' => NULL)
 );
 
-/* `new5`.`user_query_statuses` */
+/* `new7`.`user_query_statuses` */
 $user_query_statuses = array(
   array('id' => '1','name' => 'Unread'),
   array('id' => '2','name' => 'Viewd'),
