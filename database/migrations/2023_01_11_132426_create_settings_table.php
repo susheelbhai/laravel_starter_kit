@@ -22,10 +22,10 @@ return new class extends Migration
             $table->string('light_logo')->nullable();
             $table->string('title')->nullable();
             $table->string('address')->nullable();
-            $table->string('detailed_address')->nullable();
+            $table->longText('detailed_address')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('short_description')->nullable();
+            $table->longText('short_description')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();

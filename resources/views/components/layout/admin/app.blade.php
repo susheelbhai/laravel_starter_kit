@@ -1,6 +1,6 @@
 <x-layout.app>
     <x-slot name='head'>
-        <link rel="icon" href="{{ asset('images/logo/'.config('app.favicon', 'dummy.png')) }}">
+        <link rel="icon" href="{{ asset(config('app.favicon', 'dummy.png')) }}">
         <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="{{ asset('themes/ck_editor/css/style.css') }}">

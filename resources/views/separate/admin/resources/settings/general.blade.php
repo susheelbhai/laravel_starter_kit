@@ -12,9 +12,9 @@
     <x-form.type.standard title="General Setting" action="{{ route('admin.settings.general') }}">
         @method('patch')
         <x-form.element.input1 name="app_name" label="App Name" type="text" :value="$data['app_name']" required="required" div="1" />
-        <x-form.element.input-img name="favicon" label="Favicon" type="photo" :value="asset('images/logo/'.$data['favicon'])" div="4" />
-        <x-form.element.input-img name="dark_logo" label="Dark Logo" type="photo" :value="asset('images/logo/'.$data['dark_logo'])" div="4" />
-        <x-form.element.input-img name="light_logo" label="Light Logo" type="photo" :value="asset('images/logo/'.$data['light_logo'])" div="4" />
+        <x-form.element.input-img name="favicon" label="Favicon" type="photo" :value="asset($data['favicon'])" div="4" />
+        <x-form.element.input-img name="dark_logo" label="Dark Logo" type="photo" :value="asset($data['dark_logo'])" div="4" />
+        <x-form.element.input-img name="light_logo" label="Light Logo" type="photo" :value="asset($data['light_logo'])" div="4" />
         <x-form.element.input1 name="color1" label="Theme Color 1" type="color" :value="$data['color1']" required="required" />
         <x-form.element.input1 name="color2" label="Theme Color 2" type="color" :value="$data['color2']" required="required" />
         <x-form.element.input1 name="color3" label="Theme Color 3" type="color" :value="$data['color3']" required="required" />

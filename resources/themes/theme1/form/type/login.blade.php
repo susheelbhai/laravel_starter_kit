@@ -2,7 +2,7 @@
     <div class="auth-form">
         <div class="text-center mb-3">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('images/logo/'.config('app.dark_logo', 'dummy.png')) }}" width="120px">
+                <img src="{{ asset(config('app.dark_logo', 'dummy.png')) }}" width="120px">
             </a>
         </div>
         <h4 class="text-center mb-4">{{ $title }}</h4>

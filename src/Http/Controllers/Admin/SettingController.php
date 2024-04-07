@@ -42,7 +42,7 @@ class SettingController extends Controller
         if ($req->favicon == '') {
             $favicon_name = $settings->favicon;
         } else {
-            $favicon_name = uniqid() . '.' . $req->file('favicon')->getClientOriginalExtension();
+            $favicon_name = 'images/logo/'.uniqid() . '.' . $req->file('favicon')->getClientOriginalExtension();
             $req->favicon->move(public_path('storage/images/logo'), $favicon_name);
             if ($settings->favicon != 'dummy.png') {
                 File::delete(public_path('storage/images/logo/' . $settings->favicon));
@@ -52,7 +52,7 @@ class SettingController extends Controller
         if ($req->dark_logo == '') {
             $dark_logo_name = $settings->dark_logo;
         } else {
-            $dark_logo_name = uniqid() . '.' . $req->file('dark_logo')->getClientOriginalExtension();
+            $dark_logo_name = 'images/logo/'.uniqid()  . '.' . $req->file('dark_logo')->getClientOriginalExtension();
             $req->dark_logo->move(public_path('storage/images/logo'), $dark_logo_name);
             if ($settings->dark_logo != 'dummy.png') {
                 File::delete(public_path('storage/images/logo/' . $settings->dark_logo));
@@ -61,7 +61,7 @@ class SettingController extends Controller
         if ($req->light_logo == '') {
             $light_logo_name = $settings->light_logo;
         } else {
-            $light_logo_name = uniqid() . '.' . $req->file('light_logo')->getClientOriginalExtension();
+            $light_logo_name = 'images/logo/'.uniqid()  . '.' . $req->file('light_logo')->getClientOriginalExtension();
             $req->light_logo->move(public_path('storage/images/logo'), $light_logo_name);
             if ($settings->light_logo != 'dummy.png') {
                 File::delete(public_path('storage/images/logo/' . $settings->light_logo));
