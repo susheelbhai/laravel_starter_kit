@@ -9,6 +9,7 @@
 	
 	<title> Authenticate {{ config('app.name') }} </title>
     <link href="{{ asset('themes/theme1')}}/css/style.css" rel="stylesheet">
+    <link href="{{ asset('/css/common.css') }}" rel="stylesheet">
     {{ $head ?? '' }}
 </head>
 

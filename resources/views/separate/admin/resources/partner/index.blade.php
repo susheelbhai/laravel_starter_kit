@@ -3,8 +3,7 @@
         <title> All Partner  | {{ config('app.name') }}</title>
     </x-slot>
 
-    <x-table.type.responsive title="User Data">
-        {{-- {{ Auth::guard('admin')->user() }} --}}
+    <x-table.type.responsive title="Partner Data" :addUrl="route('admin.partner.create')" >
         <x-table.element.thead>
             <x-table.element.tr>
                 <x-table.element.th data="Name" />

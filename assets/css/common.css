@@ -89,16 +89,75 @@
   /* slide_check_box end*/
 
 
+  .tooglePassword {
+    position: relative;
+    cursor: pointer;
+}
+
+.tooglePasswordDiv {
+    float: right;
+    position: relative;
+    top: -28px;
+    right: 14px;
+    cursor: pointer;
+}
 
 
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: white !important;
+  background-color: #0d6efd;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  display: inline-block;
+}
+
+.bootstrap-tagsinput {
+  padding: .6rem
+}
 
 
+.form-search {
+  background: #fff;
+  border: 0.0625rem solid #d2d2d2;
+  padding: 0.3125rem 1.25rem;
+  color: #6e6e6e;
+  height: 2.8rem;
+  border-radius: 1rem;
+}
 
 
-
-
-
-
+.field_set {
+  border: 2px solid #ddd;
+  padding: 25px 15px 15px 15px;
+  background: #fff;
+  margin-top: 44px;
+  border-radius: 9px;
+  position: relative;
+  margin-bottom: 10px;
+}
+  .field_set h3 {
+  background: #fff;
+  color: #50398c;
+  padding: 8px 10px 0 10px;
+  margin: 0 -15px 0 15px;
+  margin-bottom: 14px;
+  /* margin-top: -15px !important; */
+  position: relative;
+  /* max-width: 128px; */
+  /* margin: 0 auto; */
+  text-align: center;
+  margin-top: -50px;
+  margin-bottom: 36px;
+  font-size: 24px;
+  /* margin-left: 1px; */
+  transform: rotate90;
+  transform: rotate(deg);
+  /* border: 1px solid #50398c; */
+  /* margin-left: 0 !important; */
+  font-weight: 600;
+  position: absolute;
+}
 
 textarea {
   min-height: 100px !important;

@@ -46,7 +46,7 @@ class initial_settings extends Command
         $db_type = $this->choice(
             'DB_CONNECTION',
             ['sqlite', 'mysql', 'mariadb', 'pgsql', 'sqlsrv'],
-            0,
+            1,
             $maxAttempts = null,
             $allowMultipleSelections = false
         );
@@ -60,7 +60,6 @@ class initial_settings extends Command
         } catch (Exception $e) {
             $this->error($e->getMessage());
         }
-        
         $this->setEnvironmentValueDatabase($db_type, $folder_name);
         $this->updateAppServiceProvider($custom_path_after_root_url);
         $this->setEnvironmentValue($this->env_values);
@@ -142,7 +141,12 @@ class initial_settings extends Command
         $this->env_values['DB_USERNAME'] = $db_user_name;  
         $this->env_values['DB_PASSWORD'] = $db_password;  
         $pdo = new PDO('mysql:host=' . $db_host, $db_user_name, $db_password);
-        $pdo->exec('CREATE DATABASE ' . $folder_name);
+        try {
+            $pdo->exec('CREATE DATABASE ' . $folder_name);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        
     }
 
     private function setConfigValue(array $values)
@@ -151,7 +155,7 @@ class initial_settings extends Command
         $str = file_get_contents($path);
 
         if (count($values) > 0) {
-            $str .= "\n'"; // In case the searched variable is in the last line without \n
+            $str .= "\n"; // In case the searched variable is in the last line without \n
             $str = str_replace("];", "", $str);
             foreach ($values as $configKey => $configValue) {
                 $keyPosition = strpos($str, "{$configKey}' => ");
@@ -193,7 +197,7 @@ class initial_settings extends Command
             File::deleteDirectory(base_path('resources/css'));
             File::deleteDirectory(base_path('resources/js'));
         } catch (\Throwable $th) {
-            return $th;
+            // return $th;
         }
         $this->line("Unused files and folders removed");
         return true;

@@ -12,7 +12,7 @@
 @endphp
 @if ($type == 'add')
     <div class="mb-3 {{ $col_class }}">
-        <button type="button" class="btn btn-primary" {{ $attributes }}> <i class="fa fa-plus"></i>
+        <button type="button" {{ $attributes->merge(["class"=>"btn btn-primary"]) }}> <i class="fa fa-plus"></i>
             <span class="btn-icon-end"> {{ $title }} </span>
         </button>
     </div>
@@ -20,7 +20,7 @@
 
 @if ($type == 'submit')
     <div class="mb-3 {{ $col_class }}">
-        <button type="{{ $type }}" class="btn btn-primary" {{ $attributes }}>
+        <button type="{{ $type }}" {{ $attributes->merge(["class"=>"btn btn-primary"]) }}>
             {{ $title }}
         </button>
     </div>

@@ -31,10 +31,10 @@
     <button class="close-icon-menu"><i class="far fa-times"></i></button>
     <!-- inner menu area desktop start -->
     <div class="rts-sidebar-menu-desktop">
-        <a class="logo-1" href="{{ route('home') }}"><img class="logo" src="{{asset('images/logo/'.config('app.dark_logo', 'dummy.png'))}}" width="150px" alt="finbiz_logo"></a>
-        <a class="logo-2" href="{{ route('home') }}"><img class="logo" src="{{asset('images/logo/'.config('app.dark_logo', 'dummy.png'))}}" width="150px" alt="finbiz_logo"></a>
-        <a class="logo-3" href="{{ route('home') }}"><img class="logo" src="{{asset('images/logo/'.config('app.dark_logo', 'dummy.png'))}}" width="150px" alt="finbiz_logo"></a>
-        <a class="logo-4" href="{{ route('home') }}"><img class="logo" src="{{asset('images/logo/'.config('app.dark_logo', 'dummy.png'))}}" width="150px" alt="finbiz_logo"></a>
+        <a class="logo-1" href="{{ route('home') }}"><img class="logo" src="{{asset(config('app.dark_logo', 'dummy.png'))}}" width="150px" alt="finbiz_logo"></a>
+        <a class="logo-2" href="{{ route('home') }}"><img class="logo" src="{{asset(config('app.dark_logo', 'dummy.png'))}}" width="150px" alt="finbiz_logo"></a>
+        <a class="logo-3" href="{{ route('home') }}"><img class="logo" src="{{asset(config('app.dark_logo', 'dummy.png'))}}" width="150px" alt="finbiz_logo"></a>
+        <a class="logo-4" href="{{ route('home') }}"><img class="logo" src="{{asset(config('app.dark_logo', 'dummy.png'))}}" width="150px" alt="finbiz_logo"></a>
         <div class="body d-none d-xl-block">
             <p class="disc">
                 We must explain to you how all seds this mistakens idea denouncing pleasures and praising account.

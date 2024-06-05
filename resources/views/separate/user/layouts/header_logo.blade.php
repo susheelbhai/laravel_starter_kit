@@ -1,1 +1,1 @@
-<x-layout.header.logo href="{{ route('home') }}" :darkLogo="asset('images/logo/'.config('app.dark_logo', 'dummy.png'))"/>
+<x-layout.header.logo href="{{ route('home') }}" :darkLogo="asset(config('app.dark_logo', 'dummy.png'))"/>

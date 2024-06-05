@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -27,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
             $this->app->usePublicPath(base_path() . '/../public_html');
             $this->app->useStoragePath(base_path() . '/../public_html/storage');
         }
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Helper', \App\Helpers\Helper::class);
         
     }
 

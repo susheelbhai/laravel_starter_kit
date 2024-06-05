@@ -9,11 +9,11 @@
             $col_class = 'col-md-6';
             break;
     }
-    
+
 @endphp
 
 <div class="mb-3 {{ $col_class }}">
-    @if ($type == 'text' || $type == 'number' || $type == 'password' || $type == 'file' || $type == 'email')
+    @if ($type == 'text' || $type == 'number' || $type == 'file' || $type == 'email')
         <label for="{{ $name }}" class="form-label">
             <strong>{{ $label }}</strong>
             {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
@@ -21,6 +21,36 @@
         <input class="form-control" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
             placeholder="{{ $placeholder }}" value="{{ old($name, $value) }}" {{ $required }} {{ $attributes }}>
     @endif
+
+    @if ($type == 'password')
+        <label for="{{ $name }}" class="form-label">
+            <strong>{{ $label }}</strong>
+            {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
+        </label>
+        <input class="form-control" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
+            placeholder="{{ $placeholder }}" value="{{ old($name, $value) }}" {{ $required }}
+            {{ $attributes }}>
+        <div class="tooglePasswordDiv">
+            <i class="fa fa-eye tooglePassword" onclick="tooglePassword_{{ $name }}()"> </i>
+        </div>
+
+        <script>
+            function tooglePassword_{{ $name }}() {
+                var x = $("#{{ $name }}");
+                var y = $(".tooglePassword");
+                if (x.type === "password") {
+                    x.type = "text";
+                    y.removeClass("fa fa-eye");
+                    y.addClass("fa fa-eye-slash");
+                } else {
+                    x.type = "password";
+                    y.removeClass("fa fa-eye-slash");
+                    y.addClass("fa fa-eye");
+                }
+            }
+        </script>
+    @endif
+
 
     @if ($type == 'switch')
         <label for="{{ $name }}" class="form-label">

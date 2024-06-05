@@ -1,4 +1,4 @@
-<div class="row">
+<div {{ $attributes->merge(["class"=>"row"]) }}>
     @if ($addUrl != '#')
         <div class="col-12 py-3">
             <a href="{{ $addUrl }}" type="button" class="btn btn-primary"> <i class="fa fa-plus"></i>

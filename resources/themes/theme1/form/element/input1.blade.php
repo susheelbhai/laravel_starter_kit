@@ -13,7 +13,7 @@
 
 
 <div class="mb-3 {{ $col_class }}">
-    @if ($type == 'text' || $type == 'number' || $type == 'password' || $type == 'file' || $type == 'email' || $type == 'date'|| $type == 'url')
+    @if ($type == 'text' || $type == 'number' || $type == 'file' || $type == 'email' || $type == 'date' || $type == 'url')
         <label for="{{ $name }}" class="form-label">
             {{ $label }}
             {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
@@ -21,13 +21,43 @@
         <input class="form-control" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
             placeholder="{{ $placeholder }}" value="{{ old($name, $value) }}" {{ $required }} {{ $attributes }}>
     @endif
-    
+
+    @if ($type == 'password')
+        <label for="{{ $name }}" class="form-label">
+            <strong>{{ $label }}</strong>
+            {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
+        </label>
+        <input class="form-control" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
+            placeholder="{{ $placeholder }}" value="{{ old($name, $value) }}" {{ $required }}
+            {{ $attributes }}>
+        <div class="tooglePasswordDiv">
+            <i class="fa fa-eye" class="tooglePassword" onclick="tooglePassword_{{ $name }}()"> </i>
+        </div>
+
+        <script>
+            function tooglePassword_{{ $name }}() {
+                var x = $("#{{ $name }}");
+                var y = $(".tooglePassword");
+                if (x.type === "password") {
+                    x.type = "text";
+                    y.removeClass("fa fa-eye");
+                    y.addClass("fa fa-eye-slash");
+                } else {
+                    x.type = "password";
+                    y.removeClass("fa fa-eye-slash");
+                    y.addClass("fa fa-eye");
+                }
+            }
+        </script>
+    @endif
+
     @if ($type == 'textarea')
         <label for="{{ $name }}" class="form-label">
             {{ $label }}
             {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
         </label>
-        <textarea class="form-control" name="{{ $name }}" id="{{ $name }}" cols="30" rows="10" {{ $required }} {{ $attributes }}>{{ old($name, $value) }}</textarea>
+        <textarea class="form-control" name="{{ $name }}" id="{{ $name }}" cols="30" rows="10"
+            {{ $required }} {{ $attributes }}>{{ old($name, $value) }}</textarea>
     @endif
 
     @if ($type == 'switch')
@@ -48,7 +78,7 @@
             {{ $label }}
             {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
         </label>
-        <select name="{{ $name }}" id="{{ $name }}" class="form-control wide" {{ $attributes }}>
+        <select name="{{ $name }}" id="{{ $name }}" class="form-control wide" {{ $attributes }}  {{ $required }} >
             <option value="">Choose...</option>
             @foreach ($options as $i)
                 <option value="{{ $i->id }}" {{ $i->id == $value ? 'selected' : '' }}>{{ $i->name }}
@@ -61,9 +91,10 @@
         <div class="mb-3">
             <div class="example">
                 <label for="{{ $name }}" class="form-label">{{ $label }}</label>
-                <input name="{{ $name }}" id="{{ $name }}"  type="text" class="as_colorpicker form-control" value="{{ $value }}" {{ $required }}>
+                <input name="{{ $name }}" id="{{ $name }}" type="text"
+                    class="as_colorpicker form-control" value="{{ old($name, $value) }}" {{ $required }}>
             </div>
-            
+
         </div>
     @endif
 
@@ -73,7 +104,7 @@
                 <label for="{{ $name }}" class="form-label">{{ $label }}</label>
                 <input name="datepicker" class="datepicker-default form-control" id="datepicker">
             </div>
-            
+
         </div>
     @endif
 
@@ -83,20 +114,20 @@
             value="{{ old($name, $value) }}" {{ $attributes }}>
     @endif
 
-     
+
     @if ($type == 'editor')
-    <style>
-         .cke_contents{
-            height: 320px !important;
-        }
-    </style>
+        <style>
+            .cke_contents {
+                height: 320px !important;
+            }
+        </style>
         <label for="{{ $name }}" class="form-label">
             {{ $label }}
             {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
         </label>
         <textarea class="ck_editor" name="{{ $name }}" id="{{ $name }}" {{ $attributes }}>{{ old($name, $value) }}</textarea>
         <script>
-            $(function () {
+            $(function() {
                 "use strict";
                 CKEDITOR.replace('{{ $name }}')
             });
@@ -105,23 +136,12 @@
 
 
     @if ($type == 'tags')
-        
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
             rel="stylesheet" />
-        <style type="text/css">
-            .bootstrap-tagsinput .tag {
-                margin-right: 2px;
-                color: white !important;
-                background-color: #0d6efd;
-                padding: 0.2rem;
-                margin: 0.2rem;
-                display: inline-block;
-            }
-            .bootstrap-tagsinput{padding: .6rem}
-        </style>
         <div class="mb-3">
             <label for="{{ $name }}" class="form-label">{{ $label }}</label>
-            <input type="text" class="form-control p-4" id="{{ $name }}" name="{{ $name }}" value="{{ old($name, $value) }}"  data-role="tagsinput" />
+            <input type="text" class="form-control p-4" id="{{ $name }}" name="{{ $name }}"
+                value="{{ old($name, $value) }}" data-role="tagsinput" />
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
@@ -148,7 +168,7 @@
                         );
                     })
                     .trigger('change');
-                    $(".bootstrap-tagsinput").addClass('form-control');
+                $(".bootstrap-tagsinput").addClass('form-control');
             });
         </script>
     @endif
