@@ -36,7 +36,7 @@
 
         <script>
             function tooglePassword_{{ $name }}() {
-                var x = $("#{{ $name }}");
+                var x = document.getElementById("{{ $name }}");
                 var y = $(".tooglePassword");
                 if (x.type === "password") {
                     x.type = "text";

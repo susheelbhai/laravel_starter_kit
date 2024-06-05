@@ -155,7 +155,7 @@ class initial_settings extends Command
         $str = file_get_contents($path);
 
         if (count($values) > 0) {
-            $str .= "\n"; // In case the searched variable is in the last line without \n
+            $str .= "\n'"; // In case the searched variable is in the last line without \n
             $str = str_replace("];", "", $str);
             foreach ($values as $configKey => $configValue) {
                 $keyPosition = strpos($str, "{$configKey}' => ");
