@@ -1,15 +1,5 @@
-<div class="row">
+<div {{ $attributes->merge(["class"=>"row"]) }}>
 
-    <style>
-        .form-search {
-            background: #fff;
-            border: 0.0625rem solid #d2d2d2;
-            padding: 0.3125rem 1.25rem;
-            color: #6e6e6e;
-            height: 2.8rem;
-            border-radius: 1rem;
-        }
-    </style>
     @if ($addUrl != '#')
         <div class="col-12 py-3">
             <a href="{{ $addUrl }}" type="button" class="btn btn-primary"> <i class="fa fa-plus"></i>

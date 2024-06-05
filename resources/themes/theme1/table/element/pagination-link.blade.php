@@ -1,4 +1,4 @@
-<tfoot {{ $attributes }}>
+<tfoot {{ $attributes->merge(["class"=>""]) }}>
     <x-table.element.tr>
         <x-table.element.td colspan="{{ $colspan }}">
             {{ $data2->links() }}

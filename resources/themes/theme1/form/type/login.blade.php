@@ -1,4 +1,4 @@
-<div class="col-xl-12">
+<div class="col-xl-12" {{ $attributes->merge(["class"=>"defaultclass"]) }}>
     <div class="auth-form">
         <div class="text-center mb-3">
             <a href="{{ route('home') }}">

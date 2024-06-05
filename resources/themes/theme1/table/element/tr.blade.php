@@ -1,3 +1,3 @@
-<tr {{ $attributes }}>
+<tr {{ $attributes->merge(["class"=>""]) }}>
     {{ $slot }}
 </tr>

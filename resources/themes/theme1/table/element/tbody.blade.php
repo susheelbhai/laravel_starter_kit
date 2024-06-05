@@ -1,3 +1,3 @@
-<tbody {{ $attributes }}>
+<tbody {{ $attributes->merge(["class"=>""]) }}>
     {{ $slot }}
 </tbody>
