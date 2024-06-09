@@ -40,7 +40,6 @@ class initial_settings extends Command
 
     public function handle()
     {
-        
         $this->question("Set Environment variable");
         $folder_name = $this->ask("Folder Name", 'new');
         $db_type = $this->choice(
@@ -50,10 +49,10 @@ class initial_settings extends Command
             $maxAttempts = null,
             $allowMultipleSelections = false
         );
-        
         $app_url = $this->ask("APP_URL", 'http://localhost/'.$folder_name.'/public_html');
         $asset_url = $this->ask("ASSET_URL", 'http://localhost/'.$folder_name.'/public_html/storage');
         $custom_path_after_root_url = $this->ask("custom path after root url", $folder_name.'/public_html');
+        $delete_unused_file = $this->ask("Do you want to delect unused files? (yes/no)", 'yes');
         try {      
             $this->env_values['APP_URL'] = $app_url;  
             $this->env_values['ASSET_URL'] = $asset_url;  
@@ -65,8 +64,11 @@ class initial_settings extends Command
         $this->setEnvironmentValue($this->env_values);
         $this->setConfigValue($this->config_values);
         $this->updateIndexFile();
-        $this->deleteUnusedFolder();
+        if ($delete_unused_file == 'yes') {
+            $this->deleteUnusedFolder();
+        }
     }
+
 
     private function setEnvironmentValue(array $values)
     {
