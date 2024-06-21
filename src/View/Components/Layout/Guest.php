@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Config;
 
 class Guest extends Component
 {
+    public $setting;
     public function __construct()
     {
         $setting = Setting::find(1);
@@ -17,8 +18,8 @@ class Guest extends Component
         Config::set('app.dark_logo', $setting['dark_logo']);
         Config::set('app.light_logo', $setting['light_logo']);
         Config::set('app.favicon', $setting['favicon']);
+        $this->setting = $setting;
     }
-    
     public function render(): View|Closure|string
     {
         return view('theme1.layout.guest');

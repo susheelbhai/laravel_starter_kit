@@ -16,6 +16,8 @@ class Guest extends Component
         Config::set('app.name', $setting['app_name']);
         Config::set('app.dark_logo', $setting['dark_logo']);
         Config::set('app.light_logo', $setting['light_logo']);
+        Config::set('app.dark_logo_small', $setting['favicon']);
+        Config::set('app.light_logo_small', $setting['favicon']);
         Config::set('app.favicon', $setting['favicon']);
     }
     public function render(): View|Closure|string

@@ -1,7 +1,11 @@
-
 <div class="nav-header">
     <a href="{{ $href }}" class="brand-logo">
-        <img src="{{ $darkLogo }}" alt="logo" width="180px">
+        <div class="d-lg-none">
+            <img src="{{ $lightLogoSmall }}" alt="logo" width="32px">
+        </div>
+        <div class="brand-title">
+            <img src="{{ $darkLogo }}" alt="logo" width="100%">
+        </div>
     </a>
     <div class="nav-control">
         <div class="hamburger">

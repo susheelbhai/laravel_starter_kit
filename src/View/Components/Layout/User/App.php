@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class App extends Component
 {
+    public $setting;
     public function __construct()
     {
         $user = Auth::guard('web')->user();
@@ -33,6 +34,7 @@ class App extends Component
         Config::set('app.twitter', $setting['twitter']);
         Config::set('app.linkedin', $setting['linkedin']);
         Config::set('app.instagram', $setting['instagram']);
+        $this->setting = $setting;
     }
 
     public function render(): View|Closure|string

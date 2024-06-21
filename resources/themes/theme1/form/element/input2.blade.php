@@ -12,21 +12,12 @@
 @endphp
 
 
-<div class="mb-3 {{ $col_class }}">
-    @if ($type == 'text' || $type == 'number' || $type == 'file' || $type == 'email' || $type == 'date' || || $type == 'time' || $type == 'url')
-        <label for="{{ $name }}" class="form-label">
-            {{ $label }}
-            {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
-        </label>
+    @if ($type == 'text' || $type == 'number' || $type == 'file' || $type == 'email' || $type == 'date' || $type == 'time' || $type == 'url')
         <input class="form-control" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
             placeholder="{{ $placeholder }}" value="{{ old($name, $value) }}" {{ $required }} {{ $attributes }}>
     @endif
 
     @if ($type == 'password')
-        <label for="{{ $name }}" class="form-label">
-            <strong>{{ $label }}</strong>
-            {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
-        </label>
         <input class="form-control" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
             placeholder="{{ $placeholder }}" value="{{ old($name, $value) }}" {{ $required }}
             {{ $attributes }}>
@@ -52,19 +43,11 @@
     @endif
 
     @if ($type == 'textarea')
-        <label for="{{ $name }}" class="form-label">
-            {{ $label }}
-            {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
-        </label>
         <textarea class="form-control" name="{{ $name }}" id="{{ $name }}" cols="30" rows="10"
             {{ $required }} {{ $attributes }}>{{ old($name, $value) }}</textarea>
     @endif
 
     @if ($type == 'switch')
-        <label for="{{ $name }}" class="form-label">
-            {{ $label }}
-            {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
-        </label> <br>
         <label class="slide_check_box_toggle" for="{{ $name }}">
             <input name="{{ $name }}" id="{{ $name }}" type="checkbox"
                 {{ $value == 1 ? 'checked' : '' }} {{ $attributes }}>
@@ -74,10 +57,6 @@
     @endif
 
     @if ($type == 'select')
-        <label class="form-label">
-            {{ $label }}
-            {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
-        </label>
         <select name="{{ $name }}" id="{{ $name }}" class="form-control wide" {{ $attributes }}  {{ $required }} >
             <option value="">Choose...</option>
             @foreach ($options as $i)
@@ -176,4 +155,3 @@
     @error($name)
         <x-form.validation-error :value="$message" />
     @enderror
-</div>
