@@ -40,7 +40,7 @@ class initial_settings extends Command
 
     public function handle()
     {
-        $delete_unused_file = $this->ask("Do you want to delect unused files? (yes/no)", 'yes');
+        $delete_unused_file = $this->ask("Do you want to delete unused files? (yes/no)", 'yes');
         $this->question("Set Environment variable");
         $folder_name = $this->ask("Folder Name", 'new');
         $db_type = $this->choice(

@@ -1,29 +1,18 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
+<x-layout.user.app type="auth">
+    <x-slot name="head">
+        <title> Edit Profile  | {{ config('app.name') }}</title>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+    <x-form.type.standard title="Edit Profile" action="{{ route('profile.update', $user->id) }}">
+        @method('patch')
+        <x-form.element.form-group>
+            <x-form.element.input1 name="name" :value="$user['name']" label="Name" required="required" />
+            <x-form.element.input1 name="email" :value="$user['email']" label="Email" required="required" />
+            <x-form.element.input1 name="phone" :value="$user['phone']" label="Phone" type="number" required="required" />
+            <x-form.element.input-img name="profile_pic" :value="asset($user['profile_pic'])" label="Profile Pic" type="image" div="6" ratio="125" />
+        </x-form.element.form-group>
+    </x-form.type.standard>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+    
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+</x-layout.user.app>

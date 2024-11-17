@@ -25,3 +25,16 @@
 </x-layout.header.li2>
 
 <x-layout.header.li1 :href="route('blog.index')" name="Blogs" />
+
+@auth('web')
+    <x-layout.header.li2 name="{{ auth()->user()->name }}">
+        <x-layout.header.li1 :href="route('profile.edit')" name="Profile" />
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <button>logout</button>
+        </form>
+        
+    </x-layout.header.li2>
+@else
+    <x-layout.header.li1 :href="route('login')" name="Login" />
+@endauth
