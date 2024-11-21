@@ -196,8 +196,6 @@ class initial_settings extends Command
     private function deleteUnusedFolder() {
         try {
             File::deleteDirectory(base_path('public'));
-            File::deleteDirectory(base_path('resources/css'));
-            File::deleteDirectory(base_path('resources/js'));
         } catch (\Throwable $th) {
             // return $th;
         }
