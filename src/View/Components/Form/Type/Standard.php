@@ -13,12 +13,14 @@ class Standard extends Component
     public $action;
     public $method;
     public $submitName;
-    public function __construct($title, $action="#", $method="post", $submitName="Submit")
+    public $submitBtn;
+    public function __construct($title, $action="#", $method="post", $submitName="Submit", $submitBtn = true)
     {
         $this->title = $title;
         $this->action = $action;
         $this->method = $method;
         $this->submitName = $submitName;
+        $this->submitBtn = $submitBtn;
     }
 
     public function render(): View|Closure|string
