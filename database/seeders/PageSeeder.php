@@ -6,6 +6,7 @@ use App\Models\PageHome;
 use App\Models\PageAbout;
 use App\Models\PageContact;
 use App\Models\PagePrivacy;
+use App\Models\PageRefund;
 use App\Models\PageTnc;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -36,5 +37,6 @@ class PageSeeder extends Seeder
         ]);
         PageTnc::insert($page_tnc);
         PagePrivacy::insert($page_privacy);
+        PageRefund::insert($page_refund);
     }
 }

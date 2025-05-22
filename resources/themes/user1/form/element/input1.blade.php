@@ -37,7 +37,7 @@
         </label> <br>
         <label class="slide_check_box_toggle" for="{{ $name }}">
             <input name="{{ $name }}" id="{{ $name }}" type="checkbox"
-                {{ old($name, $value) == 1 ? 'checked' : '' }} {{ $attributes }}>
+                {{ $value == 1 ? 'checked' : '' }} {{ $attributes }}>
             <span class="slide_check_box"></span>
             <span class="slide_check_box_labels" data-on="Active" data-off="Not Active"></span>
         </label>
@@ -51,7 +51,7 @@
         <select name="{{ $name }}" id="{{ $name }}" class="form-control wide" {{ $attributes }} {{ $required }}>
             <option value="">{{ __('Choose...') }}</option>
             @foreach ($options as $i)
-                <option value="{{ $i['id'] }}" {{ $i['id'] == old($name, $value) ? 'selected' : '' }}>{{ __($i['name']) }}
+                <option value="{{ $i['id'] }}" {{ $i['id'] == $value ? 'selected' : '' }}>{{ __($i['name']) }}
                 </option>
             @endforeach
         </select>

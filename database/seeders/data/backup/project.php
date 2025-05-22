@@ -1,19 +1,19 @@
 <?php
 /**
  * Export to PHP Array plugin for PHPMyAdmin
- * @version 5.2.1
+ * @version 5.2.2
  */
 
 /**
- * Database `llm`
+ * Database `comd`
  */
 
-/* `llm`.`admins` */
+/* `comd`.`admins` */
 $admins = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-04-07 14:24:26','name' => 'Susheel Kumar Singh','email' => 'admin@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','profile_pic' => 'images/profile_pic/admin/66125f2687807.jpg','remember_token' => 'c983AmI82JJZf7maNXNXqxI5tJaQWcOjjf6yz0DigEGdl4xuzWkCwCnNCoiQ')
 );
 
-/* `llm`.`blogs` */
+/* `comd`.`blogs` */
 $blogs = array(
   array('id' => '1','created_at' => '2024-04-06 00:38:32','updated_at' => '2024-04-06 00:42:46','created_by' => NULL,'title' => 'Profitable business makes your profit','slug' => 'profitable-business-makes-your-profit','display_img' => 'images/blogs/66104c30dd040.jpg','category' => 'Business','author' => 'Susheel Singh','tags' => 'business, profit','short_description' => 'Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services','long_description1' => '<p>Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services</p>
 
@@ -52,23 +52,23 @@ $blogs = array(
 </div>','highlighted_text1' => '“Placerat pretium tristique mattis tellus accuan metus dictumst vivamus odio nulla fusce auctor into suscipit habitasse class congue potenti iaculis”','highlighted_text2' => NULL,'ad_img' => 'images/blogs/ads/66104c30ddd8c.png','ad_url' => 'https://www.gst.gov.in/','views' => NULL,'is_active' => '1')
 );
 
-/* `llm`.`blog_comments` */
+/* `comd`.`blog_comments` */
 $blog_comments = array(
 );
 
-/* `llm`.`blog_views` */
+/* `comd`.`blog_views` */
 $blog_views = array(
 );
 
-/* `llm`.`cache` */
+/* `comd`.`cache` */
 $cache = array(
 );
 
-/* `llm`.`cache_locks` */
+/* `comd`.`cache_locks` */
 $cache_locks = array(
 );
 
-/* `llm`.`clients` */
+/* `comd`.`clients` */
 $clients = array(
   array('id' => '1','created_at' => '2024-04-07 08:55:42','updated_at' => '2024-04-07 08:57:50','name' => 'Zoe Hansen','url' => 'https://www.dixurono.org.uk','logo' => 'images/portfolios/661212b6b6f8d.png','is_active' => '1'),
   array('id' => '2','created_at' => '2024-04-07 08:58:31','updated_at' => '2024-04-07 08:58:31','name' => 'Rashad Randall','url' => 'https://www.rexazosyr.com.au','logo' => 'images/portfolios/661212df050fa.png','is_active' => '1'),
@@ -77,23 +77,26 @@ $clients = array(
   array('id' => '5','created_at' => '2024-04-07 08:59:24','updated_at' => '2024-04-07 08:59:24','name' => 'Tallulah Mcdaniel','url' => 'https://www.mazufuvaw.net','logo' => 'images/portfolios/66121314bbfd1.png','is_active' => '1')
 );
 
-/* `llm`.`failed_jobs` */
+/* `comd`.`failed_jobs` */
 $failed_jobs = array(
 );
 
-/* `llm`.`important_links` */
+/* `comd`.`important_links` */
 $important_links = array(
+  array('id' => '1','created_at' => '2025-05-17 16:40:35','updated_at' => '2025-05-17 16:40:35','href' => 'tnc','name' => 'Terms of Uses','image' => 'dummy.png','is_active' => '1'),
+  array('id' => '2','created_at' => '2025-05-17 16:40:53','updated_at' => '2025-05-17 16:40:53','href' => 'privacy','name' => 'Privacy Policy','image' => 'dummy.png','is_active' => '1'),
+  array('id' => '3','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'refund','name' => 'Refund Policy','image' => 'dummy.png','is_active' => '1')
 );
 
-/* `llm`.`jobs` */
+/* `comd`.`jobs` */
 $jobs = array(
 );
 
-/* `llm`.`job_batches` */
+/* `comd`.`job_batches` */
 $job_batches = array(
 );
 
-/* `llm`.`migrations` */
+/* `comd`.`migrations` */
 $migrations = array(
   array('id' => '1','migration' => '0001_01_01_000000_create_users_table','batch' => '1'),
   array('id' => '2','migration' => '0001_01_01_000001_create_cache_table','batch' => '1'),
@@ -107,461 +110,135 @@ $migrations = array(
   array('id' => '10','migration' => '2023_03_17_185525_create_page_contact_table','batch' => '1'),
   array('id' => '11','migration' => '2023_03_17_185525_create_page_home_table','batch' => '1'),
   array('id' => '12','migration' => '2023_03_17_185525_create_page_privacy_table','batch' => '1'),
-  array('id' => '13','migration' => '2023_03_17_185525_create_page_tnc_table','batch' => '1'),
-  array('id' => '14','migration' => '2023_03_17_185525_create_slider1_table','batch' => '1'),
-  array('id' => '15','migration' => '2024_03_20_145649_create_admins_table','batch' => '1'),
-  array('id' => '16','migration' => '2024_03_20_145702_create_partners_table','batch' => '1'),
-  array('id' => '17','migration' => '2024_04_05_185756_create_services_table','batch' => '1'),
-  array('id' => '18','migration' => '2024_04_05_190924_create_blogs_table','batch' => '1'),
-  array('id' => '19','migration' => '2024_04_05_213336_create_blog_comments_table','batch' => '1'),
-  array('id' => '20','migration' => '2024_04_06_131412_create_newsletters_table','batch' => '1'),
-  array('id' => '21','migration' => '2024_04_07_083432_create_portfolios_table','batch' => '1'),
-  array('id' => '22','migration' => '2024_04_07_123531_create_blog_views_table','batch' => '1')
+  array('id' => '13','migration' => '2023_03_17_185525_create_page_refund_table','batch' => '1'),
+  array('id' => '14','migration' => '2023_03_17_185525_create_page_tnc_table','batch' => '1'),
+  array('id' => '15','migration' => '2023_03_17_185525_create_slider1_table','batch' => '1'),
+  array('id' => '16','migration' => '2024_03_20_145649_create_admins_table','batch' => '1'),
+  array('id' => '17','migration' => '2024_03_20_145702_create_partners_table','batch' => '1'),
+  array('id' => '18','migration' => '2024_04_05_185756_create_services_table','batch' => '1'),
+  array('id' => '19','migration' => '2024_04_05_190924_create_blogs_table','batch' => '1'),
+  array('id' => '20','migration' => '2024_04_05_213336_create_blog_comments_table','batch' => '1'),
+  array('id' => '21','migration' => '2024_04_06_131412_create_newsletters_table','batch' => '1'),
+  array('id' => '22','migration' => '2024_04_07_083432_create_portfolios_table','batch' => '1'),
+  array('id' => '23','migration' => '2024_04_07_123531_create_blog_views_table','batch' => '1')
 );
 
-/* `llm`.`newsletters` */
+/* `comd`.`newsletters` */
 $newsletters = array(
 );
 
-/* `llm`.`page_about` */
+/* `comd`.`page_about` */
 $page_about = array(
-  array('id' => '1','created_at' => '2024-04-07 15:14:17','updated_at' => '2024-04-07 15:14:17','banner' => 'dummy.png')
+  array('id' => '1','created_at' => '2025-05-20 11:50:21','updated_at' => '2025-05-20 12:21:45','para1' => '<p>Welcome to our organization! We are a passionate team dedicated to delivering excellence in everything we do. With a deep commitment to our core values, we aim to positively impact our industry and community.</p>','para2' => '<p>Our journey began with a vision to create meaningful change. Through relentless innovation, collaboration, and integrity, we continue to grow and evolve while staying true to our purpose.</p>','objective' => '<p>To provide top-tier services and solutions that empower our clients and exceed expectations through consistent quality and innovation.</p>','mission' => '<p>To drive sustainable growth and deliver exceptional results by embracing creativity, integrity, and community impact.</p>','vision' => '<p>To be a global leader recognized for transforming lives through innovation, leadership, and purposeful action.</p>','founder_image' => 'images/webpage/682c2527bb95c.jpeg','founder_message' => '<p>&quot;When I started this journey, I envisioned a place where passion meets purpose. Today, I am proud to lead a team that shares the same dedication and drive. Together, we are building something truly special.&quot;</p>
+
+<p>&ndash; John Doe, Founder &amp; CEO</p>','banner' => 'images/webpage/682c2527bc547.png')
 );
 
-/* `llm`.`page_contact` */
+/* `comd`.`page_contact` */
 $page_contact = array(
-  array('id' => '1','created_at' => '2024-04-07 15:14:17','updated_at' => '2024-04-07 15:14:17','banner' => 'dummy.png','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
+  array('id' => '1','created_at' => '2025-05-17 16:39:42','updated_at' => '2025-05-17 16:39:42','banner' => 'dummy.png','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
 );
 
-/* `llm`.`page_home` */
+/* `comd`.`page_home` */
 $page_home = array(
-  array('id' => '1','created_at' => '2024-04-07 15:14:17','updated_at' => '2024-04-07 15:14:17','banner1' => '1','slider1' => '0','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
+  array('id' => '1','created_at' => '2025-05-17 16:39:42','updated_at' => '2025-05-17 16:39:42','banner1' => '1','slider1' => '0','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
 );
 
-/* `llm`.`page_privacy` */
+/* `comd`.`page_privacy` */
 $page_privacy = array(
-  array('id' => '1','created_at' => NULL,'updated_at' => '2023-03-25 23:28:54','content' => '<p><strong>PRIVACY POLICY</strong></p>
+  array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:11:08','title' => 'Privacy Policy','content' => '<h1>Who we are</h1>
 
-  <p><strong>Last updated&nbsp;March 23, 2024</strong></p>
-  
-  <p>This privacy notice for&nbsp;DIGAMITE PRIVATE LIMITED&nbsp;(&#39;<strong>we</strong>&#39;, &#39;<strong>us</strong>&#39;, or &#39;<strong>our</strong>&#39;), describes how and why we might collect, store, use, and/or share (&#39;<strong>process</strong>&#39;) your information when you use our services (&#39;<strong>Services</strong>&#39;), such as when you:</p>
-  
-  <ul>
-    <li>Visit our website&nbsp;at&nbsp;<a href="https://digamite.com/" target="_blank">https://digamite.com</a>, or any website of ours that links to this privacy notice</li>
-  </ul>
-  
-  <ul>
-    <li>Engage with us in other related ways, including any sales, marketing, or events</li>
-  </ul>
-  
-  <p><strong>Questions or concerns?&nbsp;</strong>Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services.&nbsp;If you still have any questions or concerns, please contact us at&nbsp;digamite@hotmail.com.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>SUMMARY OF KEY POINTS</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>This summary provides key points from our privacy notice, but you can find out more details about any of these topics by clicking the link following each key point or by using our&nbsp;</em></strong><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#toc"><strong><em>table of contents</em></strong></a><strong><em>&nbsp;below to find the section you are looking for.</em></strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>What personal information do we process?</strong>&nbsp;When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us and the Services, the choices you make, and the products and features you use. Learn more about&nbsp;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#personalinfo">personal information you disclose to us</a>.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>Do we process any sensitive personal information?</strong>&nbsp;We do not process sensitive personal information.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>Do we receive any information from third parties?</strong>&nbsp;We may receive information from public databases, marketing partners, social media platforms, and other outside sources. Learn more about&nbsp;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#othersources">information collected from other sources</a>.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>How do we process your information?</strong>&nbsp;We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent. We process your information only when we have a valid legal reason to do so. Learn more about&nbsp;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#infouse">how we process your information</a>.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>In what situations and with which&nbsp;parties do we share personal information?</strong>&nbsp;We may share information in specific situations and with specific&nbsp;third parties. Learn more about&nbsp;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#whoshare">when and with whom we share your personal information</a>.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>How do we keep your information safe?</strong>&nbsp;We have&nbsp;organisational&nbsp;and technical processes and procedures in place to protect your personal information. However, no electronic transmission over the internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other&nbsp;unauthorised&nbsp;third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Learn more about&nbsp;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#infosafe">how we keep your information safe</a>.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>What are your rights?</strong>&nbsp;Depending on where you are located geographically, the applicable privacy law may mean you have certain rights regarding your personal information. Learn more about&nbsp;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#privacyrights">your privacy rights</a>.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>How do you exercise your rights?</strong>&nbsp;The easiest way to exercise your rights is by&nbsp;submitting a&nbsp;<a href="https://app.termly.io/notify/218e1c3a-3949-4d1b-928a-2f872ec63fb0" rel="noopener noreferrer" target="_blank">data subject access request</a>, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>Want to learn more about what we do with any information we collect?&nbsp;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#toc">Review the privacy notice in full</a>.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>TABLE OF CONTENTS</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#infocollect">1. WHAT INFORMATION DO WE COLLECT?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#infouse">2. HOW DO WE PROCESS YOUR INFORMATION?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#whoshare">3. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#3pwebsites">4. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#cookies">5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#inforetain">6. HOW LONG DO WE KEEP YOUR INFORMATION?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#infosafe">7. HOW DO WE KEEP YOUR INFORMATION SAFE?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#privacyrights">8. WHAT ARE YOUR PRIVACY RIGHTS?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#DNT">9. CONTROLS FOR DO-NOT-TRACK FEATURES</a></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#policyupdates">10. DO WE MAKE UPDATES TO THIS NOTICE?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#contact">11. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a></p>
-  
-  <p><a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#request">12. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</a></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>1. WHAT INFORMATION DO WE COLLECT?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>Personal information you disclose to us</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:</em></strong><strong><em>&nbsp;</em></strong><em>We collect personal information that you provide to us.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>We collect personal information that you voluntarily provide to us when you&nbsp;register on the Services,&nbsp;express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise when you contact us.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>Personal Information Provided by You.</strong>&nbsp;The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use. The personal information we collect may include the following:</p>
-  
-  <ul>
-    <li>names</li>
-  </ul>
-  
-  <ul>
-    <li>phone numbers</li>
-  </ul>
-  
-  <ul>
-    <li>email addresses</li>
-  </ul>
-  
-  <ul>
-    <li>mailing addresses</li>
-  </ul>
-  
-  <ul>
-    <li>job titles</li>
-  </ul>
-  
-  <ul>
-    <li>usernames</li>
-  </ul>
-  
-  <ul>
-    <li>passwords</li>
-  </ul>
-  
-  <ul>
-    <li>contact preferences</li>
-  </ul>
-  
-  <ul>
-    <li>contact or authentication data</li>
-  </ul>
-  
-  <ul>
-    <li>billing addresses</li>
-  </ul>
-  
-  <p><strong>Sensitive Information.</strong>&nbsp;We do not process sensitive information.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>Payment Data.</strong>&nbsp;We may collect data necessary to process your payment if you make purchases, such as your payment instrument number, and the security code associated with your payment instrument. All payment data is stored by&nbsp;__________. You may find their privacy notice link(s) here:&nbsp;__________.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>Information automatically collected</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:</em></strong><strong><em>&nbsp;</em></strong><em>Some information &mdash; such as your Internet Protocol (IP) address and/or browser and device characteristics &mdash; is collected automatically when you visit our Services.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>We automatically collect certain information when you visit, use, or navigate the Services. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Services, and other technical information. This information is primarily needed to maintain the security and operation of our Services, and for our internal analytics and reporting purposes.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>Like many businesses, we also collect information through cookies and similar technologies.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>The information we collect includes:</p>
-  
-  <ul>
-    <li><em>Log and Usage Data.</em>&nbsp;Log and usage data is service-related, diagnostic, usage, and performance information our servers automatically collect when you access or use our Services and which we record in log files. Depending on how you interact with us, this log data may include your IP address, device information, browser type, and settings and information about your activity in the Services&nbsp;(such as the date/time stamps associated with your usage, pages and files viewed, searches, and other actions you take such as which features you use), device event information (such as system activity, error reports (sometimes called&nbsp;&#39;crash dumps&#39;), and hardware settings).</li>
-  </ul>
-  
-  <ul>
-    <li><em>Device Data.</em>&nbsp;We collect device data such as information about your computer, phone, tablet, or other device you use to access the Services. Depending on the device used, this device data may include information such as your IP address (or proxy server), device and application identification numbers, location, browser type, hardware model, Internet service provider and/or mobile carrier, operating system, and system configuration information.</li>
-  </ul>
-  
-  <ul>
-    <li><em>Location Data.</em>&nbsp;We collect location data such as information about your device&#39;s location, which can be either precise or imprecise. How much information we collect depends on the type and settings of the device you use to access the Services. For example, we may use GPS and other technologies to collect geolocation data that tells us your current location (based on your IP address). You can opt out of allowing us to collect this information either by refusing access to the information or by disabling your Location setting on your device. However, if you choose to opt out, you may not be able to use certain aspects of the Services.</li>
-  </ul>
-  
-  <p><strong>Information collected from other sources</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:&nbsp;</em></strong><em>We may collect limited data from public databases, marketing partners,&nbsp;and other outside sources.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>In order to enhance our ability to provide relevant marketing, offers, and services to you and update our records, we may obtain information about you from other sources, such as public databases, joint marketing partners, affiliate programs, data providers,&nbsp;and from other third parties. This information includes mailing addresses, job titles, email addresses, phone numbers, intent data (or user&nbsp;behaviour&nbsp;data), Internet Protocol (IP) addresses, social media profiles, social media URLs, and custom profiles, for purposes of targeted advertising and event promotion.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>2. HOW DO WE PROCESS YOUR INFORMATION?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:&nbsp;</em></strong><em>We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes with your consent.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</strong></p>
-  
-  <ul>
-    <li><strong>To facilitate account creation and authentication and otherwise manage user accounts.&nbsp;</strong>We may process your information so you can create and log in to your account, as well as keep your account in working order.</li>
-  </ul>
-  
-  <p>&nbsp;</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>3. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:</em></strong><em>&nbsp;We may share information in specific situations described in this section and/or with the following&nbsp;third parties.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>We&nbsp;may need to share your personal information in the following situations:</p>
-  
-  <ul>
-    <li><strong>Business Transfers.</strong>&nbsp;We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
-  </ul>
-  
-  <ul>
-    <li><strong>When we use Google Analytics.</strong>&nbsp;We may share your information with Google Analytics to track and&nbsp;analyse&nbsp;the use of the Services.&nbsp;To opt out of being tracked by Google Analytics across the Services, visit&nbsp;<a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">https://tools.google.com/dlpage/gaoptout</a>.&nbsp;For more information on the privacy practices of Google, please visit the&nbsp;<a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy &amp; Terms page</a>.</li>
-  </ul>
-  
-  <ul>
-    <li><strong>When we use Google Maps Platform APIs.</strong>&nbsp;We may share your information with certain Google Maps Platform APIs (e.g.&nbsp;Google Maps API, Places API).&nbsp;We obtain and store on your device (&#39;cache&#39;) your location. You may revoke your consent anytime by contacting us at the contact details provided at the end of this document.</li>
-  </ul>
-  
-  <ul>
-    <li><strong>Affiliates.&nbsp;</strong>We may share your information with our affiliates, in which case we will require those affiliates to&nbsp;honour&nbsp;this privacy notice. Affiliates include our parent company and any subsidiaries, joint venture partners, or other companies that we control or that are under common control with us.</li>
-  </ul>
-  
-  <ul>
-    <li><strong>Business Partners.</strong>&nbsp;We may share your information with our business partners to offer you certain products, services, or promotions.</li>
-  </ul>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>4. WHAT IS OUR STANCE ON THIRD-PARTY WEBSITES?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:</em></strong><em>&nbsp;We are not responsible for the safety of any information that you share with third parties that we may link to or who advertise on our Services, but are not affiliated with, our Services.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>The Services&nbsp;may link to third-party websites, online services, or mobile applications and/or contain advertisements from third parties that are not affiliated with us and which may link to other websites, services, or applications. Accordingly, we do not make any guarantee regarding any such third parties, and we will not be liable for any loss or damage caused by the use of such third-party websites, services, or applications. The inclusion of a link towards a third-party website, service, or application does not imply an endorsement by us. We cannot guarantee the safety and privacy of data you provide to any third parties. Any data collected by third parties is not covered by this privacy notice. We are not responsible for the content or privacy and security practices and policies of any third parties, including other websites, services, or applications that may be linked to or from the Services. You should review the policies of such third parties and contact them directly to respond to your questions.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:</em></strong><em>&nbsp;We may use cookies and other tracking technologies to collect and store your information.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information. Specific information about how we use such technologies and how you can refuse certain cookies is set out in our Cookie Notice.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>6. HOW LONG DO WE KEEP YOUR INFORMATION?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:&nbsp;</em></strong><em>We keep your information for as long as necessary to&nbsp;fulfil&nbsp;the purposes outlined in this privacy notice unless otherwise required by law.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements).&nbsp;No purpose in this notice will require us keeping your personal information for longer than&nbsp;&nbsp;&nbsp;the period of time in which users have an account with us.&nbsp;</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>When we have no ongoing legitimate business need to process your personal information, we will either delete or&nbsp;anonymise&nbsp;such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>7. HOW DO WE KEEP YOUR INFORMATION SAFE?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:&nbsp;</em></strong><em>We aim to protect your personal information through a system of&nbsp;organisational&nbsp;and technical security measures.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>We have implemented appropriate and reasonable technical and&nbsp;organisational&nbsp;security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other&nbsp;unauthorised&nbsp;third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>8. WHAT ARE YOUR PRIVACY RIGHTS?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><em>In Short:</em></strong><em>&nbsp;&nbsp;You may review, change, or terminate your account at any time.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><u>Withdrawing your consent:</u></strong>&nbsp;If we are relying on your consent to process your personal information,&nbsp;which may be express and/or implied consent depending on the applicable law,&nbsp;you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section&nbsp;&#39;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#contact">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a>&#39;&nbsp;below.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>However, please note that this will not affect the lawfulness of the processing before its withdrawal nor,&nbsp;when applicable law allows,&nbsp;will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><u>Opting out of marketing and promotional communications:</u></strong><strong><u>&nbsp;</u></strong>You can unsubscribe from our marketing and promotional communications at any time by&nbsp;clicking on the unsubscribe link in the emails that we send,&nbsp;replying&nbsp;&#39;STOP&#39; or &#39;UNSUBSCRIBE&#39;&nbsp;to the SMS messages that we send,&nbsp;or by contacting us using the details provided in the section&nbsp;&#39;<a href="https://app.termly.io/builder/websites/4f3ec347-2373-44cd-98c0-8a5518370b1c/documents/3906485/Privacy%20Policy%20Uses/Privacy%20Policy%20Uses#contact">HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</a>&#39;&nbsp;below. You will then be removed from the marketing lists. However, we may still communicate with you &mdash; for example, to send you service-related messages that are necessary for the administration and use of your account, to respond to service requests, or for other non-marketing purposes.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>Account Information</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>If you would at any time like to review or change the information in your account or terminate your account, you can:</p>
-  
-  <ul>
-    <li>Log in to your account settings and update your user account.</li>
-  </ul>
-  
-  <p>Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and/or comply with applicable legal requirements.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong><u>Cookies and similar technologies:</u></strong>&nbsp;Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services.&nbsp;You may also&nbsp;<a href="http://www.aboutads.info/choices/" rel="noopener noreferrer" target="_blank">opt out of interest-based advertising by advertisers</a>&nbsp;on our Services.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>If you have questions or comments about your privacy rights, you may email us at&nbsp;digamite@hotmail.com.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>9. CONTROLS FOR DO-NOT-TRACK FEATURES</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track (&#39;DNT&#39;) feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage no uniform technology standard for&nbsp;recognising&nbsp;and implementing DNT signals has been&nbsp;finalised. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this privacy notice.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>10. DO WE MAKE UPDATES TO THIS NOTICE?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p><em><strong>In Short:&nbsp;</strong>Yes, we will update this notice as necessary to stay compliant with relevant laws.</em></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>We may update this privacy notice from time to time. The updated version will be indicated by an updated&nbsp;&#39;Revised&#39;&nbsp;date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>11. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>If you have questions or comments about this notice, you may&nbsp;contact us by post at:</p>
-  
-  <p>&nbsp;</p>
-  
-  <p>DIGAMITE PRIVATE LIMITED</p>
-  
-  <p>C/O KIRAN DEVI, PANCH-PALASI, VILL-PARASI, P. Chakrdaha</p>
-  
-  <p>Araria,&nbsp;Bihar&nbsp;854318</p>
-  
-  <p>India</p>
-  
-  <p>&nbsp;</p>
-  
-  <p><strong>12. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?</strong></p>
-  
-  <p>&nbsp;</p>
-  
-  <p>You have the right to request access to the personal information we collect from you, change that information, or delete it.&nbsp;To request to review, update, or delete your personal information, please&nbsp;fill out and submit a&nbsp;<a href="https://app.termly.io/notify/218e1c3a-3949-4d1b-928a-2f872ec63fb0" rel="noopener noreferrer" target="_blank">data subject access request</a>.</p>')
+<p>Our website address is: http://digamite.com.</p>
+
+<h2>Comments</h2>
+
+<p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&rsquo;s IP address and browser user agent string to help spam detection.</p>
+
+<h2>Media</h2>
+
+<h2>Cookies</h2>
+
+<p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p>
+
+<p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p>
+
+<p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &quot;Remember Me&quot;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p>
+
+<p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p>
+
+<h2>Embedded content from other websites</h2>
+
+<p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>
+
+<p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>
+
+<h2>Who we share your data with</h2>
+
+<p><strong>If you request a password reset, your IP address will be included in the reset email.</strong></p>
+
+<h2><strong>How long we retain your data</strong></h2>
+
+<p><strong>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</strong></p>
+
+<p><strong>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</strong></p>
+
+<h2><strong>What rights you have over your data</strong></h2>
+
+<p><strong>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</strong></p>
+
+<h2><strong>Where your data is sent</strong></h2>
+
+<p><strong>Visitor comments may be checked through an automated spam detection service.</strong></p>')
 );
 
-/* `llm`.`page_tnc` */
+/* `comd`.`page_refund` */
+$page_refund = array(
+  array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:33:35','title' => 'Refund Policy','content' => '<h1>&nbsp;</h1>
+
+<ul>
+	<li>All purchases must be paid in full at the time of order. Payment is processed securely via [Payment Gateway].</li>
+	<li>We offer a 15-day money-back guarantee. If you are unsatisfied with the product, please contact us within 15 days of purchase for a full refund. The refund amount will be credited back within 2-3 days to the original payment method.</li>
+</ul>')
+);
+
+/* `comd`.`page_tnc` */
 $page_tnc = array(
-  array('id' => '1','created_at' => NULL,'updated_at' => '2023-03-25 23:43:32','content' => '<h3><strong>Using home networks&nbsp;</strong></h3><p>You agree and understand that www.homenetworks.in is an internet enabled electronic platform that facilitates communication for the purposes of advertising and distributing information pertaining to services.&nbsp;</p><p>BY USING THE SERVICES IN ANY WAY, BY CREATING AN ACCOUNT ON THE SERVICES, OR BY VISITING THE WEBSITE, YOU AFFIRM THAT YOU HAVE READ, UNDERSTOOD, AND CONSENT TO THE PRACTICES DESCRIBED IN THIS PRIVACY POLICY AND OUR TERMS OF SERVICE AND THAT YOU GIVE US YOUR CONSENT TO COLLECT, PROCESS, USE, STORE, AND DISCLOSE PERSONAL INFORMATION THAT YOU SUBMIT OR CONVEY THROUGH YOUR USE OF THE SERVICES, IN ACCORDANCE WITH THIS PRIVACY POLICY. IF YOU DO NOT AGREE TO THESE TERMS, THEN YOU HAVE NO RIGHT TO ACCESS OR USE THE SERVICES.</p><p>While interacting with other users on our site, with respect to any listing, posting or information we strongly encourage you to exercise reasonable diligence as you would in traditional off line channels and practice judgment and common sense.</p>')
+  array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:35:40','title' => 'Terms and Conditions','content' => '<h1>&nbsp;</h1>
+
+<p><strong>Terms and Conditions</strong></p>
+
+<p>Welcome to Digamite Private Limited. By accessing or using our website located at digamite.com&nbsp;and purchasing our products, you agree to comply with and be bound by the following terms and conditions.</p>
+
+<p>Please read these terms carefully. If you do not agree with any part of these terms, you may not access or use our services or products.</p>
+
+<h3><strong>1. Definitions</strong></h3>
+
+<ul>
+	<li><strong>&ldquo;Company&rdquo;</strong>&nbsp;refers to Digamite Private Limited, the operator of the website digamite.com.</li>
+	<li><strong>&ldquo;Products&rdquo;</strong>&nbsp;refers to the digital goods available for purchase.</li>
+	<li><strong>&ldquo;You&rdquo;</strong>&nbsp;refers to the user or customer accessing our website and purchasing our products.</li>
+</ul>
+
+<hr />
+<h3><strong>2. Use of Products</strong></h3>
+
+<ul>
+	<li>Our products are provided as digital downloads. By purchasing, you are granted a non-exclusive, non-transferable, revocable license to use the product for personal and professional website development purposes.</li>
+	<li>You may not redistribute, sell, or sublicense the templates to third parties.</li>
+	<li>Any modification of the templates for personal or client projects is allowed, but redistribution of these modified templates is strictly prohibited.</li>
+</ul>')
 );
 
-/* `llm`.`partners` */
+/* `comd`.`partners` */
 $partners = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-07 14:23:25','name' => 'Susheel Kumar Singh','email' => 'partner@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$xqgJ.4gcxojQHrLRckOn/ujnIzYCzIvXoB2YpdLYW22k86KknELOe','profile_pic' => 'images/profile_pic/partner/66125f056ed84.jpg','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
 );
 
-/* `llm`.`password_reset_tokens` */
+/* `comd`.`password_reset_tokens` */
 $password_reset_tokens = array(
 );
 
-/* `llm`.`services` */
+/* `comd`.`services` */
 $services = array(
   array('id' => '1','created_at' => '2024-04-06 09:23:05','updated_at' => '2024-04-06 09:23:05','created_by' => NULL,'title' => 'Business Growth Mangment','slug' => 'business-growth-mangment','category' => 'Business','display_img' => 'images/services/6610c721de1e9.jpg','tags' => 'jsh,df','short_description' => 'Catalysts for change before fully tested markets are maintain wireless scenarios after intermandated applications predominate revolutionary.','long_description1' => '<p>Continually myocardinate holistic mindshare with client-based web services. Assertively e-enable catalysts for change before tested markets. Phosfluorescently maintain wireless scenarios after intermandated applications. Conveniently predominate revolutionary quality vectors through future-proof manufactured products. Enthusiastically transform distinctive collaboration.</p>
 
@@ -675,30 +352,30 @@ $services = array(
 </div>','is_active' => '1')
 );
 
-/* `llm`.`sessions` */
+/* `comd`.`sessions` */
 $sessions = array(
-  array('id' => 'EwfIm6NcD5qSKvjJj1uBax9pj8JWjSGqbjvrF3YI','user_id' => '1','ip_address' => '::1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36','payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoib25uNlNVR2xKYVlmeVN3akdodnRHalM3YUdEWXdxQlBnRTMzYWswdyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTQ6Imh0dHA6Ly9sb2NhbGhvc3QvbGxtL3B1YmxpY19odG1sL2FkbWluL3NldHRpbmcvZ2VuZXJhbCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjQ6InVzZXIiO2E6Mjp7czo1OiJsb2dpbiI7TzoxNjoiQXBwXE1vZGVsc1xBZG1pbiI6MzI6e3M6MTM6IgAqAGNvbm5lY3Rpb24iO3M6NToibXlzcWwiO3M6ODoiACoAdGFibGUiO3M6NjoiYWRtaW5zIjtzOjEzOiIAKgBwcmltYXJ5S2V5IjtzOjI6ImlkIjtzOjEwOiIAKgBrZXlUeXBlIjtzOjM6ImludCI7czoxMjoiaW5jcmVtZW50aW5nIjtiOjE7czo3OiIAKgB3aXRoIjthOjA6e31zOjEyOiIAKgB3aXRoQ291bnQiO2E6MDp7fXM6MTk6InByZXZlbnRzTGF6eUxvYWRpbmciO2I6MDtzOjEwOiIAKgBwZXJQYWdlIjtpOjE1O3M6NjoiZXhpc3RzIjtiOjE7czoxODoid2FzUmVjZW50bHlDcmVhdGVkIjtiOjA7czoyODoiACoAZXNjYXBlV2hlbkNhc3RpbmdUb1N0cmluZyI7YjowO3M6MTM6IgAqAGF0dHJpYnV0ZXMiO2E6MTA6e3M6MjoiaWQiO2k6MTtzOjEwOiJjcmVhdGVkX2F0IjtzOjE5OiIyMDI0LTAzLTIzIDA5OjIyOjAyIjtzOjEwOiJ1cGRhdGVkX2F0IjtzOjE5OiIyMDI0LTA0LTA3IDE0OjI0OjI2IjtzOjQ6Im5hbWUiO3M6MTk6IlN1c2hlZWwgS3VtYXIgU2luZ2giO3M6NToiZW1haWwiO3M6MTU6ImFkbWluQGdtYWlsLmNvbSI7czo1OiJwaG9uZSI7czoxMDoiNzk3OTg1MTQ4NSI7czoxNzoiZW1haWxfdmVyaWZpZWRfYXQiO3M6MTk6IjIwMjQtMDMtMjMgMDk6MjI6MDIiO3M6ODoicGFzc3dvcmQiO3M6NjA6IiQyeSQxMiRoSTJYLm5RMi9mUlJDbGxiWllDWVAuUlpNT1g1UkVjQlRrdGN3WjdjcFZsTlZlbFkwWS5raSI7czoxMToicHJvZmlsZV9waWMiO3M6NDI6ImltYWdlcy9wcm9maWxlX3BpYy9hZG1pbi82NjEyNWYyNjg3ODA3LmpwZyI7czoxNDoicmVtZW1iZXJfdG9rZW4iO3M6NjA6ImM5ODNBbUk4MkpKWmY3bWFOWE5YcXhJNXRKYVFXY09qamY2eXowRGlnRUdkbDR4dXpXa0N3Q25OQ29pUSI7fXM6MTE6IgAqAG9yaWdpbmFsIjthOjEwOntzOjI6ImlkIjtpOjE7czoxMDoiY3JlYXRlZF9hdCI7czoxOToiMjAyNC0wMy0yMyAwOToyMjowMiI7czoxMDoidXBkYXRlZF9hdCI7czoxOToiMjAyNC0wNC0wNyAxNDoyNDoyNiI7czo0OiJuYW1lIjtzOjE5OiJTdXNoZWVsIEt1bWFyIFNpbmdoIjtzOjU6ImVtYWlsIjtzOjE1OiJhZG1pbkBnbWFpbC5jb20iO3M6NToicGhvbmUiO3M6MTA6Ijc5Nzk4NTE0ODUiO3M6MTc6ImVtYWlsX3ZlcmlmaWVkX2F0IjtzOjE5OiIyMDI0LTAzLTIzIDA5OjIyOjAyIjtzOjg6InBhc3N3b3JkIjtzOjYwOiIkMnkkMTIkaEkyWC5uUTIvZlJSQ2xsYlpZQ1lQLlJaTU9YNVJFY0JUa3Rjd1o3Y3BWbE5WZWxZMFkua2kiO3M6MTE6InByb2ZpbGVfcGljIjtzOjQyOiJpbWFnZXMvcHJvZmlsZV9waWMvYWRtaW4vNjYxMjVmMjY4NzgwNy5qcGciO3M6MTQ6InJlbWVtYmVyX3Rva2VuIjtzOjYwOiJjOTgzQW1JODJKSlpmN21hTlhOWHF4STV0SmFRV2NPampmNnl6MERpZ0VHZGw0eHV6V2tDd0NuTkNvaVEiO31zOjEwOiIAKgBjaGFuZ2VzIjthOjA6e31zOjg6IgAqAGNhc3RzIjthOjI6e3M6MTc6ImVtYWlsX3ZlcmlmaWVkX2F0IjtzOjg6ImRhdGV0aW1lIjtzOjg6InBhc3N3b3JkIjtzOjY6Imhhc2hlZCI7fXM6MTc6IgAqAGNsYXNzQ2FzdENhY2hlIjthOjA6e31zOjIxOiIAKgBhdHRyaWJ1dGVDYXN0Q2FjaGUiO2E6MDp7fXM6MTM6IgAqAGRhdGVGb3JtYXQiO047czoxMDoiACoAYXBwZW5kcyI7YTowOnt9czoxOToiACoAZGlzcGF0Y2hlc0V2ZW50cyI7YTowOnt9czoxNDoiACoAb2JzZXJ2YWJsZXMiO2E6MDp7fXM6MTI6IgAqAHJlbGF0aW9ucyI7YTowOnt9czoxMDoiACoAdG91Y2hlcyI7YTowOnt9czoxMDoidGltZXN0YW1wcyI7YjoxO3M6MTM6InVzZXNVbmlxdWVJZHMiO2I6MDtzOjk6IgAqAGhpZGRlbiI7YToyOntpOjA7czo4OiJwYXNzd29yZCI7aToxO3M6MTQ6InJlbWVtYmVyX3Rva2VuIjt9czoxMDoiACoAdmlzaWJsZSI7YTowOnt9czoxMToiACoAZmlsbGFibGUiO2E6Mzp7aTowO3M6NDoibmFtZSI7aToxO3M6NToiZW1haWwiO2k6MjtzOjg6InBhc3N3b3JkIjt9czoxMDoiACoAZ3VhcmRlZCI7YToxOntpOjA7czoxOiIqIjt9czoxOToiACoAYXV0aFBhc3N3b3JkTmFtZSI7czo4OiJwYXNzd29yZCI7czoyMDoiACoAcmVtZW1iZXJUb2tlbk5hbWUiO3M6MTQ6InJlbWVtYmVyX3Rva2VuIjt9czo1OiJ0aGVtZSI7czo2OiJ0aGVtZTEiO319','last_activity' => '1712483160')
+  array('id' => 'n15wrMWszAcCcU26Px57SMcdWLw5wTJK6CCiHY3J','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36','payload' => 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQ1hUbnpZZTQ2aktCcmRXZUhPT1RFSnFPRGd4NmxjZjluWXB4VWlpdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTc6Imh0dHBzOi8vY29tZC50ZXN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=','last_activity' => '1747480281')
 );
 
-/* `llm`.`settings` */
+/* `comd`.`settings` */
 $settings = array(
   array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2024-04-07 15:15:59','app_name' => 'Application Name','favicon' => 'images/logo/66126b57961af.png','dark_logo' => 'images/logo/66126b5796aba.png','light_logo' => 'images/logo/66126b579702f.png','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '+1 (556) 675-2551','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','google_map' => NULL,'whatsapp' => NULL,'admin_theme' => NULL,'user_theme' => NULL,'partner_theme' => NULL,'color1' => '#b08b1a','color2' => '#f1c232','color3' => '#3271f1','color4' => '#f1c232','color5' => '#f1c232','color6' => '#f1c232')
 );
 
-/* `llm`.`slider1` */
+/* `comd`.`slider1` */
 $slider1 = array(
 );
 
-/* `llm`.`testimonials` */
+/* `comd`.`testimonials` */
 $testimonials = array(
 );
 
-/* `llm`.`users` */
+/* `comd`.`users` */
 $users = array(
   array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => NULL,'profile_pic' => 'dummy.png','email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-03-23 09:22:02')
 );
 
-/* `llm`.`user_queries` */
+/* `comd`.`user_queries` */
 $user_queries = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Alexa Wolf I','email' => 'brionna74@example.com','phone' => '1-930-284-0965','message' => 'Calista Powlowski DDS','subject' => 'Lizeth Greenfelder II','status_id' => '1','deleted_at' => NULL),
   array('id' => '2','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Dr. Cathryn Beer DDS','email' => 'apredovic@example.com','phone' => '1-480-716-4461','message' => 'Alexandro Weber','subject' => 'Gabrielle Grant','status_id' => '1','deleted_at' => NULL),
@@ -803,7 +480,7 @@ $user_queries = array(
   array('id' => '101','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Muhammad Hoppe','email' => 'mraz.cyril@example.org','phone' => '+1-318-784-0552','message' => 'Jennifer Kreiger Sr.','subject' => 'Reba Feest','status_id' => '1','deleted_at' => NULL)
 );
 
-/* `llm`.`user_query_statuses` */
+/* `comd`.`user_query_statuses` */
 $user_query_statuses = array(
   array('id' => '1','name' => 'Unread'),
   array('id' => '2','name' => 'Viewd'),

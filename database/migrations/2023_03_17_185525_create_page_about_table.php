@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('page_about', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->longText('para1')->nullable();
+            $table->longText('para2')->nullable();
+            $table->longText('objective')->nullable();
+            $table->longText('mission')->nullable();
+            $table->longText('vision')->nullable();
+            $table->string('founder_image')->default('dummy.png');
+            $table->longText('founder_message')->nullable();
             $table->string('banner')->default('dummy.png');
         });
     }

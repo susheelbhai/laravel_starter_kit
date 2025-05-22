@@ -24,7 +24,7 @@ class StarterKitServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->commands([
-                \Susheelbhai\StarterKit\Commands\initial_settings::class,
+                \Susheelbhai\StarterKit\common\Commands\initial_settings::class,
             ]);
         }
 
@@ -33,24 +33,45 @@ class StarterKitServiceProvider extends ServiceProvider
     public function registerPublishable()
     {
         $this->publishes([
-            __dir__ . "/Http" => app_path('/Http'),
-            __dir__ . "/Livewire" => app_path('/Livewire'),
-            __dir__ . "/Models" => app_path('/Models'),
-            __dir__ . "/Notifications" => app_path('/Notifications'),
-            __dir__ . "/Providers" => app_path('/Providers'),
-            __dir__ . "/View" => app_path('/View'),
-            __dir__ . "/Helpers" => app_path('/Helpers'),
+            __dir__ . "/blade/Http" => app_path('/Http'),
+            __dir__ . "/blade/Livewire" => app_path('/Livewire'),
+            __dir__ . "/common/Models" => app_path('/Models'),
+            __dir__ . "/common/Notifications" => app_path('/Notifications'),
+            __dir__ . "/blade/Providers" => app_path('/Providers'),
+            __dir__ . "/blade/View" => app_path('/View'),
+            __dir__ . "/common/Helpers" => app_path('/Helpers'),
             __dir__ . "/../database" => database_path('/'),
             __dir__ . "/../config" => config_path('/'),
             __dir__ . "/../routes" => base_path('/routes'),
-            __DIR__.'/../resources' => base_path('resources'),
+            __DIR__.'/../resources/themes' => base_path('resources/themes'),
+            __DIR__.'/../resources/views' => base_path('resources/views'),
             __DIR__.'/../bootstrap' => base_path('bootstrap'),
-            __dir__ . "/../assets/images" => public_path('storage/images'),
-            __dir__ . "/../assets/css" => public_path('storage/css'),
-            __dir__ . "/../assets/js" => public_path('storage/js')
-        ], 'starter_kit');
+            __dir__ . "/../assets/images" => public_path('images'),
+            __dir__ . "/../assets/css" => public_path('css'),
+            __dir__ . "/../assets/js/common.js" => public_path('js/common.js')
+        ], 'blade_starter_kit');
+
         $this->publishes([
-            __dir__ . "/../assets" => public_path('storage')
+            __dir__ . "/react/Http" => app_path('/Http'),
+            // __dir__ . "/Livewire" => app_path('/Livewire'),
+            __dir__ . "/common/Models" => app_path('/Models'),
+            __dir__ . "/common/Notifications" => app_path('/Notifications'),
+            __dir__ . "/react/Providers" => app_path('/Providers'),
+            __dir__ . "/blade/View" => app_path('/View'),
+            __dir__ . "/common/Helpers" => app_path('/Helpers'),
+            __dir__ . "/../database" => database_path('/'),
+            __dir__ . "/../config" => config_path('/'),
+            __dir__ . "/../routes" => base_path('/routes'),
+            __DIR__.'/../resources/js' => base_path('resources/js'),
+            __DIR__.'/../resources/react_views' => base_path('resources/views'),
+            __DIR__.'/../bootstrap' => base_path('bootstrap'),
+            __dir__ . "/../assets/images" => public_path('images'),
+            __dir__ . "/../assets/css" => public_path('css'),
+            __dir__ . "/../assets/themes/ck_editor" => public_path('themes/ck_editor')
+        ], 'react_starter_kit');
+
+        $this->publishes([
+            __dir__ . "/../assets" => public_path('')
         ], 'starter_kit_themes');
     }
 }

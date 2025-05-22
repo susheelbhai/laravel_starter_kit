@@ -14,10 +14,14 @@ Require this package in your composer.json and update composer. This will downlo
 
 ### Vendor Publish
 
-Publish all the required files using the following command 
+Publish all the required files using one of the following command based on your frontend need
 
   ```
-  php artisan vendor:publish --tag="starter_kit" --force 
+  php artisan vendor:publish --tag="blade_starter_kit" --force 
+  ```  
+
+  ```
+  php artisan vendor:publish --tag="react_starter_kit" --force 
   ```  
 
 Publish all the themes using the following command 
@@ -25,6 +29,13 @@ Publish all the themes using the following command
   ```
   php artisan vendor:publish --tag="starter_kit_themes" --force 
   ```  
+
+Change initial settings by runnung the command
+
+  ```
+  php artisan starter_kit:initial_settings
+  ```
+
 
 ### Migrate database
 
@@ -43,11 +54,32 @@ Alternatively you can refresh the database and seed with the following commands
   
   ```
 
-Change initial settings by runnung the command
+
+### Create a build
+
+Make production build
 
   ```
-  php artisan starter_kit:initial_settings
+  npm run build
+
   ```
+
+run development environment
+
+  ```
+  npm run dev
+  
+  ```
+
+### Link your storage folder to public folder
+
+Make production build
+
+  ```
+  php artisan storage:link
+
+  ```
+
 
 
 
@@ -59,16 +91,35 @@ Change initial settings by runnung the command
   laravel new project
   ```
 
+  #### With blade starter kit
+
   ```
-  cd project
   composer require susheelbhai/laravel_starter_kit
-  php artisan vendor:publish --tag="starter_kit" --force
+  php artisan vendor:publish --tag="blade_starter_kit" --force
   php artisan vendor:publish --tag="starter_kit_themes" --force
   php artisan starter_kit:initial_settings
   php artisan migrate:fresh --seed
 
   ``` 
 
+  #### With react starter kit
+
+  ```
+  composer require susheelbhai/laravel_starter_kit
+  php artisan vendor:publish --tag="react_starter_kit" --force
+  php artisan starter_kit:initial_settings
+  php artisan migrate:fresh --seed
+  npm run build
+  npm run dev
+
+  ``` 
+
+### Install Other Required Package
+
+```
+npm install react-icons
+
+```
 
 ### License
 
