@@ -36,6 +36,7 @@ export default function GeneralSetting() {
             instagram: string;
             linkedin: string;
             twitter: string;
+            youtube: string;
             whatsapp: string;
         }) || [];
     const { setData, post, processing, errors, reset, data } = useForm<Required<CreateForm>>({
@@ -51,6 +52,7 @@ export default function GeneralSetting() {
         instagram: setting.instagram,
         linkedin: setting.linkedin,
         twitter: setting.twitter,
+        youtube: setting.youtube,
         whatsapp: setting.whatsapp,
     });
 
@@ -94,6 +96,9 @@ export default function GeneralSetting() {
                 <InputDiv type="text" label="Twitter" name="twitter" inputDivData={inputDivData} />
                 <InputDiv type="text" label="Linkedin" name="linkedin" inputDivData={inputDivData} />
                 <InputDiv type="text" label="Instagram" name="instagram" inputDivData={inputDivData} />
+                <InputDiv type="text" label="Youtube" name="youtube" inputDivData={inputDivData} />
+
+                <InputDiv type="text" label="Whatsapp" name="whatsapp" inputDivData={inputDivData} />
 
                 <Button type="submit" disabled={processing}>
                     {processing ? 'Submitting...' : 'Submit'}

@@ -48,12 +48,12 @@ class SettingController extends Controller
         }
         if ($req->hasFile('dark_logo')) {
             $dark_logo_name = 'images/logo/' . uniqid() . '.' . $req->file('dark_logo')->getClientOriginalExtension();
-            $req->favicon->move(public_path('/storage/images/logo'), $dark_logo_name);
+            $req->dark_logo->move(public_path('/storage/images/logo'), $dark_logo_name);
             $setting->dark_logo = $dark_logo_name;
         }
         if ($req->hasFile('light_logo')) {
             $light_logo_name = 'images/logo/' . uniqid() . '.' . $req->file('light_logo')->getClientOriginalExtension();
-            $req->favicon->move(public_path('/storage/images/logo'), $light_logo_name);
+            $req->light_logo->move(public_path('/storage/images/logo'), $light_logo_name);
             $setting->light_logo = $light_logo_name;
         }
 
@@ -73,6 +73,8 @@ class SettingController extends Controller
         $setting->instagram = $req->instagram;
         $setting->linkedin = $req->linkedin;
         $setting->twitter = $req->twitter;
+        $setting->youtube = $req->youtube;
+        $setting->whatsapp = $req->whatsapp;
         $setting->save();
         return redirect()->route('admin.dashboard')->with('success', 'New service created successfully');
     }

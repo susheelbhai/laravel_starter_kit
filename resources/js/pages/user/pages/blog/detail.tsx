@@ -7,7 +7,7 @@ export default function Create() {
         <AppLayout title={blog.title}>
             <div className="bg-white font-['Urbanist'] text-[#0E1339]">
                 {/* Banner */}
-                <div className="h-64 w-full bg-cover bg-center" style={{ backgroundImage: `url('/storage/${blog.display_img}')` }}>
+                <div className="h-64 w-full bg-cover bg-center" style={{ backgroundImage: `url('${blog.display_img}')` }}>
                     <div className="flex h-full w-full items-center justify-center bg-black/40">
                         <h1 className="text-4xl font-bold text-white md:text-5xl">{blog.title}</h1>
                     </div>
@@ -17,7 +17,7 @@ export default function Create() {
                 <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 md:grid-cols-3">
                     <div className="space-y-6 md:col-span-2">
                         {/* Image */}
-                        {blog.display_img && <img src={`/storage/${blog.display_img}`} alt={blog.title} className="mb-4 w-full rounded-xl shadow" />}
+                        {blog.display_img && <img src={blog.display_img} alt={blog.title} className="mb-4 w-full rounded-xl shadow" />}
 
                         {/* Short Description */}
                         <p className="text-lg text-gray-700">{blog.short_description}</p>

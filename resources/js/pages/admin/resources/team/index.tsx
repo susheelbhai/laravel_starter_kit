@@ -41,7 +41,7 @@ export default function Dashboard() {
                                 <td className="p-3">{team.name}</td>
                                 <td className="p-3">{team.designation}</td>
                                 <td className="p-3">
-                                    <img src={`/storage/${team.image}`} alt="" width={48} />
+                                    <img src={`${team.image}`} alt="" width={48} />
                                 </td>
                                 <td className="p-3">{team.is_active ==1 ? 'active' : 'inactive'}</td>
                                 <td className="p-3">

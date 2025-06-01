@@ -11,7 +11,7 @@ export default function Create() {
                 <div className="border-sidebar-border/70 dark:border-sidebar-border relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border md:min-h-min">
                     <div className="text-gray-800">
                         {/* Banner Image */}
-                        <div className="h-64 w-full bg-cover bg-center" style={{ backgroundImage: `url('/storage/${data.banner}')` }}>
+                        <div className="h-64 w-full bg-cover bg-center" style={{ backgroundImage: `url('${data.banner}')` }}>
                             <div className="flex h-full w-full items-center justify-center bg-black/40">
                                 <h1 className="text-4xl font-bold text-white md:text-5xl">About Us</h1>
                             </div>
@@ -40,7 +40,7 @@ export default function Create() {
 
                             {/* Founder Message */}
                             <div className="mt-16 flex flex-col items-center gap-8 md:flex-row">
-                                <img src={`/storage/${data.founder_image}`} alt="Founder" className="h-48 w-48 rounded-full object-cover shadow-md" />
+                                <img src={`${data.founder_image}`} alt="Founder" className="h-48 w-48 rounded-full object-cover shadow-md" />
                                 <div>
                                     <h3 className="mb-2 text-2xl font-bold">A Message from Our Founder</h3>
                                     <div dangerouslySetInnerHTML={{ __html: data.founder_message }} />

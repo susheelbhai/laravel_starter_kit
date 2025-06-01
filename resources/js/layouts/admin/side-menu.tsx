@@ -18,6 +18,8 @@ import {
     ShieldCheck,
     User,
     Users,
+    Users2,
+    Notebook
 } from 'lucide-react';
 
 const mainNavItems = [
@@ -25,6 +27,24 @@ const mainNavItems = [
         title: 'Dashboard',
         href: route('admin.dashboard'),
         icon: LayoutGrid,
+    },
+    {
+        title: 'Admin',
+        href: route('admin.admin.index'),
+        icon: Users2,
+        permission: ['all rights'],
+    },
+    {
+        title: 'Role',
+        href: route('admin.role.index'),
+        icon: Notebook,
+        permission: 'all rights',
+    },
+    {
+        title: 'Permission',
+        href: route('admin.permission.index'),
+        icon: Notebook,
+        permission: 'all rights',
     },
     {
         title: 'Partner',

@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('instagram')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('twitter')->nullable();
+            $table->string('youtube')->nullable();
             $table->string('google_map')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('admin_theme')->nullable();

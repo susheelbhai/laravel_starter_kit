@@ -7,7 +7,7 @@ export default function TestimonialSection(data: any) {
                     <div className="grid gap-8 md:grid-cols-3">
                         {data.data.map((testimonial) => (
                             <div key={testimonial.id} className="rounded-lg bg-white p-8 shadow transition hover:shadow-lg">
-                                <img src={`/storage/${testimonial.image}`} alt={testimonial.name} className="mx-auto mb-6 h-20 w-20 rounded-full object-cover" />
+                                <img src={`${testimonial.image}`} alt={testimonial.name} className="mx-auto mb-6 h-20 w-20 rounded-full object-cover" />
                                 <h3 className="mb-1 text-xl font-semibold">{testimonial.name}</h3>
                                 <p className="mb-1 text-sm text-[#FAB915]">{testimonial.organisation}</p>
                                 <p className="text-[#6B7280]">{testimonial.designation}</p>

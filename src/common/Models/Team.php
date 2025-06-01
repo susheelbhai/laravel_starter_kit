@@ -9,4 +9,9 @@ class Team extends Model
 {
     use HasFactory;
     protected $table = 'team';
+    
+    public function getImageAttribute($value): string
+    {
+        return "/storage/$value";
+    }
 }

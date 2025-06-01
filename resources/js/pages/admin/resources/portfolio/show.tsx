@@ -50,7 +50,7 @@ export default function Dashboard() {
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Logo</td>
                             <td className="p-3">
-                                <img src={`/storage/${portfolio.logo}`} alt="" width={320} />
+                                <img src={`${portfolio.logo}`} alt="" width={320} />
                             </td>
                         </tr>
                         <tr className="border-t border-gray-200">

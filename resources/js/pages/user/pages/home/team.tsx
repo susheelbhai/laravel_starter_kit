@@ -7,7 +7,7 @@ export default function TeamSection(data: any) {
                     <div className="grid gap-8 md:grid-cols-4">
                         {data.data.map((team) => (
                             <div key={data.id} className="rounded-lg bg-[#F5F6FA] p-6">
-                                <img src={`/storage/${team.image}`} alt={team.name} className="mx-auto mb-4 h-32 w-32 rounded-full object-cover" />
+                                <img src={`${team.image}`} alt={team.name} className="mx-auto mb-4 h-32 w-32 rounded-full object-cover" />
                                 <h3 className="text-xl font-semibold">{team.name}</h3>
                                 <p className="text-[#6B7280]">{team.designation}</p>
                             </div>

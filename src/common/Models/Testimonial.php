@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Testimonial extends Model
 {
     use HasFactory;
+    
+    public function getImageAttribute($value): string
+    {
+        return "/storage/$value";
+    }
 }

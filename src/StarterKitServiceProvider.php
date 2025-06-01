@@ -46,7 +46,7 @@ class StarterKitServiceProvider extends ServiceProvider
             __DIR__.'/../resources/themes' => base_path('resources/themes'),
             __DIR__.'/../resources/views' => base_path('resources/views'),
             __DIR__.'/../bootstrap' => base_path('bootstrap'),
-            __dir__ . "/../assets/images" => public_path('images'),
+            __dir__ . "/../assets/images" => storage_path('app/public/images'),
             __dir__ . "/../assets/css" => public_path('css'),
             __dir__ . "/../assets/js/common.js" => public_path('js/common.js')
         ], 'blade_starter_kit');
@@ -65,7 +65,7 @@ class StarterKitServiceProvider extends ServiceProvider
             __DIR__.'/../resources/js' => base_path('resources/js'),
             __DIR__.'/../resources/react_views' => base_path('resources/views'),
             __DIR__.'/../bootstrap' => base_path('bootstrap'),
-            __dir__ . "/../assets/images" => public_path('images'),
+            __dir__ . "/../assets/images" => storage_path('app/public/images'),
             __dir__ . "/../assets/css" => public_path('css'),
             __dir__ . "/../assets/themes/ck_editor" => public_path('themes/ck_editor')
         ], 'react_starter_kit');

@@ -5,9 +5,10 @@ use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Middleware\HandleInertiaRequests;
+use App\Http\Middleware\TrackVisitor;
+use App\Models\Visitor;
 
-
-Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
+Route::middleware(['web', HandleInertiaRequests::class, TrackVisitor::class,])->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -30,5 +31,11 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
     Route::get('/refund', [HomeController::class, 'refund'])->name('newsletter');
 });
 
+Route::get('/api/visitors/count', function () {
+    return response()->json([
+        'total' => Visitor::count(),
+        'today' => Visitor::whereDate('created_at', now())->count(),
+    ]);
+});
 
 require __DIR__.'/auth.php';

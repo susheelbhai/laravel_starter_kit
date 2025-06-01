@@ -9,8 +9,12 @@ import { Head, usePage } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'User',
-        href: '/dashboard',
+        title: 'Dashboard',
+        href: '/admin',
+    },
+    {
+        title: 'Newsletter',
+        href: '/admin',
     },
 ];
 
@@ -24,9 +28,7 @@ export default function Dashboard() {
     ];
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="User" />
-
-            <Button href={route('admin.user.create')}>Add New</Button>
+            <Head title="Newsletter" />
 
             <TableCard>
                 <Table>

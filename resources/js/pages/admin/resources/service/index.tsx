@@ -43,7 +43,7 @@ export default function Dashboard() {
                                 <td className="p-3">{service.category}</td>
                                 <td className="p-3">{service.short_description}</td>
                                 <td className="p-3">
-                                    <img src={`/storage/${service.display_img}`} alt="" width={48} />
+                                    <img src={`${service.display_img}`} alt="" width={48} />
                                 </td>
                                 <td className="p-3">{service.is_active ==1 ? 'active' : 'inactive'}</td>
                                 <td className="p-3">

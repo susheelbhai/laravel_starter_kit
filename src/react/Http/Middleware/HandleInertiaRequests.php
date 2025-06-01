@@ -52,6 +52,8 @@ class HandleInertiaRequests extends Middleware
                 'twitter' => config('app.twitter'),
                 'instagram' => config('app.instagram'),
                 'linkedin' => config('app.linkedin'),
+                'youtube' => config('app.youtube'),
+                'whatsapp' => config('app.whatsapp'),
                 'apiUrl' => config('app.url'),
                 'address' => config('app.address'),
             ],
@@ -66,6 +68,13 @@ class HandleInertiaRequests extends Middleware
                 'location' => $request->url(),
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'flash' => [
+                'success' => fn() => $request->session()->get('success'),
+                'warning' => fn() => $request->session()->get('warning'),
+                'error' => fn() => $request->session()->get('error'),
+                'status' => fn() => $request->session()->get('status'),
+                'status_class' => fn() => $request->session()->get('status_class'),
+            ],
         ];
     }
 }

@@ -9,4 +9,16 @@ class Slider1 extends Model
 {
     use HasFactory;
     protected $table = 'slider1';
+
+    
+    public function getImage1Attribute($value): string
+    {
+        return "/storage/$value";
+    }
+
+    
+    public function getImage2Attribute($value): string
+    {
+        return "/storage/$value";
+    }
 }

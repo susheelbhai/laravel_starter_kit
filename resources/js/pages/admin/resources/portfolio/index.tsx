@@ -41,7 +41,7 @@ export default function Dashboard() {
                                 <td className="p-3">{portfolio.name}</td>
                                 <td className="p-3">{portfolio.url}</td>
                                 <td className="p-3">
-                                    <img src={`/storage/${portfolio.logo}`} alt="" width={48} />
+                                    <img src={`${portfolio.logo}`} alt="" width={48} />
                                 </td>
                                 <td className="p-3">{portfolio.is_active ==1 ? 'active' : 'inactive'}</td>
                                 <td className="p-3">

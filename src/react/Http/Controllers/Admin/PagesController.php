@@ -56,7 +56,7 @@ class PagesController extends Controller
 
         $data->founder_message = $request->founder_message;
         $data->update();
-        return back()->with('msg', 'Updated successfully')->with('msg_class', 'success');
+        return to_route('admin.dashboard')->with('msg', 'Updated successfully')->with('msg_class', 'success');
     }
     public function contactPage()
     {

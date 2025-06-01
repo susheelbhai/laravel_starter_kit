@@ -4,6 +4,8 @@
  * @version 5.2.2
  */
 
+ 
+
 /**
  * Database `comd`
  */
@@ -364,6 +366,12 @@ $settings = array(
 
 /* `comd`.`slider1` */
 $slider1 = array(
+  array('id' => '1','created_at' => '2025-05-22 18:28:54','updated_at' => '2025-05-22 22:05:37','heading1' => 'Aspernatur facere ni','heading2' => 'Consequuntur commodo','paragraph1' => 'Enim animi cum est','paragraph2' => 'Quas occaecat quis e','btn_name' => 'Praesentium animi a','btn_url' => 'Quia accusantium id','btn_target' => 'Id quidem quo omnis','image1' => 'images/slider/WDMaZSyrmlj5aCm2VEBbJL1Zd6APChdcEc8Rdhl6.jpg','image2' => NULL,'is_active' => '1'),
+  array('id' => '2','created_at' => '2025-05-22 18:30:21','updated_at' => '2025-05-22 22:05:32','heading1' => 'Vel optio et simili','heading2' => 'Natus unde velit exc','paragraph1' => 'Nobis tempore verit','paragraph2' => 'Nulla minim consequu','btn_name' => 'Quia velit minima c','btn_url' => 'Voluptates distincti','btn_target' => 'Velit ut dolore maxi','image1' => 'images/slider/6QKUS0TyO6QEG9lru7MfB8MFkudMnDqyitoK0Zxj.jpg','image2' => NULL,'is_active' => '1'),
+  array('id' => '3','created_at' => '2025-05-22 18:43:32','updated_at' => '2025-05-22 22:05:27','heading1' => 'Ab quia voluptas eli','heading2' => 'Eius in saepe nisi n','paragraph1' => 'Voluptatibus distinc','paragraph2' => 'Voluptate iure eum l','btn_name' => 'Dolore doloremque qu','btn_url' => 'Ipsum magna nemo qui','btn_target' => 'Cillum perspiciatis','image1' => 'images/slider/wg9VnY0z12ec3Fiz9FuNljEEjfmx1AaHB5bK7qCa.jpg','image2' => NULL,'is_active' => '1'),
+  array('id' => '4','created_at' => '2025-05-22 18:45:14','updated_at' => '2025-05-22 22:05:22','heading1' => 'Rerum elit pariatur','heading2' => 'Reprehenderit molli','paragraph1' => 'Dolorem porro quas e','paragraph2' => 'Inventore nostrum qu','btn_name' => 'Labore laudantium d','btn_url' => 'Omnis quia aliquid s','btn_target' => 'Molestias distinctio','image1' => 'images/slider/0tsGqKOKDGoPljFerS26ld687ceNmiPECLO8Y8us.jpg','image2' => NULL,'is_active' => '1'),
+  array('id' => '5','created_at' => '2025-05-22 18:45:57','updated_at' => '2025-05-22 22:05:16','heading1' => 'Proident sit aut mi','heading2' => 'Vitae at voluptate d','paragraph1' => 'Omnis eaque in dolor','paragraph2' => 'Commodi ut nostrum q','btn_name' => 'Ipsum aut quia faci','btn_url' => 'Temporibus recusanda','btn_target' => 'Mollit eveniet corr','image1' => 'images/slider/kcriF9QX9JjtCGyBDcwEqNepLYid0nTn9MTJItDI.jpg','image2' => 'images/slider/682f4b0526141.png','is_active' => '1'),
+  array('id' => '6','created_at' => '2025-05-22 18:46:12','updated_at' => '2025-05-22 22:02:21','heading1' => 'Hic adipis','heading2' => 'Dicta tempor fuga I','paragraph1' => 'Eos et nulla volupt','paragraph2' => 'Fugiat enim dolor t','btn_name' => 'Accusantium veniam','btn_url' => 'Pariatur Mollit vol','btn_target' => 'Architecto officia r','image1' => 'images/slider/FMfsNecdopGN17JFHArlon2Fqf1rQPnJWB02Lm9q.jpg','image2' => 'images/slider/682f4ae570703.png','is_active' => '1')
 );
 
 /* `comd`.`testimonials` */
@@ -374,6 +382,7 @@ $testimonials = array(
 $users = array(
   array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => NULL,'profile_pic' => 'dummy.png','email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-03-23 09:22:02')
 );
+
 
 /* `comd`.`user_queries` */
 $user_queries = array(

@@ -18,11 +18,11 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 export default function Dashboard() {
     const data =
-        ((usePage<SharedData>().props as any)?.data as { id: number; name:string;  url: string; is_active: number; logo: string }[]) || [];
+        ((usePage<SharedData>().props as any)?.data as { id: number; heading1:string;  btn_name: string; is_active: number; image1: string }[]) || [];
     const thead = [
-        { title: 'Name', className: 'p-3' },
-        { title: 'Url', className: 'p-3' },
-        { title: 'Logo', className: 'p-3' },
+        { title: 'Heading', className: 'p-3' },
+        { title: 'Button', className: 'p-3' },
+        { title: 'Image', className: 'p-3' },
         { title: 'Status', className: 'p-3' },
         { title: 'View', className: 'p-3' },
     ];
@@ -38,14 +38,14 @@ export default function Dashboard() {
                     <TBody>
                         {data.map((slider) => (
                             <tr key={slider.id} className="border-t border-gray-200">
-                                <td className="p-3">{slider.name}</td>
-                                <td className="p-3">{slider.url}</td>
+                                <td className="p-3">{slider.heading1}</td>
+                                <td className="p-3">{slider.btn_name}</td>
                                 <td className="p-3">
-                                    <img src={`/storage/${slider.logo}`} alt="" width={48} />
+                                    <img src={`${slider.image1}`} alt="" width={48} />
                                 </td>
                                 <td className="p-3">{slider.is_active ==1 ? 'active' : 'inactive'}</td>
                                 <td className="p-3">
-                                     <TextLink href={route('admin.slider.show', slider.id)}>
+                                     <TextLink href={route('admin.slider1.edit', slider.id)}>
                                         <Eye className="h-4 w-4" />
                                     </TextLink>
                                 </td>

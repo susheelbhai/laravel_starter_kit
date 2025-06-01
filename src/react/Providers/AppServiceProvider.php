@@ -30,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
             'admin' => function () {
                 return [
                     'user' => Auth::guard('admin')->user(), // Admin guard
+                    'permissions' => Auth::guard('admin')->user()?->getAllPermissions()->pluck('name'), 
                 ];
             },
         ]);
@@ -51,6 +52,8 @@ class AppServiceProvider extends ServiceProvider
                 'app.twitter' => $settings->twitter,
                 'app.instagram' => $settings->instagram,
                 'app.linkedin' => $settings->linkedin,
+                'app.youtube' => $settings->youtube,
+                'app.whatsapp' => $settings->whatsapp,
                 'app.address' => $settings->address,
             ]);
         }

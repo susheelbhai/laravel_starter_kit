@@ -45,7 +45,7 @@ export default function Dashboard() {
                                 <td className="p-3">{testimonial.organisation}</td>
                                 <td className="p-3">{testimonial.message}</td>
                                 <td className="p-3">
-                                    <img src={`/storage/${testimonial.image}`} alt="" width={48} />
+                                    <img src={`${testimonial.image}`} alt="" width={48} />
                                 </td>
                                 <td className="p-3">{testimonial.is_active ==1 ? 'active' : 'inactive'}</td>
                                 <td className="p-3">

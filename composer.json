@@ -24,6 +24,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "livewire/livewire": "^3.4"
+        "livewire/livewire": "^3.4",
+        "spatie/laravel-permission": "^6.18"
     }
 }

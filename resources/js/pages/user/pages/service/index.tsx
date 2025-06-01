@@ -22,7 +22,7 @@ export default function Create() {
 
                             <div className="group rounded-xl border p-6 transition hover:shadow-lg">
                                 {service.display_img && (
-                                    <img src={`/storage/${service.display_img}`} alt={service.title} className="mb-4 h-12 w-12" />
+                                    <img src={`${service.display_img}`} alt={service.title} className="mb-4 h-12 w-12" />
                                 )}
                                 <h3 className="mb-2 text-xl font-semibold group-hover:text-[#FAB915]">{service.title}</h3>
                                 <p className="text-sm text-gray-600">{service.short_description}</p>

@@ -15,5 +15,6 @@ class AdminSeeder extends Seeder
     {
         include('data/data.php');
         Admin::insert($admins);
+        Admin::find(1)->assignRole('Super Admin');
     }
 }

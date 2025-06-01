@@ -97,13 +97,13 @@ export default function Dashboard() {
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Image</td>
                             <td className="p-3">
-                                <img src={`/storage/${blog.display_img}`} alt="" width={320} />
+                                <img src={blog.display_img} alt="" width={320} />
                             </td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Ad Image</td>
                             <td className="p-3">
-                                <img src={`/storage/${blog.ad_img}`} alt="" width={320} />
+                                <img src={blog.ad_img} alt="" width={320} />
                             </td>
                         </tr>
                         <tr className="border-t border-gray-200">

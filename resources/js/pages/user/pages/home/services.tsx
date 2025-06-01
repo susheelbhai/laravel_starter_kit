@@ -7,7 +7,7 @@ export default function ServicesSection(data: any) {
                 <div className="grid gap-8 md:grid-cols-3">
                     {data.data.map((service, i) => (
                         <div key={i} className="rounded-lg bg-white p-8 shadow transition hover:shadow-lg">
-                            <img src={`/storage/${service.display_img}`} alt={service.title} className="mx-auto mb-6 h-16 w-16" />
+                            <img src={`${service.display_img}`} alt={service.title} className="mx-auto mb-6 h-16 w-16" />
                             <h3 className="mb-2 text-xl font-semibold">{service.title}</h3>
                             <p className="text-[#6B7280]">{service.desc}</p>
                         </div>

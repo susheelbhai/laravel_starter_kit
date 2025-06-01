@@ -16,10 +16,12 @@ Require this package in your composer.json and update composer. This will downlo
 
 Publish all the required files using one of the following command based on your frontend need
 
+  For Blade Starter Kit
   ```
   php artisan vendor:publish --tag="blade_starter_kit" --force 
   ```  
 
+  For React Starter Kit
   ```
   php artisan vendor:publish --tag="react_starter_kit" --force 
   ```  
@@ -30,6 +32,8 @@ Publish all the themes using the following command
   php artisan vendor:publish --tag="starter_kit_themes" --force 
   ```  
 
+
+### Initial Settings
 Change initial settings by runnung the command
 
   ```
@@ -53,6 +57,13 @@ Alternatively you can refresh the database and seed with the following commands
   php artisan migrate:fresh --seed
   
   ```
+
+### Install Other Required Package
+
+```
+npm install react-icons
+
+```
 
 
 ### Create a build
@@ -99,6 +110,10 @@ Make production build
   php artisan vendor:publish --tag="starter_kit_themes" --force
   php artisan starter_kit:initial_settings
   php artisan migrate:fresh --seed
+  php artisan storage:link
+  npm install react-icons
+  npm run build
+  npm run dev
 
   ``` 
 
@@ -113,13 +128,6 @@ Make production build
   npm run dev
 
   ``` 
-
-### Install Other Required Package
-
-```
-npm install react-icons
-
-```
 
 ### License
 

@@ -18,6 +18,9 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ImportantLinkController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Middleware\HandleInertiaRequests;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\RoleController;
 
 Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
     Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
@@ -46,6 +49,11 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
             Route::patch('/privacyPage', 'updatePrivacyPage')->name('updatePrivacyPage');
             Route::get('/refundPage', 'refundPage')->name('refundPage');
             Route::patch('/refundPage', 'updateRefundPage')->name('updateRefundPage');
+        });
+        Route::middleware('role:Super Admin')->group(function () {
+            Route::resource('/admin', AdminController::class);
+            Route::resource('/role', RoleController::class);
+            Route::resource('/permission', PermissionController::class);
         });
         Route::resource('/slider1', Slider1Controller::class)->except(['show', 'destroy']);
         Route::resource('/slider', SliderController::class);

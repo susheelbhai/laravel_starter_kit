@@ -42,11 +42,11 @@ export default function Dashboard() {
                                 <td className="p-3">{slider.heading1}</td>
                                 <td className="p-3">{slider.heading2}</td>
                                 <td className="p-3">
-                                    <img src={`/storage/${slider.image1}`} alt="" width={48} />
+                                    <img src={`${slider.image1}`} alt="" width={48} />
                                 </td>
                                 <td className="p-3">{slider.is_active ==1 ? 'active' : 'inactive'}</td>
                                 <td className="p-3">
-                                     <TextLink href={route('admin.slider.show', slider.id)}>
+                                     <TextLink href={route('admin.slider1.edit', slider.id)}>
                                         <Eye className="h-4 w-4" />
                                     </TextLink>
                                 </td>

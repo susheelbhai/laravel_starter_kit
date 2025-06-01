@@ -43,7 +43,7 @@ export default function Dashboard() {
                                 <td className="p-3">{blog.category}</td>
                                 <td className="p-3">{blog.short_description}</td>
                                 <td className="p-3">
-                                    <img src={`/storage/${blog.display_img}`} alt="" width={48} />
+                                    <img src={`${blog.display_img}`} alt="" width={48} />
                                 </td>
                                 <td className="p-3">{blog.is_active ==1 ? 'active' : 'inactive'}</td>
                                 <td className="p-3">

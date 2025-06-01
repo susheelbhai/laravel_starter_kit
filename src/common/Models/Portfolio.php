@@ -9,4 +9,9 @@ class Portfolio extends Model
 {
     use HasFactory;
     protected $table = 'clients';
+    
+    public function getLogoAttribute($value): string
+    {
+        return "/storage/$value";
+    }
 }

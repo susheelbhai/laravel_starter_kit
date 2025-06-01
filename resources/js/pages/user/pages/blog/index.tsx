@@ -22,7 +22,7 @@ export default function Create() {
 
                             <div className="group rounded-xl border p-6 transition hover:shadow-lg">
                                 {blog.display_img && (
-                                    <img src={`/storage/${blog.display_img}`} alt={blog.title} className="mb-4 h-12 w-12" />
+                                    <img src={`${blog.display_img}`} alt={blog.title} className="mb-4 h-12 w-12" />
                                 )}
                                 <h3 className="mb-2 text-xl font-semibold group-hover:text-[#FAB915]">{blog.title}</h3>
                                 <p className="text-sm text-gray-600">{blog.short_description}</p>
