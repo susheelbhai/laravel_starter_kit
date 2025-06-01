@@ -1,6 +1,6 @@
 {
     "name": "susheelbhai/laravel_starter_kit",
-    "description": "Starter Kit developed for Laravel 11.",
+    "description": "Starter Kit developed for Laravel.",
     "type": "library",
     "license": "MIT",
     "autoload": {

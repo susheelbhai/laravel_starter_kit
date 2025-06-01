@@ -124,6 +124,8 @@ Make production build
   php artisan vendor:publish --tag="react_starter_kit" --force
   php artisan starter_kit:initial_settings
   php artisan migrate:fresh --seed
+  php artisan storage:link
+  npm install react-icons
   npm run build
   npm run dev
 
