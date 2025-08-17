@@ -1,14 +1,175 @@
 import { cn } from '@/lib/utils';
+import { router } from '@inertiajs/react';
+import React from 'react';
+import Swal from 'sweetalert2';
 import TextLink from './text-link';
 
-export default function Button({ className = '', href, children, ...props }: { className?: string; href?: string; children: React.ReactNode }) {
+const handleDelete = (action: string): void => {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'You won’t be able to revert this!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            router.delete(action, {
+                onSuccess: (): void => {
+                    Swal.fire('Deleted!', 'Record has been deleted.', 'success');
+                },
+                onError: (): void => {
+                    Swal.fire('Error!', 'Failed to delete the record.', 'error');
+                },
+            });
+        }
+    });
+};
+
+const handleSubmit = (action: string): void => {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'You won’t be able to revert this!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: 'green',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, Submit it!',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            router.post(
+                action,
+                {},
+                {
+                    onSuccess: (): void => {
+                        Swal.fire('Submitted!', 'Record has been submitted.', 'success');
+                    },
+                    onError: (): void => {
+                        Swal.fire('Error!', 'Failed to submit the record.', 'error');
+                    },
+                },
+            );
+        }
+    });
+};
+
+type ButtonProps = {
+    className?: string;
+    href?: string;
+    size?: 'small' | 'medium' | 'full';
+    style?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+    text?: string;
+    children?: React.ReactNode;
+    /** HTTP method or other action; catch 'delete' specially */
+    method?: string;
+    /** allow any other prop (e.g. data-*, aria-*, etc.) */
+    [key: string]: any;
+};
+
+export default function Button({
+    className = '',
+    href,
+    size = 'small',
+    style = 'primary',
+    text,
+    children,
+    method, // ← pull out method
+    ...props
+}: ButtonProps) {
+    // 1) if it's a post action, call the "other" component:
+    if (method === 'post') {
+        return (
+            <ButtonComponent
+                className={cn(StyleIt(style), className)}
+                size={size}
+                onClick={() => handleSubmit(href || '')} // use href as action
+                {...props}
+            >
+                {text ?? children}
+            </ButtonComponent>
+        );
+    }
+    if (method === 'delete') {
+        return (
+            <ButtonComponent
+                className={cn(StyleIt(style), className)}
+                size={size}
+                onClick={() => handleDelete(href || '')} // use href as action
+                {...props}
+            >
+                {text ?? children}
+            </ButtonComponent>
+        );
+    }
+
+    // 2) otherwise, your existing split logic:
     if (!href) {
-        return <button className={cn('cursor-pointer rounded bg-white p-2 text-black', className)}>{children}</button>;
+        return (
+            <ButtonComponent className={cn(StyleIt(style), className)} size={size} {...props}>
+                {text ?? children}
+            </ButtonComponent>
+        );
     } else {
         return (
-            <TextLink href={href} className={cn('mx-8 cursor-pointer rounded bg-white p-2 text-black', className)} {...props}>
-                {children}
-            </TextLink>
+            <LinkComponent href={href} className={cn(StyleIt(style), className, 'block')} size={size} {...props}>
+                {text ?? children}
+            </LinkComponent>
         );
+    }
+}
+
+function ButtonComponent({
+    className = '',
+    size,
+    children,
+    ...props
+}: {
+    className?: string;
+    size?: 'small' | 'medium' | 'full';
+    children?: React.ReactNode;
+    [key: string]: any;
+}) {
+    return (
+        <button className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', className)} {...props}>
+            {children}
+        </button>
+    );
+}
+
+function LinkComponent({
+    className = '',
+    href,
+    size,
+    children,
+    ...props
+}: {
+    className?: string;
+    href: string;
+    size: 'small' | 'medium' | 'full';
+    children?: React.ReactNode;
+    [key: string]: any;
+}) {
+    return (
+        <TextLink href={href} className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', className)} {...props}>
+            {children}
+        </TextLink>
+    );
+}
+
+function StyleIt(style: 'primary' | 'secondary' | 'success' | 'warning' | 'danger') {
+    switch (style) {
+        case 'primary':
+            return 'bg-primary/80 text-primary-foreground hover:bg-primary';
+        case 'secondary':
+            return 'bg-secondary/80 text-secondary-foreground hover:bg-secondary';
+        case 'success':
+            return 'bg-success/80 text-success-foreground hover:bg-success';
+        case 'warning':
+            return 'bg-warning/80 text-warning-foreground hover:bg-warning';
+        case 'danger':
+            return 'bg-danger/80 text-danger-foreground hover:bg-danger';
+        default:
+            return '';
     }
 }

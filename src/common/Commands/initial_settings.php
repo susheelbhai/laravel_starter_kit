@@ -28,15 +28,22 @@ class initial_settings extends Command
      */
 
     public $env_values = array(
+        'FILESYSTEM_DISK' => 'public',
         'MAIL_MAILER' => 'smtp',
         'MAIL_HOST' => '127.0.0.1',
         'APP_TIMEZONE' => 'Asia/Kolkata',
         'MAIL_PORT' => '1025',
-        'WATERMARK' => 1
+        'WATERMARK' => 1,
+        'ADMIN_MAIL' => 'admin@example.com',
+        'ADMIN_NAME' => 'Admin'
     );
-    public $config_values = array(
+    public $config_values_app = array(
         'timezone' => "env('APP_TIMEZONE', 'Asia/Kolkata')",
         'watermark' => "env('WATERMARK', 1)",
+    );
+    public $config_values_mail = array(
+        'admin_mail' => "env('ADMIN_MAIL', 'admin@example.com')",
+        'admin_name' => "env('ADMIN_NAME', 'Admin)",
     );
 
     public function handle()
@@ -68,7 +75,8 @@ class initial_settings extends Command
         $this->setEnvironmentValueDatabase($db_type, $project_name);
         // $this->updateAppServiceProvider($custom_path_after_root_url);
         $this->setEnvironmentValue($this->env_values);
-        $this->setConfigValue($this->config_values);
+        $this->setConfigValue('config/app.php', $this->config_values_app);
+        $this->setConfigValue('config/mail.php', $this->config_values_mail);
         // $this->updateIndexFile();
         if ($delete_unused_file == 'yes') {
             $this->deleteUnusedFolder();
@@ -159,9 +167,9 @@ class initial_settings extends Command
         }
     }
 
-    private function setConfigValue(array $values)
+    private function setConfigValue(string $file_name, array $values)
     {
-        $path = base_path('config/app.php');
+        $path = base_path($file_name);
         $str = file_get_contents($path);
 
         if (count($values) > 0) {

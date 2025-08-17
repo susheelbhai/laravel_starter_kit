@@ -134,7 +134,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="text-left">
-                        <p>{{ config('app.name') }} - Copyright 2024. All rights reserved.</p>
+                        <p>{{ config('app.name') }} - Copyright {{ date('Y') }}. All rights reserved.</p>
                     </div>
                 </div>
                 <div class="col-md-6">

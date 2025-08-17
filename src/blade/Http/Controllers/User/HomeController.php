@@ -10,6 +10,7 @@ use App\Models\Testimonial;
 use App\Models\UserQuery;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Events\ContactFormSubmitted;
 
 class HomeController extends Controller
 {
@@ -51,6 +52,7 @@ class HomeController extends Controller
         $data->subject = $request['subject'];
         $data->message = $request['message'];
         $data->save();
+        event(new ContactFormSubmitted($data['id']));
         return 'Your Request is submitted successfully';
     }
     function newsletter(Request $request)

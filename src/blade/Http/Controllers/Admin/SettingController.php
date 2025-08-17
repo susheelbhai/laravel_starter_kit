@@ -36,43 +36,37 @@ class SettingController extends Controller
 
     public function generalSettingsUpdate(Request $req)
     {
-        // return $req;
         $settings = $this->settings;
-
-        if ($req->favicon == '') {
-            $favicon_name = $settings->favicon;
-        } else {
+        // return $settings;
+        $model = Setting::where('id', '=', 1);
+        if ($req->favicon != '') {
             $favicon_name = 'images/logo/'.uniqid() . '.' . $req->file('favicon')->getClientOriginalExtension();
             $req->favicon->move(public_path('storage/images/logo'), $favicon_name);
             if ($settings->favicon != 'dummy.png') {
                 File::delete(public_path('storage/images/logo/' . $settings->favicon));
             }
+            $model->update(['favicon' => $favicon_name]);
         }
 
-        if ($req->dark_logo == '') {
-            $dark_logo_name = $settings->dark_logo;
-        } else {
+        if ($req->dark_logo != '') {
             $dark_logo_name = 'images/logo/'.uniqid()  . '.' . $req->file('dark_logo')->getClientOriginalExtension();
             $req->dark_logo->move(public_path('storage/images/logo'), $dark_logo_name);
             if ($settings->dark_logo != 'dummy.png') {
                 File::delete(public_path('storage/images/logo/' . $settings->dark_logo));
             }
+            $model->update(['dark_logo' => $dark_logo_name]);
         }
-        if ($req->light_logo == '') {
-            $light_logo_name = $settings->light_logo;
-        } else {
+        if ($req->light_logo != '') {
             $light_logo_name = 'images/logo/'.uniqid()  . '.' . $req->file('light_logo')->getClientOriginalExtension();
             $req->light_logo->move(public_path('storage/images/logo'), $light_logo_name);
             if ($settings->light_logo != 'dummy.png') {
                 File::delete(public_path('storage/images/logo/' . $settings->light_logo));
             }
+            $model->update(['light_logo' => $light_logo_name]);
         }
 
-        Setting::where('id', '=', 1)->update([
+        $model->update([
             'app_name' => $req->app_name,
-            'favicon' => $favicon_name,
-            'dark_logo' => $dark_logo_name,
-            'light_logo' => $light_logo_name,
             'color1' => $req->color1,
             'color2' => $req->color2,
             'color3' => $req->color3,

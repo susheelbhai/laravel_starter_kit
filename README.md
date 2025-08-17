@@ -62,6 +62,7 @@ Alternatively you can refresh the database and seed with the following commands
 
 ```
 npm install react-icons
+npm install sweetalert2
 
 ```
 

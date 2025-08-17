@@ -13,7 +13,7 @@
 
 
 <div class="mb-3 {{ $col_class }}">
-    @if ($type == 'text' || $type == 'number' || $type == 'file' || $type == 'email' || $type == 'date' || || $type == 'time' || $type == 'url')
+    @if ($type == 'text' || $type == 'number' || $type == 'file' || $type == 'email' || $type == 'date' || $type == 'time' || $type == 'url')
         <label for="{{ $name }}" class="form-label">
             {{ $label }}
             {!! $required == 'required' ? "<span class='text-danger'>*</span>" : '' !!}
