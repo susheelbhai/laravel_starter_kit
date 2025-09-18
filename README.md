@@ -58,11 +58,20 @@ Alternatively you can refresh the database and seed with the following commands
   
   ```
 
+### Final Settings
+Change Final settings by runnung the command
+
+  ```
+  php artisan starter_kit:final_settings
+  ```
+
 ### Install Other Required Package
 
 ```
+composer require tightenco/ziggy
 npm install react-icons
 npm install sweetalert2
+npm install react-select
 
 ```
 
@@ -125,37 +134,16 @@ Make production build
   php artisan vendor:publish --tag="react_starter_kit" --force
   php artisan starter_kit:initial_settings
   php artisan migrate:fresh --seed
+  php artisan starter_kit:final_settings
   php artisan storage:link
   npm install react-icons
+  npm install sweetalert2
+  npm install react-select
   npm run build
   npm run dev
 
   ``` 
 
-### Please uncomment the following lines in app/Providers/AppServiceProvider.php
-
-        // $settings = Setting::find(1); 
-        // $important_link = ImportantLink::latest()->get(); 
-        // config([
-        //     'important_links' => $important_link,
-        // ]);
-        // if ($settings) {
-        //     config([
-        //         'app.name' => $settings->app_name,
-        //         'app.favicon' => $settings->favicon,
-        //         'app.dark_logo' => $settings->dark_logo,
-        //         'app.light_logo' => $settings->light_logo,
-        //         'app.email' => $settings->email,
-        //         'app.phone' => $settings->phone,
-        //         'app.facebook' => $settings->facebook,
-        //         'app.twitter' => $settings->twitter,
-        //         'app.instagram' => $settings->instagram,
-        //         'app.linkedin' => $settings->linkedin,
-        //         'app.youtube' => $settings->youtube,
-        //         'app.whatsapp' => $settings->whatsapp,
-        //         'app.address' => $settings->address,
-        //     ]);
-        // }
 
 ### License
 

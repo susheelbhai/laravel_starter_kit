@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Visitor;
 
 
-class BlogController extends Controller
+class VisitorController extends Controller
 {
 
               public function count()

@@ -68,6 +68,6 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
         Route::resource('/blog', BlogController::class);
         Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter.index');
     });
+    require __DIR__ . '/auth.php';
 });
 
-require __DIR__ . '/auth.php';

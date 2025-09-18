@@ -26,7 +26,7 @@ class ContactFormSubmittedMailToUser extends Mailable
     {
         return new Envelope(
             to: [new Address($this->data['email'], $this->data['name']),],
-            subject: 'Thank you for contacting getvet',
+            subject: 'Thank you for contacting '.config('app.name'),
         );
     }
 

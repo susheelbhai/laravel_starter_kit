@@ -35,28 +35,30 @@ class AppServiceProvider extends ServiceProvider
             },
         ]);
 
-        // $settings = Setting::find(1); 
-        // $important_link = ImportantLink::latest()->get(); 
-        // config([
-        //     'important_links' => $important_link,
-        // ]);
-        // if ($settings) {
-        //     config([
-        //         'app.name' => $settings->app_name,
-        //         'app.favicon' => $settings->favicon,
-        //         'app.dark_logo' => $settings->dark_logo,
-        //         'app.light_logo' => $settings->light_logo,
-        //         'app.email' => $settings->email,
-        //         'app.phone' => $settings->phone,
-        //         'app.facebook' => $settings->facebook,
-        //         'app.twitter' => $settings->twitter,
-        //         'app.instagram' => $settings->instagram,
-        //         'app.linkedin' => $settings->linkedin,
-        //         'app.youtube' => $settings->youtube,
-        //         'app.whatsapp' => $settings->whatsapp,
-        //         'app.address' => $settings->address,
-        //     ]);
-        // }
+        /*
+        $settings = Setting::find(1); 
+        $important_link = ImportantLink::latest()->get(); 
+        config([
+            'important_links' => $important_link,
+        ]);
+        if ($settings) {
+            config([
+                'app.name' => $settings->app_name,
+                'app.favicon' => $settings->favicon,
+                'app.dark_logo' => $settings->dark_logo,
+                'app.light_logo' => $settings->light_logo,
+                'app.email' => $settings->email,
+                'app.phone' => $settings->phone,
+                'app.facebook' => $settings->facebook,
+                'app.twitter' => $settings->twitter,
+                'app.instagram' => $settings->instagram,
+                'app.linkedin' => $settings->linkedin,
+                'app.youtube' => $settings->youtube,
+                'app.whatsapp' => $settings->whatsapp,
+                'app.address' => $settings->address,
+            ]);
+        }
+        */
         
     }
 }

@@ -16,5 +16,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
 require __DIR__.'/user/web.php';
 require __DIR__.'/admin/web.php';
 require __DIR__.'/partner/web.php';
-require __DIR__.'/settings.php';
+// require __DIR__.'/settings.php';
 // require __DIR__.'/auth.php';

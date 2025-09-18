@@ -25,9 +25,9 @@ class StarterKitServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 \Susheelbhai\StarterKit\common\Commands\initial_settings::class,
+                \Susheelbhai\StarterKit\common\Commands\final_settings::class,
             ]);
         }
-
     }
 
     public function registerPublishable()
@@ -43,9 +43,9 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/../database" => database_path('/'),
             __dir__ . "/../config" => config_path('/'),
             __dir__ . "/../routes" => base_path('/routes'),
-            __DIR__.'/../resources/themes' => base_path('resources/themes'),
-            __DIR__.'/../resources/views' => base_path('resources/views'),
-            __DIR__.'/../bootstrap' => base_path('bootstrap'),
+            __DIR__ . '/../resources/themes' => base_path('resources/themes'),
+            __DIR__ . '/../resources/views' => base_path('resources/views'),
+            __DIR__ . '/../bootstrap' => base_path('bootstrap'),
             __dir__ . "/../assets/images" => storage_path('app/public/images'),
             __dir__ . "/../assets/css" => public_path('css'),
             __dir__ . "/../assets/js/common.js" => public_path('js/common.js')
@@ -62,9 +62,9 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/../database" => database_path('/'),
             __dir__ . "/../config" => config_path('/'),
             __dir__ . "/../routes" => base_path('/routes'),
-            __DIR__.'/../resources/js' => base_path('resources/js'),
-            __DIR__.'/../resources/react_views' => base_path('resources/views'),
-            __DIR__.'/../bootstrap' => base_path('bootstrap'),
+            __DIR__ . '/../resources/js' => base_path('resources/js'),
+            __DIR__ . '/../resources/react_views' => base_path('resources/views'),
+            __DIR__ . '/../bootstrap' => base_path('bootstrap'),
             __dir__ . "/../assets/images" => storage_path('app/public/images'),
             __dir__ . "/../assets/css" => public_path('css'),
             __dir__ . "/../assets/themes/ck_editor" => public_path('themes/ck_editor')

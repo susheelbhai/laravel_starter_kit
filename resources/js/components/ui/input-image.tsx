@@ -4,8 +4,8 @@ export default function ImageUploader({
   name,
   value1,
   setData,
-  heightMultiplier = 1,
-  widthMultiplier = 2,
+  widthMultiplier = 1,
+  heightMultiplier = 1.5,
 }: {
   name: string;
   value1: string;
@@ -17,8 +17,8 @@ export default function ImageUploader({
   const [dragging, setDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const height = 288*heightMultiplier; // Tailwind h-72 = 288px
-  const width = height * widthMultiplier;
+  const width = 240 * widthMultiplier; // Tailwind w-72 = 240px
+  const height = width * heightMultiplier; 
 
   const handleFile = (file: File) => {
     setData(name, file);
@@ -56,7 +56,7 @@ export default function ImageUploader({
         className={`relative cursor-pointer flex items-center justify-center overflow-hidden rounded-md border-2 border-dashed ${
           dragging ? 'border-blue-500 bg-blue-100' : 'border-gray-400 bg-gray-100'
         }`}
-        style={{ height, width }}
+        style={{ height, width,  maxWidth: '100%', }}
       >
         {previewUrl ? (
           <img src={previewUrl} alt="Preview" className="h-full w-full object-contain" />

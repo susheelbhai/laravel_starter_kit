@@ -1,3 +1,4 @@
+
 import { cn } from '@/lib/utils';
 import { router } from '@inertiajs/react';
 import React from 'react';
@@ -121,7 +122,7 @@ export default function Button({
 
 function ButtonComponent({
     className = '',
-    size,
+    size = 'medium',
     children,
     ...props
 }: {
@@ -131,7 +132,7 @@ function ButtonComponent({
     [key: string]: any;
 }) {
     return (
-        <button className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', className)} {...props}>
+        <button className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', SizeIt(size), className)} {...props}>
             {children}
         </button>
     );
@@ -151,7 +152,7 @@ function LinkComponent({
     [key: string]: any;
 }) {
     return (
-        <TextLink href={href} className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', className)} {...props}>
+        <TextLink href={href} className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', SizeIt(size), className)} {...props}>
             {children}
         </TextLink>
     );
@@ -169,6 +170,18 @@ function StyleIt(style: 'primary' | 'secondary' | 'success' | 'warning' | 'dange
             return 'bg-warning/80 text-warning-foreground hover:bg-warning';
         case 'danger':
             return 'bg-danger/80 text-danger-foreground hover:bg-danger';
+        default:
+            return '';
+    }
+}
+function SizeIt(size: 'small' | 'medium' | 'full') {
+    switch (size) {
+        case 'small':
+            return 'w-fit px-3 py-1 text-sm';
+        case 'medium':
+            return 'w-fit px-4 py-2 text-base';
+        case 'full':
+            return 'w-full px-4 py-2 text-base';
         default:
             return '';
     }

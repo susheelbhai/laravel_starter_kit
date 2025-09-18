@@ -26,9 +26,10 @@ Route::middleware(['web', HandleInertiaRequests::class, TrackVisitor::class,])->
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
     Route::post('/contact', [HomeController::class, 'contactSubmit']);
     Route::post('/newsletter', [HomeController::class, 'newsletter'])->name('newsletter');
-    Route::get('/privacy', [HomeController::class, 'privacy'])->name('newsletter');
-    Route::get('/tnc', [HomeController::class, 'tnc'])->name('newsletter');
-    Route::get('/refund', [HomeController::class, 'refund'])->name('newsletter');
+    Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
+    Route::get('/tnc', [HomeController::class, 'tnc'])->name('tnc');
+    Route::get('/refund', [HomeController::class, 'refund'])->name('refund');
+    require __DIR__.'/auth.php';
 });
 
 Route::get('/api/visitors/count', function () {
@@ -38,4 +39,3 @@ Route::get('/api/visitors/count', function () {
     ]);
 });
 
-require __DIR__.'/auth.php';
