@@ -86,6 +86,7 @@ Make production build
   composer require susheelbhai/laravel_starter_kit
   php artisan starter_kit:initial_settings
   php artisan migrate:fresh --seed
+  php artisan starter_kit:final_settings
   php artisan storage:link
   npm run build
   npm run dev
