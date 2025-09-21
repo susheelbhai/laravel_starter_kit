@@ -32,6 +32,11 @@ class final_settings extends Command
     private function deleteUnusedFolder()
     {
         try {
+            File::deleteDirectory(base_path('resources/js/layouts/app'));
+            File::deleteDirectory(base_path('resources/js/layouts/auth'));
+            File::deleteDirectory(base_path('resources/js/layouts/settings'));
+            File::delete(base_path('resources/js/layouts/app-layout.tsx'));
+            File::delete(base_path('resources/js/layouts/auth-layout.tsx'));
             File::deleteDirectory(base_path('resources/js/pages/auth'));
             File::deleteDirectory(base_path('resources/js/pages/settings'));
             File::deleteDirectory(base_path('app/Http/Controllers/Auth'));

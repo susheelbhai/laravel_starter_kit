@@ -11,33 +11,12 @@ Require this package in your composer.json and update composer. This will downlo
 
 ## Configuration
 
-
-### Vendor Publish
-
-Publish all the required files using one of the following command based on your frontend need
-
-  For Blade Starter Kit
-  ```
-  php artisan vendor:publish --tag="blade_starter_kit" --force 
-  ```  
-
-  For React Starter Kit
-  ```
-  php artisan vendor:publish --tag="react_starter_kit" --force 
-  ```  
-
-Publish all the themes using the following command 
-
-  ```
-  php artisan vendor:publish --tag="starter_kit_themes" --force 
-  ```  
-
-
 ### Initial Settings
 Change initial settings by runnung the command
 
   ```
   php artisan starter_kit:initial_settings
+
   ```
 
 
@@ -63,6 +42,7 @@ Change Final settings by runnung the command
 
   ```
   php artisan starter_kit:final_settings
+
   ```
 
 ### Install Other Required Package
@@ -102,22 +82,19 @@ Make production build
   ```
 
 
-
-
 ## Installation with single action
 
   create a new folder with the appropriate project name, open terminal and run the following command.
 
   ```
-  laravel new project
+  laravel new
+  
   ```
 
   #### With blade starter kit
 
   ```
   composer require susheelbhai/laravel_starter_kit
-  php artisan vendor:publish --tag="blade_starter_kit" --force
-  php artisan vendor:publish --tag="starter_kit_themes" --force
   php artisan starter_kit:initial_settings
   php artisan migrate:fresh --seed
   php artisan storage:link
@@ -131,11 +108,11 @@ Make production build
 
   ```
   composer require susheelbhai/laravel_starter_kit
-  php artisan vendor:publish --tag="react_starter_kit" --force
   php artisan starter_kit:initial_settings
   php artisan migrate:fresh --seed
   php artisan starter_kit:final_settings
   php artisan storage:link
+  composer require tightenco/ziggy
   npm install react-icons
   npm install sweetalert2
   npm install react-select

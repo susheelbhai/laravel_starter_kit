@@ -1,33 +1,30 @@
-import React from "react";
+import AppLayout from '@/layouts/user/app-layout';
+import { usePage } from '@inertiajs/react';
+import AboutSection from './pages/home/about';
+import ClientSection from './pages/home/clients';
+import FeatureSection from './pages/home/features';
+import HeroSection from './pages/home/hero';
+import NewsletterSection from './pages/home/newsletter';
+import ProjectSection from './pages/home/projects';
+import ServicesSection from './pages/home/services';
+import TeamSection from './pages/home/team';
+import TestimonialSection from './pages/home/testimonials';
 
-const HeroSection: React.FC = () => {
-  return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-20">
-      <div className="container mx-auto px-6 text-center">
-        <h1 className="text-5xl font-bold text-gray-800 leading-tight mb-6">
-          We Make Awesome <br />
-          Websites & Applications
-        </h1>
-        <p className="text-lg text-gray-600 mb-8">
-          A modern solution for your online presence, crafted with care and attention to detail.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <a
-            href="#services"
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-          >
-            Get Started
-          </a>
-          <a
-            href="#contact"
-            className="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-300 transition"
-          >
-            Contact Us
-          </a>
-        </div>
-      </div>
-    </section>
-  );
+const FinbizLandingPage = () => {
+    const data = usePage().props as any;
+    return (
+        <AppLayout title="Home">
+            <HeroSection />
+            <AboutSection />
+            <ServicesSection data={data.services} />
+            <FeatureSection />
+            <ProjectSection />
+            <TeamSection data={data.team} />
+            <TestimonialSection data={data.testimonials} />
+            <NewsletterSection />
+            <ClientSection data={data.clients} />
+        </AppLayout>
+    );
 };
 
-export default HeroSection;
+export default FinbizLandingPage;

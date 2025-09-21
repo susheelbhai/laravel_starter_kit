@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    
+    public function getProfilePicAttribute($value): string
+    {
+        return "/storage/$value";
+    }
 }

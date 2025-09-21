@@ -15,9 +15,9 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit(Request $request)
     {
-        return view('profile.edit', [
+        return inertia('user/profile', [
             'user' => $request->user(),
         ]);
     }
@@ -32,7 +32,10 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
-
+        if ($request->hasFile('profile_pic')) {
+            $path = $request->file('profile_pic')->store('images/profile_pic');
+            $request->user()->profile_pic = $path;
+        }
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');

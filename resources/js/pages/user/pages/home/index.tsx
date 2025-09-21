@@ -14,7 +14,7 @@ const FinbizLandingPage = () => {
     const data = usePage().props as any;
     return (
         <AppLayout title="Home">
-            <HeroSection />
+            <HeroSection data={data} />
             <AboutSection />
             <ServicesSection data={data.services} />
             <FeatureSection />

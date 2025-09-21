@@ -24,56 +24,56 @@ import {
 const mainNavItems = [
     {
         title: 'Dashboard',
-        href: route('admin.dashboard'),
+        href: route('user.dashboard'),
         icon: LayoutGrid,
     },
     {
         title: 'Partner',
-        href: route('admin.partner.index'),
+        href: route('user.partner.index'),
         icon: Users,
     },
     {
         title: 'User',
-        href: route('admin.user.index'),
+        href: route('user.user.index'),
         icon: User,
     },
     {
         title: 'User Query',
-        href: route('admin.userQuery.index'),
+        href: route('user.userQuery.index'),
         icon: MessageSquare,
     },
     {
         title: 'Newsletter',
-        href: route('admin.newsletter.index'),
+        href: route('user.newsletter.index'),
         icon: Newspaper,
     },
     {
         title: 'Pages',
         icon: FileText,
         children: [
-            { title: 'Home', href: route('admin.pages.homePage'), icon: Home },
-            { title: 'About Us', href: route('admin.pages.aboutPage'), icon: Info },
-            { title: 'Contact Us', href: route('admin.pages.contactPage'), icon: Phone },
-            { title: 'Testimonial', href: route('admin.testimonial.index'), icon: MessageSquare },
-            { title: 'Portfolio', href: route('admin.portfolio.index'), icon: Image },
-            { title: 'Terms & Conditions', href: route('admin.pages.tncPage'), icon: FileSignature },
-            { title: 'Privacy Policy', href: route('admin.pages.privacyPage'), icon: ShieldCheck },
+            { title: 'Home', href: route('user.pages.homePage'), icon: Home },
+            { title: 'About Us', href: route('user.pages.aboutPage'), icon: Info },
+            { title: 'Contact Us', href: route('user.pages.contactPage'), icon: Phone },
+            { title: 'Testimonial', href: route('user.testimonial.index'), icon: MessageSquare },
+            { title: 'Portfolio', href: route('user.portfolio.index'), icon: Image },
+            { title: 'Terms & Conditions', href: route('user.pages.tncPage'), icon: FileSignature },
+            { title: 'Privacy Policy', href: route('user.pages.privacyPage'), icon: ShieldCheck },
         ],
     },
     {
         title: 'Services',
         icon: Server,
         children: [
-            { title: 'All Services', href: route('admin.service.index'), icon: Server },
-            { title: 'Create Services', href: route('admin.service.create'), icon: FileSignature },
+            { title: 'All Services', href: route('user.service.index'), icon: Server },
+            { title: 'Create Services', href: route('user.service.create'), icon: FileSignature },
         ],
     },
     {
         title: 'Blogs',
         icon: BookOpen,
         children: [
-            { title: 'All Blog', href: route('admin.blog.index'), icon: BookOpen },
-            { title: 'Create Blog', href: route('admin.blog.create'), icon: FileSignature },
+            { title: 'All Blog', href: route('user.blog.index'), icon: BookOpen },
+            { title: 'Create Blog', href: route('user.blog.create'), icon: FileSignature },
         ],
     },
     {
@@ -84,7 +84,7 @@ const mainNavItems = [
                 title: 'Footer',
                 href: null,
                 icon: Layout,
-                children: [{ title: 'Important Links', href: route('admin.important_links.index'), icon: Link2 }],
+                children: [{ title: 'Important Links', href: route('user.important_links.index'), icon: Link2 }],
             },
         ],
     },
@@ -105,12 +105,12 @@ const footerNavItems: NavItem[] = [
 const profileNavItems: NavItem[] = [
     {
         title: 'Settings',
-        href: route('admin.profile.edit'),
+        href: route('user.profile.edit'),
         icon: Settings,
     },
     {
         title: 'Log Out',
-        href: route('admin.logout'),
+        href: route('user.logout'),
         icon: LogOut,
     },
 ];

@@ -1,9 +1,9 @@
-export default function HeroSection() {
+export default function HeroSection(data: any) {
     return (
         <section id="home" className="relative overflow-hidden bg-[#F5F6FA] py-20 text-left md:py-32">
                 <div className="mx-auto grid max-w-[1320px] items-center gap-8 px-4 md:grid-cols-2 md:px-6">
                     <div>
-                        <p className="mb-4 font-semibold text-[#FAB915]">Welcome to Finbiz</p>
+                        <p className="mb-4 font-semibold text-[#FAB915]">Welcome to {data.data.appData?.name}</p>
                         <h1 className="text-4xl leading-tight font-bold md:text-6xl">
                             Smart Solutions For <br />
                             Your Business Needs
@@ -17,9 +17,9 @@ export default function HeroSection() {
                         </div>
                     </div>
                     <div className="relative">
-                        <img src="/images/banner/banner-01.png" alt="Hero" className="relative z-10 w-full" />
+                        <img src="/storage/images/banner/banner-01.jpg" alt="Hero" className="relative z-10 w-full" />
                         <img
-                            src="/images/banner/banner-01-shape.png"
+                            src="/storage/images/banner/banner-01-shape.jpg"
                             alt="Shape"
                             className="pointer-events-none absolute top-0 left-0 -z-10 h-full w-full object-cover"
                         />

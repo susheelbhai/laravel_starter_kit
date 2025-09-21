@@ -22,7 +22,11 @@ class HomeController extends Controller
 {
     function dashboard()
     {
-        return Inertia::render('user/dashboard');
+        $services = Service::whereIsActive(1)->get();
+        $team = Team::whereIsActive(1)->get();
+        $testimonials = Testimonial::whereIsActive(1)->get();
+        $clients = Portfolio::whereIsActive(1)->get();
+        return Inertia::render('user/dashboard', compact( 'services', 'testimonials', 'team', 'clients'));
     }
     function home()
     {

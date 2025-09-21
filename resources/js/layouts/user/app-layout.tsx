@@ -10,7 +10,7 @@ interface AppLayoutProps {
 }
 
 export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
-    const { admin } = usePage<SharedData>().props;
+    const { user } = usePage<SharedData>().props;
     const appData = (usePage().props as any).appData;
     const { flash = {} } = usePage().props as {
         flash?: { success?: string; warning?: string; error?: string };
@@ -45,7 +45,7 @@ export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
         error: 'bg-red-100 text-red-800',
     };
     return (
-        <AppLayoutTemplate authUser={admin} breadcrumbs={breadcrumbs} {...props}>
+        <AppLayoutTemplate authUser={user} breadcrumbs={breadcrumbs} {...props}>
             <Head title={`${title} - ${appData.name}`} />
             <div className="mx-auto max-w-[1320px] items-center justify-between">
                 {visibleFlash && (

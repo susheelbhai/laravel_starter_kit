@@ -2,8 +2,8 @@ export default function AboutSection() {
             return  <section id="about" className="bg-white py-20 md:py-28">
                 <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-4 md:grid-cols-2 md:px-6">
                     <div className="relative">
-                        <img src="/images/about/about-01.png" alt="About" className="w-full rounded-md" />
-                        <img src="/images/about/about-shape.png" alt="Shape" className="absolute -bottom-6 -left-6 h-20 w-20 object-contain" />
+                        <img src="/storage/images/about/about-01.png" alt="About" className="w-full rounded-md" />
+                        <img src="/storage/images/about/about-shape.png" alt="Shape" className="absolute -bottom-6 -left-6 h-20 w-20 object-contain" />
                     </div>
                     <div>
                         <span className="text-sm font-semibold tracking-wider text-[#FAB915] uppercase">About Us</span>

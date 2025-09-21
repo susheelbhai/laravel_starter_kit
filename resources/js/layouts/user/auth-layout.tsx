@@ -1,4 +1,4 @@
-import AuthLayoutTemplate from '@/layouts/admin/auth/auth-simple-layout';
+import AuthLayoutTemplate from '@/layouts/admin/auth/auth-split-layout';
 
 export default function AuthLayout({ children, title, description, ...props }: { children: React.ReactNode; title: string; description: string }) {
     return (

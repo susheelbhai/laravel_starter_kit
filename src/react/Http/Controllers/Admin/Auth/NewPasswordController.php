@@ -14,19 +14,14 @@ use Illuminate\View\View;
 
 class NewPasswordController extends Controller
 {
-    /**
-     * Display the password reset view.
-     */
-    public function create(Request $request): View
+   public function create(Request $request)
     {
-        return view('separate.admin.auth.reset-password', ['request' => $request]);
+        return inertia('admin/auth/reset-password', [
+            'email' => $request->email,
+            'token' => $request->route('token'),
+        ]);
     }
 
-    /**
-     * Handle an incoming new password request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function store(Request $request): RedirectResponse
     {
         $request->validate([

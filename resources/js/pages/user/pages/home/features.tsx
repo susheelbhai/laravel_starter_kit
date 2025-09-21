@@ -3,8 +3,8 @@ export default function FeatureSection() {
          <section id="features" className="bg-white py-20 md:py-28">
                 <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-4 md:grid-cols-2 md:px-6">
                     <div className="relative">
-                        <img src="/images/about/choose-01.png" alt="Choose Us" className="w-full rounded-md" />
-                        <img src="/images/about/choose-shape.png" alt="Shape" className="absolute -bottom-8 -left-8 h-24 w-24 object-contain" />
+                        <img src="/images/about/choose-01.jpg" alt="Choose Us" className="w-full rounded-md" />
+                        <img src="/images/about/choose-shape.jpg" alt="Shape" className="absolute -bottom-8 -left-8 h-24 w-24 object-contain" />
                     </div>
                     <div>
                         <span className="text-sm font-semibold tracking-wider text-[#FAB915] uppercase">Why Choose Us</span>
