@@ -39,6 +39,8 @@ class final_settings extends Command
             File::deleteDirectory(base_path('resources/js/layouts/settings'));
             File::delete(base_path('resources/js/layouts/app-layout.tsx'));
             File::delete(base_path('resources/js/layouts/auth-layout.tsx'));
+            File::delete(base_path('resources/js/pages/dashboard.tsx'));
+            File::delete(base_path('resources/js/pages/welcome.tsx'));
             File::deleteDirectory(base_path('resources/js/pages/auth'));
             File::deleteDirectory(base_path('resources/js/pages/settings'));
             File::deleteDirectory(base_path('app/Http/Controllers/Auth'));
