@@ -1,6 +1,6 @@
 <?php
 
-namespace Susheelbhai\StarterKit\common\Commands;
+namespace Susheelbhai\StarterKit\common\Commands\Helper;
 
 use Illuminate\Support\Facades\File;
 

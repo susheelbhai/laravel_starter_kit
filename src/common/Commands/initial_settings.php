@@ -4,7 +4,10 @@ namespace Susheelbhai\StarterKit\common\Commands;
 
 use Exception;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
+use Susheelbhai\StarterKit\common\Commands\Helper\EnvValue;
+use Susheelbhai\StarterKit\common\Commands\Helper\ConfigValue;
+use Susheelbhai\StarterKit\common\Commands\Helper\InstallPackages;
+use Susheelbhai\StarterKit\common\Commands\Helper\Publish;
 
 class initial_settings extends Command
 {
@@ -23,17 +26,13 @@ class initial_settings extends Command
         'ADMIN_NAME' => 'Admin'
     );
 
-
     public function handle()
     {
         $starter_kit_type = $this->choice(
             'Select starter kit type',
             ['blade', 'react'],
             1,
-            $maxAttempts = null,
-            $allowMultipleSelections = false
         );
-        
 
         $this->question("Set Environment variable");
         $project_name = $this->ask("Project Name", 'new');
@@ -42,11 +41,7 @@ class initial_settings extends Command
             'DB_CONNECTION',
             ['sqlite', 'mysql', 'mariadb', 'pgsql', 'sqlsrv'],
             1,
-            $maxAttempts = null,
-            $allowMultipleSelections = false
         );
-
-
 
         if ($has_ssl == 'yes') {
             $app_url = $this->ask("APP_URL", 'https://' . $project_name . '.test');
@@ -60,57 +55,25 @@ class initial_settings extends Command
             $this->error($e->getMessage());
         }
 
-        $obj = new EnvValue();
+        $env_obj = new EnvValue();
+        $env_obj->setEnvironmentValueDatabase($this, $this->env_values, $db_type, $project_name);
 
-        $obj->setEnvironmentValueDatabase($this, $this->env_values, $db_type, $project_name);
+        $package_obj = new InstallPackages();
+        $publish_obj = new Publish();
 
-        
         switch ($starter_kit_type) {
             case 'blade':
-                $this->info("Publishing Blade Starter Kit...");
-
-                $exitCode1 = Artisan::call('vendor:publish', [
-                    '--tag'   => 'blade_starter_kit',
-                    '--force' => true,
-                ]);
-                $this->line(Artisan::output());
-
-                $exitCode2 = Artisan::call('vendor:publish', [
-                    '--tag'   => 'starter_kit_themes',
-                    '--force' => true,
-                ]);
-                $this->line(Artisan::output());
-
-                if ($exitCode1 === 0 && $exitCode2 === 0) {
-                    $this->info("✅ Blade Starter Kit and Themes published successfully!");
-                } else {
-                    $this->error("❌ Failed to publish Blade Starter Kit or Themes");
-                }
+                $publish_obj->blade($this);
+                $package_obj->blade($this);
                 break;
-
 
             case 'react':
-                $this->info("Publishing React Starter Kit...");
-
-                $exitCode = Artisan::call('vendor:publish', [
-                    '--tag'   => 'react_starter_kit',
-                    '--force' => true,
-                ]);
-
-                // show what artisan actually did
-                $this->line(Artisan::output());
-
-                if ($exitCode === 0) {
-                    $this->info("✅ React Starter Kit published successfully!");
-                } else {
-                    $this->error("❌ Failed to publish React Starter Kit");
-                }
+                $publish_obj->react($this);
+                $package_obj->react($this);
                 break;
         }
-        
 
         $configClass = new ConfigValue();
-        $config_response = $configClass->handle();
-        $this->line($config_response);
+        $configClass->handle($this);
     }
 }

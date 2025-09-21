@@ -45,17 +45,6 @@ Change Final settings by runnung the command
 
   ```
 
-### Install Other Required Package
-
-```
-composer require tightenco/ziggy
-npm install react-icons
-npm install sweetalert2
-npm install react-select
-
-```
-
-
 ### Create a build
 
 Make production build
@@ -91,31 +80,13 @@ Make production build
   
   ```
 
-  #### With blade starter kit
+  #### navigate to the directory and run the following commands
 
   ```
   composer require susheelbhai/laravel_starter_kit
   php artisan starter_kit:initial_settings
   php artisan migrate:fresh --seed
   php artisan storage:link
-  npm install react-icons
-  npm run build
-  npm run dev
-
-  ``` 
-
-  #### With react starter kit
-
-  ```
-  composer require susheelbhai/laravel_starter_kit
-  php artisan starter_kit:initial_settings
-  php artisan migrate:fresh --seed
-  php artisan starter_kit:final_settings
-  php artisan storage:link
-  composer require tightenco/ziggy
-  npm install react-icons
-  npm install sweetalert2
-  npm install react-select
   npm run build
   npm run dev
 

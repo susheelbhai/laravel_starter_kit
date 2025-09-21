@@ -5,6 +5,8 @@ namespace Susheelbhai\StarterKit\common\Commands;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use Susheelbhai\StarterKit\common\Commands\Helper\UpdateIndexFile;
+use Susheelbhai\StarterKit\common\Commands\Helper\UpdateAppServiceProvider;
 
 class final_settings extends Command
 {
