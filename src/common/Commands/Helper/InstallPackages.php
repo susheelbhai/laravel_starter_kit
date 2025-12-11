@@ -10,12 +10,13 @@ class InstallPackages
     public function react($this_data)
     {
         $this_data->info("Installing PHP packages...");
-        // $this->installPackage($this_data, ['composer', 'require', 'tightenco/ziggy'], "Composer package: tightenco/ziggy");
+        
 
         $this_data->info("Installing NPM packages...");
         $this->installPackage($this_data, ['npm', 'install', 'react-icons'], "NPM package: react-icons");
         $this->installPackage($this_data, ['npm', 'install', 'sweetalert2'], "NPM package: sweetalert2");
         $this->installPackage($this_data, ['npm', 'install', 'react-select'], "NPM package: react-select");
+        $this->installPackage($this_data, ['composer', 'require', 'tightenco/ziggy'], "Composer package: tightenco/ziggy");
     }
 
     public function blade($this_data)

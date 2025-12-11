@@ -80,13 +80,6 @@ Make production build
   
   ```
 
-  please install the following npm package first if you are planning to use react starter kit
-  ```
-  npm install sweetalert2
-  npm install react-select
-  npm install react-icons
-
-  ```
 
   #### navigate to the directory and run the following commands
 

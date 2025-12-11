@@ -66,31 +66,52 @@ class EnvValue
     }
 
     private function setEnvironmentValue($this_data, array $values)
-    {
+{
+    $envFile = app()->environmentFilePath();
+    $str = file_get_contents($envFile);
 
-        $envFile = app()->environmentFilePath();
-        $str = file_get_contents($envFile);
-        $str = str_replace("APP_URL=http://localhost", "APP_URL=http://localhost" . "\n" . "ASSET_URL=http://localhost", $str);
+    // This line can also cause duplicates if run multiple times,
+    // but I’m keeping it as-is since you're relying on it.
+    $str = str_replace(
+        "APP_URL=http://localhost",
+        "APP_URL=http://localhost\nASSET_URL=http://localhost",
+        $str
+    );
 
-        if (count($values) > 0) {
-            $str .= "\n"; // In case the searched variable is in the last line without \n
-            foreach ($values as $envKey => $envValue) {
-                $keyPosition = strpos($str, "{$envKey}=");
-                $endOfLinePosition = strpos($str, "\n", $keyPosition);
-                $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
+    if (count($values) > 0) {
+        $str .= "\n"; // ensure trailing newline
 
-                // If key does not exist, add it
-                if (!$keyPosition || !$endOfLinePosition || !$oldLine) {
-                    $str .= "{$envKey}={$envValue}\n";
-                } else {
-                    $str = str_replace($oldLine, "{$envKey}={$envValue}", $str);
-                }
+        foreach ($values as $envKey => $envValue) {
+            $keyPosition = strpos($str, "{$envKey}=");
+
+            // If key does NOT exist at all
+            if ($keyPosition === false) {
+                $str .= "{$envKey}=\"{$envValue}\"\n";
+                continue;
             }
-        }
 
-        $str = substr($str, 0, -1);
-        if (!file_put_contents($envFile, $str)) return false;
-        $this_data->line("Environment Variable changed");
-        return true;
+            // Find end of line after the key
+            $endOfLinePosition = strpos($str, "\n", $keyPosition);
+
+            if ($endOfLinePosition === false) {
+                // key is on the last line with no newline
+                $endOfLinePosition = strlen($str);
+            }
+
+            $oldLine = substr($str, $keyPosition, $endOfLinePosition - $keyPosition);
+
+            // Replace the whole line with new value
+            $str = str_replace($oldLine, "{$envKey}=\"{$envValue}\"", $str);
+        }
     }
+
+    // Remove extra last newline if you really want to
+    $str = rtrim($str, "\n");
+
+    if (!file_put_contents($envFile, $str)) return false;
+
+    $this_data->line("Environment Variable changed");
+    return true;
+}
+
 }
