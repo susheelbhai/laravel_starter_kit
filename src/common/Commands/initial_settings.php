@@ -37,6 +37,7 @@ class initial_settings extends Command
 
         $this->question("Set Environment variable");
         $project_name = $this->ask("Project Name", 'new');
+        $app_name = $this->ask("App Name", $project_name);
         $has_ssl = $this->ask("do you have ssl available? (yes/no)", 'yes');
         $db_type = $this->choice(
             'DB_CONNECTION',
@@ -55,6 +56,7 @@ class initial_settings extends Command
         } catch (Exception $e) {
             $this->error($e->getMessage());
         }
+        $this->env_values['APP_NAME'] = $app_name;
 
         $env_obj = new EnvValue();
         $env_obj->setEnvironmentValueDatabase($this, $this->env_values, $db_type, $project_name);

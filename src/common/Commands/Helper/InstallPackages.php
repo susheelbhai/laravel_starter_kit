@@ -10,7 +10,7 @@ class InstallPackages
     public function react($this_data)
     {
         $this_data->info("Installing PHP packages...");
-        $this->installPackage($this_data, ['composer', 'require', 'tightenco/ziggy'], "Composer package: tightenco/ziggy");
+        // $this->installPackage($this_data, ['composer', 'require', 'tightenco/ziggy'], "Composer package: tightenco/ziggy");
 
         $this_data->info("Installing NPM packages...");
         $this->installPackage($this_data, ['npm', 'install', 'react-icons'], "NPM package: react-icons");
