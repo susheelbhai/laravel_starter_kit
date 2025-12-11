@@ -3,6 +3,7 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
+import ButtonCreate from '@/components/ui/button-create';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
@@ -34,7 +35,7 @@ export default function Dashboard() {
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Role" />
 
-            <Button href={route('admin.role.create')}>Add New</Button>
+            <ButtonCreate href={route('admin.role.create')} text="Add New" />
 
             <TableCard>
                 <Table>

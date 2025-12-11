@@ -1,21 +1,19 @@
 <?php
 /**
- * Export to PHP Array plugin for PHPMyAdmin
- * @version 5.2.2
+ * Export to PHP Array plugin for phpMyAdmin
+ * @version 5.2.3
  */
-
- 
 
 /**
- * Database `comd`
+ * Database `a19`
  */
 
-/* `comd`.`admins` */
+/* `a19`.`admins` */
 $admins = array(
-  array('id' => '1','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-04-07 14:24:26','name' => 'Susheel Kumar Singh','email' => 'admin@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','profile_pic' => 'images/profile_pic/admin/66125f2687807.jpg','remember_token' => 'c983AmI82JJZf7maNXNXqxI5tJaQWcOjjf6yz0DigEGdl4xuzWkCwCnNCoiQ')
+  array('id' => '1','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-04-07 14:24:26','name' => 'Susheel Kumar Singh','email' => 'admin@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','profile_pic' => 'images/profile_pic/admin/66125f2687807.jpg','address' => NULL,'city' => NULL,'state' => NULL,'dob' => NULL,'remember_token' => 'c983AmI82JJZf7maNXNXqxI5tJaQWcOjjf6yz0DigEGdl4xuzWkCwCnNCoiQ')
 );
 
-/* `comd`.`blogs` */
+/* `a19`.`blogs` */
 $blogs = array(
   array('id' => '1','created_at' => '2024-04-06 00:38:32','updated_at' => '2024-04-06 00:42:46','created_by' => NULL,'title' => 'Profitable business makes your profit','slug' => 'profitable-business-makes-your-profit','display_img' => 'images/blogs/66104c30dd040.jpg','category' => 'Business','author' => 'Susheel Singh','tags' => 'business, profit','short_description' => 'Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services','long_description1' => '<p>Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services</p>
 
@@ -54,23 +52,23 @@ $blogs = array(
 </div>','highlighted_text1' => '“Placerat pretium tristique mattis tellus accuan metus dictumst vivamus odio nulla fusce auctor into suscipit habitasse class congue potenti iaculis”','highlighted_text2' => NULL,'ad_img' => 'images/blogs/ads/66104c30ddd8c.png','ad_url' => 'https://www.gst.gov.in/','views' => NULL,'is_active' => '1')
 );
 
-/* `comd`.`blog_comments` */
+/* `a19`.`blog_comments` */
 $blog_comments = array(
 );
 
-/* `comd`.`blog_views` */
+/* `a19`.`blog_views` */
 $blog_views = array(
 );
 
-/* `comd`.`cache` */
+/* `a19`.`cache` */
 $cache = array(
 );
 
-/* `comd`.`cache_locks` */
+/* `a19`.`cache_locks` */
 $cache_locks = array(
 );
 
-/* `comd`.`clients` */
+/* `a19`.`clients` */
 $clients = array(
   array('id' => '1','created_at' => '2024-04-07 08:55:42','updated_at' => '2024-04-07 08:57:50','name' => 'Zoe Hansen','url' => 'https://www.dixurono.org.uk','logo' => 'images/portfolios/661212b6b6f8d.png','is_active' => '1'),
   array('id' => '2','created_at' => '2024-04-07 08:58:31','updated_at' => '2024-04-07 08:58:31','name' => 'Rashad Randall','url' => 'https://www.rexazosyr.com.au','logo' => 'images/portfolios/661212df050fa.png','is_active' => '1'),
@@ -79,76 +77,102 @@ $clients = array(
   array('id' => '5','created_at' => '2024-04-07 08:59:24','updated_at' => '2024-04-07 08:59:24','name' => 'Tallulah Mcdaniel','url' => 'https://www.mazufuvaw.net','logo' => 'images/portfolios/66121314bbfd1.png','is_active' => '1')
 );
 
-/* `comd`.`failed_jobs` */
+/* `a19`.`failed_jobs` */
 $failed_jobs = array(
 );
 
-/* `comd`.`important_links` */
+/* `a19`.`faqs` */
+$faqs = array(
+  array('id' => '1','created_at' => '2025-05-20 12:26:15','updated_at' => '2025-05-20 12:26:15','faq_category_id' => '1','question' => 'What is your return policy?','answer' => '<p>We offer a 30-day return policy on all products. If you are not satisfied with your purchase, please contact our support team to initiate the return process.</p>','is_active' => '1'),
+  array('id' => '2','created_at' => '2025-05-20 12:27:45','updated_at' => '2025-05-20 12:27:45','faq_category_id' => '1','question' => 'How do I track my order?','answer' => '<p>You can track your order using the tracking number provided in your order confirmation email. Simply enter the tracking number on our website\'s tracking page to see the status of your shipment.</p>','is_active' => '1'),
+  array('id' => '3','created_at' => '2025-05-20 12:28:30','updated_at' => '2025-05-20 12:28:30','faq_category_id' => '2','question' => 'Do you offer discounts for bulk purchases?','answer' => '<p>Yes, we offer discounts for bulk purchases. Please contact our sales team for more information on pricing and available discounts.</p>','is_active' => '1')
+);
+
+/* `a19`.`faq_categories` */
+$faq_categories = array(
+  array('id' => '1','title' => 'General','is_active' => '1'),
+  array('id' => '2','title' => 'Pricing','is_active' => '1')
+);
+
+/* `a19`.`important_links` */
 $important_links = array(
   array('id' => '1','created_at' => '2025-05-17 16:40:35','updated_at' => '2025-05-17 16:40:35','href' => 'tnc','name' => 'Terms of Uses','image' => 'dummy.png','is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-17 16:40:53','updated_at' => '2025-05-17 16:40:53','href' => 'privacy','name' => 'Privacy Policy','image' => 'dummy.png','is_active' => '1'),
   array('id' => '3','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'refund','name' => 'Refund Policy','image' => 'dummy.png','is_active' => '1'),
-  array('id' => '4','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'faq','name' => 'FAQ','image' => 'dummy.png','is_active' => '1'),
-
+  array('id' => '4','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'faq','name' => 'FAQ','image' => 'dummy.png','is_active' => '1')
 );
 
-/* `comd`.`jobs` */
+/* `a19`.`jobs` */
 $jobs = array(
 );
 
-/* `comd`.`job_batches` */
+/* `a19`.`job_batches` */
 $job_batches = array(
 );
 
-/* `comd`.`migrations` */
+/* `a19`.`migrations` */
 $migrations = array(
-  array('id' => '1','migration' => '0001_01_01_000000_create_users_table','batch' => '1'),
-  array('id' => '2','migration' => '0001_01_01_000001_create_cache_table','batch' => '1'),
-  array('id' => '3','migration' => '0001_01_01_000002_create_jobs_table','batch' => '1'),
-  array('id' => '4','migration' => '2023_01_11_132426_create_settings_table','batch' => '1'),
-  array('id' => '5','migration' => '2023_02_12_112123_create_important_links_table','batch' => '1'),
-  array('id' => '6','migration' => '2023_02_12_112123_create_testimonials_table','batch' => '1'),
-  array('id' => '7','migration' => '2023_03_05_185524_create_user_query_statuses_table','batch' => '1'),
-  array('id' => '8','migration' => '2023_03_05_185525_create_user_queries_table','batch' => '1'),
-  array('id' => '9','migration' => '2023_03_17_185525_create_page_about_table','batch' => '1'),
-  array('id' => '10','migration' => '2023_03_17_185525_create_page_contact_table','batch' => '1'),
-  array('id' => '11','migration' => '2023_03_17_185525_create_page_home_table','batch' => '1'),
-  array('id' => '12','migration' => '2023_03_17_185525_create_page_privacy_table','batch' => '1'),
-  array('id' => '13','migration' => '2023_03_17_185525_create_page_refund_table','batch' => '1'),
-  array('id' => '14','migration' => '2023_03_17_185525_create_page_tnc_table','batch' => '1'),
-  array('id' => '15','migration' => '2023_03_17_185525_create_slider1_table','batch' => '1'),
-  array('id' => '16','migration' => '2024_03_20_145649_create_admins_table','batch' => '1'),
-  array('id' => '17','migration' => '2024_03_20_145702_create_partners_table','batch' => '1'),
-  array('id' => '18','migration' => '2024_04_05_185756_create_services_table','batch' => '1'),
-  array('id' => '19','migration' => '2024_04_05_190924_create_blogs_table','batch' => '1'),
-  array('id' => '20','migration' => '2024_04_05_213336_create_blog_comments_table','batch' => '1'),
-  array('id' => '21','migration' => '2024_04_06_131412_create_newsletters_table','batch' => '1'),
-  array('id' => '22','migration' => '2024_04_07_083432_create_portfolios_table','batch' => '1'),
-  array('id' => '23','migration' => '2024_04_07_123531_create_blog_views_table','batch' => '1')
+  array('id' => '1','migration' => '0001_01_01_000000_create_states_table','batch' => '1'),
+  array('id' => '2','migration' => '0001_01_01_000000_create_users_table','batch' => '1'),
+  array('id' => '3','migration' => '0001_01_01_000001_create_cache_table','batch' => '1'),
+  array('id' => '4','migration' => '0001_01_01_000002_create_jobs_table','batch' => '1'),
+  array('id' => '5','migration' => '2023_01_11_132426_create_settings_table','batch' => '1'),
+  array('id' => '6','migration' => '2023_01_11_132426_create_visitors_table','batch' => '1'),
+  array('id' => '7','migration' => '2023_02_12_112123_create_important_links_table','batch' => '1'),
+  array('id' => '8','migration' => '2023_02_12_112123_create_team_table','batch' => '1'),
+  array('id' => '9','migration' => '2023_02_12_112123_create_testimonials_table','batch' => '1'),
+  array('id' => '10','migration' => '2023_03_05_185524_create_user_query_statuses_table','batch' => '1'),
+  array('id' => '11','migration' => '2023_03_05_185525_create_user_queries_table','batch' => '1'),
+  array('id' => '12','migration' => '2023_03_17_185525_create_page_about_table','batch' => '1'),
+  array('id' => '13','migration' => '2023_03_17_185525_create_page_contact_table','batch' => '1'),
+  array('id' => '14','migration' => '2023_03_17_185525_create_page_home_table','batch' => '1'),
+  array('id' => '15','migration' => '2023_03_17_185525_create_page_privacy_table','batch' => '1'),
+  array('id' => '16','migration' => '2023_03_17_185525_create_page_refund_table','batch' => '1'),
+  array('id' => '17','migration' => '2023_03_17_185525_create_page_tnc_table','batch' => '1'),
+  array('id' => '18','migration' => '2023_03_17_185525_create_slider1_table','batch' => '1'),
+  array('id' => '19','migration' => '2024_03_20_145649_create_admins_table','batch' => '1'),
+  array('id' => '20','migration' => '2024_03_20_145702_create_partners_table','batch' => '1'),
+  array('id' => '21','migration' => '2024_04_05_185756_create_services_table','batch' => '1'),
+  array('id' => '22','migration' => '2024_04_05_190924_create_blogs_table','batch' => '1'),
+  array('id' => '23','migration' => '2024_04_05_213336_create_blog_comments_table','batch' => '1'),
+  array('id' => '24','migration' => '2024_04_06_131412_create_newsletters_table','batch' => '1'),
+  array('id' => '25','migration' => '2024_04_07_083432_create_portfolios_table','batch' => '1'),
+  array('id' => '26','migration' => '2024_04_07_123531_create_blog_views_table','batch' => '1'),
+  array('id' => '27','migration' => '2025_05_28_133707_create_permission_tables','batch' => '1'),
+  array('id' => '28','migration' => '2025_08_26_100418_add_two_factor_columns_to_users_table','batch' => '1'),
+  array('id' => '29','migration' => '2025_11_24_115246_create_faq_categories_table','batch' => '1'),
+  array('id' => '30','migration' => '2025_11_24_154314_create_faqs_table','batch' => '1')
 );
 
-/* `comd`.`newsletters` */
+/* `a19`.`model_has_permissions` */
+$model_has_permissions = array(
+);
+
+/* `a19`.`model_has_roles` */
+$model_has_roles = array(
+  array('role_id' => '1','model_type' => 'App\\Models\\Admin','model_id' => '1')
+);
+
+/* `a19`.`newsletters` */
 $newsletters = array(
 );
 
-/* `comd`.`page_about` */
+/* `a19`.`page_about` */
 $page_about = array(
-  array('id' => '1','created_at' => '2025-05-20 11:50:21','updated_at' => '2025-05-20 12:21:45','para1' => '<p>Welcome to our organization! We are a passionate team dedicated to delivering excellence in everything we do. With a deep commitment to our core values, we aim to positively impact our industry and community.</p>','para2' => '<p>Our journey began with a vision to create meaningful change. Through relentless innovation, collaboration, and integrity, we continue to grow and evolve while staying true to our purpose.</p>','objective' => '<p>To provide top-tier services and solutions that empower our clients and exceed expectations through consistent quality and innovation.</p>','mission' => '<p>To drive sustainable growth and deliver exceptional results by embracing creativity, integrity, and community impact.</p>','vision' => '<p>To be a global leader recognized for transforming lives through innovation, leadership, and purposeful action.</p>','founder_image' => 'images/webpage/682c2527bb95c.jpeg','founder_message' => '<p>&quot;When I started this journey, I envisioned a place where passion meets purpose. Today, I am proud to lead a team that shares the same dedication and drive. Together, we are building something truly special.&quot;</p>
-
-<p>&ndash; John Doe, Founder &amp; CEO</p>','banner' => 'images/webpage/682c2527bc547.png')
+  array('id' => '1','created_at' => '2025-12-11 14:15:20','updated_at' => '2025-12-11 14:15:20','para1' => NULL,'para2' => NULL,'objective' => NULL,'mission' => NULL,'vision' => NULL,'founder_image' => 'dummy.png','founder_message' => NULL,'banner' => 'dummy.png')
 );
 
-/* `comd`.`page_contact` */
+/* `a19`.`page_contact` */
 $page_contact = array(
-  array('id' => '1','created_at' => '2025-05-17 16:39:42','updated_at' => '2025-05-17 16:39:42','banner' => 'dummy.png','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
+  array('id' => '1','created_at' => '2025-12-11 14:15:20','updated_at' => '2025-12-11 14:15:20','banner' => 'dummy.png','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
 );
 
-/* `comd`.`page_home` */
+/* `a19`.`page_home` */
 $page_home = array(
-  array('id' => '1','created_at' => '2025-05-17 16:39:42','updated_at' => '2025-05-17 16:39:42','banner1' => '1','slider1' => '0','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
+  array('id' => '1','created_at' => '2025-12-11 14:15:20','updated_at' => '2025-12-11 14:15:20','banner1' => '1','slider1' => '0','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
 );
 
-/* `comd`.`page_privacy` */
+/* `a19`.`page_privacy` */
 $page_privacy = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:11:08','title' => 'Privacy Policy','content' => '<h1>Who we are</h1>
 
@@ -195,7 +219,7 @@ $page_privacy = array(
 <p><strong>Visitor comments may be checked through an automated spam detection service.</strong></p>')
 );
 
-/* `comd`.`page_refund` */
+/* `a19`.`page_refund` */
 $page_refund = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:33:35','title' => 'Refund Policy','content' => '<h1>&nbsp;</h1>
 
@@ -205,7 +229,7 @@ $page_refund = array(
 </ul>')
 );
 
-/* `comd`.`page_tnc` */
+/* `a19`.`page_tnc` */
 $page_tnc = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:35:40','title' => 'Terms and Conditions','content' => '<h1>&nbsp;</h1>
 
@@ -233,16 +257,33 @@ $page_tnc = array(
 </ul>')
 );
 
-/* `comd`.`partners` */
+/* `a19`.`partners` */
 $partners = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-07 14:23:25','name' => 'Susheel Kumar Singh','email' => 'partner@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$xqgJ.4gcxojQHrLRckOn/ujnIzYCzIvXoB2YpdLYW22k86KknELOe','profile_pic' => 'images/profile_pic/partner/66125f056ed84.jpg','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
 );
 
-/* `comd`.`password_reset_tokens` */
+/* `a19`.`password_reset_tokens` */
 $password_reset_tokens = array(
 );
 
-/* `comd`.`services` */
+/* `a19`.`permissions` */
+$permissions = array(
+  array('id' => '1','name' => 'all rights','guard_name' => 'admin','created_at' => '2025-12-11 14:15:20','updated_at' => '2025-12-11 14:15:20'),
+  array('id' => '2','name' => 'user.create','guard_name' => 'admin','created_at' => '2025-12-11 14:15:20','updated_at' => '2025-12-11 14:15:20')
+);
+
+/* `a19`.`roles` */
+$roles = array(
+  array('id' => '1','name' => 'Super Admin','guard_name' => 'admin','created_at' => '2025-12-11 14:15:20','updated_at' => '2025-12-11 14:15:20')
+);
+
+/* `a19`.`role_has_permissions` */
+$role_has_permissions = array(
+  array('permission_id' => '1','role_id' => '1'),
+  array('permission_id' => '2','role_id' => '1')
+);
+
+/* `a19`.`services` */
 $services = array(
   array('id' => '1','created_at' => '2024-04-06 09:23:05','updated_at' => '2024-04-06 09:23:05','created_by' => NULL,'title' => 'Business Growth Mangment','slug' => 'business-growth-mangment','category' => 'Business','display_img' => 'images/services/6610c721de1e9.jpg','tags' => 'jsh,df','short_description' => 'Catalysts for change before fully tested markets are maintain wireless scenarios after intermandated applications predominate revolutionary.','long_description1' => '<p>Continually myocardinate holistic mindshare with client-based web services. Assertively e-enable catalysts for change before tested markets. Phosfluorescently maintain wireless scenarios after intermandated applications. Conveniently predominate revolutionary quality vectors through future-proof manufactured products. Enthusiastically transform distinctive collaboration.</p>
 
@@ -353,20 +394,22 @@ $services = array(
 
 <div class="single-banifits">Automotive service our clients receive</div>
 </div>
-</div>','is_active' => '1')
+</div>','is_active' => '1'),
+  array('id' => '2','created_at' => '2025-12-11 17:38:20','updated_at' => '2025-12-11 17:38:20','created_by' => NULL,'title' => 'Magna amet adipisic','slug' => 'magna-amet-adipisic','category' => 'Voluptates dolore op','display_img' => 'images/services/693b018ccd30b.png','tags' => 'Laborum ipsa iure q','short_description' => 'Distinctio Velit si','long_description1' => '<p>tryer</p>','long_description2' => '<p>ertyer</p>','long_description3' => '<p>eryter</p>','is_active' => '1'),
+  array('id' => '3','created_at' => '2025-12-11 17:38:32','updated_at' => '2025-12-11 17:38:32','created_by' => NULL,'title' => 'Nisi in recusandae','slug' => 'nisi-in-recusandae','category' => 'Quibusdam porro ab f','display_img' => 'images/services/693b01987a9ca.png','tags' => 'Quibusdam minus dolo','short_description' => 'Doloribus officia en','long_description1' => '<p>dsfaasd</p>','long_description2' => NULL,'long_description3' => NULL,'is_active' => '1')
 );
 
-/* `comd`.`sessions` */
+/* `a19`.`sessions` */
 $sessions = array(
-  array('id' => 'n15wrMWszAcCcU26Px57SMcdWLw5wTJK6CCiHY3J','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36','payload' => 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQ1hUbnpZZTQ2aktCcmRXZUhPT1RFSnFPRGd4NmxjZjluWXB4VWlpdSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MTc6Imh0dHBzOi8vY29tZC50ZXN0Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=','last_activity' => '1747480281')
+  array('id' => 'SC6WJWigUHk0PdpqIdZl18OIHJknwPoNzn1LLjcI','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36','payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiblRRMzRIMVFiclhSUUpsTVp4SWhrWk9aSjBjZWNRbUJDWnppeDBMbSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHBzOi8vYTE5LnRlc3QvYXBpL3Zpc2l0b3JzL2NvdW50IjtzOjU6InJvdXRlIjtOO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YToxOntzOjg6ImludGVuZGVkIjtzOjI2OiJodHRwczovL2ExOS50ZXN0L2Rhc2hib2FyZCI7fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9','last_activity' => '1765474716')
 );
 
-/* `comd`.`settings` */
+/* `a19`.`settings` */
 $settings = array(
-  array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2024-04-07 15:15:59','app_name' => 'Application Name','favicon' => 'images/logo/66126b57961af.png','dark_logo' => 'images/logo/66126b5796aba.png','light_logo' => 'images/logo/66126b579702f.png','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '+1 (556) 675-2551','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','google_map' => NULL,'whatsapp' => NULL,)
+  array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2024-04-07 15:15:59','app_name' => 'Application Name','favicon' => 'images/logo/66126b57961af.png','dark_logo' => 'images/logo/66126b5796aba.png','light_logo' => 'images/logo/66126b579702f.png','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '+1 (556) 675-2551','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','youtube' => NULL,'google_map' => NULL,'whatsapp' => NULL,'admin_theme' => NULL,'user_theme' => NULL,'partner_theme' => NULL,'color1' => NULL,'color2' => NULL,'color3' => NULL,'color4' => NULL,'color5' => NULL,'color6' => NULL)
 );
 
-/* `comd`.`slider1` */
+/* `a19`.`slider1` */
 $slider1 = array(
   array('id' => '1','created_at' => '2025-05-22 18:28:54','updated_at' => '2025-05-22 22:05:37','heading1' => 'Aspernatur facere ni','heading2' => 'Consequuntur commodo','paragraph1' => 'Enim animi cum est','paragraph2' => 'Quas occaecat quis e','btn_name' => 'Praesentium animi a','btn_url' => 'Quia accusantium id','btn_target' => 'Id quidem quo omnis','image1' => 'images/slider/WDMaZSyrmlj5aCm2VEBbJL1Zd6APChdcEc8Rdhl6.jpg','image2' => NULL,'is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-22 18:30:21','updated_at' => '2025-05-22 22:05:32','heading1' => 'Vel optio et simili','heading2' => 'Natus unde velit exc','paragraph1' => 'Nobis tempore verit','paragraph2' => 'Nulla minim consequu','btn_name' => 'Quia velit minima c','btn_url' => 'Voluptates distincti','btn_target' => 'Velit ut dolore maxi','image1' => 'images/slider/6QKUS0TyO6QEG9lru7MfB8MFkudMnDqyitoK0Zxj.jpg','image2' => NULL,'is_active' => '1'),
@@ -376,26 +419,31 @@ $slider1 = array(
   array('id' => '6','created_at' => '2025-05-22 18:46:12','updated_at' => '2025-05-22 22:02:21','heading1' => 'Hic adipis','heading2' => 'Dicta tempor fuga I','paragraph1' => 'Eos et nulla volupt','paragraph2' => 'Fugiat enim dolor t','btn_name' => 'Accusantium veniam','btn_url' => 'Pariatur Mollit vol','btn_target' => 'Architecto officia r','image1' => 'images/slider/FMfsNecdopGN17JFHArlon2Fqf1rQPnJWB02Lm9q.jpg','image2' => 'images/slider/682f4ae570703.png','is_active' => '1')
 );
 
-/* `comd`.`testimonials` */
+/* `a19`.`states` */
+$states = array(
+);
+
+/* `a19`.`team` */
+$team = array(
+  array('id' => '1','created_at' => '2025-12-11 15:04:24','updated_at' => '2025-12-11 15:05:53','name' => 'Malachi Howard','designation' => 'Incidunt omnis ad n','image' => 'images/team/693add78ab662.jpg','is_active' => '1'),
+  array('id' => '2','created_at' => '2025-12-11 17:35:44','updated_at' => '2025-12-11 17:35:44','name' => 'Reagan Hess','designation' => 'Ullam debitis volupt','image' => 'images/team/693b00f022d7f.jpg','is_active' => '1'),
+  array('id' => '3','created_at' => '2025-12-11 17:35:58','updated_at' => '2025-12-11 17:35:58','name' => 'Hanae Fox','designation' => 'Qui qui suscipit sed','image' => 'images/team/693b00fe4363e.jpg','is_active' => '1'),
+  array('id' => '4','created_at' => '2025-12-11 17:37:09','updated_at' => '2025-12-11 17:37:09','name' => 'Alfonso Wynn','designation' => 'Culpa dicta magnam','image' => 'images/team/693b0145c3636.png','is_active' => '1')
+);
+
+/* `a19`.`testimonials` */
 $testimonials = array(
+  array('id' => '1','created_at' => '2025-12-11 14:58:46','updated_at' => '2025-12-11 15:06:50','name' => 'Lilah Moran','designation' => 'Optio laboris cupid','organisation' => 'Serrano and Sosa Co','message' => 'Molestias quas delec','image' => 'images/testimonials/693adc26e09f6.jpg','is_active' => '1'),
+  array('id' => '2','created_at' => '2025-12-11 14:59:43','updated_at' => '2025-12-11 15:06:45','name' => 'Autumn Wise','designation' => 'Inventore voluptatum','organisation' => 'Compton Hampton LLC','message' => 'Sint dolor voluptate','image' => 'images/testimonials/693adc5f07b4e.jpg','is_active' => '1'),
+  array('id' => '3','created_at' => '2025-12-11 14:59:48','updated_at' => '2025-12-11 15:06:38','name' => 'Kirsten Farrell','designation' => 'Velit nisi facilis r','organisation' => 'Underwood and Randolph Traders','message' => 'Optio voluptatem ha','image' => 'images/testimonials/693adc64b3360.jpg','is_active' => '1')
 );
 
-/* `comd`.`users` */
+/* `a19`.`users` */
 $users = array(
-  array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => NULL,'profile_pic' => 'images/profile_pic/dummy.png','email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-03-23 09:22:02')
+  array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => '09315531574','profile_pic' => 'images/profile_pic/693ad3d76e8e2.jpg','email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','two_factor_secret' => NULL,'two_factor_recovery_codes' => NULL,'two_factor_confirmed_at' => NULL,'remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2025-12-11 14:23:19')
 );
 
-$faq_categories = array(
-  array('id' => '1','title' => 'General','is_active' => '1'),
-  array('id' => '2','title' => 'Pricing','is_active' => '1'),
-);
-$faqs = array(
-  array('id' => '1','created_at' => '2025-05-20 12:26:15','updated_at' => '2025-05-20 12:26:15','question' => 'What is your return policy?','answer' => '<p>We offer a 30-day return policy on all products. If you are not satisfied with your purchase, please contact our support team to initiate the return process.</p>','faq_category_id' => '1','is_active' => '1'),
-  array('id' => '2','created_at' => '2025-05-20 12:27:45','updated_at' => '2025-05-20 12:27:45','question' => 'How do I track my order?','answer' => '<p>You can track your order using the tracking number provided in your order confirmation email. Simply enter the tracking number on our website\'s tracking page to see the status of your shipment.</p>','faq_category_id' => '1','is_active' => '1'),
-  array('id' => '3','created_at' => '2025-05-20 12:28:30','updated_at' => '2025-05-20 12:28:30','question' => 'Do you offer discounts for bulk purchases?','answer' => '<p>Yes, we offer discounts for bulk purchases. Please contact our sales team for more information on pricing and available discounts.</p>','faq_category_id' => '2','is_active' => '1'),
-);
-
-/* `comd`.`user_queries` */
+/* `a19`.`user_queries` */
 $user_queries = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Alexa Wolf I','email' => 'brionna74@example.com','phone' => '1-930-284-0965','message' => 'Calista Powlowski DDS','subject' => 'Lizeth Greenfelder II','status_id' => '1','deleted_at' => NULL),
   array('id' => '2','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Dr. Cathryn Beer DDS','email' => 'apredovic@example.com','phone' => '1-480-716-4461','message' => 'Alexandro Weber','subject' => 'Gabrielle Grant','status_id' => '1','deleted_at' => NULL),
@@ -497,14 +545,20 @@ $user_queries = array(
   array('id' => '98','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Ms. Eula Mosciski','email' => 'bauch.alfreda@example.org','phone' => '+1.657.481.1655','message' => 'Mrs. Callie Murphy Sr.','subject' => 'Prof. Orion Von','status_id' => '1','deleted_at' => NULL),
   array('id' => '99','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Christian Maggio','email' => 'thelma.schimmel@example.com','phone' => '+1-872-721-2603','message' => 'Ms. Erna Huel','subject' => 'Magnolia Muller','status_id' => '1','deleted_at' => NULL),
   array('id' => '100','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Marge Moore DDS','email' => 'aufderhar.brionna@example.net','phone' => '463-398-6328','message' => 'Johnnie D\'Amore MD','subject' => 'Vickie White','status_id' => '1','deleted_at' => NULL),
-  array('id' => '101','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Muhammad Hoppe','email' => 'mraz.cyril@example.org','phone' => '+1-318-784-0552','message' => 'Jennifer Kreiger Sr.','subject' => 'Reba Feest','status_id' => '1','deleted_at' => NULL)
+  array('id' => '101','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Muhammad Hoppe','email' => 'mraz.cyril@example.org','phone' => '+1-318-784-0552','message' => 'Jennifer Kreiger Sr.','subject' => 'Reba Feest','status_id' => '1','deleted_at' => NULL),
+  array('id' => '102','created_at' => '2025-12-11 14:16:42','updated_at' => '2025-12-11 14:16:42','name' => 'Amanda Trevino','email' => 'wadimap@mailinator.com','phone' => '+1 (556) 944-6046','message' => 'Dolore quas ipsum c','subject' => 'Repudiandae ipsam ve','status_id' => '1','deleted_at' => NULL)
 );
 
-/* `comd`.`user_query_statuses` */
+/* `a19`.`user_query_statuses` */
 $user_query_statuses = array(
   array('id' => '1','name' => 'Unread'),
   array('id' => '2','name' => 'Viewd'),
   array('id' => '3','name' => 'Spam'),
   array('id' => '4','name' => 'Responded'),
   array('id' => '5','name' => 'Closed')
+);
+
+/* `a19`.`visitors` */
+$visitors = array(
+  array('id' => '1','ip_address' => '127.0.0.1','created_at' => '2025-12-11 14:16:28','updated_at' => '2025-12-11 14:16:28')
 );

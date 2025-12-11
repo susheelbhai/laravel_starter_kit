@@ -21,9 +21,9 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="mt-16 bg-slate-950 text-slate-300 ">
+    <footer className=" bg-slate-950 text-slate-300 ">
       {/* Accent top border */}
-      <div className="h-1 w-full bg-gradient-to-r from-[#FAB915] via-amber-400 to-[#FAB915]" />
+      <div className="h-1 w-full bg-primary " />
 
       <div className="mx-auto max-w-7xl px-6 py-10 md:px-10 lg:px-14">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -46,25 +46,25 @@ const Footer: React.FC = () => {
 
             <div className="mt-4 space-y-1.5 text-sm">
               <p>
-                <span className="mr-1.5 text-[#FAB915]">📞</span>
+                <span className="mr-1.5 text-primary">📞</span>
                 <a
                   href={`tel:${appData.phone}`}
-                  className="hover:text-[#FAB915] transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   {appData.phone}
                 </a>
               </p>
               <p>
-                <span className="mr-1.5 text-[#FAB915]">✉️</span>
+                <span className="mr-1.5 text-primary">✉️</span>
                 <a
                   href={`mailto:${appData.email}`}
-                  className="hover:text-[#FAB915] transition-colors break-all"
+                  className="hover:text-primary transition-colors break-all"
                 >
                   {appData.email}
                 </a>
               </p>
               <p className="flex items-start text-sm">
-                <span className="mr-1.5 text-[#FAB915]">🏢</span>
+                <span className="mr-1.5 text-primary">🏢</span>
                 <span className="text-slate-400">{appData.address}</span>
               </p>
             </div>
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
                 <li key={link.id}>
                   <Link
                     href={link.href}
-                    className="inline-flex items-center gap-2 text-slate-400 transition-colors hover:text-[#FAB915]"
+                    className="inline-flex items-center gap-2 text-slate-400 transition-colors hover:text-primary"
                   >
                     <span className="h-[3px] w-[3px] rounded-full bg-slate-500" />
                     {link.name}
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
                   href={appData.facebook}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-[#FAB915] hover:text-slate-950"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-slate-950"
                 >
                   <FaFacebookF />
                 </a>
@@ -111,7 +111,7 @@ const Footer: React.FC = () => {
                   href={appData.twitter}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-[#FAB915] hover:text-slate-950"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-slate-950"
                 >
                   <FaTwitter />
                 </a>
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
                   href={appData.instagram}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-[#FAB915] hover:text-slate-950"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-slate-950"
                 >
                   <FaInstagram />
                 </a>
@@ -131,7 +131,7 @@ const Footer: React.FC = () => {
                   href={appData.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-[#FAB915] hover:text-slate-950"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-slate-950"
                 >
                   <FaLinkedinIn />
                 </a>
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
                   href={appData.youtube}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-[#FAB915] hover:text-slate-950"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-sm text-slate-200 transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-slate-950"
                 >
                   <FaYoutube />
                 </a>
@@ -154,7 +154,7 @@ const Footer: React.FC = () => {
                 <p className="text-[11px] uppercase tracking-wide text-slate-400">
                   Total Visitors
                 </p>
-                <p className="mt-1 text-lg font-semibold text-[#FAB915]">
+                <p className="mt-1 text-lg font-semibold text-primary">
                   {visitors.total}
                 </p>
               </div>
@@ -162,7 +162,7 @@ const Footer: React.FC = () => {
                 <p className="text-[11px] uppercase tracking-wide text-slate-400">
                   Today&apos;s Visitors
                 </p>
-                <p className="mt-1 text-lg font-semibold text-[#FAB915]">
+                <p className="mt-1 text-lg font-semibold text-primary">
                   {visitors.today}
                 </p>
               </div>

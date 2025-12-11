@@ -104,13 +104,13 @@ class TestimonialController extends Controller
         if ($request->hasFile('image')) {
             $image_name = 'images/testimonials/' . uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->move(public_path('/storage/images/testimonials'), $image_name);
+            $testimonial->image = $image_name;
         }
 
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
         $testimonial->organisation = $request->organisation;
         $testimonial->message = $request->message;
-        $testimonial->image = $image_name;
         $testimonial->is_active = $request->is_active;
         $testimonial->update();
         return redirect()->route('admin.testimonial.index');

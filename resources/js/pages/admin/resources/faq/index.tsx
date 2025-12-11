@@ -4,6 +4,7 @@ import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
 import TextLink from '@/components/text-link';
+import ButtonCreate from '@/components/ui/button-create';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
@@ -28,8 +29,7 @@ export default function Dashboard() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Faq" />
-
-            <Button href={route('admin.faq.create')}>Add New</Button>
+            <ButtonCreate href={route('admin.faq.create')} text="Add New" />
 
             <TableCard>
                 <Table>
