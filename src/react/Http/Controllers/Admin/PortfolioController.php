@@ -40,17 +40,11 @@ class PortfolioController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
+         $request->validate([
+             'name' => 'required',
             'url' => 'required',
         ]);
-
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/portfolio/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
+        
         $image_name = 'images/portfolios/dummy.png';
         $portfolio = new Portfolio();
         if ($request->hasFile('logo')) {

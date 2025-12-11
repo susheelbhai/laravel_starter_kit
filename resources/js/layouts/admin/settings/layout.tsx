@@ -17,11 +17,7 @@ const sidebarNavItems: NavItem[] = [
         href: '/admin/settings/password',
         icon: null,
     },
-    {
-        title: 'Appearance',
-        href: '/admin/settings/appearance',
-        icon: null,
-    },
+    
 ];
 
 export default function SettingsLayout({ children }: PropsWithChildren) {
@@ -40,19 +36,21 @@ export default function SettingsLayout({ children }: PropsWithChildren) {
                 <aside className="w-full max-w-xl lg:w-48">
                     <nav className="flex flex-col space-y-1 space-x-0">
                         {sidebarNavItems.map((item, index) => (
-                            <Button
-                                key={`${item.href}-${index}`}
-                                size="sm"
-                                variant="ghost"
-                                asChild
-                                className={cn('w-full justify-start', {
-                                    'bg-muted': currentPath === item.href,
-                                })}
-                            >
-                                <Link href={item.href} prefetch>
-                                    {item.title}
-                                </Link>
-                            </Button>
+                            item.href && (
+                                <Button
+                                    key={`${item.href}-${index}`}
+                                    size="sm"
+                                    variant="ghost"
+                                    asChild
+                                    className={cn('w-full justify-start', {
+                                        'bg-muted': currentPath === item.href,
+                                    })}
+                                >
+                                    <Link href={item.href} prefetch>
+                                        {item.title}
+                                    </Link>
+                                </Button>
+                            )
                         ))}
                     </nav>
                 </aside>

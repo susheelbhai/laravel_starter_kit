@@ -40,26 +40,19 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required',
             'message' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/testimonial/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
         $image_name = 'images/testimonials/dummy.png';
         $testimonial = new Testimonial();
 
-         if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $image_name = 'images/testimonials/' . uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->move(public_path('/storage/images/testimonials'), $image_name);
             $testimonial->image = $image_name;
         }
-        
+
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
         $testimonial->organisation = $request->organisation;
@@ -102,20 +95,13 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required',
             'message' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/testimonial/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
         $testimonial =  Testimonial::find($id);
 
-         if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $image_name = 'images/testimonials/' . uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->move(public_path('/storage/images/testimonials'), $image_name);
         }

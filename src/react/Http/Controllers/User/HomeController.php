@@ -17,6 +17,7 @@ use App\Models\UserQuery;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Events\ContactFormSubmitted;
+use App\Models\Faq;
 
 class HomeController extends Controller
 {
@@ -59,6 +60,13 @@ class HomeController extends Controller
     }
     function contactSubmit(Request $request)
     {
+        $request->validate([
+            'name'    => 'required|string|max:255',
+            'email'   => 'required|email|max:255',
+            'phone'   => 'required|string|max:20',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
         $data = new UserQuery();
         $data->name = $request['name'];
         $data->email = $request['email'];
@@ -66,7 +74,8 @@ class HomeController extends Controller
         $data->subject = $request['subject'];
         $data->message = $request['message'];
         $data->save();
-        event(new ContactFormSubmitted($data['id']));
+        // dd($data);
+        event(new ContactFormSubmitted($data));
         return back()->with('success', 'You have successfully submitted the form');
     }
 
@@ -93,5 +102,29 @@ class HomeController extends Controller
     {
         $data = PageRefund::whereId(1)->first();
         return Inertia::render('user/pages/refund', compact( 'data'));
+    }
+    function faq()
+    {
+        $faqs = Faq::where('is_active', 1)
+            ->with('category')
+            ->orderBy('faq_category_id')
+            ->get()
+            ->groupBy('faq_category_id')
+            ->map(function ($items) {
+                return [
+                    'category_title' => $items->first()->category->title,
+                    'faqs' => $items->map(function ($faq) {
+                        return [
+                            'id'       => $faq->id,
+                            'question' => $faq->question,
+                            'answer'   => $faq->answer,
+                        ];
+                    })->values(),
+                ];
+            });
+
+        $data = $faqs->values();
+        // dd($data);
+        return Inertia::render('user/pages/faq', compact('data'));
     }
 }

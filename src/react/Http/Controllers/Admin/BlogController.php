@@ -28,18 +28,11 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'title' => 'required',
             'long_description1' => 'required',
             'display_img' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/blog/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
 
         $image_name = 'dummy.png';
         $ad_img_name = 'dummy.png';
@@ -49,7 +42,7 @@ class BlogController extends Controller
             $image_name = 'images/blogs/' . uniqid() . '.' . $request->file('display_img')->getClientOriginalExtension();
             $request->file('display_img')->move(public_path('/storage/images/blogs'), $image_name);
         }
-        
+
         if ($request->hasFile('ad_img')) {
             $ad_img_name = 'images/blogs/ads/' . uniqid() . '.' . $request->file('ad_img')->getClientOriginalExtension();
             $request->file('ad_img')->move(public_path('/storage/images/blogs/ads'), $ad_img_name);
@@ -69,7 +62,7 @@ class BlogController extends Controller
         $data->display_img = $image_name;
         $data->ad_img = $ad_img_name;
         $data->is_active = $request->is_active;
-        
+
         $data->save();
         return redirect()->route('admin.blog.index')->with('success', 'New blog created successfully');
     }
@@ -96,19 +89,12 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // return $request->all();
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'title' => 'required',
             'long_description1' => 'required',
+            'display_img' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/blog/edit', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
-         $data = Blog::find($id);
+        $data = Blog::find($id);
         $image_name = $data['display_img'];
         $ad_img_name = $data['ad_img'];
 
@@ -116,12 +102,12 @@ class BlogController extends Controller
             $image_name = 'images/blogs/' . uniqid() . '.' . $request->file('display_img')->getClientOriginalExtension();
             $request->file('display_img')->move(public_path('/storage/images/blogs'), $image_name);
         }
-        
+
         if ($request->hasFile('ad_img')) {
             $ad_img_name = 'images/blogs/ads/' . uniqid() . '.' . $request->file('ad_img')->getClientOriginalExtension();
             $request->file('ad_img')->move(public_path('/storage/images/blogs/ads'), $ad_img_name);
         }
-        
+
         $data->title = $request->title;
         $data->author = $request->author;
         $data->category = $request->category;

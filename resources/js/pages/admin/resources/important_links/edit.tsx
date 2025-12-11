@@ -1,74 +1,68 @@
+import { InputDiv } from '@/components/form/input-div';
 import { Button } from '@/components/ui/button';
-import { InputDiv } from '@/components/ui/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
+import { useFormHandler } from '@/lib/use-form-handler';
 import { BreadcrumbItem, SharedData } from '@/types';
-import { Head, useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
-import { router } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 
-type CreateForm = {
+type FormType = {
     name: string;
     href: string;
     is_active: number;
 };
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Important Link',
-        href: '/admin/important_links',
-    },
-    {
-        title: 'Edit',
-        href: '/dashboard',
-    },
-];
-
 export default function Create() {
     const important_links =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            href: string;
-            is_active: number;
-        }) || [];
+        ((usePage<SharedData>().props as any)?.data as any) || [];
+    const breadcrumbs: BreadcrumbItem[] = [
+        {
+            title: 'Important Link',
+            href: '/admin/important_links',
+        },
+        {
+            title: 'Detail',
+            href: route('admin.important_links.show', important_links.id),
+        },
+        {
+            title: 'Edit',
+            href: '',
+        },
+    ];
 
-    const { setData, post, processing, errors, reset, data } = useForm<Required<CreateForm>>({
+    const initialValues: FormType = {
         name: important_links.name,
         href: important_links.href,
         is_active: important_links.is_active,
+    };
+    const { submit, inputDivData, processing } = useFormHandler<FormType>({
+        url: route('admin.important_links.update', important_links.id),
+        initialValues,
+        method: 'PATCH',
+        onSuccess: () => console.log('Simple form created successfully!'),
     });
-
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-    
-        const formData = new FormData();
-    
-        Object.entries(data).forEach(([key, value]) => {
-            formData.append(key, value as any);
-        });
-    
-        // 👇 Spoof the PUT method
-        formData.append('_method', 'PUT');
-    
-        router.post(route('admin.important_links.update', important_links.id), formData, {
-            forceFormData: true, // Ensures Inertia sends as multipart/form-data
-            onSuccess: () => reset(),
-            onError: (errors) => console.log('Validation errors:', errors),
-        });
-    };
-    const inputDivData = {
-        data,
-        setData,
-        errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
-    };
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create Important Link" />
             <form onSubmit={submit} className="space-y-6 p-6">
-                <InputDiv type="text" label="Name" name="name" inputDivData={inputDivData} />
-                <InputDiv type="text" label="Href" name="href" inputDivData={inputDivData} />
-                <InputDiv type="switch" label="Active" name="is_active" inputDivData={inputDivData} />
+                <InputDiv
+                    type="text"
+                    label="Name"
+                    name="name"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="text"
+                    label="Href"
+                    name="href"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="switch"
+                    label="Active"
+                    name="is_active"
+                    inputDivData={inputDivData}
+                />
 
                 <Button type="submit" disabled={processing}>
                     {processing ? 'Submitting...' : 'Submit'}

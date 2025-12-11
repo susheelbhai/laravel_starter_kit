@@ -1,86 +1,68 @@
+import { InputDiv } from '@/components/form/input-div';
 import { Button } from '@/components/ui/button';
-import { InputDiv } from '@/components/ui/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
+import { useFormHandler } from '@/lib/use-form-handler';
 import { BreadcrumbItem, SharedData } from '@/types';
-import { Head, router, useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import { Head, usePage } from '@inertiajs/react';
 
-type CreateForm = {
+type FormType = {
     id: number | string;
     name: string;
-    permissions: string[];
+    permissions: (string | { value: string })[];
 };
 
 const breadcrumbs: BreadcrumbItem[] = [
+   
     {
         title: 'Role',
         href: '/admin/role',
     },
     {
-        title: 'Edit',
-        href: '/dashboard',
+        title: 'Edit Role',
+        href: '/admin/role',
     },
+    
 ];
+export default function EditRole() {
+    const role = ((usePage<SharedData>().props as any)?.data as any) || {};
 
-export default function Create() {
-    const role =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number | string;
-            name: string;
-            permissions?: string[];
-        }) || [];
-
-    const { setData, post, processing, errors, reset, data, setError } = useForm<Required<CreateForm>>({
+    const initialValues: FormType = {
         id: role.id,
-        name: role.name || '',
-        permissions: Array.isArray(role.permissions) ? role.permissions : [],
+        name: role.name,
+        permissions: (role.permissions || []).map((p: any) => p.id), // [1, 2, 3]
+    };
+
+    const rawPermissions = usePage().props.permissions as any[];
+    const permissions = rawPermissions.map((permission: any) => ({
+        id: permission.id,
+        title: permission.title ?? permission.name,
+    }));
+
+    const { submit, inputDivData, processing } = useFormHandler<FormType>({
+        url: route('admin.role.update', role.id),
+        initialValues,
+        method: 'PUT',
+        onSuccess: () => console.log('Role updated successfully!'),
     });
-
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-
-        const formData = new FormData();
-
-        formData.append('name', data.name);
-
-        // ✅ Only send string values (not objects)
-        (data.permissions || []).forEach((perm) => {
-            if (typeof perm === 'string') {
-                formData.append('permissions[]', perm);
-            } else if (perm?.value) {
-                formData.append('permissions[]', perm.value);
-            }
-        });
-
-        formData.append('_method', 'PUT');
-
-        router.post(route('admin.role.update', role.id), formData, {
-            forceFormData: true,
-            onSuccess: () => reset(),
-            onError: (errors) => {
-                Object.entries(errors).forEach(([key, value]) => {
-                    setError(key as keyof CreateForm, value);
-                });
-            },
-        });
-    };
-
-    const inputDivData = {
-        data,
-        setData,
-        errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
-    };
-
-    const permissions = usePage().props.permissions as any; // You may type this better if possible
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Edit Role" />
             <form onSubmit={submit} className="space-y-6 p-6">
-                
-                <InputDiv label="Name" name="name" type="text" inputDivData={inputDivData} />
+                <InputDiv
+                    label="Name"
+                    name="name"
+                    type="text"
+                    inputDivData={inputDivData}
+                />
 
-                <InputDiv type="checkbox" label="Permissions" name="permissions" inputDivData={inputDivData} options={permissions} />
+                <InputDiv
+                    type="multicheckbox"
+                    label="Permissions"
+                    name="permissions"
+                    inputDivData={inputDivData}
+                    options={permissions} // { id, title }
+                />
 
                 <Button type="submit" disabled={processing}>
                     {processing ? 'Submitting...' : 'Submit'}

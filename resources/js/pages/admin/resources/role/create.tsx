@@ -4,7 +4,7 @@ import { FormEventHandler } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { ContainerFluid } from '@/components/ui/container-fluid';
-import { InputDiv } from '@/components/ui/input-div';
+import { InputDiv } from '@/components/form/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem } from '@/types';
 
@@ -37,7 +37,7 @@ export default function Login({ status }: LoginProps) {
         errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
     };
     const permissions = usePage().props.permissions as any;
-
+    console.log('Available roles:', permissions);
     const breadcrumbs: BreadcrumbItem[] = [
         {
             title: 'Role',
@@ -55,7 +55,7 @@ export default function Login({ status }: LoginProps) {
                 <form className="flex flex-col gap-6" onSubmit={submit}>
                     <div className="grid gap-6">
                         <InputDiv type="text" label="Name" name="name" inputDivData={inputDivData} />
-                        <InputDiv type="checkbox" label="Permission" name="permissions" inputDivData={inputDivData} options={permissions} />
+                        <InputDiv type="multicheckbox" label="Permission" name="permissions" inputDivData={inputDivData} options={permissions} />
 
                         <Button type="submit" className="mt-4 w-full" tabIndex={4} disabled={processing}>
                             {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}

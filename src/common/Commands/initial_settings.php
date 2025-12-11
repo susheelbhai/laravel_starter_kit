@@ -23,7 +23,8 @@ class initial_settings extends Command
         'MAIL_PORT' => '1025',
         'WATERMARK' => 1,
         'ADMIN_MAIL' => 'admin@example.com',
-        'ADMIN_NAME' => 'Admin'
+        'ADMIN_NAME' => 'Admin',
+        'QUEUE_CONNECTION' => 'sync'
     );
 
     public function handle()

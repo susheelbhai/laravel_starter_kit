@@ -17,13 +17,13 @@ class UserController extends Controller
 
     public function index()
     {
-        $data = User::all();
+        $data = User::latest()->get();
         return Inertia::render('admin/resources/user/index', [
             'data' => $data,
         ]);
     }
 
- 
+
     public function create()
     {
         return Inertia::render('admin/resources/user/create');
@@ -37,38 +37,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required',
             'phone' => 'required|unique:users,phone',
             'email' => 'required|email|unique:users,email',
             'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
-        if ($validator->fails()) {
-            // Return errors in an Inertia response
-            // return back()->withErrors($validator->errors())->withInput();
-            return Inertia::render('admin/resources/user/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
+        $data = new User();
+        if ($request->hasFile('profile_pic')) {
+            $profile_pic_name = 'images/profile_pic/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
+            $request->profile_pic->move(public_path('/storage/images/profile_pic'), $profile_pic_name);
+            $data->profile_pic = $profile_pic_name;
         }
 
-        if($request->profile_pic==''){
-            $image_name='dummy.png';
-          }
-          else{
-            $image_name=uniqid().'.'.$request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic/user'),$image_name);
-          }
-          User::create([
-              'name' => $request->name,
-              'phone' => $request->phone,
-              'email' => $request->email,
-              'dob' => $request->dob,
-              'profile_pic' => $image_name,
-              'password' => Hash::make(rand(888888888,9999999999)),
-            ]);
+        $data->name = $request->name;
+        $data->phone = $request->phone;
+        $data->email = $request->email;
+        $data->password = Hash::make(rand(888888888, 9999999999));
+
+        $data->save();
 
 
         return Redirect::route('admin.user.index')->with('status', 'new user created successfully');
@@ -83,7 +70,9 @@ class UserController extends Controller
     public function show($id)
     {
         $data = User::find($id);
-        return view('separate.admin.resources.user.show', compact('data'));
+        return Inertia::render('admin/resources/user/show', [
+            'data' => $data,
+        ]);
     }
 
     /**
@@ -94,8 +83,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('separate.admin.resources.user.edit', [
-            'user' => User::find($id),
+        return inertia('admin/resources/user/edit', [
+            'data' => User::find($id),
         ]);
     }
 
@@ -108,26 +97,23 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required|unique:users,phone,' . $id,
+            'email' => 'required|email|unique:users,email,' . $id,
+            'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
         $data = User::find($id);
+        if ($request->hasFile('profile_pic')) {
+            $profile_pic_name = 'images/profile_pic/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
+            $request->profile_pic->move(public_path('/storage/images/profile_pic'), $profile_pic_name);
+            $data->profile_pic = $profile_pic_name;
+        }
 
-        if($request->profile_pic==''){
-            $image_name=$data->profile_pic;
-          }
-          else{
-            $image_name=uniqid().'.'.$request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic/user'),$image_name);
-            File::delete(public_path('storage/images/profile_pic/user/'.$data->profile_pic));
-          }
-          User::where('id', $data->id)->
-          update([
-              'name' => $request->name,
-              'phone' => $request->phone,
-              'email' => $request->email,
-              'dob' => $request->dob,
-              'profile_pic' => $image_name,
-            ]);
-
-
+        $data->name = $request->name;
+        $data->phone = $request->phone;
+        $data->email = $request->email;
+        $data->save();
         return Redirect::route('admin.user.update', $id)->with('status', 'profile-updated');
     }
 

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Slider;
+use App\Models\Slider1;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
@@ -15,7 +15,7 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $data = Slider::all();
+        $data = Slider1::all();
         return view('separate.admin.resources.slider.index', compact('data'));
     }
 

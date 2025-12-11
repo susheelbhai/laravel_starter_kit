@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use App\Models\UserQuery;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -16,12 +15,16 @@ class ContactFormSubmitted
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $data;
-    public function __construct($id)
+
+    /**
+     * Create a new event instance.
+     */
+    public function __construct($data)
     {
-        $this->data = UserQuery::find($id);
+        $this->data    = $data;
+        // dd($this->data);
     }
 
-    
     public function broadcastOn(): array
     {
         return [

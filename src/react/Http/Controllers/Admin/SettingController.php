@@ -59,12 +59,6 @@ class SettingController extends Controller
 
 
         $setting->app_name = $req->app_name;
-        $setting->color1 = $req->color1;
-        $setting->color2 = $req->color2;
-        $setting->color3 = $req->color3;
-        $setting->color4 = $req->color4;
-        $setting->color5 = $req->color5;
-        $setting->color6 = $req->color6;
         $setting->short_description = $req->short_description;
         $setting->address = $req->address;
         $setting->phone = $req->phone;

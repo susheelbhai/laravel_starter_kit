@@ -1,11 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { InputDiv } from '@/components/ui/input-div';
+import { InputDiv } from '@/components/form/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { BreadcrumbItem } from '@/types';
 import { Head, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
+import { useFormHandler } from '@/lib/use-form-handler';
 
-type CreateForm = {
+type FormType = {
     name: string;
     designation: string;
     is_active: number;
@@ -24,25 +25,18 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Create() {
-    const { setData, post, processing, errors, reset, data } = useForm<Required<CreateForm>>({
-        name:'',
-        designation:'',
-        image:'',
-        is_active:1,
-    });
-
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-        post(route('admin.team.store'), {
-            onSuccess: () => reset(),
+     const initialValues: FormType = {
+            name: '',
+            designation: '',
+            is_active: 1,
+            image: '',
+        };
+        const { submit, inputDivData, processing } = useFormHandler<FormType>({
+            url: route('admin.team.store'),
+            initialValues,
+            method: 'POST',
+            onSuccess: () => console.log('Simple form created successfully!'),
         });
-    };
-
-    const inputDivData = {
-        data,
-        setData,
-        errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
-    };
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>

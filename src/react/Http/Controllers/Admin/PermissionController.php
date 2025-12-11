@@ -24,7 +24,7 @@ class PermissionController extends Controller
     public function create()
     {
         return Inertia::render('admin/resources/permission/create', [
-            "roles" => Role::select('name as title')->get()
+            "roles" => Role::select('id', 'name as title')->get()
         ]);
     }
 
@@ -34,7 +34,7 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:permissions,name',
         ]);
         $permission = Permission::create(['name' => $request['name']]);
         $permission->syncRoles($request['roles']);
@@ -53,7 +53,7 @@ class PermissionController extends Controller
      */
     public function edit(string $id)
     {
-        $roles = Role::select('name as title')->get();
+        $roles = Role::select('id', 'name as title')->get();
         $permissions = Permission::whereId($id)->with('roles')->first();
         return Inertia::render("admin/resources/permission/edit", [
             "data" => $permissions,
@@ -61,19 +61,24 @@ class PermissionController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        // dd($request->all());
         $request->validate([
-            'name' => 'required',
-            // 'roles' => 'required'
+            'name' => 'required|unique:permissions,name,' . $id,
+            'roles' => 'required|array',
         ]);
-        Permission::whereId($id)->update(['name' => $request['name']]);
-        $permission = Permission::find($id);
-        $permission->syncRoles($request['roles']);
+
+        $permission = Permission::findOrFail($id);
+        $permission->update(['name' => $request->name]);
+
+        // roles[] will be ["1", "2", "3"] → cast to int
+        $roleIds = collect($request->roles)
+            ->filter()
+            ->map(fn($v) => (int) $v)
+            ->all();
+
+        $permission->syncRoles($roleIds);
+
         return to_route('admin.permission.index');
     }
 

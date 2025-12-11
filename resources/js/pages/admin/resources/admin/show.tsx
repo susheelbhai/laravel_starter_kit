@@ -10,11 +10,15 @@ import { Head, usePage } from '@inertiajs/react';
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: 'Dashboard',
+        href: '/admin',
+    },
+    {
+        title: 'Admin',
         href: '/admin/admin',
     },
     {
         title: 'Admin Detail',
-        href: '/dashboard',
+        href: '/admin/admin',
     },
 ];
 
@@ -77,7 +81,7 @@ export default function Dashboard() {
                             <td className="p-3">Phone</td>
                             <td className="p-3">{admin.phone}</td>
                         </tr>
-                        {/* <tr className="border-t border-gray-200">
+                        <tr className="border-t border-gray-200">
                             <td className="p-3">Profile Picture</td>
                             <td className="p-3">
                                 <img className="w-16" src={admin.profile_pic} alt="Profile" width={320} />
@@ -95,23 +99,27 @@ export default function Dashboard() {
                             <td className="p-3">State</td>
                             <td className="p-3">{admin.state}</td>
                         </tr>
+                        
+                        
                         <tr className="border-t border-gray-200">
-                            <td className="p-3">University</td>
-                            <td className="p-3">{universityName}</td>
-                        </tr>
-                         */}
-<tr className="border-t border-gray-200">
                             <td className="p-3">Roles</td>
                             <td className="space-y-2 p-3">
                                 {admin.roles.map((role: any) => (
                                     <div key={role.id}>
-                                        <span className="font-semibold">{role.name}</span>
+                                        <span className="font-semibold">
+                                            {role.name}
+                                        </span>
                                         <div className="mt-1 ml-2 flex flex-wrap gap-2">
-                                            {role.permissions.map((perm: any) => (
-                                                <span key={perm.id} className="inline-block rounded bg-gray-100 px-2 py-1 text-sm text-gray-700">
-                                                    {perm.name}
-                                                </span>
-                                            ))}
+                                            {role.permissions.map(
+                                                (perm: any) => (
+                                                    <span
+                                                        key={perm.id}
+                                                        className="inline-block rounded bg-gray-100 px-2 py-1 text-sm text-gray-700"
+                                                    >
+                                                        {perm.name}
+                                                    </span>
+                                                ),
+                                            )}
                                         </div>
                                     </div>
                                 ))}
@@ -122,16 +130,23 @@ export default function Dashboard() {
                             <td className="p-3">Permissions</td>
                             <td className="p-3">
                                 {admin.permissions.map((perm: any) => (
-                                    <span key={perm.id} className="inline-block rounded bg-gray-100 px-2 py-1 text-sm text-gray-700">
+                                    <span
+                                        key={perm.id}
+                                        className="inline-block rounded bg-gray-100 px-2 py-1 text-sm text-gray-700"
+                                    >
                                         {perm.name}
                                     </span>
                                 ))}
                             </td>
                         </tr>
-                        
-                        <tr className="border-t p- border-gray-200">
+
+                        <tr className="p- border-t border-gray-200">
                             <td className="p-6 text-center" colSpan={2}>
-                                <BtnLink href={route('admin.admin.edit', admin.id)}>Edit</BtnLink>
+                                <BtnLink
+                                    href={route('admin.admin.edit', admin.id)}
+                                >
+                                    Edit
+                                </BtnLink>
                             </td>
                         </tr>
                     </TBody>

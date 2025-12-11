@@ -45,4 +45,9 @@ class Partner extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+    
+    public function getProfilePicAttribute($value): string
+    {
+        return "/storage/$value";
+    }
 }

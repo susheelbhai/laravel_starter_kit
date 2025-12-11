@@ -1,126 +1,199 @@
-import { Button } from '@/components/ui/button';
-import { InputDiv } from '@/components/ui/input-div';
-import AppLayout from '@/layouts/admin/app-layout';
-import { BreadcrumbItem, SharedData } from '@/types';
-import { Head, router, useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import { usePage } from '@inertiajs/react';
+import { LoaderCircle } from 'lucide-react';
 
-type CreateForm = {
+import { InputDiv } from '@/components/form/input-div';
+import { Button } from '@/components/ui/button';
+import { ContainerFluid } from '@/components/ui/container-fluid';
+import AppLayout from '@/layouts/admin/app-layout';
+import { useFormHandler } from '@/lib/use-form-handler';
+import { type BreadcrumbItem, SharedData } from '@/types';
+
+type AdminForm = {
+    id: number | string;
     name: string;
     dob: string;
-    profile_pic: string | File;
+    profile_pic: File | string | null;
     address: string;
     city: string;
     state: string;
     email: string;
     phone: string;
-    university_id: string;
-    roles: string[];
-    permissions: string[];
+    roles: any[]; // handled by useFormHandler (id/value extraction)
+    permissions: any[]; // same here
 };
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Admin',
-        href: '/admin/admin',
-    },
-    {
-        title: 'Edit',
-        href: '/dashboard',
-    },
-];
+export default function EditAdmin() {
+    const page = usePage<SharedData>();
 
-export default function Create() {
+    // 🧩 Admin being edited (coming from controller as props.data)
     const admin =
-        ((usePage<SharedData>().props as any)?.data as Partial<CreateForm> & {
+        ((page.props as any)?.data as {
             id: number | string;
+            name?: string;
+            dob?: string;
+            profile_pic?: string;
+            address?: string;
+            city?: string;
+            state?: string;
+            email?: string;
+            phone?: string;
+            roles?: { id: number; name: string }[];
+            permissions?: { id: number; name: string }[];
         }) || {};
 
-    const { setData, post, processing, errors, reset, data, setError } = useForm<Required<CreateForm>>({
-        name: admin.name || '',
-        dob: admin.dob || '',
-        profile_pic: admin.profile_pic || '',
-        address: admin.address || '',
-        city: admin.city || '',
-        state: admin.state || '',
-        email: admin.email || '',
-        phone: admin.phone || '',
-        university_id: admin.university_id || '',
-        roles: Array.isArray(admin.roles) ? admin.roles : [],
-        permissions: Array.isArray(admin.permissions) ? admin.permissions : [],
-    });
+    const rolesFromServer = (page.props as any).roles as any[];
+    const permissionsFromServer = (page.props as any).permissions as any[];
+    const status = (page.props as any).status as string | undefined;
 
-    const universities = usePage().props.universities as any;
-    const roles = usePage().props.roles as any;
-    const permissions = usePage().props.permissions as any;
+    // ✅ Map roles & permissions to { id, title } for multicheckbox
+    const roleOptions = rolesFromServer.map((role) => ({
+        id: role.id,
+        title: role.name ?? role.title,
+    }));
 
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
+    const permissionOptions = permissionsFromServer.map((permission) => ({
+        id: permission.id,
+        title: permission.name ?? permission.title,
+    }));
 
-        const formData = new FormData();
-        Object.entries(data).forEach(([key, value]) => {
-            if (Array.isArray(value)) {
-                value.forEach((v) => {
-                    formData.append(`${key}[]`, v);
-                });
-            } else {
-                formData.append(key, value as any);
-            }
-        });
-
-        formData.append('_method', 'PUT');
-
-        router.post(route('admin.admin.update', admin.id), formData, {
-            forceFormData: true,
-            onError: (errors) => {
-                Object.entries(errors).forEach(([key, value]) => {
-                    setError(key as keyof CreateForm, value);
-                });
-            },
-        });
+    // ✅ Pre-fill initial values from admin, including selected roles/permissions
+    const initialValues: AdminForm = {
+        id: admin.id,
+        name: admin.name ?? '',
+        dob: admin.dob ?? '',
+        profile_pic: admin.profile_pic ?? null,
+        address: admin.address ?? '',
+        city: admin.city ?? '',
+        state: admin.state ?? '',
+        email: admin.email ?? '',
+        phone: admin.phone ?? '',
+        roles: Array.isArray(admin.roles)
+            ? admin.roles.map((r: any) => r.id)
+            : [],
+        permissions: Array.isArray(admin.permissions)
+            ? admin.permissions.map((p: any) => p.id)
+            : [],
     };
 
-    const inputDivData = {
-        data,
-        setData,
-        errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
-    };
+    const { submit, inputDivData, processing } = useFormHandler<AdminForm>({
+        url: route('admin.admin.update', admin.id),
+        initialValues,
+        method: 'PUT',
+        onSuccess: () => {
+            console.log('Admin updated successfully');
+        },
+    }) as any;
+
+    const breadcrumbs: BreadcrumbItem[] = [
+        {
+            title: 'Dashboard',
+            href: '/admin',
+        },
+        {
+            title: 'Admin',
+            href: '/admin/admin',
+        },
+        {
+            title: 'Admin Detail',
+            href: `/admin/admin/${admin.id}`,
+        },
+        {
+            title: 'Admin Edit',
+            href: `/admin/admin/${admin.id}/edit`,
+        },
+    ];
 
     return (
-        <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Update Admin" />
+        <AppLayout breadcrumbs={breadcrumbs} title="Edit Admin">
+            <ContainerFluid>
+                <form className="flex flex-col gap-6" onSubmit={submit}>
+                    <div className="grid gap-6">
+                        <InputDiv
+                            type="text"
+                            label="Name"
+                            name="name"
+                            inputDivData={inputDivData}
+                        />
+                        <InputDiv
+                            type="date"
+                            label="Date of Birth"
+                            name="dob"
+                            inputDivData={inputDivData}
+                        />
+                        <InputDiv
+                            type="image"
+                            label="Profile Picture"
+                            name="profile_pic"
+                            inputDivData={inputDivData}
+                            widthMultiplier={0.7}
+                        />
+                        <InputDiv
+                            type="textarea"
+                            label="Address"
+                            name="address"
+                            inputDivData={inputDivData}
+                        />
+                        <InputDiv
+                            type="text"
+                            label="City"
+                            name="city"
+                            inputDivData={inputDivData}
+                        />
+                        <InputDiv
+                            type="text"
+                            label="State"
+                            name="state"
+                            inputDivData={inputDivData}
+                        />
+                        <InputDiv
+                            type="email"
+                            label="Email"
+                            name="email"
+                            inputDivData={inputDivData}
+                        />
+                        <InputDiv
+                            type="tel"
+                            label="Phone"
+                            name="phone"
+                            inputDivData={inputDivData}
+                        />
 
-            <form onSubmit={submit} className="space-y-6 p-6">
-                {/* Optional Top Error Summary */}
-                {Object.keys(errors).length > 0 && (
-                    <div className="rounded bg-red-100 p-4 text-red-800">
-                        <ul>
-                            {Object.entries(errors).map(([field, message]) => (
-                                <li key={field}>
-                                    <strong>{field}:</strong> {message}
-                                </li>
-                            ))}
-                        </ul>
+                        <InputDiv
+                            type="multicheckbox"
+                            label="Roles"
+                            name="roles"
+                            inputDivData={inputDivData}
+                            options={roleOptions}
+                        />
+
+                        <InputDiv
+                            type="multicheckbox"
+                            label="Permissions"
+                            name="permissions"
+                            inputDivData={inputDivData}
+                            options={permissionOptions}
+                        />
+
+                        <Button
+                            type="submit"
+                            className="mt-4 w-full"
+                            tabIndex={4}
+                            disabled={processing}
+                        >
+                            {processing && (
+                                <LoaderCircle className="h-4 w-4 animate-spin" />
+                            )}
+                            Update Admin
+                        </Button>
+                    </div>
+                </form>
+
+                {status && (
+                    <div className="mb-4 text-center text-sm font-medium text-green-600">
+                        {status}
                     </div>
                 )}
-
-                <InputDiv label="Name" name="name" type="text" inputDivData={inputDivData} />
-                {/* <InputDiv label="Date of Birth" name="dob" type="date" inputDivData={inputDivData} />
-                <InputDiv label="Profile Picture" name="profile_pic" type="image" inputDivData={inputDivData} widthMultiplier={0.7} />
-                <InputDiv label="Address" name="address" type="text" inputDivData={inputDivData} />
-                <InputDiv label="City" name="city" type="text" inputDivData={inputDivData} />
-                <InputDiv label="State" name="state" type="text" inputDivData={inputDivData} /> */}
-                <InputDiv label="Email" name="email" type="email" inputDivData={inputDivData} />
-                <InputDiv label="Phone" name="phone" type="text" inputDivData={inputDivData} />
-                {/* <InputDiv type="select" label="University" name="university_id" inputDivData={inputDivData} options={universities} />
-                 */}
-                <InputDiv type="checkbox" label="Roles" name="roles" inputDivData={inputDivData} options={roles} />
-                <InputDiv type="checkbox" label="Permission" name="permissions" inputDivData={inputDivData} options={permissions} />
-
-                <Button type="submit" disabled={processing}>
-                    {processing ? 'Submitting...' : 'Submit'}
-                </Button>
-            </form>
+            </ContainerFluid>
         </AppLayout>
     );
 }

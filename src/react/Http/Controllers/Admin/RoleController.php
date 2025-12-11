@@ -27,7 +27,7 @@ class RoleController extends Controller
     public function create()
     {
         return Inertia::render('admin/resources/role/create', [
-            "permissions" => Permission::select('name as title')->get()
+            "permissions" => Permission::select('id', 'name as title')->get()
         ]);
     }
 
@@ -37,7 +37,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:roles,name',
             'permissions' => 'required'
         ]);
         $role = Role::create(['name' => $request['name']]);
@@ -59,8 +59,9 @@ class RoleController extends Controller
     public function edit(string $id)
     {
         $roles = Role::whereId($id)->with('permissions')->first();
+        $permissions = Permission::select('id', 'name as title')->get();
         return Inertia::render("admin/resources/role/edit", [
-            "permissions" => Permission::select('name as title')->get(),
+            "permissions" => $permissions,
             "data" => $roles
         ]);
     }
@@ -70,16 +71,26 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // dd($request->all());
         $request->validate([
-            'name' => 'required',
-            'permissions' => 'required'
+            'name' => 'required|unique:roles,name,' . $id,
+            'permissions' => 'required|array',
         ]);
-        Role::whereId($id)->update(['name' => $request['name']]);
-        $role = Role::find($id);
-        $role->syncPermissions($request['permissions']);
+
+        $role = Role::findOrFail($id);
+        $role->update(['name' => $request->name]);
+
+        // permissions come as ['1', '2', '3'] (strings from FormData)
+        // Cast them to integers so Spatie treats them as IDs
+        $permissionIds = collect($request->permissions)
+            ->filter()                // remove null/empty values if any
+            ->map(fn($v) => (int) $v)
+            ->all();                  // result: [1, 2, 3]
+
+        $role->syncPermissions($permissionIds);
+
         return to_route('admin.role.index');
     }
+
 
     /**
      * Remove the specified resource from storage.

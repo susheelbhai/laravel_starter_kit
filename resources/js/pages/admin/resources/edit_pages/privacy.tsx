@@ -1,70 +1,50 @@
+import { InputDiv } from '@/components/form/input-div';
 import { Button } from '@/components/ui/button';
-import { InputDiv } from '@/components/ui/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
+import { useFormHandler } from '@/lib/use-form-handler';
 import { BreadcrumbItem, SharedData } from '@/types';
-import { Head, useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
-import { router } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 
-type CreateForm = {
+type FormType = {
+    title: string;
     content: string;
 };
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Dashboard',
-        href: '/admin',
-    },
-    {
         title: 'Privacy Policy',
-        href: '/dashboard',
+        href: '',
     },
 ];
 
 export default function Create() {
-    const privacy =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            title: string;
-            content: string;
-        }) || [];
-
-    const { setData, post, processing, errors, reset, data } = useForm<Required<CreateForm>>({
-        title: privacy.title,
-        content: privacy.content,
+    const data = ((usePage<SharedData>().props as any)?.data as any) || [];
+    const initialValues: FormType = {
+        title: data.title,
+        content: data.content,
+    };
+    const { submit, inputDivData, processing } = useFormHandler<FormType>({
+        url: route('admin.pages.updatePrivacyPage'),
+        initialValues,
+        method: 'PATCH',
+        onSuccess: () => console.log('Simple form created successfully!'),
     });
-
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-    
-        const formData = new FormData();
-    
-        Object.entries(data).forEach(([key, value]) => {
-            formData.append(key, value as any);
-        });
-    
-        // 👇 Spoof the PUT method
-        formData.append('_method', 'patch');
-    
-        router.post(route('admin.pages.updatePrivacyPage'), formData, {
-            forceFormData: true, // Ensures Inertia sends as multipart/form-data
-            onSuccess: () => reset(),
-            onError: (errors) => console.log('Validation errors:', errors),
-        });
-    };
-    const inputDivData = {
-        data,
-        setData,
-        errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
-    };
-
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Privacy Policy" />
             <form onSubmit={submit} className="space-y-6 p-6">
-               
-                <InputDiv type="text" label="Title" name="title" inputDivData={inputDivData} />
-                <InputDiv type="editor" label="Content" name="content" inputDivData={inputDivData} />
+                <InputDiv
+                    type="text"
+                    label="Title"
+                    name="title"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="editor"
+                    label="Content"
+                    name="content"
+                    inputDivData={inputDivData}
+                />
 
                 <Button type="submit" disabled={processing}>
                     {processing ? 'Submitting...' : 'Submit'}

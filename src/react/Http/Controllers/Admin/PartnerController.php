@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Validator;
 
 class PartnerController extends Controller
 {
-    
+
     public function index()
     {
-        $data = Partner::all();
+        $data = Partner::latest('id')->get();
         return Inertia::render('admin/resources/partner/index', compact('data'));
     }
 
@@ -34,37 +34,25 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required',
             'phone' => 'required|unique:partners,phone',
             'email' => 'required|email|unique:partners,email',
             'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
-        if ($validator->fails()) {
-            // Return errors in an Inertia response
-            // return back()->withErrors($validator->errors())->withInput();
-            return Inertia::render('admin/resources/partner/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
+        $data = new Partner();
+        if ($request->hasFile('profile_pic')) {
+            $profile_pic_name = 'images/profile_pic/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
+            $request->profile_pic->move(public_path('/storage/images/profile_pic'), $profile_pic_name);
+            $data->profile_pic = $profile_pic_name;
         }
 
-        if($request->profile_pic==''){
-            $image_name='dummy.png';
-          }
-          else{
-            $image_name=uniqid().'.'.$request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic/partner'),$image_name);
-          }
-          Partner::create([
-              'name' => $request->name,
-              'phone' => $request->phone,
-              'email' => $request->email,
-              'dob' => $request->dob,
-              'profile_pic' => $image_name,
-              'password' => Hash::make(rand(888888888,9999999999)),
-            ]);
+        $data->name = $request->name;
+        $data->phone = $request->phone;
+        $data->email = $request->email;
+        $data->password = Hash::make(rand(888888888, 9999999999));
+
+        $data->save();
 
 
         return Redirect::route('admin.partner.index')->with('status', 'new partner created successfully');
@@ -79,6 +67,7 @@ class PartnerController extends Controller
     public function show($id)
     {
         $data = Partner::find($id);
+        return Inertia::render('admin/resources/partner/show', compact('data'));
     }
 
     /**
@@ -89,9 +78,8 @@ class PartnerController extends Controller
      */
     public function edit($id)
     {
-        return view('separate.admin.resources.partner.edit', [
-            'user' => Partner::find($id),
-        ]);
+        $data = Partner::find($id);
+        return Inertia::render('admin/resources/partner/edit', compact('data'));
     }
 
     /**
@@ -103,24 +91,25 @@ class PartnerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required|unique:partners,phone,'.$id,
+            'email' => 'required|email|unique:partners,email,'.$id,
+            'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
         $data = Partner::find($id);
 
-        if($request->profile_pic==''){
-            $image_name=$data->profile_pic;
-          }
-          else{
-            $image_name=uniqid().'.'.$request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic/partner'),$image_name);
-            File::delete(public_path('storage/images/profile_pic/partner/'.$data->profile_pic));
-          }
-          Partner::where('id', $data->id)->
-          update([
-              'name' => $request->name,
-              'phone' => $request->phone,
-              'email' => $request->email,
-              'dob' => $request->dob,
-              'profile_pic' => $image_name,
-            ]);
+        if ($request->hasFile('profile_pic')) {
+            $profile_pic_name = 'images/profile_pic/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
+            $request->profile_pic->move(public_path('/storage/images/profile_pic'), $profile_pic_name);
+            $data->profile_pic = $profile_pic_name;
+        }
+
+        $data->name = $request->name;
+        $data->phone = $request->phone;
+        $data->email = $request->email;
+
+        $data->save();
 
 
         return Redirect::route('admin.partner.update', $id)->with('status', 'profile-updated');

@@ -1,17 +1,23 @@
 import { type NavItem } from '@/types';
 import {
     BookOpen,
+    Calendar,
+    FileEdit,
     FileSignature,
     FileText,
+    FileUp,
     Home,
     Image,
+    ImageUp,
     Info,
     Layout,
     LayoutGrid,
     Link2,
+    ListFilter,
     LogOut,
     MessageSquare,
     Newspaper,
+    Notebook,
     Phone,
     Server,
     Settings,
@@ -19,7 +25,7 @@ import {
     User,
     Users,
     Users2,
-    Notebook
+    Workflow,
 } from 'lucide-react';
 
 const mainNavItems = [
@@ -67,34 +73,117 @@ const mainNavItems = [
         icon: Newspaper,
     },
     {
+        title: 'Forms',
+        icon: FileText,
+        children: [
+            {
+                title: 'Simple',
+                href: route('admin.forms.simple'),
+                icon: Notebook,
+            },
+            {
+                title: 'Editor',
+                href: route('admin.forms.editor'),
+                icon: FileEdit,
+            },
+            { title: 'Date', href: route('admin.forms.date'), icon: Calendar },
+            {
+                title: 'Select',
+                href: route('admin.forms.select'),
+                icon: ListFilter,
+            },
+            { title: 'File', href: route('admin.forms.file'), icon: FileUp },
+            { title: 'Image', href: route('admin.forms.image'), icon: ImageUp },
+            {
+                title: 'Widzard',
+                href: route('admin.forms.wizard'),
+                icon: Workflow,
+            },
+        ],
+    },
+
+    {
         title: 'Pages',
         icon: FileText,
         children: [
             { title: 'Home', href: route('admin.pages.homePage'), icon: Home },
-            { title: 'About Us', href: route('admin.pages.aboutPage'), icon: Info },
-            { title: 'Contact Us', href: route('admin.pages.contactPage'), icon: Phone },
-            { title: 'Testimonial', href: route('admin.testimonial.index'), icon: MessageSquare },
-            { title: 'Team', href: route('admin.team.index'), icon: MessageSquare },
-            { title: 'Portfolio', href: route('admin.portfolio.index'), icon: Image },
-            { title: 'Terms & Conditions', href: route('admin.pages.tncPage'), icon: FileSignature },
-            { title: 'Privacy Policy', href: route('admin.pages.privacyPage'), icon: ShieldCheck },
-            { title: 'Refund Policy', href: route('admin.pages.refundPage'), icon: ShieldCheck },
+            {
+                title: 'About Us',
+                href: route('admin.pages.aboutPage'),
+                icon: Info,
+            },
+            {
+                title: 'Contact Us',
+                href: route('admin.pages.contactPage'),
+                icon: Phone,
+            },
+            {
+                title: 'Testimonial',
+                href: route('admin.testimonial.index'),
+                icon: MessageSquare,
+            },
+            {
+                title: 'Team',
+                href: route('admin.team.index'),
+                icon: MessageSquare,
+            },
+            {
+                title: 'Portfolio',
+                href: route('admin.portfolio.index'),
+                icon: Image,
+            },
+            {
+                title: 'FAQ',
+                href: route('admin.faq.index'),
+                icon: Image,
+            },
+            {
+                title: 'Terms & Conditions',
+                href: route('admin.pages.tncPage'),
+                icon: FileSignature,
+            },
+            {
+                title: 'Privacy Policy',
+                href: route('admin.pages.privacyPage'),
+                icon: ShieldCheck,
+            },
+            {
+                title: 'Refund Policy',
+                href: route('admin.pages.refundPage'),
+                icon: ShieldCheck,
+            },
         ],
     },
     {
         title: 'Services',
         icon: Server,
         children: [
-            { title: 'All Services', href: route('admin.service.index'), icon: Server },
-            { title: 'Create Services', href: route('admin.service.create'), icon: FileSignature },
+            {
+                title: 'All Services',
+                href: route('admin.service.index'),
+                icon: Server,
+            },
+            {
+                title: 'Create Services',
+                href: route('admin.service.create'),
+                icon: FileSignature,
+            },
         ],
     },
     {
         title: 'Blogs',
         icon: BookOpen,
         children: [
-            { title: 'All Blog', href: route('admin.blog.index'), icon: BookOpen },
-            { title: 'Create Blog', href: route('admin.blog.create'), icon: FileSignature },
+            {
+                title: 'All Blog',
+                href: route('admin.blog.index'),
+                icon: BookOpen,
+            },
+            {
+                title: 'Create Blog',
+                href: route('admin.blog.create'),
+                icon: FileSignature,
+            },
         ],
     },
     {
@@ -105,7 +194,13 @@ const mainNavItems = [
                 title: 'Footer',
                 href: null,
                 icon: Layout,
-                children: [{ title: 'Important Links', href: route('admin.important_links.index'), icon: Link2 }],
+                children: [
+                    {
+                        title: 'Important Links',
+                        href: route('admin.important_links.index'),
+                        icon: Link2,
+                    },
+                ],
             },
         ],
     },

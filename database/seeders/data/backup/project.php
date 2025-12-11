@@ -87,7 +87,9 @@ $failed_jobs = array(
 $important_links = array(
   array('id' => '1','created_at' => '2025-05-17 16:40:35','updated_at' => '2025-05-17 16:40:35','href' => 'tnc','name' => 'Terms of Uses','image' => 'dummy.png','is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-17 16:40:53','updated_at' => '2025-05-17 16:40:53','href' => 'privacy','name' => 'Privacy Policy','image' => 'dummy.png','is_active' => '1'),
-  array('id' => '3','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'refund','name' => 'Refund Policy','image' => 'dummy.png','is_active' => '1')
+  array('id' => '3','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'refund','name' => 'Refund Policy','image' => 'dummy.png','is_active' => '1'),
+  array('id' => '4','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'faq','name' => 'FAQ','image' => 'dummy.png','is_active' => '1'),
+
 );
 
 /* `comd`.`jobs` */
@@ -361,7 +363,7 @@ $sessions = array(
 
 /* `comd`.`settings` */
 $settings = array(
-  array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2024-04-07 15:15:59','app_name' => 'Application Name','favicon' => 'images/logo/66126b57961af.png','dark_logo' => 'images/logo/66126b5796aba.png','light_logo' => 'images/logo/66126b579702f.png','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '+1 (556) 675-2551','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','google_map' => NULL,'whatsapp' => NULL,'admin_theme' => NULL,'user_theme' => NULL,'partner_theme' => NULL,'color1' => '#b08b1a','color2' => '#f1c232','color3' => '#3271f1','color4' => '#f1c232','color5' => '#f1c232','color6' => '#f1c232')
+  array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2024-04-07 15:15:59','app_name' => 'Application Name','favicon' => 'images/logo/66126b57961af.png','dark_logo' => 'images/logo/66126b5796aba.png','light_logo' => 'images/logo/66126b579702f.png','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '+1 (556) 675-2551','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','google_map' => NULL,'whatsapp' => NULL,)
 );
 
 /* `comd`.`slider1` */
@@ -383,6 +385,15 @@ $users = array(
   array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => NULL,'profile_pic' => 'images/profile_pic/dummy.png','email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-03-23 09:22:02')
 );
 
+$faq_categories = array(
+  array('id' => '1','title' => 'General','is_active' => '1'),
+  array('id' => '2','title' => 'Pricing','is_active' => '1'),
+);
+$faqs = array(
+  array('id' => '1','created_at' => '2025-05-20 12:26:15','updated_at' => '2025-05-20 12:26:15','question' => 'What is your return policy?','answer' => '<p>We offer a 30-day return policy on all products. If you are not satisfied with your purchase, please contact our support team to initiate the return process.</p>','faq_category_id' => '1','is_active' => '1'),
+  array('id' => '2','created_at' => '2025-05-20 12:27:45','updated_at' => '2025-05-20 12:27:45','question' => 'How do I track my order?','answer' => '<p>You can track your order using the tracking number provided in your order confirmation email. Simply enter the tracking number on our website\'s tracking page to see the status of your shipment.</p>','faq_category_id' => '1','is_active' => '1'),
+  array('id' => '3','created_at' => '2025-05-20 12:28:30','updated_at' => '2025-05-20 12:28:30','question' => 'Do you offer discounts for bulk purchases?','answer' => '<p>Yes, we offer discounts for bulk purchases. Please contact our sales team for more information on pricing and available discounts.</p>','faq_category_id' => '2','is_active' => '1'),
+);
 
 /* `comd`.`user_queries` */
 $user_queries = array(

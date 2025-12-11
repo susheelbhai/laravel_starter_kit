@@ -1,7 +1,7 @@
 interface THeadProps {
     className: string;
     title: string;
-    colSpan: number;
+    colSpan?: number;
 }
 
 export default function THead({ children, data }: { children?: React.ReactNode; data?: THeadProps[] }) {

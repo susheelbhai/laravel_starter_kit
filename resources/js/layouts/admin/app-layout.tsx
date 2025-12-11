@@ -11,6 +11,7 @@ interface AppLayoutProps {
 }
 
 export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
+  breadcrumbs = [{ title: 'Dasshboard', href: '/admin' }, ...(breadcrumbs || [])];
   const { admin } = usePage<SharedData>().props;
   const { flash = {} } = usePage().props as {
     flash?: { success?: string; warning?: string; error?: string };

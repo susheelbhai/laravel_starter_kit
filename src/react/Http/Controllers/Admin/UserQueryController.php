@@ -13,7 +13,7 @@ class UserQueryController extends Controller
     
     public function index()
     {
-        $data = UserQuery::with('status')->latest()->get();
+        $data = UserQuery::with('status')->latest('id')->get();
         return Inertia::render('admin/resources/user_query/index', compact('data'));
     }
 
@@ -21,8 +21,10 @@ class UserQueryController extends Controller
     {
         $statuses = UserQueryStatus::all();
         $data = UserQuery::with('status')->whereId($id)->first();
-        
-        return view('separate.admin.resources.user_query.show', compact('data', 'statuses'));
+        return Inertia::render('admin/resources/user_query/show', [
+            'data' => $data,
+            'statuses' => $statuses,
+        ]);
     }
     
     public function update(Request $request, $id)

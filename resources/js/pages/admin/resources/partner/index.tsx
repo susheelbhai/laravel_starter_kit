@@ -42,7 +42,10 @@ export default function Dashboard() {
                                 <td className="p-3">{user.email}</td>
                                 <td className="p-3">{user.phone}</td>
                                 <td className="p-3">
-                                    <img src={user.profile_pic} alt="" />
+                                    <img src={user.profile_pic} alt="" className="h-10 w-10 rounded-full object-cover" />
+                                </td>
+                                <td className="p-3">
+                                    <Button href={route('admin.partner.show', user.id)}>View</Button>
                                 </td>
                             </tr>
                         ))}

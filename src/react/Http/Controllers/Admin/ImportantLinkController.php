@@ -23,17 +23,10 @@ class ImportantLinkController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required',
             'href' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/important_links/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
         $important_links = new ImportantLink();
         $important_links->name = $request->name;
         $important_links->href = $request->href;
@@ -56,18 +49,10 @@ class ImportantLinkController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required',
             'href' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/important_links/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
-
         $important_links =  ImportantLink::find($id);
         $important_links->name = $request->name;
         $important_links->href = $request->href;

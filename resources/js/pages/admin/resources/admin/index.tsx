@@ -8,10 +8,7 @@ import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Dashboard',
-        href: '/admin',
-    },
+   
     {
         title: 'Admin',
         href: '/dashboard',
@@ -26,7 +23,7 @@ export default function Dashboard() {
         { title: 'Name', className: 'p-3' },
         { title: 'Email', className: 'p-3' },
         { title: 'Phone', className: 'p-3' },
-        // { title: 'Photo', className: 'p-3' },
+        { title: 'Photo', className: 'p-3' },
         { title: 'View', className: 'p-3' },
     ];
     return (
@@ -43,9 +40,9 @@ export default function Dashboard() {
                                 <td className="p-3">{admin.name}</td>
                                 <td className="p-3">{admin.email}</td>
                                 <td className="p-3">{admin.phone}</td>
-                                {/* <td className="p-3 w-3">
-                                    <img src={admin.profile_pic} alt="" />
-                                </td> */}
+                                <td className="p-3 w-3">
+                                    <img src={admin.profile_pic} alt="" className="h-10 w-10 rounded-full object-cover" />
+                                </td>
                                 <td className="p-3">
                                     <Button href={route('admin.admin.show', admin.id)}>
                                         View

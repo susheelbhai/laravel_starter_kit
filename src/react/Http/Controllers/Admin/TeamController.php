@@ -39,17 +39,10 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required',
             'designation' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/team/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
         $image_name = 'images/team/dummy.png';
         $team = new Team();
 
@@ -99,17 +92,10 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'name' => 'required',
             'designation' => 'required',
         ]);
-    
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/team/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
         $team =  Team::find($id);
 
          if ($request->hasFile('image')) {

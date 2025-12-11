@@ -24,18 +24,10 @@ class ServiceController extends Controller
     }
     public function store(Request $request)
     {
-        
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'title' => 'required',
             'long_description1' => 'required',
         ]);
-
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/service/create', [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
         $image_name = 'dummy.png';
         $data = new Service();
         
@@ -81,17 +73,10 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+        $request->validate([
             'title' => 'required',
             'long_description1' => 'required',
         ]);
-
-        if ($validator->fails()) {
-            return Inertia::render('admin/resources/service/edit/'.$id, [
-                'errors' => $validator->errors(),
-                'data' => $request->all(), // Optionally pass back the submitted data
-            ]);
-        }
         $data = Service::find($id);
         $image_name = $data['display_img'];
 

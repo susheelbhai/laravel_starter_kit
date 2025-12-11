@@ -29,6 +29,7 @@ Route::middleware(['web', HandleInertiaRequests::class, TrackVisitor::class,])->
     Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
     Route::get('/tnc', [HomeController::class, 'tnc'])->name('tnc');
     Route::get('/refund', [HomeController::class, 'refund'])->name('refund');
+    Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
     require __DIR__.'/auth.php';
 });
 

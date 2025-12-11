@@ -1,19 +1,33 @@
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
+import {
+    Sidebar,
+    SidebarContent,
+    SidebarFooter,
+    SidebarHeader,
+    SidebarMenu,
+    SidebarMenuButton,
+    SidebarMenuItem,
+} from '@/components/ui/sidebar';
 import { PropsWithChildren } from 'react';
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 // import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 
 import AppLogo from './app-logo';
 
-
-
-export function AppSidebar({ authUser, mainNavItems, footerNavItems, profileNavItems }: PropsWithChildren<{ authUser?: any; footerNavItems?: any; mainNavItems?: any, profileNavItems?: any }>) {
-
+export function AppSidebar({
+    authUser,
+    mainNavItems,
+    footerNavItems,
+    profileNavItems,
+}: PropsWithChildren<{
+    authUser?: any;
+    footerNavItems?: any;
+    mainNavItems?: any;
+    profileNavItems?: any;
+}>) {
     return (
-        
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
                 <SidebarMenu>
@@ -33,7 +47,10 @@ export function AppSidebar({ authUser, mainNavItems, footerNavItems, profileNavI
 
             <SidebarFooter>
                 <NavFooter items={footerNavItems} className="mt-auto" />
-                <NavUser authUser={authUser} profileNavItems={profileNavItems} />
+                <NavUser
+                    authUser={authUser}
+                    profileNavItems={profileNavItems}
+                />
             </SidebarFooter>
         </Sidebar>
     );

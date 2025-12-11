@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { InputDiv } from '@/components/ui/input-div';
+import { InputDiv } from '@/components/form/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { BreadcrumbItem } from '@/types';
 import { Head, useForm } from '@inertiajs/react';

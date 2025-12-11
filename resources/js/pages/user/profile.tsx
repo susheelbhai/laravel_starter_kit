@@ -1,24 +1,18 @@
-import { type BreadcrumbItem, type SharedData } from '@/types';
-import { Transition } from '@headlessui/react';
-import { Link, router, useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import { type SharedData } from '@/types';
+import { Link, usePage } from '@inertiajs/react';
+import { useEffect, useState } from 'react';
 
+import { InputDiv } from '@/components/form/input-div';
 import HeadingSmall from '@/components/heading-small';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
-import { InputDiv } from '@/components/ui/input-div';
 import AppLayout from '@/layouts/user/app-layout';
+import { useFormHandler } from '@/lib/use-form-handler';
 
-const breadcrumbs: BreadcrumbItem[] = [
-    {
-        title: 'Profile settings',
-        href: '/settings/profile',
-    },
-];
-
-type ProfileForm = {
+type FormType = {
     name: string;
     email: string;
+    phone?: string;
     profile_pic: string;
 };
 
@@ -30,125 +24,181 @@ export default function Profile({
     status?: string;
 }) {
     const { auth } = usePage<SharedData>().props;
+    const [isEditing, setIsEditing] = useState(false);
 
-    const {
-        setData,
-        post,
-        processing,
-        errors,
-        reset,
-        data,
-        recentlySuccessful,
-    } = useForm<Required<ProfileForm>>({
+    const initialValues: FormType = {
         name: auth.user.name,
         email: auth.user.email,
-        profile_pic: String(auth.user.profile_pic ?? ''),
+        phone: (auth.user.phone as string | null | undefined) ?? '',
+        profile_pic: '',
+    };
+
+    const { submit, inputDivData, processing } = useFormHandler<FormType>({
+        url: route('profile.update'),
+        initialValues,
+        method: 'PATCH',
+        onSuccess: () => {
+            setIsEditing(false);
+        },
     });
 
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
+    const { setData } = inputDivData;
 
-        const formData = new FormData();
-
-        Object.entries(data).forEach(([key, value]) => {
-            formData.append(key, value as any);
-        });
-
-        // 👇 Spoof the PUT method
-        formData.append('_method', 'patch');
-
-        router.post(route('profile.update'), formData, {
-            forceFormData: true, // Ensures Inertia sends as multipart/form-data
-            onSuccess: () => reset(),
-            onError: (errors) => console.log('Validation errors:', errors),
-        });
-    };
-    const inputDivData = {
-        data,
-        setData,
-        errors: Object.fromEntries(
-            Object.entries(errors).map(([key, value]) => [
-                key,
-                value ? [value] : [],
-            ]),
-        ),
-    };
+    // 🔑 Keep form in sync with latest auth.user
+    useEffect(() => {
+        setData('name', auth.user.name);
+        setData('email', auth.user.email);
+        setData('phone', (auth.user.phone as string | null | undefined) ?? '');
+        // don't touch profile_pic here so you don't override file input
+    }, [auth.user.name, auth.user.email, auth.user.phone, setData]);
 
     return (
         <AppLayout title="Profile">
             <Container>
                 <HeadingSmall
                     title="Profile information"
-                    description="Update your name and email address"
+                    description={
+                        isEditing
+                            ? 'Update your name, email and other profile details.'
+                            : 'View your profile details. Click edit to make changes.'
+                    }
                 />
 
-                <form onSubmit={submit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="flax">
-                            <InputDiv
-                                type="text"
-                                name="name"
-                                label="Name"
-                                inputDivData={inputDivData}
-                            />
-                            <InputDiv
-                                type="email"
-                                name="email"
-                                label="Email"
-                                inputDivData={inputDivData}
-                            />
-                           
-                        </div>
-                        <div className="flax">
-                             <InputDiv
-                                type="image"
-                                name="profile_pic"
-                                label="Profile Pic"
-                                inputDivData={inputDivData}
-                            />
-                        </div>
-                    </div>
+                {/* VIEW MODE */}
+                {!isEditing && (
+                    <div className="space-y-6">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                            <div className="space-y-4">
+                                <ProfileField
+                                    label="Name"
+                                    value={auth.user.name}
+                                />
+                                <ProfileField
+                                    label="Email"
+                                    value={auth.user.email}
+                                />
+                                <ProfileField
+                                    label="Phone"
+                                    value={
+                                        (auth.user.phone as string) ||
+                                        'Not added'
+                                    }
+                                />
+                            </div>
 
-                    {mustVerifyEmail &&
-                        auth.user.email_verified_at === null && (
-                            <div>
-                                <p className="-mt-4 text-sm text-muted-foreground">
-                                    Your email address is unverified.{' '}
-                                    <Link
-                                        href={route('verification.send')}
-                                        method="post"
-                                        as="button"
-                                        className="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
-                                    >
-                                        Click here to resend the verification
-                                        email.
-                                    </Link>
+                            <div className="space-y-4">
+                                <p className="text-xs font-semibold text-muted-foreground uppercase">
+                                    Profile Picture
                                 </p>
-
-                                {status === 'verification-link-sent' && (
-                                    <div className="mt-2 text-sm font-medium text-green-600">
-                                        A new verification link has been sent to
-                                        your email address.
-                                    </div>
+                                
+                                {auth.user.profile_pic == null ? (
+                                    <p className="text-sm text-muted-foreground">
+                                        No profile picture uploaded.
+                                    </p>
+                                ) : (
+                                <img src={`${auth.user.profile_pic}`} className='rounded-xl' alt="Profile Picture" />
                                 )}
                             </div>
-                        )}
+                        </div>
 
-                    <div className="flex items-center gap-4">
-                        <Button disabled={processing}>Save</Button>
-
-                        <Transition
-                            show={recentlySuccessful}
-                            enter="transition ease-in-out"
-                            enterFrom="opacity-0"
-                            leave="transition ease-in-out"
-                            leaveTo="opacity-0"
-                        >
-                            <Button className="text-sm text-neutral-600">Saved</Button>
-                        </Transition>
+                        <div className="flex items-center gap-4">
+                            <Button
+                                type="button"
+                                onClick={() => setIsEditing(true)}
+                            >
+                                Edit Profile
+                            </Button>
+                        </div>
                     </div>
-                </form>
+                )}
+
+                {/* EDIT MODE (YOUR EXISTING FORM) */}
+                {isEditing && (
+                    <form onSubmit={submit} className="mt-6 space-y-6">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                            <div className="flex flex-col gap-4">
+                                <InputDiv
+                                    type="text"
+                                    name="name"
+                                    label="Name"
+                                    inputDivData={inputDivData}
+                                />
+                                <InputDiv
+                                    type="email"
+                                    name="email"
+                                    label="Email"
+                                    inputDivData={inputDivData}
+                                />
+                                <InputDiv
+                                    type="text"
+                                    name="phone"
+                                    label="Phone"
+                                    inputDivData={inputDivData}
+                                />
+                            </div>
+                            <div className="flex flex-col gap-4">
+                                <InputDiv
+                                    type="image"
+                                    name="profile_pic"
+                                    label="Profile Pic"
+                                    inputDivData={inputDivData}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                            <Button disabled={processing}>Save</Button>
+
+                            <Button
+                                type="button"
+                                variant="outline"
+                                onClick={() => setIsEditing(false)}
+                                disabled={processing}
+                            >
+                                Cancel
+                            </Button>
+                        </div>
+                    </form>
+                )}
+
+                {/* Email verification block – visible in both modes */}
+                {mustVerifyEmail && auth.user.email_verified_at === null && (
+                    <div className="mt-6">
+                        <p className="-mt-2 text-sm text-muted-foreground">
+                            Your email address is unverified.{' '}
+                            <Link
+                                href={route('verification.send')}
+                                method="post"
+                                as="button"
+                                className="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+                            >
+                                Click here to resend the verification email.
+                            </Link>
+                        </p>
+
+                        {status === 'verification-link-sent' && (
+                            <div className="mt-2 text-sm font-medium text-green-600">
+                                A new verification link has been sent to your
+                                email address.
+                            </div>
+                        )}
+                    </div>
+                )}
             </Container>
         </AppLayout>
+    );
+}
+
+/**
+ * Small presentational component for read-only fields
+ */
+function ProfileField({ label, value }: { label: string; value: string }) {
+    return (
+        <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase">
+                {label}
+            </p>
+            <p className="mt-1 text-sm font-medium text-foreground">{value}</p>
+        </div>
     );
 }

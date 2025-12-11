@@ -14,7 +14,7 @@ export default function AppSidebarLayout({
     profileNavItems?: any;
 }>) {
     return (
-        <div className="overflow-x-hidden bg-white font-['Urbanist'] text-[#0E1339]">
+        <div className="overflow-x-hidden bg-background text-[#0E1339]">
             <header className="w-full">
                 <TopHeader />
                 <Header />

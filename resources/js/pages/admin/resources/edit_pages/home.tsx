@@ -37,7 +37,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {data.slider1.map((slider) => (
+                        {data.slider1.map((slider: any) => (
                             <tr key={slider.id} className="border-t border-gray-200">
                                 <td className="p-3">{slider.heading1}</td>
                                 <td className="p-3">{slider.heading2}</td>
