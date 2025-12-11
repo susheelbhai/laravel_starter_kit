@@ -38,7 +38,7 @@ class PermissionController extends Controller
         ]);
         $permission = Permission::create(['name' => $request['name']]);
         $permission->syncRoles($request['roles']);
-        return to_route('admin.permission.index');
+        return to_route('admin.permission.index')->with('success', 'New permission created successfully');
     }
     /**
      * Display the specified resource.
@@ -79,7 +79,7 @@ class PermissionController extends Controller
 
         $permission->syncRoles($roleIds);
 
-        return to_route('admin.permission.index');
+        return to_route('admin.permission.index')->with('success', 'Permission updated successfully');
     }
 
     /**

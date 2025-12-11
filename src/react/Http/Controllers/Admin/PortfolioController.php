@@ -59,7 +59,7 @@ class PortfolioController extends Controller
         $portfolio->is_active = $request->is_active;
 
         $portfolio->save();
-        return redirect()->route('admin.portfolio.index');
+        return redirect()->route('admin.portfolio.index')->with('success', 'New portfolio created successfully');
     }
 
     /**
@@ -112,7 +112,7 @@ class PortfolioController extends Controller
         $portfolio->url = $request->url;
         $portfolio->is_active = $request->is_active;
         $portfolio->update();
-        return redirect()->route('admin.portfolio.index');
+        return redirect()->route('admin.portfolio.index')->with('success', 'Portfolio updated successfully');
     }
 
     /**

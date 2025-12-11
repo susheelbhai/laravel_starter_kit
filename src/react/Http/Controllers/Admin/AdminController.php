@@ -100,7 +100,7 @@ class AdminController extends Controller
         }
 
         return Redirect::route('admin.admin.index')
-            ->with('status', 'new admin created successfully');
+            ->with('success', 'new admin created successfully');
     }
 
 
@@ -206,7 +206,7 @@ class AdminController extends Controller
 
         return redirect()
             ->route('admin.admin.index')
-            ->with('status', 'Admin updated successfully');
+            ->with('success', 'Admin updated successfully');
     }
 
     /**

@@ -1,3 +1,4 @@
+import { FlashMessage, FlashType } from '@/components/ui/alert/flash1';
 import AppLayoutTemplate from '@/layouts/admin/app/app-sidebar-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
@@ -10,14 +11,15 @@ interface AppLayoutProps {
   title?: string;
 }
 
-type FlashType = 'success' | 'warning' | 'error';
-
 export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
+  const page = usePage<SharedData>();
+  const { admin } = page.props;
+  const appData = (page.props as any).appData;
+
   breadcrumbs = [{ title: 'Dasshboard', href: '/admin' }, ...(breadcrumbs || [])];
 
-  const { admin } = usePage<SharedData>().props;
-  const { flash = {} } = usePage().props as {
-    flash?: { success?: string; warning?: string; error?: string };
+  const { flash = {} } = page.props as {
+    flash?: Partial<Record<FlashType, string>>;
   };
 
   const [visibleFlash, setVisibleFlash] = useState<{
@@ -35,22 +37,14 @@ export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
       setVisibleFlash({ type: 'error', message: flash.error });
     } else {
       setVisibleFlash(null);
-      return;
     }
 
-    // ⏱ Auto-hide after 3 seconds
-    const timer = setTimeout(() => {
-      setVisibleFlash(null);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [flash]); // 👈 depend on entire flash object so it runs even if message text is same
-
-  const colorClasses: Record<FlashType, string> = {
-    success: 'border-green-500 bg-green-50 text-green-700',
-    warning: 'border-yellow-500 bg-yellow-50 text-yellow-700',
-    error: 'border-red-500 bg-red-50 text-red-700',
-  };
+    // ⏱ Auto-hide after 5 seconds if any flash is present
+    if (flash.success || flash.warning || flash.error) {
+      const timer = setTimeout(() => setVisibleFlash(null), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [flash]);
 
   return (
     <AppLayoutTemplate
@@ -61,17 +55,17 @@ export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
       breadcrumbs={breadcrumbs}
       {...props}
     >
-      {/* 🔔 Global flash message */}
-      {visibleFlash && (
-        <div
-          className={`mb-4 flex items-center justify-between gap-3 rounded-md border px-4 py-2 text-sm shadow-sm ${colorClasses[visibleFlash.type]}`}
-          role="alert"
-        >
-          <span>{visibleFlash.message}</span>
-        </div>
-      )}
+      <Head title={`${title || 'Admin Dashboard'} - ${appData.name}`} />
 
-      <Head title={title || 'Admin Dashboard'} />
+      <div className="mx-auto max-w-[1320px] items-center justify-between">
+        {visibleFlash && (
+          <FlashMessage
+            type={visibleFlash.type}
+            message={visibleFlash.message}
+            onClose={() => setVisibleFlash(null)}
+          />
+        )}
+      </div>
 
       {children}
     </AppLayoutTemplate>

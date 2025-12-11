@@ -42,7 +42,7 @@ class RoleController extends Controller
         ]);
         $role = Role::create(['name' => $request['name']]);
         $role->syncPermissions($request['permissions']);
-        return to_route('admin.role.index');
+        return to_route('admin.role.index')->with('success', 'New role created successfully');
     }
 
     /**
@@ -88,7 +88,7 @@ class RoleController extends Controller
 
         $role->syncPermissions($permissionIds);
 
-        return to_route('admin.role.index');
+        return to_route('admin.role.index')->with('success', 'Role updated successfully');
     }
 
 

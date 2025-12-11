@@ -53,7 +53,7 @@ class Slider1Controller extends Controller
         $slider1->btn_target = $request->btn_target;
         $slider1->is_active = $request->is_active;
         $slider1->save();
-        return redirect()->route('admin.slider1.index');
+        return redirect()->route('admin.slider1.index')->with('success', 'New slider created successfully');
     }
 
     public function edit($id)
@@ -94,7 +94,7 @@ class Slider1Controller extends Controller
         $slider1->btn_target = $request->btn_target;
         $slider1->is_active = 1;
         $slider1->update();
-        return redirect()->route('admin.slider1.index');
+        return redirect()->route('admin.slider1.index')->with('success', 'Slider updated successfully');
     }
 
     /**

@@ -81,6 +81,9 @@ class HomeController extends Controller
 
     function newsletter(Request $request)
     {
+        $request->validate([
+            'email'   => 'required|email|max:255',
+        ]);
         $data = Newsletter::updateOrCreate(
             ['email' => $request['email']],
             ['unsubscribed_at' => null]

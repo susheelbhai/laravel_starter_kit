@@ -6,8 +6,8 @@ use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\FormWizardRequest;
 use Illuminate\Support\Facades\Route;
+use App\Http\Requests\FormWizardRequest;
 
 class FormsController extends Controller
 {

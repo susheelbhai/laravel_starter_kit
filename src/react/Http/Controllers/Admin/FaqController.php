@@ -55,7 +55,7 @@ class FaqController extends Controller
         $faq->answer = $request->answer;
         $faq->is_active = $request->is_active;
         $faq->save();
-        return redirect()->route('admin.faq.index');
+        return redirect()->route('admin.faq.index')->with('success', 'New Faq created successfully');
     }
 
     /**
@@ -104,7 +104,7 @@ class FaqController extends Controller
         $faq->answer = $request->answer;
         $faq->is_active = $request->is_active;
         $faq->update();
-        return redirect()->route('admin.faq.index');
+        return redirect()->route('admin.faq.index')->with('success', 'Faq updated successfully');
     }
 
     /**

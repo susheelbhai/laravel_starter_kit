@@ -55,7 +55,7 @@ class PartnerController extends Controller
         $data->save();
 
 
-        return Redirect::route('admin.partner.index')->with('status', 'new partner created successfully');
+        return Redirect::route('admin.partner.index')->with('success', 'new partner created successfully');
     }
 
     /**
@@ -112,7 +112,7 @@ class PartnerController extends Controller
         $data->save();
 
 
-        return Redirect::route('admin.partner.update', $id)->with('status', 'profile-updated');
+        return Redirect::route('admin.partner.update', $id)->with('success', 'profile-updated');
     }
 
     /**

@@ -58,7 +58,7 @@ class UserController extends Controller
         $data->save();
 
 
-        return Redirect::route('admin.user.index')->with('status', 'new user created successfully');
+        return Redirect::route('admin.user.index')->with('success', 'new user created successfully');
     }
 
     /**
@@ -114,7 +114,7 @@ class UserController extends Controller
         $data->phone = $request->phone;
         $data->email = $request->email;
         $data->save();
-        return Redirect::route('admin.user.update', $id)->with('status', 'profile-updated');
+        return Redirect::route('admin.user.update', $id)->with('success', 'profile-updated');
     }
 
     /**

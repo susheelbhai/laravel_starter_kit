@@ -59,7 +59,7 @@ class TestimonialController extends Controller
         $testimonial->message = $request->message;
         $testimonial->is_active = $request->is_active;
         $testimonial->save();
-        return redirect()->route('admin.testimonial.index');
+        return redirect()->route('admin.testimonial.index')->with('success', 'New testimonial created successfully');
     }
 
     /**
@@ -113,7 +113,7 @@ class TestimonialController extends Controller
         $testimonial->message = $request->message;
         $testimonial->is_active = $request->is_active;
         $testimonial->update();
-        return redirect()->route('admin.testimonial.index');
+        return redirect()->route('admin.testimonial.index')->with('success', 'Testimonial updated successfully');
     }
 
     /**

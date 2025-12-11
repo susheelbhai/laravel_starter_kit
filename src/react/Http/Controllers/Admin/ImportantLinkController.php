@@ -32,7 +32,7 @@ class ImportantLinkController extends Controller
         $important_links->href = $request->href;
         $important_links->is_active = $request->is_active;
         $important_links->save();
-        return redirect()->route('admin.important_links.index');
+        return redirect()->route('admin.important_links.index')->with('success', 'New important link created successfully');
     }
 
     public function show($id)
@@ -59,7 +59,7 @@ class ImportantLinkController extends Controller
         $important_links->is_active = $request->is_active;
 
         $important_links->update();
-        return redirect()->route('admin.important_links.index');
+        return redirect()->route('admin.important_links.index')->with('success', 'Important link updated successfully');
     }
 
     public function destroy($id)

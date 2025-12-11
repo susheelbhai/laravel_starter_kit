@@ -56,7 +56,7 @@ class TeamController extends Controller
         $team->image = $image_name;
         $team->is_active = $request->is_active;
         $team->save();
-        return redirect()->route('admin.team.index');
+        return redirect()->route('admin.team.index')->with('success', 'New team member created successfully');
     }
 
     /**
@@ -108,7 +108,7 @@ class TeamController extends Controller
         $team->designation = $request->designation;
         $team->is_active = $request->is_active;
         $team->update();
-        return redirect()->route('admin.team.index');
+        return redirect()->route('admin.team.index')->with('success', 'Team member updated successfully');
     }
 
     /**

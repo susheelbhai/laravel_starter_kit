@@ -33,7 +33,7 @@ class UserQueryController extends Controller
         $data = UserQuery::find($id);
         $data->status_id = $request->status;
         $data->update();
-        return redirect()->route('admin.userQuery.index');
+        return redirect()->route('admin.userQuery.index')->with('success', 'status updated successfully');
     }
 
 }

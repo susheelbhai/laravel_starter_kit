@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PortfolioSeeder::class);
         $this->call(FaqCategorySeeder::class);
         $this->call(FaqSeeder::class);
+        $this->call(TeamSeeder::class);
+        $this->call(TestimonialSeeder::class);
         
     }
 }
