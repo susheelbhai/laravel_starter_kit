@@ -1,5 +1,8 @@
+import { FaWhatsapp } from "react-icons/fa";
+
 export default function HeroSection(props: any) {
     const appName = props.data?.appData?.name;
+    const phone = props.data?.appData?.phone;
 
     return (
         <section

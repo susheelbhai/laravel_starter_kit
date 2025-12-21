@@ -43,6 +43,7 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'appData' => [
                 'name' => config('app.name'),
+                'phone' => config('app.phone'),
                 'favicon' => config('app.favicon'),
                 'dark_logo' => config('app.dark_logo'),
                 'light_logo' => config('app.light_logo'),
