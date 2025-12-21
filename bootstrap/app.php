@@ -28,6 +28,9 @@ return Application::configure(basePath: dirname(__DIR__))
             if (in_array('partner', $path)) {
                 return route('partner.login');
             }
+            if (in_array('seller', $path)) {
+                return route('seller.login');
+            }
         });
     })
     ->withExceptions(function (Exceptions $exceptions) {

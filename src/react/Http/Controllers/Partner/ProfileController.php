@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Partner;
 
+use Inertia\Inertia;
+use App\Models\Partner;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,18 +12,17 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\Partner;
 
 class ProfileController extends Controller
 {
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit(Request $request)
     {
-        return view('partner.profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $data = $request->user();
+        $status = $request->session()->get('status');
+        return Inertia::render('partner/settings/profile', compact('data', 'status'));
     }
 
     /**
@@ -37,7 +38,7 @@ class ProfileController extends Controller
 
         $image_name = Auth::guard('partner')->user()->profile_pic;
         if ($request->hasFile('profile_pic')) {
-            $image_name = 'images/profile_pic/partner/'.uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
+            $image_name = 'images/profile_pic/partner/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
             $request->profile_pic->move(public_path('/storage/images/profile_pic/partner/'), $image_name);
             if (Auth::guard('partner')->user()->profile_pic != 'dummy.png') {
                 File::delete(public_path('storage/images/profile_pic/partner/' . Auth::guard('partner')->user()->profile_pic));
@@ -52,27 +53,7 @@ class ProfileController extends Controller
         ]);
 
 
-        return Redirect::route('partner.profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('partner.profile.edit')->with('success', 'profile-updated');
     }
 
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
-    }
 }

@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Partner\Auth;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rules\Password;
-
+use Inertia\Response;
+use Inertia\Inertia;
 class PasswordController extends Controller
 {
-    /**
-     * Update the user's password.
-     */
+    public function edit(): Response
+    {
+        return Inertia::render('partner/settings/password');
+    }
     public function update(Request $request): RedirectResponse
     {
         $validated = $request->validateWithBag('updatePassword', [
@@ -24,6 +26,6 @@ class PasswordController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        return back()->with('status', 'password-updated');
+        return back()->with('success', 'password-updated');
     }
 }

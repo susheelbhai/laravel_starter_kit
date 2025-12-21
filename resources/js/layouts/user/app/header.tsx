@@ -13,6 +13,7 @@ const Header: React.FC = () => {
   let menuItems = [
     { name: "Home", route: route("home") },
     { name: "About", route: route("about") },
+    { name: "Product", route: route("product") },
     { name: "Services", route: route("services") },
     { name: "Blogs", route: route("blog.index") },
     { name: "Contact", route: route("contact") },

@@ -1,17 +1,13 @@
 <?php
 
-use App\Http\Controllers\Partner\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Partner\HomeController;
+use App\Http\Middleware\HandleInertiaRequests;
 
-
-Route::get('/partner', function () {
-    return view('separate.partner.dashboard');
-})->middleware(['auth:partner', 'verified'])->name('partner.dashboard');
-
-Route::prefix('partner')->name('partner.')->middleware('auth:partner')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
+    Route::prefix('partner')->name('partner.')->middleware(['auth:partner'])->group(function () {
+        Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
+    });
+    require __DIR__ . '/auth.php';
+    require __DIR__ . '/settings.php';
 });
-
-require __DIR__ . '/auth.php';

@@ -40,6 +40,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
+        ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
@@ -48,6 +54,11 @@ return [
             'driver' => 'session',
             'provider' => 'partners',
         ],
+        'seller_api' => ['driver' => 'sanctum', 'provider' => 'sellers'],
+        'admin_api'  => ['driver' => 'sanctum', 'provider' => 'admins'],
+        'user_api'   => ['driver' => 'sanctum', 'provider' => 'users'],
+        'partner_api' => ['driver' => 'sanctum', 'provider' => 'partners'],
+
     ],
 
     /*
@@ -71,6 +82,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'sellers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Seller::class,
         ],
         'admins' => [
             'driver' => 'eloquent',
@@ -109,6 +124,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'sellers' => [
+            'provider' => 'sellers',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
             'throttle' => 60,

@@ -1,0 +1,66 @@
+import AppLayout from '@/layouts/admin/app-layout';
+import { useFormHandler } from '@/lib/use-form-handler';
+import { BreadcrumbItem, SharedData } from '@/types';
+import { Head, usePage } from '@inertiajs/react';
+import Form from './Form';
+
+const breadcrumbs: BreadcrumbItem[] = [
+    { title: 'Products', href: '/admin/product' },
+    { title: 'Create', href: '/admin/product/create' },
+];
+
+export default function Create() {
+    const categories =
+        ((usePage<SharedData>().props as any)
+            ?.categories as CategoryOption[]) || [];
+
+    const initialValues: FormType = {
+        seller_id: 0,
+        product_category_id: 0,
+
+        title: '',
+        slug: '',
+        sku: '',
+
+        short_description: '',
+        description: '',
+
+        price: 0,
+        mrp: 0,
+
+        stock: 0,
+        manage_stock: 1,
+
+        thumbnail: null,
+        gallery: '',
+
+        is_active: 1,
+        is_featured: 0,
+
+        meta_title: '',
+        meta_description: '',
+    };
+
+    // ✅ prevent TS deep instantiation
+    const form = useFormHandler<FormType>({
+        url: route('admin.product.store'),
+        initialValues,
+        method: 'POST',
+        onSuccess: () => console.log('Product created successfully!'),
+    });
+
+    const { submit, inputDivData, processing } = form;
+
+    return (
+        <AppLayout breadcrumbs={breadcrumbs}>
+            <Head title="Create Product" />
+
+            <Form
+                submit={submit}
+                inputDivData={inputDivData}
+                processing={processing}
+                categories={categories}
+            />
+        </AppLayout>
+    );
+}

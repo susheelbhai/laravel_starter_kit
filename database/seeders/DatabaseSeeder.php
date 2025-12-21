@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(AdminSeeder::class);
         $this->call(PartnerSeeder::class);
+        $this->call(SellerSeeder::class);
         $this->call(UserQueryStatusSeeder::class);
         $this->call(UserQuerySeeder::class); 
         $this->call(BlogSeeder::class); 

@@ -1,11 +1,11 @@
-import { Button } from '@/components/ui/button';
 import { InputDiv } from '@/components/form/input-div';
+import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
+import { useFormHandler } from '@/lib/use-form-handler';
 import { BreadcrumbItem } from '@/types';
-import { Head, useForm } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import { Head } from '@inertiajs/react';
 
-type CreateForm = {
+type FormType = {
     name: string;
     designation: string;
     organisation: string;
@@ -26,39 +26,62 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Create() {
-    const { setData, post, processing, errors, reset, data } = useForm<Required<CreateForm>>({
-        name:'',
-        designation:'',
-        organisation:'',
-        message:'',
-        image:'',
-        is_active:1,
+    const initialValues: FormType = {
+        name: '',
+        designation: '',
+        organisation: '',
+        message: '',
+        is_active: 1,
+        image: '',
+    };
+
+    const { submit, inputDivData, processing } = useFormHandler<FormType>({
+        url: route('admin.testimonial.store'),
+        initialValues,
+        method: 'POST',
     });
-
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-        post(route('admin.testimonial.store'), {
-            onSuccess: () => reset(),
-        });
-    };
-
-    const inputDivData = {
-        data,
-        setData,
-        errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
-    };
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create Testimonial" />
             <form onSubmit={submit} className="space-y-6 p-6">
-                <InputDiv type="text" label="Name" name="name" inputDivData={inputDivData} />
-                <InputDiv type="text" label="Designation" name="designation" inputDivData={inputDivData} />
-                <InputDiv type="text" label="Organisation" name="organisation" inputDivData={inputDivData} />
-                <InputDiv type="text" label=" Message" name="message" inputDivData={inputDivData} />
-                <InputDiv type="image" label="Image" name="image" inputDivData={inputDivData} />
+                <InputDiv
+                    type="text"
+                    label="Name"
+                    name="name"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="text"
+                    label="Designation"
+                    name="designation"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="text"
+                    label="Organisation"
+                    name="organisation"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="text"
+                    label=" Message"
+                    name="message"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="image"
+                    label="Image"
+                    name="image"
+                    inputDivData={inputDivData}
+                />
 
-                <InputDiv type="switch" label="Active" name="is_active" inputDivData={inputDivData} />
+                <InputDiv
+                    type="switch"
+                    label="Active"
+                    name="is_active"
+                    inputDivData={inputDivData}
+                />
                 <Button type="submit" disabled={processing}>
                     {processing ? 'Submitting...' : 'Submit'}
                 </Button>

@@ -32,14 +32,14 @@ export function UserMenuContent({ user, profileNavItems }: UserMenuContentProps)
                         <React.Fragment key={item.title}>
                             {item.title === 'Log Out' ? (
                                 <DropdownMenuItem asChild>
-                                    <Link className="block w-full" method="post" href={item.href} as="button" onClick={handleLogout}>
+                                    <Link className="block w-full cursor-pointer" method="post" href={item.href} as="button" onClick={handleLogout}>
                                         {item.icon && <item.icon />}
                                         {item.title}
                                     </Link>
                                 </DropdownMenuItem>
                             ) : (
                                 <DropdownMenuItem asChild>
-                                    <Link className="block w-full" href={item.href} as="button" prefetch onClick={cleanup}>
+                                    <Link className="block w-full cursor-pointer" href={item.href} as="button" prefetch onClick={cleanup}>
                                         {item.icon && <item.icon />}
                                         {item.title}
                                     </Link>

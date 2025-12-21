@@ -21,6 +21,8 @@ Route::middleware(['web', HandleInertiaRequests::class, TrackVisitor::class,])->
     Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
     Route::post('/blog/comment/{id}', [BlogController::class, 'postComment'])->name('blog.comment');
+    Route::get('/product', [HomeController::class, 'product'])->name('product');
+    Route::get('/product/{id}', [HomeController::class, 'productDetail'])->name('product.show');
     Route::get('/services', [HomeController::class, 'services'])->name('services');
     Route::get('/service/{id}', [HomeController::class, 'serviceDetail'])->name('serviceDetail');
     Route::get('/contact', [HomeController::class, 'contact'])->name('contact');

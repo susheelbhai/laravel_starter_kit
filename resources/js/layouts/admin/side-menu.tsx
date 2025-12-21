@@ -35,6 +35,16 @@ const mainNavItems = [
         icon: LayoutGrid,
     },
     {
+        title: 'Category',
+        href: route('admin.product_category.index'),
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Product',
+        href: route('admin.product.index'),
+        icon: LayoutGrid,
+    },
+    {
         title: 'Admin',
         href: route('admin.admin.index'),
         icon: Users2,
@@ -51,6 +61,11 @@ const mainNavItems = [
         href: route('admin.permission.index'),
         icon: Notebook,
         permission: 'all rights',
+    },
+    {
+        title: 'Seller',
+        href: route('admin.seller.index'),
+        icon: User,
     },
     {
         title: 'Partner',

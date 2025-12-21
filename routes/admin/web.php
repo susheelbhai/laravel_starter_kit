@@ -11,8 +11,10 @@ use App\Http\Middleware\HandleInertiaRequests;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\SellerController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -23,6 +25,7 @@ use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\ImportantLinkController;
+use App\Http\Controllers\Admin\ProductCategoryController;
 
 Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
     Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
@@ -77,6 +80,8 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
         Route::resource('/slider1', Slider1Controller::class)->except(['show', 'destroy']);
         Route::resource('/slider', SliderController::class);
         Route::resource('/partner', PartnerController::class);
+        Route::resource('/seller', SellerController::class);
+        
         Route::resource('/user', UserController::class);
         Route::resource('/userQuery', UserQueryController::class);
         Route::resource('/important_links', ImportantLinkController::class);
@@ -86,6 +91,8 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
         Route::resource('/service', ServiceController::class);
         Route::resource('/blog', BlogController::class);
         Route::resource('/faq', FaqController::class);
+        Route::resource('/product_category', ProductCategoryController::class);
+        Route::resource('/product', ProductController::class);
 
         Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter.index');
     });

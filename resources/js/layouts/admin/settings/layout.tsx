@@ -9,12 +9,12 @@ import { type PropsWithChildren } from 'react';
 const sidebarNavItems: NavItem[] = [
     {
         title: 'Profile',
-        href: '/admin/profile',
+        href: route('admin.profile.edit'),
         icon: null,
     },
     {
         title: 'Password',
-        href: '/admin/settings/password',
+        href: route('admin.password.edit'),
         icon: null,
     },
     

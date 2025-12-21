@@ -33,9 +33,21 @@ class AppServiceProvider extends ServiceProvider
                     'permissions' => Auth::guard('admin')->user()?->getAllPermissions()->pluck('name'), 
                 ];
             },
+            'partner' => function () {
+                return [
+                    'user' => Auth::guard('partner')->user(), // Partner guard
+                    'permissions' => Auth::guard('partner')->user()?->getAllPermissions()->pluck('name'), 
+                ];
+            },
+            'seller' => function () {
+                return [
+                    'user' => Auth::guard('seller')->user(), // Seller guard
+                    'permissions' => Auth::guard('seller')->user()?->getAllPermissions()->pluck('name'), 
+                ];
+            },
         ]);
 
-        /*
+        
         $settings = Setting::find(1); 
         $important_link = ImportantLink::latest()->get(); 
         config([
@@ -58,7 +70,7 @@ class AppServiceProvider extends ServiceProvider
                 'app.address' => $settings->address,
             ]);
         }
-        */
+        
         
     }
 }

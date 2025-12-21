@@ -2,22 +2,27 @@
 
 namespace App\Http\Controllers\Partner\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
+use Inertia\Inertia;
 use App\Models\Partner;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Inertia\Response;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Route;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     */
-    public function create(): View
+    
+    public function create(Request $request): Response
     {
-        return view('separate.partner.auth.login');
+        return Inertia::render('partner/auth/login', [
+            'submitUrl' => route('partner.login'),
+            'canResetPassword' => Route::has('password.request'),
+            'status' => $request->session()->get('status'),
+        ]);
     }
 
     /**
@@ -28,7 +33,9 @@ class AuthenticatedSessionController extends Controller
         $user = Partner::whereEmail($request['email'])
         ->orWhere('phone', $request['email'])
         ->first();
+        // dd($user);
         $request->authenticate($user,'partner');
+
         $request->session()->regenerate();
 
         return redirect()->intended(route('partner.dashboard', absolute: false));
@@ -45,6 +52,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('partner.login');
     }
 }

@@ -30,12 +30,13 @@ class ServiceController extends Controller
         ]);
         $image_name = 'dummy.png';
         $data = new Service();
-        
+
         if ($request->hasFile('display_img')) {
-            $image_name = 'images/services/'.uniqid() . '.' . $request->file('display_img')->getClientOriginalExtension();
+            $image_name = 'images/services/' . uniqid() . '.' . $request->file('display_img')->getClientOriginalExtension();
             $request->display_img->move(public_path('/storage/images/services'), $image_name);
+            $data->display_img = $image_name;
         }
-        
+
         $data->title = $request->title;
         $data->slug = Str::slug($request->title);
         $data->category = $request->category;
@@ -44,7 +45,6 @@ class ServiceController extends Controller
         $data->long_description2 = $request->long_description2;
         $data->long_description3 = $request->long_description3;
         $data->tags = $request->tags;
-        $data->display_img = $image_name;
         $data->is_active = $request->is_active;
 
         $data->save();
@@ -81,10 +81,11 @@ class ServiceController extends Controller
         $image_name = $data['display_img'];
 
         if ($request->hasFile('display_img')) {
-            $image_name = 'images/services/'.uniqid() . '.' . $request->file('display_img')->getClientOriginalExtension();
+            $image_name = 'images/services/' . uniqid() . '.' . $request->file('display_img')->getClientOriginalExtension();
             $request->display_img->move(public_path('/storage/images/services'), $image_name);
+            $data->display_img = $image_name;
         }
-        
+
         $data->title = $request->title;
         $data->category = $request->category;
         $data->short_description = $request->short_description;
@@ -92,7 +93,6 @@ class ServiceController extends Controller
         $data->long_description2 = $request->long_description2;
         $data->long_description3 = $request->long_description3;
         $data->tags = $request->tags;
-        $data->display_img = $image_name;
         $data->is_active = $request->is_active;
 
         $data->update();

@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Events\ContactFormSubmitted;
 use App\Models\Faq;
+use App\Models\Product;
+use App\Models\ProductCategory;
 
 class HomeController extends Controller
 {
@@ -47,6 +49,13 @@ class HomeController extends Controller
     {
         $data = Service::whereIsActive(1)->get();
         return Inertia::render('user/pages/service/index', compact('data'));
+    }
+    
+    function product()
+    {
+        $categories = ProductCategory::whereIsActive(1)->get();
+        $data = Product::whereIsActive(1)->get();
+        return Inertia::render('user/pages/product/index', compact('categories','data'));
     }
     function serviceDetail($slug)
     {

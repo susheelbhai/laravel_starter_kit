@@ -10,19 +10,13 @@ use Illuminate\View\View;
 
 class PasswordResetLinkController extends Controller
 {
-    /**
-     * Display the password reset link request view.
-     */
-    public function create(): View
+    public function create(Request $request)
     {
-        return view('partner.auth.forgot-password');
+        return inertia('partner/auth/forgot-password', [
+            'status' => $request->session()->get('status'),
+        ]);
     }
-
-    /**
-     * Handle an incoming password reset link request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
+    
     public function store(Request $request): RedirectResponse
     {
         // return $request;
