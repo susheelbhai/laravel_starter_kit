@@ -2,7 +2,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export default function HeroSection(props: any) {
     const appName = props.data?.appData?.name;
-    const phone = props.data?.appData?.phone;
+    const whatsapp = props.data?.appData?.whatsapp;
 
     return (
         <section
@@ -39,7 +39,7 @@ export default function HeroSection(props: any) {
                             </button>
                         </a>
                         <a
-                            href={'https://wa.me/' + phone}
+                            href={'https://wa.me/' + whatsapp}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

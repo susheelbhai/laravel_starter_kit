@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\Helper;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -61,14 +62,14 @@ class SettingController extends Controller
         $setting->app_name = $req->app_name;
         $setting->short_description = $req->short_description;
         $setting->address = $req->address;
-        $setting->phone = $req->phone;
+        $setting->phone = Helper::cleanPhone($req->phone);
         $setting->email = $req->email;
         $setting->facebook = $req->facebook;
         $setting->instagram = $req->instagram;
         $setting->linkedin = $req->linkedin;
         $setting->twitter = $req->twitter;
         $setting->youtube = $req->youtube;
-        $setting->whatsapp = $req->whatsapp;
+        $setting->whatsapp = Helper::cleanPhone($req->whatsapp);
         $setting->save();
         return redirect()->route('admin.dashboard')->with('success', 'New service created successfully');
     }

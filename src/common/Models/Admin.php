@@ -23,7 +23,7 @@ class Admin extends Authenticatable
         'email',
         'password',
     ];
-
+    protected $guard_name = 'admin';
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -50,7 +50,7 @@ class Admin extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
-    
+
     public function getProfilePicAttribute($value): string
     {
         return "/storage/$value";

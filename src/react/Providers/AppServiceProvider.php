@@ -54,7 +54,7 @@ class AppServiceProvider extends ServiceProvider
                 'app.instagram' => $settings->instagram,
                 'app.linkedin' => $settings->linkedin,
                 'app.youtube' => $settings->youtube,
-                'app.whatsapp' => $settings->whatsapp,
+                'app.whatsapp' => '91'.$settings->whatsapp,
                 'app.address' => $settings->address,
             ]);
         }
