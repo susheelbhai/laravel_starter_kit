@@ -8,7 +8,7 @@ export default function Create() {
 
   return (
     <AppLayout title="About Us">
-      <div className="min-h-screen bg-background font-['Urbanist'] text-foreground">
+      <div className="min-h-screen bg-background  text-foreground">
         {/* Banner */}
         <section className="relative h-64 w-full overflow-hidden md:h-80">
           <div

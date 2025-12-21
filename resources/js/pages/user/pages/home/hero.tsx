@@ -30,12 +30,21 @@ export default function HeroSection(props: any) {
                     </p>
 
                     <div className="mt-8 flex space-x-4">
-                        <button className="rounded-md bg-primary px-6 py-3 font-semibold text-white hover:bg-primary/80">
-                            Get Started
-                        </button>
-                        <button className="rounded-md border border-primary px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-white">
-                            Learn More
-                        </button>
+                        <a href="#">
+                            <button className="cursor-pointer rounded-md bg-primary px-6 py-3 font-semibold text-white hover:bg-primary/80">
+                                See Products
+                            </button>
+                        </a>
+                        <a
+                            href={'https://wa.me/' + phone}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <button className="cursor-pointer rounded-md border border-primary px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-white">
+                                <FaWhatsapp className="inline-block mr-2" />
+                                Contact Us
+                            </button>
+                        </a>
                     </div>
                 </div>
 

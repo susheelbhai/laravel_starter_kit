@@ -35,7 +35,7 @@ export default function Create() {
     });
     return (
         <AppLayout title="Contact Us">
-            <div className="min-h-screen bg-background font-['Urbanist'] text-foreground">
+            <div className="min-h-screen bg-background  text-foreground">
                 <div className="mx-auto max-w-6xl px-4 py-12 lg:py-16">
                     {/* Page Heading */}
                     <div className="mb-10 text-center">

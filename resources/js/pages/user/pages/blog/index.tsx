@@ -6,7 +6,7 @@ export default function Create() {
 
     return (
         <AppLayout title="Blogs">
-            <div className="bg-white font-['Urbanist'] text-[#0E1339]">
+            <div className="bg-white  text-[#0E1339]">
                 {/* Banner */}
                 <div className="h-64 w-full bg-cover bg-center" style={{ backgroundImage: "url('/images/blogs-banner.jpg')" }}>
                     <div className="flex h-full w-full items-center justify-center bg-black/40">

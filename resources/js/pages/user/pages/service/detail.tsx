@@ -5,7 +5,7 @@ export default function Create() {
     const service = usePage().props.data as any;
     return (
         <AppLayout title={service.title}>
-            <div className="bg-white font-['Urbanist'] text-[#0E1339]">
+            <div className="bg-white  text-[#0E1339]">
                 {/* Banner */}
                 <div className="h-64 w-full bg-cover bg-center" style={{ backgroundImage: `url('${service.display_img}')` }}>
                     <div className="flex h-full w-full items-center justify-center bg-black/40">
