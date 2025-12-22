@@ -45,20 +45,16 @@ class PortfolioController extends Controller
             'url' => 'required',
         ]);
         
-        $image_name = 'images/portfolios/dummy.png';
         $portfolio = new Portfolio();
-        if ($request->hasFile('logo')) {
-            $image_name = 'images/portfolios/' . uniqid() . '.' . $request->file('logo')->getClientOriginalExtension();
-            $request->file('logo')->move(public_path('/storage/images/portfolios'), $image_name);
-        }
-
         $portfolio->name = $request->name;
         $portfolio->url = $request->url;
-
-        $portfolio->logo = $image_name;
         $portfolio->is_active = $request->is_active;
-
         $portfolio->save();
+
+        if ($request->hasFile('logo')) {
+            $portfolio->addMediaFromRequest('logo')
+                ->toMediaCollection('logo');
+        }
         return redirect()->route('admin.portfolio.index')->with('success', 'New portfolio created successfully');
     }
 
@@ -102,16 +98,16 @@ class PortfolioController extends Controller
         ]);
         $portfolio =  Portfolio::find($id);
 
-        if ($request->hasFile('logo')) {
-            $image_name = 'images/portfolios/' . uniqid() . '.' . $request->file('logo')->getClientOriginalExtension();
-            $request->file('logo')->move(public_path('/storage/images/portfolios'), $image_name);
-            $portfolio->logo = $image_name;
-        }
-
         $portfolio->name = $request->name;
         $portfolio->url = $request->url;
         $portfolio->is_active = $request->is_active;
         $portfolio->update();
+
+        if ($request->hasFile('logo')) {
+            $portfolio->clearMediaCollection('logo');
+            $portfolio->addMediaFromRequest('logo')
+                ->toMediaCollection('logo');
+        }
         return redirect()->route('admin.portfolio.index')->with('success', 'Portfolio updated successfully');
     }
 

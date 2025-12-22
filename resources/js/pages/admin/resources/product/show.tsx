@@ -97,8 +97,8 @@ export default function Show() {
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Thumbnail</td>
                             <td className="p-3">
-                                {product.thumbnail ? (
-                                    <img src={product.thumbnail} alt="" width={320} />
+                                {product.images && product.images.length > 0 ? (
+                                    <img src={product.images[0]} alt="" width={320} />
                                 ) : (
                                     '-'
                                 )}
@@ -107,7 +107,17 @@ export default function Show() {
 
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Gallery</td>
-                            <td className="p-3">{product.gallery ?? '-'}</td>
+                            <td className="p-3">
+                                {product.images && product.images.length > 0 ? (
+                                    <div className="flex flex-wrap gap-2">
+                                        {product.images.map((img: string, index: number) => (
+                                            <img key={index} src={img} alt="" width={160} />
+                                        ))}
+                                    </div>
+                                ) : (
+                                    '-'
+                                )}
+                            </td>
                         </tr>
 
                         <tr className="border-t border-gray-200">

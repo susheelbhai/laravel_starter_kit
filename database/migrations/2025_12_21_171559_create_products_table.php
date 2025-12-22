@@ -11,13 +11,8 @@ return new class extends Migration {
             $table->id();
 
             // relations
-            $table->foreignId('seller_id')
-                ->constrained('sellers')
-                ->cascadeOnDelete();
-
-            $table->foreignId('product_category_id')
-                ->constrained('product_categories')
-                ->restrictOnDelete();
+            $table->foreignId('seller_id')->nullable()->constrained('sellers')->cascadeOnDelete();
+            $table->foreignId('product_category_id')->constrained('product_categories')->restrictOnDelete();
 
             // basic info
             $table->string('title');
@@ -35,10 +30,6 @@ return new class extends Migration {
             // inventory
             $table->integer('stock')->default(0);
             $table->boolean('manage_stock')->default(true);
-
-            // media
-            $table->string('thumbnail')->nullable();
-            $table->string('gallery')->nullable(); // comma separated or JSON later
 
             // status & flags
             $table->boolean('is_active')->default(true);

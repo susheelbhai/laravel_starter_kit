@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,11 +33,18 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->save();
+
         if ($request->hasFile('profile_pic')) {
-            $path = $request->file('profile_pic')->store('images/profile_pic');
-            $request->user()->profile_pic = $path;
+            $user->clearMediaCollection('profile_pic');
+            $user->addMediaFromRequest('profile_pic')
+                ->toMediaCollection('profile_pic');
         }
-        $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }

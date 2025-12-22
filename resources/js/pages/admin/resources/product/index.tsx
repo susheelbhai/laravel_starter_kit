@@ -22,6 +22,7 @@ type Row = {
     stock: number;
     is_active: number;
     thumbnail: string | null;
+    images: string[];
 };
 
 export default function Index() {
@@ -58,7 +59,7 @@ export default function Index() {
                                 <td className="p-3">{product.stock}</td>
                                 <td className="p-3">
                                     {product.thumbnail ? (
-                                        <img src={`${product.thumbnail}`} alt="" width={48} />
+                                        <img src={product.thumbnail} alt="" width={48} />
                                     ) : (
                                         '-'
                                     )}

@@ -3,20 +3,39 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class Service extends BaseExternalMediaModel
 {
     use HasFactory;
     
-    
-    public function getDisplayImgAttribute($value): string
+    public function registerMediaCollections(): void
     {
-        return "/storage/$value";
+        $this->addMediaCollection('display_image')
+            ->useDisk('external_media')
+            ->singleFile();
+        
+        $this->addMediaCollection('ad_image')
+            ->useDisk('external_media')
+            ->singleFile();
     }
     
-    public function getAdImgAttribute($value): string
+    public function getDisplayImgAttribute(): string
     {
-        return "/storage/$value";
+        $media = $this->getFirstMedia('display_image');
+        if ($media) {
+            return $media->getUrl();
+        }
+        // Fallback to old attribute if exists
+        return $this->attributes['display_img'] ?? '';
+    }
+    
+    public function getAdImgAttribute(): string
+    {
+        $media = $this->getFirstMedia('ad_image');
+        if ($media) {
+            return $media->getUrl();
+        }
+        // Fallback to old attribute if exists
+        return $this->attributes['ad_img'] ?? '';
     }
 }

@@ -66,15 +66,14 @@ class AdminController extends Controller
         $admin->state  = $request->state;
         $admin->email  = $request->email;
         $admin->phone  = $request->phone;
-
-        if ($request->hasFile('profile_pic')) {
-            $profile_pic_name = 'images/profile_pic/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic'), $profile_pic_name);
-            $admin->profile_pic = $profile_pic_name;
-        }
         // password = phone
         $admin->password = Hash::make($request->phone);
         $admin->save();
+
+        if ($request->hasFile('profile_pic')) {
+            $admin->addMediaFromRequest('profile_pic')
+                ->toMediaCollection('profile_pic');
+        }
 
         // ✅ Assign roles by ID (coming from multicheckbox)
         if ($request->filled('roles')) {
@@ -163,14 +162,13 @@ class AdminController extends Controller
         $admin->state   = $request->state;
         $admin->email   = $request->email;
         $admin->phone   = $request->phone;
+        $admin->save();
 
         if ($request->hasFile('profile_pic')) {
-            $profile_pic_name = 'images/profile_pic/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic'), $profile_pic_name);
-            $admin->profile_pic = $profile_pic_name;
+            $admin->clearMediaCollection('profile_pic');
+            $admin->addMediaFromRequest('profile_pic')
+                ->toMediaCollection('profile_pic');
         }
-
-        $admin->save();
 
         // --------------------------
         // 🔹 UPDATE ROLES

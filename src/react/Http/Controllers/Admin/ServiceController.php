@@ -28,14 +28,7 @@ class ServiceController extends Controller
             'title' => 'required',
             'long_description1' => 'required',
         ]);
-        $image_name = 'dummy.png';
         $data = new Service();
-
-        if ($request->hasFile('display_img')) {
-            $image_name = 'images/services/' . uniqid() . '.' . $request->file('display_img')->getClientOriginalExtension();
-            $request->display_img->move(public_path('/storage/images/services'), $image_name);
-            $data->display_img = $image_name;
-        }
 
         $data->title = $request->title;
         $data->slug = Str::slug($request->title);
@@ -46,8 +39,12 @@ class ServiceController extends Controller
         $data->long_description3 = $request->long_description3;
         $data->tags = $request->tags;
         $data->is_active = $request->is_active;
-
         $data->save();
+
+        if ($request->hasFile('display_img')) {
+            $data->addMediaFromRequest('display_img')
+                ->toMediaCollection('display_image');
+        }
         return redirect()->route('admin.service.index')->with('success', 'New service created successfully');
     }
 
@@ -78,13 +75,6 @@ class ServiceController extends Controller
             'long_description1' => 'required',
         ]);
         $data = Service::find($id);
-        $image_name = $data['display_img'];
-
-        if ($request->hasFile('display_img')) {
-            $image_name = 'images/services/' . uniqid() . '.' . $request->file('display_img')->getClientOriginalExtension();
-            $request->display_img->move(public_path('/storage/images/services'), $image_name);
-            $data->display_img = $image_name;
-        }
 
         $data->title = $request->title;
         $data->category = $request->category;
@@ -94,8 +84,13 @@ class ServiceController extends Controller
         $data->long_description3 = $request->long_description3;
         $data->tags = $request->tags;
         $data->is_active = $request->is_active;
-
         $data->update();
+
+        if ($request->hasFile('display_img')) {
+            $data->clearMediaCollection('display_image');
+            $data->addMediaFromRequest('display_img')
+                ->toMediaCollection('display_image');
+        }
         return redirect()->route('admin.service.index')->with('success', 'Service data updated successfully');
     }
 

@@ -79,17 +79,11 @@ export default function Form({
                 name="manage_stock"
                 inputDivData={inputDivData}
             />
-
+            
             <InputDiv
-                type="image"
-                label="Thumbnail"
-                name="thumbnail"
-                inputDivData={inputDivData}
-            />
-            <InputDiv
-                type="text"
-                label="Gallery (optional)"
-                name="gallery"
+                type="images"
+                label="Images"
+                name="images"
                 inputDivData={inputDivData}
             />
 

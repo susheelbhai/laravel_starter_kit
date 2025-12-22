@@ -15,8 +15,8 @@ export default function Edit() {
         ((usePage<SharedData>().props as any)?.categories as any[]) || [];
 
     const initialValues: FormType = {
-        seller_id: product.seller_id ?? 0,
-        product_category_id: product.product_category_id ?? 0,
+        seller_id: product.seller_id || '',
+        product_category_id: product.product_category_id ?? '',
 
         title: product.title ?? '',
         slug: product.slug ?? '',
@@ -31,8 +31,7 @@ export default function Edit() {
         stock: Number(product.stock ?? 0),
         manage_stock: Number(product.manage_stock ?? 1),
 
-        thumbnail: product.thumbnail ?? null,
-        gallery: product.gallery ?? '',
+        images: product.images ?? null,
 
         is_active: Number(product.is_active ?? 1),
         is_featured: Number(product.is_featured ?? 0),

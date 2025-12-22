@@ -33,17 +33,6 @@ class Slider1Controller extends Controller
         ]);
 
         $slider1 = new Slider1();
-        if ($request->hasFile('image1')) {
-            $image_name = 'images/slider/' . uniqid() . '.' . $request->file('image1')->getClientOriginalExtension();
-            $request->file('image1')->move(public_path('/storage/images/slider'), $image_name);
-            $slider1->image1 = $image_name;
-        }
-        if ($request->hasFile('image2')) {
-            $image_name = 'images/slider/' . uniqid() . '.' . $request->file('image2')->getClientOriginalExtension();
-            $request->file('image2')->move(public_path('/storage/images/slider'), $image_name);
-            $slider1->image2 = $image_name;
-        }
-
         $slider1->heading1 = $request->heading1;
         $slider1->heading2 = $request->heading2;
         $slider1->paragraph1 = $request->paragraph1;
@@ -53,6 +42,15 @@ class Slider1Controller extends Controller
         $slider1->btn_target = $request->btn_target;
         $slider1->is_active = $request->is_active;
         $slider1->save();
+
+        if ($request->hasFile('image1')) {
+            $slider1->addMediaFromRequest('image1')
+                ->toMediaCollection('image1');
+        }
+        if ($request->hasFile('image2')) {
+            $slider1->addMediaFromRequest('image2')
+                ->toMediaCollection('image2');
+        }
         return redirect()->route('admin.slider1.index')->with('success', 'New slider created successfully');
     }
 
@@ -68,22 +66,6 @@ class Slider1Controller extends Controller
             'heading1' => 'required',
         ]);
         $slider1 =  Slider1::find($id);
-        if ($request->hasFile('image1')) {
-            $image_name = 'images/slider/' . uniqid() . '.' . $request->file('image1')->getClientOriginalExtension();
-            $request->file('image1')->move(public_path('/storage/images/slider'), $image_name);
-            if (File::exists(public_path($slider1->image1))) {
-                File::delete(public_path($slider1->image1));
-            }
-            $slider1->image1 = $image_name;
-        }
-        if ($request->hasFile('image2')) {
-            $image_name = 'images/slider/' . uniqid() . '.' . $request->file('image2')->getClientOriginalExtension();
-            $request->file('image2')->move(public_path('/storage/images/slider'), $image_name);
-            if (File::exists(public_path($slider1->image2))) {
-                File::delete(public_path($slider1->image2));
-            }
-            $slider1->image2 = $image_name;
-        }
 
         $slider1->heading1 = $request->heading1;
         $slider1->heading2 = $request->heading2;
@@ -94,6 +76,17 @@ class Slider1Controller extends Controller
         $slider1->btn_target = $request->btn_target;
         $slider1->is_active = 1;
         $slider1->update();
+
+        if ($request->hasFile('image1')) {
+            $slider1->clearMediaCollection('image1');
+            $slider1->addMediaFromRequest('image1')
+                ->toMediaCollection('image1');
+        }
+        if ($request->hasFile('image2')) {
+            $slider1->clearMediaCollection('image2');
+            $slider1->addMediaFromRequest('image2')
+                ->toMediaCollection('image2');
+        }
         return redirect()->route('admin.slider1.index')->with('success', 'Slider updated successfully');
     }
 

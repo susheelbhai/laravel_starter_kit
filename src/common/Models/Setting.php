@@ -3,25 +3,48 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Setting extends Model
+class Setting extends BaseInternalMediaModel
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function getFaviconAttribute($value): string
+    public function registerMediaCollections(): void
     {
-        return "/storage/$value";
+        $this->addMediaCollection('favicon')
+            ->singleFile();
+        
+        $this->addMediaCollection('dark_logo')
+            ->singleFile();
+        
+        $this->addMediaCollection('light_logo')
+            ->singleFile();
     }
 
-    public function getDarkLogoAttribute($value): string
+    public function getFaviconAttribute(): string
     {
-        return "/storage/$value";
+        $media = $this->getFirstMedia('favicon');
+        if ($media) {
+            return $media->getUrl();
+        }
+        return $this->attributes['favicon'] ?? '';
     }
 
-    public function getLightLogoAttribute($value): string
+    public function getDarkLogoAttribute(): string
     {
-        return "/storage/$value";
+        $media = $this->getFirstMedia('dark_logo');
+        if ($media) {
+            return $media->getUrl();
+        }
+        return $this->attributes['dark_logo'] ?? '';
+    }
+
+    public function getLightLogoAttribute(): string
+    {
+        $media = $this->getFirstMedia('light_logo');
+        if ($media) {
+            return $media->getUrl();
+        }
+        return $this->attributes['light_logo'] ?? '';
     }
 }

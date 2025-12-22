@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\Newsletter;
+use App\Models\Faq;
+use App\Models\Team;
+use Inertia\Inertia;
+use App\Models\PageTnc;
+use App\Models\Product;
+use App\Models\Service;
+use App\Models\PageHome;
 use App\Models\PageAbout;
+use App\Models\Portfolio;
+use App\Models\UserQuery;
+use App\Models\Newsletter;
+use App\Models\PageRefund;
 use App\Models\PageContact;
 use App\Models\PagePrivacy;
-use App\Models\PageRefund;
-use App\Models\PageTnc;
-use App\Models\Portfolio;
-use App\Models\Service;
-use App\Models\Team;
 use App\Models\Testimonial;
-use App\Models\UserQuery;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
-use App\Events\ContactFormSubmitted;
-use App\Models\Faq;
-use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Events\ContactFormSubmitted;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -37,7 +38,8 @@ class HomeController extends Controller
         $team = Team::whereIsActive(1)->get();
         $testimonials = Testimonial::whereIsActive(1)->get();
         $clients = Portfolio::whereIsActive(1)->get();
-        return Inertia::render('user/pages/home/index', compact( 'services', 'testimonials', 'team', 'clients'));
+        $data = PageHome::whereId(1)->first();
+        return Inertia::render('user/pages/home/index', compact( 'services', 'testimonials', 'team', 'clients', 'data'));
     }
     function about()
     {

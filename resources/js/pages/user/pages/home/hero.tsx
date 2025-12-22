@@ -3,16 +3,20 @@ import { FaWhatsapp } from "react-icons/fa";
 export default function HeroSection(props: any) {
     const appName = props.data?.appData?.name;
     const whatsapp = props.data?.appData?.whatsapp;
-
+    const bannerImage = props.data?.data?.banner_image;
+    console.log('Hero Section Data:', props.data.data);
+    console.log('Banner Image URL:', bannerImage);
+    
     return (
         <section
             id="home"
-            className="relative overflow-hidden bg-[#F5F6FA] py-20 text-left md:py-32"
+            className="relative overflow-hidden py-20 text-left md:py-32"
             style={{
-                backgroundImage: "url('/storage/images/custom_uploads/banner3.jpg')",
+                backgroundImage: bannerImage ? `url("${bannerImage}")` : 'none',
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",      // full width cover
-                backgroundPosition: "center", // image center-balanced
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundColor: bannerImage ? 'transparent' : '#F5F6FA',
             }}
         >
             <div className="mx-auto grid max-w-[1320px] items-center gap-8 px-4 md:grid-cols-2 md:px-6">
@@ -24,13 +28,12 @@ export default function HeroSection(props: any) {
                     </p>
 
                     <h1 className="text-4xl leading-tight font-bold md:text-6xl">
-                        Smart Solutions For <br />
-                        Your Business Needs
+                        <div dangerouslySetInnerHTML={{ __html: props.data?.data?.banner_heading }} />
                     </h1>
 
-                    <p className="mt-6 max-w-md text-[#6B7280]">
-                        We are a team of talented designers making websites with Bootstrap
-                    </p>
+                    <div className="mt-6 max-w-md text-[#6B7280]">
+                        <div dangerouslySetInnerHTML={{ __html: props.data?.data?.banner_description }} />
+                    </div>
 
                     <div className="mt-8 flex space-x-4">
                         <a href="#">

@@ -3,20 +3,36 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class PageAbout extends Model
+class PageAbout extends BaseExternalMediaModel
 {
     use HasFactory;
     protected $table = 'page_about';
 
-    public function getBannerAttribute($value): string
+    public function registerMediaCollections(): void
     {
-        return "/storage/$value";
+        $this->addMediaCollection('banner')
+            ->singleFile();
+        
+        $this->addMediaCollection('founder_image')
+            ->singleFile();
     }
 
-    public function getFounderImageAttribute($value): string
+    public function getBannerAttribute(): string
     {
-        return "/storage/$value";
+        $media = $this->getFirstMedia('banner');
+        if ($media) {
+            return $media->getUrl();
+        }
+        return $this->attributes['banner'] ?? '';
+    }
+
+    public function getFounderImageAttribute(): string
+    {
+        $media = $this->getFirstMedia('founder_image');
+        if ($media) {
+            return $media->getUrl();
+        }
+        return $this->attributes['founder_image'] ?? '';
     }
 }

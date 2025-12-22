@@ -44,18 +44,16 @@ class UserController extends Controller
             'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         $data = new User();
-        if ($request->hasFile('profile_pic')) {
-            $profile_pic_name = 'images/profile_pic/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic'), $profile_pic_name);
-            $data->profile_pic = $profile_pic_name;
-        }
-
         $data->name = $request->name;
         $data->phone = $request->phone;
         $data->email = $request->email;
         $data->password = Hash::make(rand(888888888, 9999999999));
-
         $data->save();
+
+        if ($request->hasFile('profile_pic')) {
+            $data->addMediaFromRequest('profile_pic')
+                ->toMediaCollection('profile_pic');
+        }
 
 
         return Redirect::route('admin.user.index')->with('success', 'new user created successfully');
@@ -104,16 +102,16 @@ class UserController extends Controller
             'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         $data = User::find($id);
-        if ($request->hasFile('profile_pic')) {
-            $profile_pic_name = 'images/profile_pic/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic'), $profile_pic_name);
-            $data->profile_pic = $profile_pic_name;
-        }
-
         $data->name = $request->name;
         $data->phone = $request->phone;
         $data->email = $request->email;
         $data->save();
+
+        if ($request->hasFile('profile_pic')) {
+            $data->clearMediaCollection('profile_pic');
+            $data->addMediaFromRequest('profile_pic')
+                ->toMediaCollection('profile_pic');
+        }
         return Redirect::route('admin.user.update', $id)->with('success', 'profile-updated');
     }
 

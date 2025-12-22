@@ -11,11 +11,13 @@ use App\Models\PageContact;
 use App\Models\PagePrivacy;
 use App\Models\PageRefund;
 use Illuminate\Http\Request;
+use App\Traits\HandlesMediaUploads;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 
 class PagesController extends Controller
 {
+    use HandlesMediaUploads;
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +30,24 @@ class PagesController extends Controller
         $slider1 = Slider1::latest()->get();
         return Inertia::render('admin/resources/edit_pages/home', compact('data', 'slider1'));
     }
+    public function updateHomePage(Request $request)
+    {
+        $data = PageHome::find(1);
+        $data->banner_heading = $request->banner_heading;
+        $data->banner_description = $request->banner_description;
+        $data->about_heading = $request->about_heading;
+        $data->about_description = $request->about_description;
+        $data->why_us_heading = $request->why_us_heading;
+        $data->why_us_description = $request->why_us_description;
+        $data->update();
+
+        $this->handleSingleFileUpload($data, $request, 'banner_image');
+        $this->handleSingleFileUpload($data, $request, 'about_image');
+        $this->handleSingleFileUpload($data, $request, 'why_us_image');
+
+        return to_route('admin.dashboard')->with('success', 'Updated successfully');
+    }
+    
     public function aboutPage()
     {
         $data = PageAbout::where('id', '=', 1)->first();
@@ -37,25 +57,17 @@ class PagesController extends Controller
     {
         $data = PageAbout::find(1);
 
-        
-        if ($request->hasFile('founder_image')) {
-            $image_name = 'images/webpage/' . uniqid() . '.' . $request->file('founder_image')->getClientOriginalExtension();
-            $request->file('founder_image')->move(public_path('/storage/images/webpage'), $image_name);
-            $data->founder_image = $image_name;
-        }
-        if ($request->hasFile('banner')) {
-            $image_name = 'images/webpage/' . uniqid() . '.' . $request->file('banner')->getClientOriginalExtension();
-            $request->file('banner')->move(public_path('/storage/images/webpage'), $image_name);
-            $data->banner = $image_name;
-        }
         $data->para1 = $request->para1;
         $data->para2 = $request->para2;
         $data->objective = $request->objective;
         $data->mission = $request->mission;
         $data->vision = $request->vision;
-
         $data->founder_message = $request->founder_message;
         $data->update();
+
+        $this->handleSingleFileUpload($data, $request, 'founder_image');
+        $this->handleSingleFileUpload($data, $request, 'banner');
+
         return to_route('admin.dashboard')->with('success', 'Updated successfully');
     }
     public function contactPage()

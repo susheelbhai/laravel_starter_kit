@@ -36,21 +36,17 @@ class ProfileController extends Controller
             $request->user('admin')->email_verified_at = null;
         }
 
-        $image_name = Auth::guard('admin')->user()->profile_pic;
-        if ($request->hasFile('profile_pic')) {
-            $image_name = 'images/profile_pic/admin/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic/admin/'), $image_name);
-            if (Auth::guard('admin')->user()->profile_pic != 'dummy.png') {
-                File::delete(public_path('storage/images/profile_pic/admin/' . Auth::guard('admin')->user()->profile_pic));
-            }
-        }
+        $admin = Admin::find(Auth::guard('admin')->user()->id);
+        $admin->name = $request->name;
+        $admin->phone = $request->phone;
+        $admin->email = $request->email;
+        $admin->save();
 
-        Admin::where('id', Auth::guard('admin')->user()->id)->update([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'profile_pic' => $image_name,
-        ]);
+        if ($request->hasFile('profile_pic')) {
+            $admin->clearMediaCollection('profile_pic');
+            $admin->addMediaFromRequest('profile_pic')
+                ->toMediaCollection('profile_pic');
+        }
 
 
         return Redirect::route('admin.profile.edit')->with('success', 'profile-updated');

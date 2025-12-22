@@ -15,7 +15,7 @@ export default function Create() {
             ?.categories as CategoryOption[]) || [];
 
     const initialValues: FormType = {
-        seller_id: 0,
+        seller_id: '',
         product_category_id: 0,
 
         title: '',
@@ -31,8 +31,7 @@ export default function Create() {
         stock: 0,
         manage_stock: 1,
 
-        thumbnail: null,
-        gallery: '',
+        images: null,
 
         is_active: 1,
         is_featured: 0,

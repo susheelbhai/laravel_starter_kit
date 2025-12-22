@@ -45,21 +45,7 @@ class ProductCategoryController extends Controller
             'meta_description' => 'nullable|string',
         ]);
 
-        $icon_name = null;
-        $banner_name = null;
-
         $data = new ProductCategory();
-
-        // ✅ uploads in your pattern (public/storage/... + store path as string)
-        if ($request->hasFile('icon')) {
-            $icon_name = 'images/product_categories/icons/' . uniqid() . '.' . $request->file('icon')->getClientOriginalExtension();
-            $request->file('icon')->move(public_path('/storage/images/product_categories/icons'), $icon_name);
-        }
-
-        if ($request->hasFile('banner')) {
-            $banner_name = 'images/product_categories/banners/' . uniqid() . '.' . $request->file('banner')->getClientOriginalExtension();
-            $request->file('banner')->move(public_path('/storage/images/product_categories/banners'), $banner_name);
-        }
 
         $data->parent_id = $request->parent_id ?: null;
 
@@ -68,9 +54,6 @@ class ProductCategoryController extends Controller
 
         $data->description = $request->description;
 
-        $data->icon = $icon_name;
-        $data->banner = $banner_name;
-
         $data->position = $request->position ?? 0;
         $data->is_active = (int) $request->is_active;
         $data->is_featured = (int) $request->is_featured;
@@ -78,10 +61,17 @@ class ProductCategoryController extends Controller
         $data->meta_title = $request->meta_title;
         $data->meta_description = $request->meta_description;
 
-        // optional audit (only if column exists)
-        // $data->created_by_admin_id = auth('admin')->id();
-
         $data->save();
+
+        if ($request->hasFile('icon')) {
+            $data->addMediaFromRequest('icon')
+                ->toMediaCollection('icon');
+        }
+
+        if ($request->hasFile('banner')) {
+            $data->addMediaFromRequest('banner')
+                ->toMediaCollection('banner');
+        }
 
         return redirect()
             ->route('admin.product_category.index')
@@ -125,19 +115,6 @@ class ProductCategoryController extends Controller
 
         $data = ProductCategory::findOrFail($id);
 
-
-        if ($request->hasFile('icon')) {
-            $icon_name = 'images/product_categories/icons/' . uniqid() . '.' . $request->file('icon')->getClientOriginalExtension();
-            $request->file('icon')->move(public_path('/storage/images/product_categories/icons'), $icon_name);
-            $data->icon = $icon_name;
-        }
-
-        if ($request->hasFile('banner')) {
-            $banner_name = 'images/product_categories/banners/' . uniqid() . '.' . $request->file('banner')->getClientOriginalExtension();
-            $request->file('banner')->move(public_path('/storage/images/product_categories/banners'), $banner_name);
-            $data->banner = $banner_name;
-        }
-
         $data->parent_id = $request->parent_id ?: null;
 
         $data->title = $request->title;
@@ -148,7 +125,6 @@ class ProductCategoryController extends Controller
 
         $data->description = $request->description;
 
-
         $data->position = $request->position ?? 0;
         $data->is_active = (int) $request->is_active;
         $data->is_featured = (int) $request->is_featured;
@@ -157,6 +133,18 @@ class ProductCategoryController extends Controller
         $data->meta_description = $request->meta_description;
 
         $data->update();
+
+        if ($request->hasFile('icon')) {
+            $data->clearMediaCollection('icon');
+            $data->addMediaFromRequest('icon')
+                ->toMediaCollection('icon');
+        }
+
+        if ($request->hasFile('banner')) {
+            $data->clearMediaCollection('banner');
+            $data->addMediaFromRequest('banner')
+                ->toMediaCollection('banner');
+        }
 
         return redirect()
             ->route('admin.product_category.index')

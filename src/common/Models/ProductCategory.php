@@ -3,18 +3,40 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class ProductCategory extends Model
+class ProductCategory extends BaseExternalMediaModel
 {
     /** @use HasFactory<\Database\Factories\ProductCategoryFactory> */
     use HasFactory;
-    public function getBannerAttribute($value): string
+    
+    public function registerMediaCollections(): void
     {
-        return "/storage/$value";
+        $this->addMediaCollection('icon')
+            ->useDisk('external_media')
+            ->singleFile();
+        
+        $this->addMediaCollection('banner')
+            ->useDisk('external_media')
+            ->singleFile();
     }
-    public function getIconAttribute($value): string
+    
+    public function getBannerAttribute(): string
     {
-        return "/storage/$value";
+        $media = $this->getFirstMedia('banner');
+        if ($media) {
+            return $media->getUrl();
+        }
+        // Fallback to old attribute if exists
+        return $this->attributes['banner'] ?? '';
+    }
+    
+    public function getIconAttribute(): string
+    {
+        $media = $this->getFirstMedia('icon');
+        if ($media) {
+            return $media->getUrl();
+        }
+        // Fallback to old attribute if exists
+        return $this->attributes['icon'] ?? '';
     }
 }

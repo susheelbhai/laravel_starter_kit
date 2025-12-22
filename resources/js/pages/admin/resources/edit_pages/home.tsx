@@ -1,60 +1,114 @@
-import Button from '@/components/button';
-import Table from '@/components/table/table';
-import TableCard from '@/components/table/table-card';
-import TBody from '@/components/table/tbody';
-import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
-import ButtonCreate from '@/components/ui/button-create';
+import { InputDiv } from '@/components/form/input-div';
+import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
-import { type BreadcrumbItem, type SharedData } from '@/types';
+import { useFormHandler } from '@/lib/use-form-handler';
+import { BreadcrumbItem, SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
-import { Eye } from 'lucide-react';
+
+type FormType = {
+    id: number;
+    banner_heading: string;
+    banner_description: string;
+    banner_image: string;
+    about_heading: string;
+    about_description: string;
+    about_image: string;
+    why_us_heading: string;
+    why_us_description: string;
+    why_us_image: string;
+};
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Slider',
-        href: '/dashboard',
+        title: 'Edit Home Page',
+        href: '',
     },
 ];
 
-export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)) || [];
-    const thead = [
-        { title: 'Name', className: 'p-3' },
-        { title: 'Url', className: 'p-3' },
-        { title: 'Logo', className: 'p-3' },
-        { title: 'Status', className: 'p-3' },
-        { title: 'View', className: 'p-3' },
-    ];
-    console.log(data.slider1);
+export default function PageHome() {
+    const data = ((usePage<SharedData>().props as any)?.data as any) || [];
+    const initialValues: FormType = {
+        id: data.id,
+        banner_heading: data.banner_heading,
+        banner_description: data.banner_description,
+        banner_image: data.banner_image,
+        about_heading: data.about_heading,
+        about_description: data.about_description,
+        about_image: data.about_image,
+        why_us_heading: data.why_us_heading,
+        why_us_description: data.why_us_description,
+        why_us_image: data.why_us_image,
+    };
+    const { submit, inputDivData, processing } = useFormHandler<FormType>({
+        url: route('admin.pages.updateHomePage'),
+        initialValues,
+        method: 'PATCH',
+        onSuccess: () => console.log('Simple form created successfully!'),
+    });
+
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Slider" />
-            <ButtonCreate href={route('admin.slider1.create')} text="Add New" />
+            <Head title="Edit Home Page" />
+            <form onSubmit={submit} className="space-y-6 p-6">
+                <InputDiv
+                    type="textarea"
+                    label="Banner Heading"
+                    name="banner_heading"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="editor"
+                    label="Banner Description"
+                    name="banner_description"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="image"
+                    label="Banner Image"
+                    name="banner_image"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="textarea"
+                    label="About Heading"
+                    name="about_heading"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="editor"
+                    label="About Description"
+                    name="about_description"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="image"
+                    label="About Image"
+                    name="about_image"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="textarea"
+                    label="Why Us Heading"
+                    name="why_us_heading"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="editor"
+                    label="Why Us Description"
+                    name="why_us_description"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="image"
+                    label="Why Us Image"
+                    name="why_us_image"
+                    inputDivData={inputDivData}
+                />
 
-            <TableCard>
-                <Table>
-                    <THead data={thead} />
-                    <TBody>
-                        {data.slider1.map((slider: any) => (
-                            <tr key={slider.id} className="border-t border-gray-200">
-                                <td className="p-3">{slider.heading1}</td>
-                                <td className="p-3">{slider.heading2}</td>
-                                <td className="p-3">
-                                    <img src={`${slider.image1}`} alt="" width={48} />
-                                </td>
-                                <td className="p-3">{slider.is_active ==1 ? 'active' : 'inactive'}</td>
-                                <td className="p-3">
-                                     <TextLink href={route('admin.slider1.edit', slider.id)}>
-                                        <Eye className="h-4 w-4" />
-                                    </TextLink>
-                                </td>
-                            </tr>
-                        ))}
-                    </TBody>
-                </Table>
-            </TableCard>
+                <Button type="submit" disabled={processing}>
+                    {processing ? 'Submitting...' : 'Submit'}
+                </Button>
+            </form>
         </AppLayout>
     );
 }

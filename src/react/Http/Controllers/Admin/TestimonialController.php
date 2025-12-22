@@ -44,14 +44,7 @@ class TestimonialController extends Controller
             'name' => 'required',
             'message' => 'required',
         ]);
-        $image_name = 'images/testimonials/dummy.png';
         $testimonial = new Testimonial();
-
-        if ($request->hasFile('image')) {
-            $image_name = 'images/testimonials/' . uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path('/storage/images/testimonials'), $image_name);
-            $testimonial->image = $image_name;
-        }
 
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
@@ -59,6 +52,11 @@ class TestimonialController extends Controller
         $testimonial->message = $request->message;
         $testimonial->is_active = $request->is_active;
         $testimonial->save();
+
+        if ($request->hasFile('image')) {
+            $testimonial->addMediaFromRequest('image')
+                ->toMediaCollection('image');
+        }
         return redirect()->route('admin.testimonial.index')->with('success', 'New testimonial created successfully');
     }
 
@@ -101,18 +99,18 @@ class TestimonialController extends Controller
         ]);
         $testimonial =  Testimonial::find($id);
 
-        if ($request->hasFile('image')) {
-            $image_name = 'images/testimonials/' . uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path('/storage/images/testimonials'), $image_name);
-            $testimonial->image = $image_name;
-        }
-
         $testimonial->name = $request->name;
         $testimonial->designation = $request->designation;
         $testimonial->organisation = $request->organisation;
         $testimonial->message = $request->message;
         $testimonial->is_active = $request->is_active;
         $testimonial->update();
+
+        if ($request->hasFile('image')) {
+            $testimonial->clearMediaCollection('image');
+            $testimonial->addMediaFromRequest('image')
+                ->toMediaCollection('image');
+        }
         return redirect()->route('admin.testimonial.index')->with('success', 'Testimonial updated successfully');
     }
 

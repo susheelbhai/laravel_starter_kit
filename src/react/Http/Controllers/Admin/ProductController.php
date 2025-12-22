@@ -5,15 +5,24 @@ namespace App\Http\Controllers\Admin;
 use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
+use App\Models\MediaExternal;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $data = Product::latest()->get();
+        $data = Product::latest()->get()->map(function ($product) {
+            $media = $product->getMedia('images');
+            return [
+                ...$product->toArray(),
+                'thumbnail' => $media->first()?->getUrl('thumb'),
+                'images' => $media->map(fn($m) => $m->getUrl()),
+            ];
+        });
         return Inertia::render('admin/resources/product/index', compact('data'));
     }
 
@@ -26,45 +35,10 @@ class ProductController extends Controller
         return Inertia::render('admin/resources/product/create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         // dd($request->all());
-        // ✅ your pattern: validate + manual assign + image move to public/storage
-        $request->validate([
-            'seller_id' => 'required|integer|exists:sellers,id',
-            'product_category_id' => 'required|integer|exists:product_categories,id',
-
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'sku' => 'nullable|string|max:255',
-
-            'short_description' => 'nullable|string',
-            'description' => 'nullable|string',
-
-            'price' => 'required|numeric|min:0',
-            'mrp' => 'nullable|numeric|min:0',
-
-            'stock' => 'nullable|integer|min:0',
-            'manage_stock' => 'required|in:0,1',
-
-            'thumbnail' => 'nullable|image|max:5120',
-            'gallery' => 'nullable', // can be string or multiple files (handle later)
-
-            'is_active' => 'required|in:0,1',
-            'is_featured' => 'required|in:0,1',
-
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string',
-        ]);
-
-        $thumbnail_name = null;
-
         $data = new Product();
-
-        if ($request->hasFile('thumbnail')) {
-            $thumbnail_name = 'images/products/' . uniqid() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-            $request->file('thumbnail')->move(public_path('/storage/images/products'), $thumbnail_name);
-        }
 
         $data->seller_id = $request->seller_id;
         $data->product_category_id = $request->product_category_id;
@@ -85,21 +59,20 @@ class ProductController extends Controller
         $data->stock = $request->stock ?? 0;
         $data->manage_stock = (int) $request->manage_stock;
 
-        $data->thumbnail = $thumbnail_name;
-
-        // Keep as-is for now (string). Later you can convert to JSON or separate table.
-        $data->gallery = $request->gallery;
-
         $data->is_active = (int) $request->is_active;
         $data->is_featured = (int) $request->is_featured;
 
         $data->meta_title = $request->meta_title;
         $data->meta_description = $request->meta_description;
 
-        // optional audit (only if column exists)
-        // $data->created_by_admin_id = auth('admin')->id();
-
         $data->save();
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $data->addMedia($file)
+                    ->toMediaCollection('images');
+            }
+        }
 
         return redirect()
             ->route('admin.product.index')
@@ -108,7 +81,13 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $data = Product::findOrFail($id);
+        $product = Product::findOrFail($id);
+        $media = $product->getMedia('images');
+        $data = [
+            ...$product->toArray(),
+            'thumbnail' => $media->first()?->getUrl('thumb'),
+            'images' => $media->map(fn($m) => $m->getUrl()),
+        ];
         return Inertia::render('admin/resources/product/show', compact('data'));
     }
 
@@ -118,47 +97,29 @@ class ProductController extends Controller
             ->latest()
             ->get(['id', 'title']);
 
-        $data = Product::findOrFail($id);
+        $product = Product::findOrFail($id);
+        $media = $product->getMedia('images');
+        $data = [
+            ...$product->toArray(),
+            'thumbnail' => $media->first()?->getUrl('thumb'),
+            'images' => $media->map(fn($m) => [
+                'id' => $m->id,
+                'url' => $m->getUrl(),
+                'thumb' => $m->getUrl('thumb'),
+                'small' => $m->getUrl('small'),
+                'medium' => $m->getUrl('medium'),
+                'large' => $m->getUrl('large'),
+                'xlarge' => $m->getUrl('xlarge'),
+            ]),
+        ];
         return Inertia::render('admin/resources/product/edit', compact('data', 'categories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        $request->validate([
-            'seller_id' => 'required|integer|exists:sellers,id',
-            'product_category_id' => 'required|integer|exists:product_categories,id',
-
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'sku' => 'nullable|string|max:255',
-
-            'short_description' => 'nullable|string',
-            'description' => 'nullable|string',
-
-            'price' => 'required|numeric|min:0',
-            'mrp' => 'nullable|numeric|min:0',
-
-            'stock' => 'nullable|integer|min:0',
-            'manage_stock' => 'required|in:0,1',
-
-            'thumbnail' => 'nullable|image|max:5120',
-            'gallery' => 'nullable',
-
-            'is_active' => 'required|in:0,1',
-            'is_featured' => 'required|in:0,1',
-
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string',
-        ]);
+        // dd($request->all());
 
         $data = Product::findOrFail($id);
-
-        $thumbnail_name = $data->thumbnail;
-
-        if ($request->hasFile('thumbnail')) {
-            $thumbnail_name = 'images/products/' . uniqid() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-            $request->file('thumbnail')->move(public_path('/storage/images/products'), $thumbnail_name);
-        }
 
         $data->seller_id = $request->seller_id;
         $data->product_category_id = $request->product_category_id;
@@ -180,9 +141,6 @@ class ProductController extends Controller
         $data->stock = $request->stock ?? 0;
         $data->manage_stock = (int) $request->manage_stock;
 
-        $data->thumbnail = $thumbnail_name;
-        $data->gallery = $request->gallery;
-
         $data->is_active = (int) $request->is_active;
         $data->is_featured = (int) $request->is_featured;
 
@@ -190,6 +148,26 @@ class ProductController extends Controller
         $data->meta_description = $request->meta_description;
 
         $data->update();
+
+        // Handle deleted images - properly delete files and database entries
+        if ($request->has('deleted_images_ids') && is_array($request->deleted_images_ids)) {
+            $mediaItems = MediaExternal::whereIn('id', $request->deleted_images_ids)
+                ->where('model_type', Product::class)
+                ->where('model_id', $data->id)
+                ->get();
+            
+            foreach ($mediaItems as $media) {
+                $media->delete(); // This triggers Spatie's cleanup and deletes actual files
+            }
+        }
+
+        // Add new images
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $data->addMedia($file)
+                    ->toMediaCollection('images');
+            }
+        }
 
         return redirect()
             ->route('admin.product.index')

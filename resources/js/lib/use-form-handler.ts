@@ -10,7 +10,21 @@ function appendValue(fd: FormData, key: string, value: any) {
     }
 
     if (Array.isArray(value)) {
-        value.forEach((item) => appendValue(fd, `${key}[]`, item));
+        if (value.length === 0) {
+            // Send empty array indicator for deleted items tracking
+            if (key.startsWith('deleted_')) {
+                return;
+            }
+        }
+        value.forEach((item) => {
+            if (item instanceof File) {
+                fd.append(`${key}[]`, item);
+            } else if (typeof item === 'number' || typeof item === 'string') {
+                fd.append(`${key}[]`, String(item));
+            } else if (typeof item === 'object' && item !== null) {
+                fd.append(`${key}[]`, JSON.stringify(item));
+            }
+        });
         return;
     }
 

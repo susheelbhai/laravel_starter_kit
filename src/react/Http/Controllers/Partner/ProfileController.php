@@ -36,21 +36,17 @@ class ProfileController extends Controller
             $request->user('partner')->email_verified_at = null;
         }
 
-        $image_name = Auth::guard('partner')->user()->profile_pic;
-        if ($request->hasFile('profile_pic')) {
-            $image_name = 'images/profile_pic/partner/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic/partner/'), $image_name);
-            if (Auth::guard('partner')->user()->profile_pic != 'dummy.png') {
-                File::delete(public_path('storage/images/profile_pic/partner/' . Auth::guard('partner')->user()->profile_pic));
-            }
-        }
+        $partner = Partner::find(Auth::guard('partner')->user()->id);
+        $partner->name = $request->name;
+        $partner->phone = $request->phone;
+        $partner->email = $request->email;
+        $partner->save();
 
-        Partner::where('id', Auth::guard('partner')->user()->id)->update([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'profile_pic' => $image_name,
-        ]);
+        if ($request->hasFile('profile_pic')) {
+            $partner->clearMediaCollection('profile_pic');
+            $partner->addMediaFromRequest('profile_pic')
+                ->toMediaCollection('profile_pic');
+        }
 
 
         return Redirect::route('partner.profile.edit')->with('success', 'profile-updated');

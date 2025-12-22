@@ -6,12 +6,26 @@ namespace App\Models;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\Auth\Partner\ResetPasswordNotification;
 
-class Partner extends Authenticatable
+class Partner extends BaseInternalAuthenticatable
 {
     use HasFactory, Notifiable, HasRoles;
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('profile_pic')
+            ->singleFile();
+    }
+
+    public function getProfilePicAttribute(): string
+    {
+        $media = $this->getFirstMedia('profile_pic');
+        if ($media) {
+            return $media->getUrl();
+        }
+        return $this->attributes['profile_pic'] ?? '';
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -46,10 +60,5 @@ class Partner extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
-    }
-    
-    public function getProfilePicAttribute($value): string
-    {
-        return "/storage/$value";
     }
 }

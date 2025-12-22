@@ -15,9 +15,9 @@ const FinbizLandingPage = () => {
     return (
         <AppLayout title="Home">
             <HeroSection data={data} />
-            <AboutSection />
+            <AboutSection data={data.data} />
             <ServicesSection data={data.services} />
-            <FeatureSection />
+            <FeatureSection data={data.data} />
             <ProjectSection />
             <TeamSection data={data.team} />
             <TestimonialSection data={data.testimonials} />

@@ -42,23 +42,6 @@ class SettingController extends Controller
         // $settings = $this->settings;
         $setting = Setting::find(1);
 
-        if ($req->hasFile('favicon')) {
-            $favicon_name = 'images/logo/' . uniqid() . '.' . $req->file('favicon')->getClientOriginalExtension();
-            $req->favicon->move(public_path('/storage/images/logo'), $favicon_name);
-            $setting->favicon = $favicon_name;
-        }
-        if ($req->hasFile('dark_logo')) {
-            $dark_logo_name = 'images/logo/' . uniqid() . '.' . $req->file('dark_logo')->getClientOriginalExtension();
-            $req->dark_logo->move(public_path('/storage/images/logo'), $dark_logo_name);
-            $setting->dark_logo = $dark_logo_name;
-        }
-        if ($req->hasFile('light_logo')) {
-            $light_logo_name = 'images/logo/' . uniqid() . '.' . $req->file('light_logo')->getClientOriginalExtension();
-            $req->light_logo->move(public_path('/storage/images/logo'), $light_logo_name);
-            $setting->light_logo = $light_logo_name;
-        }
-
-
         $setting->app_name = $req->app_name;
         $setting->short_description = $req->short_description;
         $setting->address = $req->address;
@@ -71,6 +54,22 @@ class SettingController extends Controller
         $setting->youtube = $req->youtube;
         $setting->whatsapp = Helper::cleanPhone($req->whatsapp);
         $setting->save();
+
+        if ($req->hasFile('favicon')) {
+            $setting->clearMediaCollection('favicon');
+            $setting->addMediaFromRequest('favicon')
+                ->toMediaCollection('favicon');
+        }
+        if ($req->hasFile('dark_logo')) {
+            $setting->clearMediaCollection('dark_logo');
+            $setting->addMediaFromRequest('dark_logo')
+                ->toMediaCollection('dark_logo');
+        }
+        if ($req->hasFile('light_logo')) {
+            $setting->clearMediaCollection('light_logo');
+            $setting->addMediaFromRequest('light_logo')
+                ->toMediaCollection('light_logo');
+        }
         return redirect()->route('admin.dashboard')->with('success', 'New service created successfully');
     }
 

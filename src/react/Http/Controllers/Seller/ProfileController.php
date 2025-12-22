@@ -36,21 +36,17 @@ class ProfileController extends Controller
             $request->user('seller')->email_verified_at = null;
         }
 
-        $image_name = Auth::guard('seller')->user()->profile_pic;
-        if ($request->hasFile('profile_pic')) {
-            $image_name = 'images/profile_pic/seller/' . uniqid() . '.' . $request->file('profile_pic')->getClientOriginalExtension();
-            $request->profile_pic->move(public_path('/storage/images/profile_pic/seller/'), $image_name);
-            if (Auth::guard('seller')->user()->profile_pic != 'dummy.png') {
-                File::delete(public_path('storage/images/profile_pic/seller/' . Auth::guard('seller')->user()->profile_pic));
-            }
-        }
+        $seller = Seller::find(Auth::guard('seller')->user()->id);
+        $seller->name = $request->name;
+        $seller->phone = $request->phone;
+        $seller->email = $request->email;
+        $seller->save();
 
-        Seller::where('id', Auth::guard('seller')->user()->id)->update([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'profile_pic' => $image_name,
-        ]);
+        if ($request->hasFile('profile_pic')) {
+            $seller->clearMediaCollection('profile_pic');
+            $seller->addMediaFromRequest('profile_pic')
+                ->toMediaCollection('profile_pic');
+        }
 
 
         return Redirect::route('seller.profile.edit')->with('success', 'profile-updated');

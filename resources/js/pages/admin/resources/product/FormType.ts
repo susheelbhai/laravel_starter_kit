@@ -1,5 +1,5 @@
 type FormType = {
-    seller_id: number;
+    seller_id: number | string;
     product_category_id: number;
 
     title: string;
@@ -15,8 +15,7 @@ type FormType = {
     stock: number;
     manage_stock: number;
 
-    thumbnail: UploadValue;
-    gallery: string;
+    images: UploadValue;
 
     is_active: number;
     is_featured: number;

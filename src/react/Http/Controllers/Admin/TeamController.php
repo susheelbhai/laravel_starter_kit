@@ -43,19 +43,17 @@ class TeamController extends Controller
             'name' => 'required',
             'designation' => 'required',
         ]);
-        $image_name = 'images/team/dummy.png';
         $team = new Team();
-
-         if ($request->hasFile('image')) {
-            $image_name = 'images/team/' . uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path('/storage/images/team'), $image_name);
-        }
         
         $team->name = $request->name;
         $team->designation = $request->designation;
-        $team->image = $image_name;
         $team->is_active = $request->is_active;
         $team->save();
+
+        if ($request->hasFile('image')) {
+            $team->addMediaFromRequest('image')
+                ->toMediaCollection('image');
+        }
         return redirect()->route('admin.team.index')->with('success', 'New team member created successfully');
     }
 
@@ -98,16 +96,16 @@ class TeamController extends Controller
         ]);
         $team =  Team::find($id);
 
-         if ($request->hasFile('image')) {
-            $image_name = 'images/team/' . uniqid() . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move(public_path('/storage/images/team'), $image_name);
-            $team->image = $image_name;
-        }
-
         $team->name = $request->name;
         $team->designation = $request->designation;
         $team->is_active = $request->is_active;
         $team->update();
+
+        if ($request->hasFile('image')) {
+            $team->clearMediaCollection('image');
+            $team->addMediaFromRequest('image')
+                ->toMediaCollection('image');
+        }
         return redirect()->route('admin.team.index')->with('success', 'Team member updated successfully');
     }
 
