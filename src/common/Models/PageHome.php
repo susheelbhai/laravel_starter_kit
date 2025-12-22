@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\BaseModels\BaseInternalMediaModel;
 
-class PageHome extends BaseExternalMediaModel
+class PageHome extends BaseInternalMediaModel
 {
     use HasFactory;
     protected $table = 'page_home';

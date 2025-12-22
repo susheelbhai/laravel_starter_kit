@@ -3,21 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\BaseModels\BaseInternalMediaModel;
 
-class Testimonial extends BaseMediaModel
+class Testimonial extends BaseInternalMediaModel
 {
     use HasFactory;
     
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('image')
-            ->useDisk('internal_media')
             ->singleFile();
-    }
-    
-    public function getMediaModel(): string
-    {
-        return MediaInternal::class;
     }
     
     public function getImageAttribute(): string

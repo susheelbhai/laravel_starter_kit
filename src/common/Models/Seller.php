@@ -7,8 +7,9 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Notifications\Auth\Seller\ResetPasswordNotification;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\BaseModels\BaseExternalAuthenticatable;
 
-class Seller extends BaseInternalAuthenticatable
+class Seller extends BaseExternalAuthenticatable
 {
     use HasFactory, Notifiable, HasRoles;
 

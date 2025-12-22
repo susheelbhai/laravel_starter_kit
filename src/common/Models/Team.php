@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\BaseModels\BaseInternalMediaModel;
 
-class Team extends BaseMediaModel
+class Team extends BaseInternalMediaModel
 {
     use HasFactory;
     protected $table = 'team';
@@ -12,14 +13,9 @@ class Team extends BaseMediaModel
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('image')
-            ->useDisk('internal_media')
             ->singleFile();
     }
     
-    public function getMediaModel(): string
-    {
-        return MediaInternal::class;
-    }
     
     public function getImageAttribute(): string
     {

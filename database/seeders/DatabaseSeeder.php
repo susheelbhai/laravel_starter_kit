@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserQueryStatusSeeder::class);
         $this->call(UserQuerySeeder::class); 
         $this->call(BlogSeeder::class); 
+        $this->call(BlogViewSeeder::class); 
         $this->call(BlogCommentSeeder::class); 
         $this->call(ServiceSeeder::class); 
         $this->call(PortfolioSeeder::class);
@@ -31,6 +32,8 @@ class DatabaseSeeder extends Seeder
         $this->call(FaqSeeder::class);
         $this->call(TeamSeeder::class);
         $this->call(TestimonialSeeder::class);
-        
+        $this->call(ProductCategorySeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(MediaSeeder::class);
     }
 }

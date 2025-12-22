@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\BaseModels;
 
 use Spatie\MediaLibrary\MediaCollections\MediaCollection;
+use App\Models\MediaInternal;
 
-abstract class BaseInternalMediaModel extends BaseMediaModel
+abstract class BaseInternalAuthenticatable extends BaseAuthenticatable
 {
     public function getMediaModel(): string
     {

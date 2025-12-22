@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Notifications\Auth\Admin\ResetPasswordNotification;
 use Spatie\Permission\Traits\HasRoles;
+use App\Models\BaseModels\BaseInternalAuthenticatable;
 
 class Admin extends BaseInternalAuthenticatable
 {

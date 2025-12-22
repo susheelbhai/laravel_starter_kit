@@ -5,8 +5,9 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
+use App\Models\BaseModels\BaseExternalAuthenticatable;
 
-class User extends BaseInternalAuthenticatable
+class User extends BaseExternalAuthenticatable
 {
     use HasFactory, Notifiable;
 
