@@ -24,8 +24,12 @@ export default function Create() {
 
         short_description: '',
         description: '',
+        long_description2: '',
+        long_description3: '',
+        features: [],
 
         price: 0,
+        original_price: 0,
         mrp: 0,
 
         stock: 0,

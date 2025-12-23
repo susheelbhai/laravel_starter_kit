@@ -1,3 +1,4 @@
+import Pagination from '@/components/table/pagination';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -23,6 +24,7 @@ type ProductCategoryRow = {
     slug: string;
     description: string | null;
     icon: string | null;
+    icon_thumb: string | null;
     banner: string | null;
     position: number;
     is_active: number;
@@ -30,9 +32,8 @@ type ProductCategoryRow = {
 };
 
 export default function Index() {
-    const data =
-        (((usePage<SharedData>().props as any)?.data as ProductCategoryRow[]) ||
-            []);
+    const { data } = (usePage<SharedData>().props as any);
+    const items = data?.data || [];
 
     const thead = [
         { title: 'Name', className: 'p-3' },
@@ -57,7 +58,7 @@ export default function Index() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {data.map((category) => (
+                        {items.map((category: any) => (
                             <tr
                                 key={category.id}
                                 className="border-t border-gray-200"
@@ -69,9 +70,9 @@ export default function Index() {
                                 </td>
                                 <td className="p-3">{category.position}</td>
                                 <td className="p-3">
-                                    {category.icon ? (
+                                    {category.icon_thumb || category.icon ? (
                                         <img
-                                            src={`${category.icon}`}
+                                            src={category.icon_thumb || category.icon || ''}
                                             alt=""
                                             width={48}
                                         />
@@ -98,6 +99,7 @@ export default function Index() {
                         ))}
                     </TBody>
                 </Table>
+                <Pagination data={data} />
             </TableCard>
         </AppLayout>
     );

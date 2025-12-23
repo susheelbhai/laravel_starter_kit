@@ -17,7 +17,18 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $data = Team::latest()->get();
+        $data = Team::latest()->paginate(15)->through(function ($team) {
+            return [
+                'id' => $team->id,
+                'name' => $team->name,
+                'designation' => $team->designation,
+                'organisation' => $team->organisation ?? '',
+                'message' => $team->message ?? '',
+                'is_active' => $team->is_active,
+                'image' => $team->image,
+                'image_thumb' => $team->getFirstMediaUrl('image', 'thumb'),
+            ];
+        });
         return Inertia::render('admin/resources/team/index', compact('data'));
     }
 

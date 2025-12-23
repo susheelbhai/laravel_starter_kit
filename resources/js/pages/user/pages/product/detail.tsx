@@ -1,91 +1,121 @@
 import AppLayout from '@/layouts/user/app-layout';
 import { usePage } from '@inertiajs/react';
+import { useState } from 'react';
+import ImageSlider from './components/image-slider';
+import ProductCTA from './components/product-cta';
+import ProductDescription from './components/product-description';
+import ProductEnquiryModal from './components/product-enquiry-modal';
+import ProductFeatures from './components/product-features';
+import ProductPricing from './components/product-pricing';
+import ProductSections from './components/product-sections';
 
-export default function Create() {
-    const service = usePage().props.data as any;
-    return (
-        <AppLayout title={service.title}>
-            <div className="bg-white text-[#0E1339]">
-                {/* Banner */}
-                <div
-                    className="h-64 w-full bg-cover bg-center"
-                    style={{ backgroundImage: `url('${service.display_img}')` }}
-                >
-                    <div className="flex h-full w-full items-center justify-center bg-black/40">
-                        <h1 className="text-4xl font-bold text-white md:text-5xl">
-                            {service.title}
-                        </h1>
-                    </div>
+export default function ProductDetail() {
+    const { data: product } = usePage().props as any;
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    console.log(product);
+    if (!product) {
+        return (
+            <AppLayout title="Product Not Found">
+                <div className="flex min-h-[400px] items-center justify-center">
+                    <p className="text-lg text-gray-600">Product not found</p>
                 </div>
+            </AppLayout>
+        );
+    }
 
-                {/* Main Content */}
-                <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 md:grid-cols-3">
-                    <div className="space-y-6 md:col-span-2">
-                        {/* Image */}
-                        {service.display_img && (
-                            <img
-                                src={`${service.display_img}`}
-                                alt={service.title}
-                                className="mb-4 w-full rounded-xl shadow"
-                            />
-                        )}
+    const hasPrice = product.price && product.price > 0;
+    const displayImages =
+        product.images && product.images.length > 0
+            ? product.images
+            : product.display_img
+              ? [
+                    {
+                        id: 0,
+                        url: product.display_img,
+                        thumbnail: product.display_img,
+                        name: product.title,
+                        file_name: '',
+                        size: 0,
+                        mime_type: '',
+                    },
+                ]
+              : [];
 
-                        {/* Short Description */}
-                        <p className="text-lg text-gray-700">
-                            {service.short_description}
-                        </p>
-
-                        {/* Long Descriptions */}
-                        <div className="space-y-4">
-                            <section>
-                                <h2 className="mb-2 text-xl font-semibold">
-                                    Overview
-                                </h2>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: service.long_description1,
-                                    }}
+    return (
+        <AppLayout title={product.title}>
+            <div className="bg-background text-foreground">
+                <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+                    {/* Upper Section: Images and Price */}
+                    <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+                        {/* Image Slider */}
+                        <div>
+                            {displayImages.length > 0 && (
+                                <ImageSlider
+                                    images={displayImages}
+                                    productTitle={product.title}
                                 />
-                            </section>
-                            <section>
-                                <h2 className="mb-2 text-xl font-semibold">
-                                    How It Works
-                                </h2>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: service.long_description2,
-                                    }}
-                                />
-                            </section>
-                            <section>
-                                <h2 className="mb-2 text-xl font-semibold">
-                                    Why Choose Us
-                                </h2>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: service.long_description3,
-                                    }}
-                                />
-                            </section>
+                            )}
                         </div>
+
+                        {/* Price and Features Sidebar */}
+                        <aside className="flex flex-col space-y-6">
+                            {/* Product Title */}
+                            <div>
+                                <h1 className="text-3xl font-bold text-foreground lg:text-4xl">
+                                    {product.title}
+                                </h1>
+                                {product.category && (
+                                    <p className="mt-2 text-sm text-muted-foreground">
+                                        Category: {product.category.title}
+                                    </p>
+                                )}
+                            </div>
+
+                            {hasPrice ? (
+                                <ProductPricing
+                                    price={product.price}
+                                    mrp={product.mrp}
+                                    currency={product.currency}
+                                />
+                            ) : (
+                                <ProductCTA onClick={() => setIsModalOpen(true)} />
+                            )}
+
+                            {product.features &&
+                                product.features.length > 0 && (
+                                    <ProductFeatures
+                                        features={product.features}
+                                    />
+                                )}
+
+                            <div className="sticky bottom-4 mt-auto">
+                                <ProductCTA onClick={() => setIsModalOpen(true)} />
+                            </div>
+                        </aside>
                     </div>
 
-                    {/* Sidebar */}
-                    <div className="space-y-4 rounded-xl bg-gray-50 p-6 shadow">
-                        <h3 className="mb-2 text-xl font-semibold">
-                            Why Choose This Product
-                        </h3>
-                        <ul className="list-inside list-disc space-y-2 text-sm text-gray-600">
-                            {service.features?.map((feature: any) => (
-                                <li key={feature.id}>{feature}</li>
-                            ))}
-                        </ul>
-                        <button className="mt-6 w-full rounded-md bg-[#FAB915] py-2 text-white transition hover:bg-yellow-500">
-                            Book Now
-                        </button>
+                    {/* Lower Section: Full Width Details */}
+                    <div className="space-y-8">
+                        <ProductDescription
+                            shortDescription={product.short_description}
+                        />
+
+                        <ProductSections
+                            description={product.description}
+                            longDescription2={product.long_description2}
+                            longDescription3={product.long_description3}
+                        />
                     </div>
                 </div>
             </div>
+
+            {/* Enquiry Modal */}
+            <ProductEnquiryModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                productId={product.id}
+                productTitle={product.title}
+            />
         </AppLayout>
     );
 }

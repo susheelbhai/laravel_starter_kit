@@ -1,19 +1,23 @@
 import { type NavItem } from '@/types';
 import {
     BookOpen,
+    Box,
     Calendar,
     FileEdit,
     FileSignature,
     FileText,
     FileUp,
+    FolderTree,
     Home,
     Image,
     ImageUp,
     Info,
+    Key,
     Layout,
     LayoutGrid,
     Link2,
     ListFilter,
+    Lock,
     LogOut,
     MessageSquare,
     Newspaper,
@@ -21,6 +25,7 @@ import {
     Phone,
     Server,
     Settings,
+    Shield,
     ShieldCheck,
     User,
     Users,
@@ -37,12 +42,17 @@ const mainNavItems = [
     {
         title: 'Category',
         href: route('admin.product_category.index'),
-        icon: LayoutGrid,
+        icon: FolderTree,
     },
     {
         title: 'Product',
         href: route('admin.product.index'),
-        icon: LayoutGrid,
+        icon: Box,
+    },
+    {
+        title: 'Product Enquiry',
+        href: route('admin.productEnquiry.index'),
+        icon: MessageSquare,
     },
     {
         title: 'Admin',
@@ -53,13 +63,13 @@ const mainNavItems = [
     {
         title: 'Role',
         href: route('admin.role.index'),
-        icon: Notebook,
+        icon: Shield,
         permission: 'all rights',
     },
     {
         title: 'Permission',
         href: route('admin.permission.index'),
-        icon: Notebook,
+        icon: Key,
         permission: 'all rights',
     },
     {
@@ -121,6 +131,7 @@ const mainNavItems = [
         title: 'Pages',
         icon: FileText,
         children: [
+            { title: 'Auth', href: route('admin.pages.authPage'), icon: Home },
             { title: 'Home', href: route('admin.pages.homePage'), icon: Home },
             {
                 title: 'About Us',

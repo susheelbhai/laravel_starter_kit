@@ -16,6 +16,7 @@ import InputText from './input-text';
 import InputTextarea from './input-textarea';
 import InputMultiImage from './input-image-multiple';
 import InputMultiFile from './input-file-multiple';
+import InputTags from './input-tags';
 
 export function InputDiv(props: InputDivProps) {
     const { type } = props;
@@ -70,6 +71,9 @@ export function InputDiv(props: InputDivProps) {
 
         case 'switch':
             return <InputSwitch {...props} />;
+
+        case 'tags':
+            return <InputTags {...props} />;
 
         default:
             return <InputDefault {...props} />;

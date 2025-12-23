@@ -17,7 +17,16 @@ class UserController extends Controller
 
     public function index()
     {
-        $data = User::latest()->get();
+        $data = User::latest()->paginate(15)->through(function ($user) {
+            return [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'phone' => $user->phone,
+                'profile_pic' => $user->profile_pic,
+                'profile_pic_thumb' => $user->getFirstMediaUrl('profile_pic', 'thumb'),
+            ];
+        });
         return Inertia::render('admin/resources/user/index', [
             'data' => $data,
         ]);

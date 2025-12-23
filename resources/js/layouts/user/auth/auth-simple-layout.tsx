@@ -10,8 +10,7 @@ interface AuthLayoutProps {
 }
 
 export default function AuthSimpleLayout({ children, title, description }: PropsWithChildren<AuthLayoutProps>) {
-    const appData = (usePage().props as any).appData;
-    console.log(appData);
+    const settings = (usePage().props as any).auth.settings ;
 
     return (
         <Container className="m-auto p-0 bg-background2">
@@ -20,7 +19,7 @@ export default function AuthSimpleLayout({ children, title, description }: Props
                 {/* Left side image (hidden on mobile, visible on md+) */}
                 <div className="hidden w-1/2 items-center justify-center overflow-hidden bg-muted md:flex">
                     <img
-                        src="/storage/images/custom_uploads/auth.jpeg" // replace with your image path
+                        src={settings.side_image}
                         alt="Auth illustration"
                         className="h-full w-full object-cover"
                     />

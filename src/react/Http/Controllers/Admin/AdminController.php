@@ -20,7 +20,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $data = Admin::where('id', '!=', 1)->get();
+        $data = Admin::where('id', '!=', 1)->paginate(15)->through(function ($admin) {
+            return [
+                'id' => $admin->id,
+                'name' => $admin->name,
+                'email' => $admin->email,
+                'phone' => $admin->phone,
+                'profile_pic' => $admin->profile_pic,
+                'profile_pic_thumb' => $admin->getFirstMediaUrl('profile_pic', 'thumb'),
+            ];
+        });
         return Inertia::render('admin/resources/admin/index', [
             'data' => $data,
         ]);

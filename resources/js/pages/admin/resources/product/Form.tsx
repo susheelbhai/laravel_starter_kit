@@ -49,14 +49,39 @@ export default function Form({
             />
             <InputDiv
                 type="editor"
-                label="Description"
+                label="Description (Overview)"
                 name="description"
                 inputDivData={inputDivData}
+            />
+            <InputDiv
+                type="editor"
+                label="Long Description 2 (How It Works)"
+                name="long_description2"
+                inputDivData={inputDivData}
+            />
+            <InputDiv
+                type="editor"
+                label="Long Description 3 (Why Choose Us)"
+                name="long_description3"
+                inputDivData={inputDivData}
+            />
+            <InputDiv
+                type="tags"
+                label="Features (Key Features)"
+                name="features"
+                inputDivData={inputDivData}
+                placeholder="Add features and press Enter"
             />
 
             <InputDiv
                 type="number"
                 label="Price"
+                name="price"
+                inputDivData={inputDivData}
+            />
+            <InputDiv
+                type="number"
+                label="Selling Price"
                 name="price"
                 inputDivData={inputDivData}
             />

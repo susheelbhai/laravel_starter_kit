@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SellerController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductEnquiryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -59,6 +60,8 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
         });
 
         Route::name('pages.')->controller(PagesController::class)->prefix('pages')->group(function () {
+            Route::get('/authPage', 'authPage')->name('authPage');
+            Route::patch('/authPage', 'updateAuthPage')->name('updateAuthPage');
             Route::get('/homePage', 'homePage')->name('homePage');
             Route::patch('/homePage', 'updateHomePage')->name('updateHomePage');
             Route::get('/aboutPage', 'aboutPage')->name('aboutPage');
@@ -84,6 +87,7 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
         
         Route::resource('/user', UserController::class);
         Route::resource('/userQuery', UserQueryController::class);
+        Route::resource('/productEnquiry', ProductEnquiryController::class);
         Route::resource('/important_links', ImportantLinkController::class);
         Route::resource('/team', TeamController::class);
         Route::resource('/testimonial', TestimonialController::class);

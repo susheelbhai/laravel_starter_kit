@@ -18,7 +18,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $data = Portfolio::latest()->get();
+        $data = Portfolio::latest()->paginate(15);
         return Inertia::render('admin/resources/portfolio/index', compact('data'));
     }
 

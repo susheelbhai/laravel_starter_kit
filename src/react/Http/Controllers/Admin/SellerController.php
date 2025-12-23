@@ -18,7 +18,16 @@ class SellerController extends Controller
 
     public function index()
     {
-        $data = Seller::latest('id')->get();
+        $data = Seller::latest('id')->paginate(15)->through(function ($seller) {
+            return [
+                'id' => $seller->id,
+                'name' => $seller->name,
+                'email' => $seller->email,
+                'phone' => $seller->phone,
+                'profile_pic' => $seller->profile_pic,
+                'profile_pic_thumb' => $seller->getFirstMediaUrl('profile_pic', 'thumb'),
+            ];
+        });
         return Inertia::render('admin/resources/seller/index', compact('data'));
     }
 

@@ -1,4 +1,5 @@
 import Button from '@/components/button';
+import Pagination from '@/components/table/pagination';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -16,8 +17,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as { id: number; name: string; email: string; phone: string; profile_pic: string }[]) || [];
+    const { data } = (usePage<SharedData>().props as any);
+    const items = data?.data || [];
     const thead = [
         { title: 'ID', className: 'p-3' },
         { title: 'Name', className: 'p-3' },
@@ -35,14 +36,14 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {data.map((user) => (
+                        {items.map((user: any) => (
                             <tr key={user.id} className="border-t border-gray-200">
                                 <td className="p-3">{user.id}</td>
                                 <td className="p-3">{user.name}</td>
                                 <td className="p-3">{user.email}</td>
                                 <td className="p-3">{user.phone}</td>
                                 <td className="p-3">
-                                    <img src={user.profile_pic} alt="" className="h-10 w-10 rounded-full object-cover" />
+                                    <img src={user.profile_pic_thumb || user.profile_pic} alt="" className="h-10 w-10 rounded-full object-cover" />
                                 </td>
                                 <td className="p-3">
                                     <Button href={route('admin.seller.show', user.id)}>View</Button>
@@ -51,6 +52,7 @@ export default function Dashboard() {
                         ))}
                     </TBody>
                 </Table>
+                <Pagination data={data} />
             </TableCard>
         </AppLayout>
     );

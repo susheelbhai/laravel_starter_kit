@@ -22,9 +22,13 @@ return new class extends Migration {
             // descriptions
             $table->text('short_description')->nullable();
             $table->longText('description')->nullable();
+            $table->longText('long_description2')->nullable();
+            $table->longText('long_description3')->nullable();
+            $table->json('features')->nullable();
 
             // pricing
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 10, 2)->nullable();
+            $table->decimal('original_price', 10, 2)->nullable();
             $table->decimal('mrp', 10, 2)->nullable();
 
             // inventory

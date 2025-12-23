@@ -3,10 +3,11 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
+import Pagination from '@/components/table/pagination';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
-import { Eye, Link } from 'lucide-react';
+import { Eye } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
    
@@ -17,14 +18,9 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            email: string;
-            phone: string;
-            profile_pic: string;
-        }[]) || [];
+    const { data } = (usePage<SharedData>().props as any);
+    const queries = data?.data || [];
+    
     const thead = [
         { title: 'ID', className: 'p-3' },
         { title: 'Name', className: 'p-3' },
@@ -40,7 +36,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {data.map((user) => (
+                        {queries.map((user: any) => (
                             <tr
                                 key={user.id}
                                 className="border-t border-gray-200"
@@ -61,6 +57,8 @@ export default function Dashboard() {
                         ))}
                     </TBody>
                 </Table>
+                
+                <Pagination data={data} />
             </TableCard>
         </AppLayout>
     );

@@ -18,7 +18,18 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $data = Testimonial::latest()->get();
+        $data = Testimonial::latest()->paginate(15)->through(function ($testimonial) {
+            return [
+                'id' => $testimonial->id,
+                'name' => $testimonial->name,
+                'designation' => $testimonial->designation,
+                'organisation' => $testimonial->organisation,
+                'message' => $testimonial->message,
+                'is_active' => $testimonial->is_active,
+                'image' => $testimonial->image,
+                'image_thumb' => $testimonial->getFirstMediaUrl('image', 'thumb'),
+            ];
+        });
         return Inertia::render('admin/resources/testimonial/index', compact('data'));
     }
 

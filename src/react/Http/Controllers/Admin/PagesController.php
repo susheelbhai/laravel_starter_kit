@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use Inertia\Inertia;
 use App\Models\PageTnc;
 use App\Models\Slider1;
+use App\Models\PageAuth;
 use App\Models\PageHome;
 use App\Models\PageAbout;
+use App\Models\PageRefund;
 use App\Models\PageContact;
 use App\Models\PagePrivacy;
-use App\Models\PageRefund;
 use Illuminate\Http\Request;
 use App\Traits\HandlesMediaUploads;
 use App\Http\Controllers\Controller;
@@ -24,6 +25,21 @@ class PagesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function authPage()
+    {
+        $data = PageAuth::where('id', '=', 1)->first();
+        return Inertia::render('admin/resources/edit_pages/auth', compact('data'));
+    }
+    public function updateAuthPage(Request $request)
+    {
+        $data = PageAuth::find(1);
+
+        $data->update();
+
+        $this->handleSingleFileUpload($data, $request, 'side_image');
+
+        return to_route('admin.dashboard')->with('success', 'Auth Page Updated successfully');
+    }
     public function homePage()
     {
         $data = PageHome::where('id', '=', 1)->first();

@@ -52,8 +52,12 @@ class ProductController extends Controller
 
         $data->short_description = $request->short_description;
         $data->description = $request->description;
+        $data->long_description2 = $request->long_description2;
+        $data->long_description3 = $request->long_description3;
+        $data->features = $request->features;
 
         $data->price = $request->price;
+        $data->original_price = $request->original_price;
         $data->mrp = $request->mrp;
 
         $data->stock = $request->stock ?? 0;
@@ -81,7 +85,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with('category')->findOrFail($id);
         $media = $product->getMedia('images');
         $data = [
             ...$product->toArray(),
@@ -97,7 +101,7 @@ class ProductController extends Controller
             ->latest()
             ->get(['id', 'title']);
 
-        $product = Product::findOrFail($id);
+        $product = Product::with('category')->findOrFail($id);
         $media = $product->getMedia('images');
         $data = [
             ...$product->toArray(),
@@ -134,8 +138,12 @@ class ProductController extends Controller
 
         $data->short_description = $request->short_description;
         $data->description = $request->description;
+        $data->long_description2 = $request->long_description2;
+        $data->long_description3 = $request->long_description3;
+        $data->features = $request->features;
 
         $data->price = $request->price;
+        $data->original_price = $request->original_price;
         $data->mrp = $request->mrp;
 
         $data->stock = $request->stock ?? 0;

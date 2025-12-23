@@ -346,6 +346,10 @@ $permissions = array(
 $products = array(
 );
 
+/* `a27`.`product_enquiries` */
+$product_enquiries = array(
+);
+
 /* `a27`.`product_categories` */
 $product_categories = array(
 );

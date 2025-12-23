@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\HasFormattedDates;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
 class UserQuery extends Model
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasFormattedDates;
 
     public function status()
     {

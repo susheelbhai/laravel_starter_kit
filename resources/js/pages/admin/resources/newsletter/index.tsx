@@ -1,3 +1,4 @@
+import Pagination from '@/components/table/pagination';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -14,12 +15,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            email: string;
-            is_active: number;
-        }[]) || [];
+    const { data } = (usePage<SharedData>().props as any);
+    const items = data?.data || [];
     const thead = [
         { title: 'ID', className: 'p-3' },
         { title: 'Email', className: 'p-3' },
@@ -33,7 +30,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {data.map((user) => (
+                        {items.map((user: any) => (
                             <tr
                                 key={user.id}
                                 className="border-t border-gray-200"
@@ -49,6 +46,7 @@ export default function Dashboard() {
                         ))}
                     </TBody>
                 </Table>
+                <Pagination data={data} />
             </TableCard>
         </AppLayout>
     );

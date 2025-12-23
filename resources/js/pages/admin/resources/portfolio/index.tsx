@@ -1,4 +1,5 @@
 import Button from '@/components/button';
+import Pagination from '@/components/table/pagination';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -18,8 +19,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as { id: number; name:string;  url: string; is_active: number; logo: string }[]) || [];
+    const { data } = (usePage<SharedData>().props as any);
+    const items = data?.data || [];
     const thead = [
         { title: 'Name', className: 'p-3' },
         { title: 'Url', className: 'p-3' },
@@ -36,7 +37,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {data.map((portfolio) => (
+                        {items.map((portfolio: any) => (
                             <tr key={portfolio.id} className="border-t border-gray-200">
                                 <td className="p-3">{portfolio.name}</td>
                                 <td className="p-3">{portfolio.url}</td>
@@ -53,6 +54,7 @@ export default function Dashboard() {
                         ))}
                     </TBody>
                 </Table>
+                <Pagination data={data} />
             </TableCard>
         </AppLayout>
     );

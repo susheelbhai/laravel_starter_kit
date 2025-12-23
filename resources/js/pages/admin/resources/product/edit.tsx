@@ -24,8 +24,12 @@ export default function Edit() {
 
         short_description: product.short_description ?? '',
         description: product.description ?? '',
+        long_description2: product.long_description2 ?? '',
+        long_description3: product.long_description3 ?? '',
+        features: product.features ?? [],
 
         price: Number(product.price ?? 0),
+        original_price: Number(product.original_price ?? 0),
         mrp: Number(product.mrp ?? 0),
 
         stock: Number(product.stock ?? 0),

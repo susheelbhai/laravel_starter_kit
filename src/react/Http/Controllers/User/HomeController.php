@@ -53,12 +53,7 @@ class HomeController extends Controller
         return Inertia::render('user/pages/service/index', compact('data'));
     }
     
-    function product()
-    {
-        $categories = ProductCategory::whereIsActive(1)->get();
-        $data = Product::whereIsActive(1)->get();
-        return Inertia::render('user/pages/product/index', compact('categories','data'));
-    }
+    
     function serviceDetail($slug)
     {
         $data = Service::whereSlug($slug)->whereIsActive(1)->firstOrFail();

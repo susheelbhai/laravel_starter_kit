@@ -17,7 +17,16 @@ class PartnerController extends Controller
 
     public function index()
     {
-        $data = Partner::latest('id')->get();
+        $data = Partner::latest('id')->paginate(15)->through(function ($partner) {
+            return [
+                'id' => $partner->id,
+                'name' => $partner->name,
+                'email' => $partner->email,
+                'phone' => $partner->phone,
+                'profile_pic' => $partner->profile_pic,
+                'profile_pic_thumb' => $partner->getFirstMediaUrl('profile_pic', 'thumb'),
+            ];
+        });
         return Inertia::render('admin/resources/partner/index', compact('data'));
     }
 

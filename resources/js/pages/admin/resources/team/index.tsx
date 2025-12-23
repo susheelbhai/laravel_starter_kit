@@ -1,4 +1,5 @@
 import Button from '@/components/button';
+import Pagination from '@/components/table/pagination';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -18,8 +19,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as { id: number; name:string; designation: string; organisation: string; message: string; is_active: number; image: string }[]) || [];
+    const { data } = (usePage<SharedData>().props as any);
+    const items = data?.data || [];
     const thead = [
         { title: 'Name', className: 'p-3' },
         { title: 'Designation', className: 'p-3' },
@@ -36,12 +37,12 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {data.map((team) => (
+                        {items.map((team: any) => (
                             <tr key={team.id} className="border-t border-gray-200">
                                 <td className="p-3">{team.name}</td>
                                 <td className="p-3">{team.designation}</td>
                                 <td className="p-3">
-                                    <img src={`${team.image}`} alt="" width={48} />
+                                    <img src={team.image_thumb || team.image} alt="" width={48} />
                                 </td>
                                 <td className="p-3">{team.is_active ==1 ? 'active' : 'inactive'}</td>
                                 <td className="p-3">
@@ -53,6 +54,7 @@ export default function Dashboard() {
                         ))}
                     </TBody>
                 </Table>
+                <Pagination data={data} />
             </TableCard>
         </AppLayout>
     );

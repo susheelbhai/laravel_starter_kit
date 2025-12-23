@@ -8,8 +8,12 @@ type FormType = {
 
     short_description: string;
     description: string;
+    long_description2: string;
+    long_description3: string;
+    features: string[];
 
     price: number;
+    original_price: number;
     mrp: number;
 
     stock: number;

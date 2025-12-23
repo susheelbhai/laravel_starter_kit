@@ -13,7 +13,7 @@ class UserQueryController extends Controller
     
     public function index()
     {
-        $data = UserQuery::with('status')->latest('id')->get();
+        $data = UserQuery::with('status')->latest('id')->paginate(15);
         return Inertia::render('admin/resources/user_query/index', compact('data'));
     }
 
