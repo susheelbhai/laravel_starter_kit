@@ -18,7 +18,6 @@ class InstallPackages
         $this->installPackage($this_data, ['npm', 'install', 'sweetalert2'], "NPM package: sweetalert2");
         $this->installPackage($this_data, ['npm', 'install', 'react-select'], "NPM package: react-select");
         $this->installPackage($this_data, ['composer', 'require', 'spatie/laravel-permission'], "Composer package: spatie/laravel-permission");
-        $this->installPackage($this_data, ['composer', 'require', 'spatie/laravel-permission'], "Composer package: spatie/laravel-permission");
         $this->installPackage($this_data, ['composer', 'require', 'spatie/laravel-medialibrary'], "Composer package: spatie/laravel-medialibrary");
         $this->installPackage($this_data, ['composer', 'require', 'intervention/image'], "Composer package: intervention/image");
         $this->installPackage($this_data, ['composer', 'require', 'tightenco/ziggy'], "Composer package: tightenco/ziggy");
