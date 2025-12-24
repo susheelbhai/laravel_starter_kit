@@ -54,10 +54,10 @@ class StarterKitServiceProvider extends ServiceProvider
             __DIR__ . '/../bootstrap' => base_path('bootstrap'),
             __dir__ . "/../assets/storage/images" => storage_path('app/public/images'),
             __dir__ . "/../assets/storage/media" => storage_path('app/public'),
-            __dir__ . "/../assets/storage/.gitignore" => storage_path('app/public'),
-            __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('app/public'),
+            __dir__ . "/../assets/storage/.gitignore" => storage_path('app/public/.gitignore'),
+            __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('app/public/.sync-exclude.lst'),
             __dir__ . "/../assets/public/css" => public_path('css'),
-            // __dir__ . "/../assets/public/.gitignore" => public_path('/.gitignore'),
+            __dir__ . "/../assets/public/.gitignore" => public_path('/.gitignore'),
             __dir__ . "/../assets/js/common.js" => public_path('js/common.js')
         ], 'blade_starter_kit');
 
@@ -84,10 +84,10 @@ class StarterKitServiceProvider extends ServiceProvider
             __DIR__ . '/../bootstrap' => base_path('bootstrap'),
             __dir__ . "/../assets/storage/images" => storage_path('app/public/images'),
             __dir__ . "/../assets/storage/media" => storage_path('app/public'),
-            __dir__ . "/../assets/storage/.gitignore" => storage_path('app/public'),
-            __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('app/public'),
+            __dir__ . "/../assets/storage/.gitignore" => storage_path('app/public/.gitignore'),
+            __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('app/public/.sync-exclude.lst'),
             __dir__ . "/../assets/public/css" => public_path('css'),
-            // __dir__ . "/../assets/public/.gitignore" => public_path('/.gitignore'),
+            __dir__ . "/../assets/public/.gitignore" => public_path('/.gitignore'),
             __dir__ . "/../assets/public/themes/ck_editor" => public_path('themes/ck_editor')
         ], 'react_starter_kit');
 
