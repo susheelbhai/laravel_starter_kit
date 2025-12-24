@@ -1,0 +1,228 @@
+/* Centralized styles for all picker components */
+
+.picker-clock-outer {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  z-index: 0;
+}
+
+.picker-clock-center-dot {
+  position: absolute;
+  left: 105px;
+  top: 105px;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+}
+
+.picker-clock-center-dot-inner {
+  width: 16px;
+  height: 16px;
+  background-color: #2563eb;
+  border-radius: 50%;
+}
+
+.picker-clock-area {
+  width: 210px;
+  height: 210px;
+}
+
+.picker-clock-popover {
+  width: 260px;
+  height: 320px;
+}
+
+.picker-svg-needle {
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.picker-svg-outer {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Calendar & dropdown styles moved from calendar.tsx */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.dropdown-item-hover:not(.selected-item):hover {
+    background-color: var(--background2) !important;
+}
+.rdp-day_button:not(.rdp-day_selected):hover {
+    background-color: var(--background2) !important;
+}
+/* All range dates: circular (force) */
+.rdp-range_middle .rdp-day_button {
+    border: unset !important;
+    border-radius: 50% !important;
+    color: var(--rdp-range_middle-color) !important;
+}
+.rdp-selected .rdp-day_button {
+    border: none;
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+.rdp-selected .rdp-day_button:hover {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+.rdp-months {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--rdp-months-gap);
+    max-width: fit-content;
+    border: solid .05rem gray;
+    border-radius: .5rem;
+    padding: .5rem;
+    background: white;
+}
+
+/* Styles for InputClockTimePicker moved from inline to CSS */
+
+.clock-outer {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  z-index: 0;
+}
+
+.clock-center-dot {
+  position: absolute;
+  left: 105px;
+  top: 105px;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+}
+
+.clock-center-dot-inner {
+  width: 16px;
+  height: 16px;
+  background-color: #2563eb;
+  border-radius: 50%;
+}
+
+.clock-popover {
+    width: 260px;
+    height: 320px;
+}
+.clock-face {
+    width: 210px;
+    height: 210px;
+    position: relative;
+    margin: 0 auto;
+}
+.clock-outer-circle {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    z-index: 0;
+}
+.clock-needle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+.clock-hour-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    font-size: 0.85rem;
+    text-align: center;
+    transition: background 0.2s;
+}
+.clock-hour-btn:hover {
+    background: #dbeafe;
+}
+.clock-center-dot {
+    position: absolute;
+    left: 105px;
+    top: 105px;
+    width: 16px;
+    height: 16px;
+    transform: translate(-50%, -50%);
+}
+.clock-center-dot-inner {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #2563eb;
+}
+.clock-minute-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    border: 1px solid #e5e7eb;
+    background: transparent;
+    font-size: 0.7rem;
+    text-align: center;
+    transition: background 0.2s;
+    opacity: 0.2;
+    pointer-events: auto;
+    z-index: 0;
+}
+.clock-minute-btn.visible {
+    opacity: 1;
+    z-index: 10;
+}
+.clock-minute-btn.selected {
+    background: #2563eb;
+    color: #fff;
+}
+.am-pm-btn {
+    border-radius: 4px;
+    border: 1px solid #e5e7eb;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    background: #f9fafb;
+    color: #111;
+    margin-right: 4px;
+    transition: background 0.2s;
+}
+.am-pm-btn.selected {
+    background: #2563eb;
+    color: #fff;
+}
+.done-btn {
+    margin-left: 8px;
+    border-radius: 4px;
+    background: #2563eb;
+    color: #fff;
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    transition: background 0.2s;
+}
+.done-btn:disabled {
+    background: #a5b4fc;
+    color: #fff;
+}
+.selected-time {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+/* Styles for InputTimePicker dropdown moved from inline <style> to CSS */
+.time-dropdown-item:not(.selected-item):hover {
+    background-color: var(--background2) !important;
+}

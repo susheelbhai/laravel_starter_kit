@@ -9,8 +9,7 @@ export default function ProductPricing({
     mrp,
     currency,
 }: ProductPricingProps) {
-    const hasDiscount = mrp && mrp > price;
-
+    const hasDiscount = mrp && (mrp - price > 0);
     return (
         <div className="flex items-baseline gap-2">
             <span className="text-4xl font-bold">

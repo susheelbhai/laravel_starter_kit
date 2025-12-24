@@ -20,7 +20,8 @@ interface NavItem {
     href?: string | null;
     icon?: LucideIcon | null;
     isActive?: boolean;
-    children?: NavItem[]; // Added optional children property
+    children?: NavItem[];
+    permission?: string | string[];
 }
 
 export interface SharedData {

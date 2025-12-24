@@ -44,6 +44,47 @@ export default function CreateForm() {
                     name="datetime"
                     inputDivData={inputDivData}
                 />
+                <InputDiv
+                    type="date-picker"
+                    label="Date Picker"
+                    name="date_picker"
+                    inputDivData={inputDivData}
+                />
+                
+                <InputDiv
+                    type="date-range-picker"
+                    label="Date Range Picker"
+                    name="date_range_picker"
+                    inputDivData={inputDivData}
+                />
+                
+                <InputDiv
+                    type="date-range-picker-expended"
+                    label="Date Range Picker Expended"
+                    name="date_range_picker_expended"
+                    inputDivData={inputDivData}
+                />
+
+                <InputDiv
+                    type="time-picker"
+                    timeFormat="12"
+                    label="Time Picker"
+                    name="time_picker"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="clock-time-picker"
+                    label="Clock Time Picker"
+                    name="clock_time_picker"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="date-time-picker"
+                    timeFormat="12"
+                    label="Date & Time Picker"
+                    name="datetime_picker"
+                    inputDivData={inputDivData}
+                />
             </FormContainer>
         </AppLayout>
     );

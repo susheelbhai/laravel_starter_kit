@@ -8,11 +8,12 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 class InstallPackages
 {
     public function react($this_data)
-    {
-        $this_data->info("Installing PHP packages...");
-        
+    {        
 
         $this_data->info("Installing NPM packages...");
+        $this->installPackage($this_data, ['npm', 'install', 'react-day-picker'], "NPM package: react-day-picker");
+        $this->installPackage($this_data, ['npm', 'install', 'date-fns'], "NPM package: date-fns");
+        $this->installPackage($this_data, ['npm', 'install', '@radix-ui/react-popover'], "NPM package: @radix-ui/react-popover");
         $this->installPackage($this_data, ['npm', 'install', 'react-icons'], "NPM package: react-icons");
         $this->installPackage($this_data, ['npm', 'install', 'sweetalert2'], "NPM package: sweetalert2");
         $this->installPackage($this_data, ['npm', 'install', 'react-select'], "NPM package: react-select");

@@ -20,7 +20,7 @@ type FormType = {
     radio: string;
     select: string;
     multiselect: Array<number> | '';
-
+    tag: string;
     checkbox: number; // 0/1
     multicheckbox: string[];
 
@@ -49,7 +49,7 @@ const initialValues: FormType = {
     radio: 'option1',
     select: '',
     multiselect: [],
-
+    tag: '',
     checkbox: 0,
     multicheckbox: [],
 
@@ -81,7 +81,6 @@ export default function CreateForm() {
             <Head title="Create Simple Form" />
 
             <FormContainer onSubmit={submit} processing={processing}>
-               
                 {/* Radio */}
                 <InputDiv
                     type="radio"
@@ -134,9 +133,20 @@ export default function CreateForm() {
                     ]}
                 />
 
-                {/* Switch */}
-                <InputDiv type="switch" label="Switch" name="switch" inputDivData={inputDivData} />
+                <InputDiv
+                    type="tags"
+                    label="Tag"
+                    name="tags"
+                    inputDivData={inputDivData}
+                />
 
+                {/* Switch */}
+                <InputDiv
+                    type="switch"
+                    label="Switch"
+                    name="switch"
+                    inputDivData={inputDivData}
+                />
             </FormContainer>
         </AppLayout>
     );

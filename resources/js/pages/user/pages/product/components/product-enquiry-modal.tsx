@@ -1,7 +1,7 @@
 import { InputDiv } from '@/components/form/input-div';
 import { Button } from '@/components/ui/button';
 import { useFormHandler } from '@/lib/use-form-handler';
-import { X } from 'lucide-react';
+import { X, Loader2 } from 'lucide-react';
 
 interface ProductEnquiryModalProps {
     isOpen: boolean;
@@ -37,7 +37,6 @@ export default function ProductEnquiryModal({
         initialValues,
         method: 'POST',
         onSuccess: () => {
-            console.log('Enquiry submitted successfully!');
             onClose();
         },
     });
@@ -104,7 +103,14 @@ export default function ProductEnquiryModal({
                         disabled={processing}
                         className="w-full"
                     >
-                        {processing ? 'Submitting...' : 'Submit Enquiry'}
+                        {processing ? (
+                            <>
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                                Processing...
+                            </>
+                        ) : (
+                            'Submit Enquiry'
+                        )}
                     </Button>
                 </form>
             </div>

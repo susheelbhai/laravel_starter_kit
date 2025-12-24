@@ -3,7 +3,7 @@ import AppLayoutTemplate from '@/layouts/admin/app/app-sidebar-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
 import { useEffect, useState, type ReactNode } from 'react';
-import { footerNavItems, mainNavItems, profileNavItems } from './side-menu';
+import { filteredFooterNavItems, filteredMainNavItems, filteredProfileNavItems } from './side-menu';
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -49,9 +49,9 @@ export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
   return (
     <AppLayoutTemplate
       authUser={admin}
-      mainNavItems={mainNavItems}
-      footerNavItems={footerNavItems}
-      profileNavItems={profileNavItems}
+      mainNavItems={filteredMainNavItems}
+      footerNavItems={filteredFooterNavItems}
+      profileNavItems={filteredProfileNavItems}
       breadcrumbs={breadcrumbs}
       {...props}
     >

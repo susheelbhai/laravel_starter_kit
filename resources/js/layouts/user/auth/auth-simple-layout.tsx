@@ -1,5 +1,6 @@
 import AppLogoIcon from '@/components/app-logo-icon';
 import { Container } from '@/components/ui/container';
+import { ContainerFluid } from '@/components/ui/container-fluid';
 import { Link, usePage } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
 
@@ -13,7 +14,8 @@ export default function AuthSimpleLayout({ children, title, description }: Props
     const settings = (usePage().props as any).auth.settings ;
 
     return (
-        <Container className="m-auto p-0 bg-background2">
+        <ContainerFluid className="m-auto p-0 bg-background2">
+            <Container>
             <div className="p-5  min-h-screen align-middle flex items-center justify-center">
                 <div className="flex border border-white rounded-lg overflow-hidden">
                 {/* Left side image (hidden on mobile, visible on md+) */}
@@ -49,5 +51,6 @@ export default function AuthSimpleLayout({ children, title, description }: Props
             </div>
             </div>
         </Container>
+        </ContainerFluid>
     );
 }

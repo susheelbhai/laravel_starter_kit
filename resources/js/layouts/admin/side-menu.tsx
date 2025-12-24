@@ -33,68 +33,132 @@ import {
     Workflow,
 } from 'lucide-react';
 
+// Helper to check if route exists
+const routeExists = (name: string | null): boolean => {
+    if (!name) return false;
+    try {
+        route(name);
+        return true;
+    } catch {
+        return false;
+    }
+};
+
+// Helper to filter menu items based on route existence
+const filterMenuItems = (items: any[]): NavItem[] => {
+    return items
+        .filter((item) => {
+            // If item has routeName, check if route exists
+            if (item.routeName && !routeExists(item.routeName)) {
+                return false;
+            }
+            return true;
+        })
+        .map((item) => {
+            // Create route pattern by removing .index/.create/.edit/.show
+            const routePattern = item.routeName 
+                ? item.routeName.replace(/\.(index|create|edit|show)$/, '') 
+                : null;
+            
+            const processedItem = {
+                ...item,
+                href: item.routeName ? route(item.routeName) : item.href,
+                routePattern: routePattern,
+            };
+            delete processedItem.routeName;
+
+            // If item has children, recursively filter them and check for siblings
+            if (processedItem.children) {
+                // First, process all children
+                const filteredChildren = filterMenuItems(processedItem.children);
+                
+                // Check which children have siblings (same route pattern)
+                const patternCounts = new Map<string, number>();
+                filteredChildren.forEach((child: any) => {
+                    if (child.routePattern) {
+                        patternCounts.set(child.routePattern, (patternCounts.get(child.routePattern) || 0) + 1);
+                    }
+                });
+                
+                // Mark children that have siblings
+                const childrenWithSiblingFlags = filteredChildren.map((child: any) => {
+                    const hasSiblingRoutes = child.routePattern && (patternCounts.get(child.routePattern) || 0) > 1;
+                    return { ...child, hasSiblingRoutes };
+                });
+                
+                // Only include parent if it has visible children or its own href
+                if (childrenWithSiblingFlags.length === 0 && !processedItem.href) {
+                    return null;
+                }
+                return { ...processedItem, children: childrenWithSiblingFlags };
+            }
+            return processedItem;
+        })
+        .filter((item): item is NavItem => item !== null);
+};
+
 const mainNavItems = [
     {
         title: 'Dashboard',
-        href: route('admin.dashboard'),
+        routeName: 'admin.dashboard',
         icon: LayoutGrid,
     },
     {
         title: 'Category',
-        href: route('admin.product_category.index'),
+        routeName: 'admin.product_category.index',
         icon: FolderTree,
     },
     {
         title: 'Product',
-        href: route('admin.product.index'),
+        routeName: 'admin.product.index',
         icon: Box,
     },
     {
         title: 'Product Enquiry',
-        href: route('admin.productEnquiry.index'),
+        routeName: 'admin.productEnquiry.index',
         icon: MessageSquare,
     },
     {
         title: 'Admin',
-        href: route('admin.admin.index'),
+        routeName: 'admin.admin.index',
         icon: Users2,
         permission: ['all rights'],
     },
     {
         title: 'Role',
-        href: route('admin.role.index'),
+        routeName: 'admin.role.index',
         icon: Shield,
         permission: 'all rights',
     },
     {
         title: 'Permission',
-        href: route('admin.permission.index'),
+        routeName: 'admin.permission.index',
         icon: Key,
         permission: 'all rights',
     },
     {
         title: 'Seller',
-        href: route('admin.seller.index'),
+        routeName: 'admin.seller.index',
         icon: User,
     },
     {
         title: 'Partner',
-        href: route('admin.partner.index'),
+        routeName: 'admin.partner.index',
         icon: Users,
     },
     {
         title: 'User',
-        href: route('admin.user.index'),
+        routeName: 'admin.user.index',
         icon: User,
     },
     {
         title: 'User Query',
-        href: route('admin.userQuery.index'),
+        routeName: 'admin.userQuery.index',
         icon: MessageSquare,
     },
     {
         title: 'Newsletter',
-        href: route('admin.newsletter.index'),
+        routeName: 'admin.newsletter.index',
         icon: Newspaper,
     },
     {
@@ -103,25 +167,25 @@ const mainNavItems = [
         children: [
             {
                 title: 'Simple',
-                href: route('admin.forms.simple'),
+                routeName: 'admin.forms.simple',
                 icon: Notebook,
             },
             {
                 title: 'Editor',
-                href: route('admin.forms.editor'),
+                routeName: 'admin.forms.editor',
                 icon: FileEdit,
             },
-            { title: 'Date', href: route('admin.forms.date'), icon: Calendar },
+            { title: 'Date', routeName: 'admin.forms.date', icon: Calendar },
             {
                 title: 'Select',
-                href: route('admin.forms.select'),
+                routeName: 'admin.forms.select',
                 icon: ListFilter,
             },
-            { title: 'File', href: route('admin.forms.file'), icon: FileUp },
-            { title: 'Image', href: route('admin.forms.image'), icon: ImageUp },
+            { title: 'File', routeName: 'admin.forms.file', icon: FileUp },
+            { title: 'Image', routeName: 'admin.forms.image', icon: ImageUp },
             {
                 title: 'Widzard',
-                href: route('admin.forms.wizard'),
+                routeName: 'admin.forms.wizard',
                 icon: Workflow,
             },
         ],
@@ -131,51 +195,51 @@ const mainNavItems = [
         title: 'Pages',
         icon: FileText,
         children: [
-            { title: 'Auth', href: route('admin.pages.authPage'), icon: Home },
-            { title: 'Home', href: route('admin.pages.homePage'), icon: Home },
+            { title: 'Auth', routeName: 'admin.pages.authPage', icon: Home },
+            { title: 'Home', routeName: 'admin.pages.homePage', icon: Home },
             {
                 title: 'About Us',
-                href: route('admin.pages.aboutPage'),
+                routeName: 'admin.pages.aboutPage',
                 icon: Info,
             },
             {
                 title: 'Contact Us',
-                href: route('admin.pages.contactPage'),
+                routeName: 'admin.pages.contactPage',
                 icon: Phone,
             },
             {
                 title: 'Testimonial',
-                href: route('admin.testimonial.index'),
+                routeName: 'admin.testimonial.index',
                 icon: MessageSquare,
             },
             {
                 title: 'Team',
-                href: route('admin.team.index'),
+                routeName: 'admin.team.index',
                 icon: MessageSquare,
             },
             {
                 title: 'Portfolio',
-                href: route('admin.portfolio.index'),
+                routeName: 'admin.portfolio.index',
                 icon: Image,
             },
             {
                 title: 'FAQ',
-                href: route('admin.faq.index'),
+                routeName: 'admin.faq.index',
                 icon: Image,
             },
             {
                 title: 'Terms & Conditions',
-                href: route('admin.pages.tncPage'),
+                routeName: 'admin.pages.tncPage',
                 icon: FileSignature,
             },
             {
                 title: 'Privacy Policy',
-                href: route('admin.pages.privacyPage'),
+                routeName: 'admin.pages.privacyPage',
                 icon: ShieldCheck,
             },
             {
                 title: 'Refund Policy',
-                href: route('admin.pages.refundPage'),
+                routeName: 'admin.pages.refundPage',
                 icon: ShieldCheck,
             },
         ],
@@ -186,12 +250,12 @@ const mainNavItems = [
         children: [
             {
                 title: 'All Services',
-                href: route('admin.service.index'),
+                routeName: 'admin.service.index',
                 icon: Server,
             },
             {
                 title: 'Create Services',
-                href: route('admin.service.create'),
+                routeName: 'admin.service.create',
                 icon: FileSignature,
             },
         ],
@@ -202,12 +266,12 @@ const mainNavItems = [
         children: [
             {
                 title: 'All Blog',
-                href: route('admin.blog.index'),
+                routeName: 'admin.blog.index',
                 icon: BookOpen,
             },
             {
                 title: 'Create Blog',
-                href: route('admin.blog.create'),
+                routeName: 'admin.blog.create',
                 icon: FileSignature,
             },
         ],
@@ -223,7 +287,7 @@ const mainNavItems = [
                 children: [
                     {
                         title: 'Important Links',
-                        href: route('admin.important_links.index'),
+                        routeName: 'admin.important_links.index',
                         icon: Link2,
                     },
                 ],
@@ -232,24 +296,28 @@ const mainNavItems = [
     },
 ];
 
-const footerNavItems: NavItem[] = [
+const footerNavItems = [
     {
         title: 'Settings',
-        href: route('admin.settings.general'),
+        routeName: 'admin.settings.general',
         icon: Settings,
     },
 ];
-const profileNavItems: NavItem[] = [
+const profileNavItems = [
     {
         title: 'Settings',
-        href: route('admin.profile.edit'),
+        routeName: 'admin.profile.edit',
         icon: Settings,
     },
     {
         title: 'Log Out',
-        href: route('admin.logout'),
+        routeName: 'admin.logout',
         icon: LogOut,
     },
 ];
+
+export const filteredMainNavItems = filterMenuItems(mainNavItems);
+export const filteredFooterNavItems = filterMenuItems(footerNavItems);
+export const filteredProfileNavItems = filterMenuItems(profileNavItems);
 
 export { footerNavItems, mainNavItems, profileNavItems };

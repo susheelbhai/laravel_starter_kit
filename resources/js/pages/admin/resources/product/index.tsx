@@ -28,7 +28,6 @@ type Row = {
 
 export default function Index() {
     const { data } = (usePage<SharedData>().props as any);
-    const items = data?.data || [];
 
     const thead = [
         { title: 'Title', className: 'p-3' },
@@ -51,7 +50,7 @@ export default function Index() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {items.map((product: any) => (
+                        {data.map((product: any) => (
                             <tr key={product.id} className="border-t border-gray-200">
                                 <td className="p-3">{product.title}</td>
                                 <td className="p-3">{product.seller_id}</td>

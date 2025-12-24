@@ -17,4 +17,9 @@ export interface InputDivProps extends InputHTMLAttributes<HTMLInputElement> {
   readOnly?: boolean;
   placeholder?: string;
   className?: string;
+  editorHeight?: number; // For CKEditor height
+  editorContentsCss?: string | string[]; // For CKEditor custom CSS
+  editorUiColor?: string; // For CKEditor UI background color
+  editorCustomCss?: string; // Path to custom CSS file for CKEditor UI styling
+  timeFormat?: '12' | '24'; // For TimePicker: 12-hour or 24-hour format
 }

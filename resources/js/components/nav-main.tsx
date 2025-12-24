@@ -12,6 +12,15 @@ import { useState } from 'react';
 
 import { canAny } from '@/lib/can';
 
+// Helper to get current route name from Ziggy
+const getCurrentRouteName = (): string => {
+    try {
+        return (window as any).route().current() || '';
+    } catch {
+        return '';
+    }
+};
+
 export function NavMain({ items = [] }: { items: NavItem[] }) {
     const filteredItems = items.filter((item) => !item.permission || canAny(item.permission));
 
@@ -27,16 +36,35 @@ export function NavMain({ items = [] }: { items: NavItem[] }) {
     );
 }
 
-function hasActiveChild(item: NavItem, currentUrl: string): boolean {
+function hasActiveChild(item: NavItem, currentUrl: string, currentRoute: string): boolean {
+    // Check if current URL matches exactly
     if (item.href === currentUrl) return true;
+    
+    // If item has sibling routes, use exact matching only
+    if ((item as any).hasSiblingRoutes) {
+        if ((item as any).routePattern && currentRoute === (item as any).routePattern) {
+            return true;
+        }
+    } else {
+        // No sibling routes - use pattern matching for CRUD routes
+        if ((item as any).routePattern && currentRoute.startsWith((item as any).routePattern + '.')) {
+            return true;
+        }
+        // Also check exact match for the pattern itself
+        if ((item as any).routePattern && currentRoute === (item as any).routePattern) {
+            return true;
+        }
+    }
+    
     if (item.children) {
-        return item.children.some((child) => hasActiveChild(child, currentUrl));
+        return item.children.some((child) => hasActiveChild(child, currentUrl, currentRoute));
     }
     return false;
 }
 
 function SidebarMenuTree({ item, level }: { item: NavItem; level: number }) {
     const fullUrl = window.location.href;
+    const currentRoute = getCurrentRouteName();
     const hasChildren = item.children && item.children.length > 0;
 
     // ✅ Use canAny instead of can
@@ -44,8 +72,22 @@ function SidebarMenuTree({ item, level }: { item: NavItem; level: number }) {
         return null;
     }
 
-    const isActive = item.href === fullUrl;
-    const hasActive = hasActiveChild(item, fullUrl);
+    // Check if item is active
+    let isActive = item.href === fullUrl;
+    
+    // If no sibling routes exist, use pattern matching
+    if (!isActive && (item as any).routePattern) {
+        if ((item as any).hasSiblingRoutes) {
+            // Has siblings - only exact match
+            isActive = currentRoute === (item as any).routePattern;
+        } else {
+            // No siblings - pattern match for CRUD routes
+            isActive = currentRoute === (item as any).routePattern || 
+                       currentRoute.startsWith((item as any).routePattern + '.');
+        }
+    }
+    
+    const hasActive = hasActiveChild(item, fullUrl, currentRoute);
 
     const [open, setOpen] = useState(hasActive);
 

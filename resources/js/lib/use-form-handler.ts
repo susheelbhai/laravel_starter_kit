@@ -1,4 +1,5 @@
 import { useForm, router } from "@inertiajs/react";
+import { useState } from "react";
 
 /**
  * Smart FormData builder
@@ -52,6 +53,8 @@ export function useFormHandler<T extends Record<string, any>>(options: {
     onSuccess?: () => void;
     onError?: (errors: Record<string, string[]>) => void;
 }) {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    
     const {
         data,
         setData,
@@ -64,6 +67,7 @@ export function useFormHandler<T extends Record<string, any>>(options: {
 
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
         const method = options.method || "POST";
 
@@ -82,22 +86,27 @@ export function useFormHandler<T extends Record<string, any>>(options: {
         router.post(options.url, fd, {
             forceFormData: true,
             onSuccess: () => {
+                setIsSubmitting(false);
                 if (options.onSuccess) options.onSuccess();
                 reset();
             },
             onError: (err) => {
+                setIsSubmitting(false);
                 setError(err as any);
                 if (options.onError) options.onError(err as any);
             },
         });
     };
 
+    // Return the more reliable isSubmitting state along with processing
+    const submitting = isSubmitting || processing;
+
     return {
         submit,
         data,
         setData,
         errors,
-        processing,
+        processing: submitting,
         reset,
         inputDivData: {
             data,

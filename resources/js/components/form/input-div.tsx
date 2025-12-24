@@ -17,6 +17,13 @@ import InputTextarea from './input-textarea';
 import InputMultiImage from './input-image-multiple';
 import InputMultiFile from './input-file-multiple';
 import InputTags from './input-tags';
+import InputDatePicker from './input-date-picker';
+import InputTimePicker from './input-time-picker';
+import InputDateTimePicker from './input-datetime-picker';
+import InputDateRangePicker from './input-date-range-picker';
+
+import InputDateRangePickerExpended from './input-date-range-picker-expended';
+import InputClockTimePicker from './input-clock-time-picker';
 
 export function InputDiv(props: InputDivProps) {
     const { type } = props;
@@ -41,6 +48,24 @@ export function InputDiv(props: InputDivProps) {
         case 'date':
         case 'datetime-local':
             return <InputDate {...props} />;
+            
+        case 'date-picker':
+            return <InputDatePicker {...props} />;
+            
+        case 'date-range-picker':
+            return <InputDateRangePicker {...props} />;
+            
+        case 'date-range-picker-expended':
+            return <InputDateRangePickerExpended {...props} />;
+            
+        case 'time-picker':
+            return <InputTimePicker {...props} />;
+
+        case 'clock-time-picker':
+            return <InputClockTimePicker {...props} />;
+
+        case 'date-time-picker':
+            return <InputDateTimePicker {...props} />;
             
         case 'radio':
             return <InputRadio {...props} />;
