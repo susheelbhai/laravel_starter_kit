@@ -28,6 +28,12 @@ class InstallPackages
             'class-variance-authority',
             'tw-animate-css',
             'tailwind-merge',
+            '@radix-ui/react-avatar',
+            '@radix-ui/react-checkbox',
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-label',
+            '@radix-ui/react-separator',
+            '@radix-ui/react-tooltip'
         ];
         
         $this->installNpmPackages($this_data, $npmPackages);
