@@ -26,6 +26,8 @@ class InstallPackages
             '@radix-ui/react-dropdown-menu',
             '@radix-ui/react-popover',
             'class-variance-authority',
+            'tw-animate-css',
+            'tailwind-merge',
         ];
         
         $this->installNpmPackages($this_data, $npmPackages);

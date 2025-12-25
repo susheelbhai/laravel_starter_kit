@@ -36,6 +36,7 @@ class initial_settings extends Command
         );
 
         $this->question("Set Environment variable");
+        $starter_kit_installed = $this->ask("have you installed laravel starter kit? (yes/no)", 'yes');
         $project_name = $this->ask("Project Name", 'new');
         $app_name = $this->ask("App Name", $project_name);
         $has_ssl = $this->ask("do you have ssl available? (yes/no)", 'yes');
@@ -66,13 +67,11 @@ class initial_settings extends Command
 
         switch ($starter_kit_type) {
             case 'blade':
-                $starter_kit_installed = $this->ask("have you installed livewire starter kit? (yes/no)", 'yes');
                 $publish_obj->blade($this, $starter_kit_installed);
                 $package_obj->blade($this, $starter_kit_installed);
                 break;
 
             case 'react':
-                $starter_kit_installed = $this->ask("have you installed react starter kit? (yes/no)", 'yes');
                 $publish_obj->react($this, $starter_kit_installed);
                 $package_obj->react($this, $starter_kit_installed);
                 break;
