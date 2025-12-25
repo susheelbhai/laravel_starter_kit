@@ -13,7 +13,12 @@ class InstallPackages
         $this_data->info("Installing NPM packages...");
         $this->installPackage($this_data, ['npm', 'install', 'react-day-picker'], "NPM package: react-day-picker");
         $this->installPackage($this_data, ['npm', 'install', 'date-fns'], "NPM package: date-fns");
+        $this->installPackage($this_data, ['npm', 'install', '@vitejs/plugin-react'], "NPM package: @vitejs/plugin-react");
+        $this->installPackage($this_data, ['npm', 'install', '@inertiajs/react'], "NPM package: @inertiajs/react");
+        $this->installPackage($this_data, ['npm', 'install', '@radix-ui/react-dropdown-menu'], "NPM package: @radix-ui/react-dropdown-menu");
         $this->installPackage($this_data, ['npm', 'install', '@radix-ui/react-popover'], "NPM package: @radix-ui/react-popover");
+        $this->installPackage($this_data, ['npm', 'install', 'class-variance-authority'], "NPM package: class-variance-authority");
+        $this->installPackage($this_data, ['npm', 'install', 'lucide-react'], "NPM package: lucide-react");
         $this->installPackage($this_data, ['npm', 'install', 'react-icons'], "NPM package: react-icons");
         $this->installPackage($this_data, ['npm', 'install', 'sweetalert2'], "NPM package: sweetalert2");
         $this->installPackage($this_data, ['npm', 'install', 'react-select'], "NPM package: react-select");

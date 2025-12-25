@@ -28,6 +28,7 @@
         "spatie/laravel-permission": "^6.18",
         "spatie/laravel-medialibrary": "^11.17",
         "intervention/image": "^3.11",
-        "tightenco/ziggy": "^2.6"
+        "tightenco/ziggy": "^2.6",
+        "inertiajs/inertia-laravel": "*"
     }
 }
