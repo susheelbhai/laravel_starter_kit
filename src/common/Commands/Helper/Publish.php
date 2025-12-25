@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Artisan;
 
 class Publish
 {
-    public function blade($this_data)
+    public function blade($this_data, $starter_kit_installed)
     {
         $this_data->info("Publishing Blade Starter Kit...");
 
@@ -29,19 +29,23 @@ class Publish
         }
     }
 
-    public function react($this_data)
+    public function react($this_data, $starter_kit_installed)
     {
         $this_data->info("Publishing React Starter Kit...");
 
-        $exitCode = Artisan::call('vendor:publish', [
+        $exitCode1 = Artisan::call('vendor:publish', [
             '--tag'   => 'react_starter_kit',
+            '--force' => true,
+        ]);
+        $exitCode2 = Artisan::call('vendor:publish', [
+            '--tag'   => 'react_starter_kit_for_non_react_project',
             '--force' => true,
         ]);
 
         // show what artisan actually did
         $this_data->line(Artisan::output());
 
-        if ($exitCode === 0) {
+        if ($exitCode1 === 0 && $exitCode2 === 0) {
             $this_data->info("✅ React Starter Kit published successfully!");
         } else {
             $this_data->error("❌ Failed to publish React Starter Kit");

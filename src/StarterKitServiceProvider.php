@@ -90,6 +90,10 @@ class StarterKitServiceProvider extends ServiceProvider
         ], 'react_starter_kit');
 
         $this->publishes([
+            __dir__ . "/../assets/root" => base_path('/')
+        ], 'react_starter_kit_for_non_react_project');
+
+        $this->publishes([
             __dir__ . "/../assets/public" => public_path('')
         ], 'starter_kit_themes');
     }

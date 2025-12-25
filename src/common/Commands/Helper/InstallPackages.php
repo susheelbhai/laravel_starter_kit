@@ -7,32 +7,73 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class InstallPackages
 {
-    public function react($this_data)
-    {        
 
-        $this_data->info("Installing NPM packages...");
-        $this->installPackage($this_data, ['npm', 'install', 'react-day-picker'], "NPM package: react-day-picker");
-        $this->installPackage($this_data, ['npm', 'install', 'date-fns'], "NPM package: date-fns");
-        $this->installPackage($this_data, ['npm', 'install', '@vitejs/plugin-react'], "NPM package: @vitejs/plugin-react");
-        $this->installPackage($this_data, ['npm', 'install', '@inertiajs/react'], "NPM package: @inertiajs/react");
-        $this->installPackage($this_data, ['npm', 'install', '@radix-ui/react-dropdown-menu'], "NPM package: @radix-ui/react-dropdown-menu");
-        $this->installPackage($this_data, ['npm', 'install', '@radix-ui/react-popover'], "NPM package: @radix-ui/react-popover");
-        $this->installPackage($this_data, ['npm', 'install', 'class-variance-authority'], "NPM package: class-variance-authority");
-        $this->installPackage($this_data, ['npm', 'install', 'lucide-react'], "NPM package: lucide-react");
-        $this->installPackage($this_data, ['npm', 'install', 'react-icons'], "NPM package: react-icons");
-        $this->installPackage($this_data, ['npm', 'install', 'sweetalert2'], "NPM package: sweetalert2");
-        $this->installPackage($this_data, ['npm', 'install', 'react-select'], "NPM package: react-select");
-        
-    }
-
-    public function blade($this_data)
+    public function react($this_data, $starter_kit_installed)
     {
-        $this_data->info("Installing PHP packages...");
-        $this->installPackage($this_data, ['composer', 'require', 'tightenco/ziggy'], "Composer package: tightenco/ziggy");
 
         $this_data->info("Installing NPM packages...");
-        $this->installPackage($this_data, ['npm', 'install', 'react-icons'], "NPM package: react-icons");
+        $npmPackages = [
+            'react-day-picker',
+            'date-fns',
+            'lucide-react',
+            'react-icons',
+            'sweetalert2',
+            'react-select',
+        ];
+        $npmPackages2 = [
+            '@vitejs/plugin-react',
+            '@inertiajs/react',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-popover',
+            'class-variance-authority',
+        ];
+        
+        $this->installNpmPackages($this_data, $npmPackages);
+        // if no starter kit selected at the time of installation of laravel
+        if ($starter_kit_installed != 'yes') {
+            $this->installNpmPackages($this_data, $npmPackages2);
+        }
     }
+
+    public function blade($this_data, $starter_kit_installed)
+    {
+        $this_data->info("Installing composer packages...");
+        $composerPackages = [
+            'tightenco/ziggy',
+        ];
+        $this->installComposerPackages($this_data, $composerPackages);
+
+        $this_data->info("Installing NPM packages...");
+        $npmPackages = [
+            'react-icons',
+        ];
+        $this->installNpmPackages($this_data, $npmPackages);
+    }
+    /**
+     * Install multiple NPM packages by name.
+     * @param $this_data
+     * @param array $packageNames
+     */
+    private function installNpmPackages($this_data, array $packageNames)
+    {
+        foreach ($packageNames as $pkg) {
+            $this->installPackage($this_data, ['npm', 'install', $pkg], "NPM package: $pkg");
+        }
+    }
+
+    /**
+     * Install multiple Composer packages by name.
+     * @param $this_data
+     * @param array $packageNames
+     */
+    private function installComposerPackages($this_data, array $packageNames)
+    {
+        foreach ($packageNames as $pkg) {
+            $this->installPackage($this_data, ['composer', 'require', $pkg], "Composer package: $pkg");
+        }
+    }
+
+
 
     private function installPackage($this_data, array $command, string $label)
     {

@@ -66,13 +66,15 @@ class initial_settings extends Command
 
         switch ($starter_kit_type) {
             case 'blade':
-                $publish_obj->blade($this);
-                $package_obj->blade($this);
+                $starter_kit_installed = $this->ask("have you installed livewire starter kit? (yes/no)", 'yes');
+                $publish_obj->blade($this, $starter_kit_installed);
+                $package_obj->blade($this, $starter_kit_installed);
                 break;
 
             case 'react':
-                $publish_obj->react($this);
-                $package_obj->react($this);
+                $starter_kit_installed = $this->ask("have you installed react starter kit? (yes/no)", 'yes');
+                $publish_obj->react($this, $starter_kit_installed);
+                $package_obj->react($this, $starter_kit_installed);
                 break;
         }
 
