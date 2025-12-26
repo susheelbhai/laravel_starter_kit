@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('themes/guest') }}/css/plugins/fontawesome-5.css">
     <link rel="stylesheet" href="{{ asset('themes/guest') }}/css/plugins/animate.min.css">
     <link rel="stylesheet" href="{{ asset('themes/guest') }}/css/plugins/unicons.css">
-    <link rel="stylesheet" href="{{ asset('themes/guest') }}/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('themes/guest') }}/css/vendor_components/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('themes/guest') }}/css/style.css">
     <style>
         .header-main-one .thumbnail a {
@@ -46,15 +46,15 @@
 
 
     <!-- scripts start form hear -->
-    <script src="{{ asset('themes/guest') }}/js/vendor/jquery.min.js"></script>
-    <script src="{{ asset('themes/guest') }}/js/vendor/jqueryui.js"></script>
-    <script src="{{ asset('themes/guest') }}/js/vendor/waypoint.js"></script>
+    <script src="{{ asset('themes/guest') }}/js/vendor_components/jquery.min.js"></script>
+    <script src="{{ asset('themes/guest') }}/js/vendor_components/jqueryui.js"></script>
+    <script src="{{ asset('themes/guest') }}/js/vendor_components/waypoint.js"></script>
     <script src="{{ asset('themes/guest') }}/js/plugins/swiper.js"></script>
     <script src="{{ asset('themes/guest') }}/js/plugins/counterup.js"></script>
     <script src="{{ asset('themes/guest') }}/js/plugins/sal.min.js"></script>
-    <script src="{{ asset('themes/guest') }}/js/vendor/bootstrap.min.js"></script>
+    <script src="{{ asset('themes/guest') }}/js/vendor_components/bootstrap.min.js"></script>
 
-    <script src="{{ asset('themes/guest') }}/js/vendor/waw.js"></script>
+    <script src="{{ asset('themes/guest') }}/js/vendor_components/waw.js"></script>
     <script src="{{ asset('themes/guest') }}/js/plugins/contact.form.js"></script>
     <!-- main Js -->
     <script src="{{ asset('themes/guest') }}/js/main.js"></script>

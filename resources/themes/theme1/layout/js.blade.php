@@ -1,29 +1,29 @@
-<script src="{{ asset('themes/theme1') }}/vendor/global/global.min.js"></script>
-<script src="{{ asset('themes/theme1') }}/vendor/chart.js/Chart.bundle.min.js"></script>
-<script src="{{ asset('themes/theme1') }}/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/global/global.min.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/chart.js/Chart.bundle.min.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 
 <!-- Apex Chart -->
-<script src="{{ asset('themes/theme1') }}/vendor/apexchart/apexchart.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/apexchart/apexchart.js"></script>
 
-<script src="{{ asset('themes/theme1') }}/vendor/chart.js/Chart.bundle.min.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/chart.js/Chart.bundle.min.js"></script>
 
 
 <!-- Daterangepicker -->
     <!-- momment js is must -->
-    <script src="{{ asset('themes/theme1') }}/vendor/moment/moment.min.js"></script>
-    <script src="{{ asset('themes/theme1') }}/vendor/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/moment/moment.min.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- clockpicker -->
-    <script src="{{ asset('themes/theme1') }}/vendor/clockpicker/js/bootstrap-clockpicker.min.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/clockpicker/js/bootstrap-clockpicker.min.js"></script>
     <!-- asColorPicker -->
-    <script src="{{ asset('themes/theme1') }}/vendor/jquery-asColor/jquery-asColor.min.js"></script>
-    <script src="{{ asset('themes/theme1') }}/vendor/jquery-asGradient/jquery-asGradient.min.js"></script>
-    <script src="{{ asset('themes/theme1') }}/vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/jquery-asColor/jquery-asColor.min.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/jquery-asGradient/jquery-asGradient.min.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/jquery-asColorPicker/js/jquery-asColorPicker.min.js"></script>
     <!-- Material color picker -->
-    <script src="{{ asset('themes/theme1') }}/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
     <!-- pickdate -->
-    <script src="{{ asset('themes/theme1') }}/vendor/pickadate/picker.js"></script>
-    <script src="{{ asset('themes/theme1') }}/vendor/pickadate/picker.time.js"></script>
-    <script src="{{ asset('themes/theme1') }}/vendor/pickadate/picker.date.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/pickadate/picker.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/pickadate/picker.time.js"></script>
+    <script src="{{ asset('themes/theme1') }}/vendor_components/pickadate/picker.date.js"></script>
 
 
 
@@ -41,21 +41,21 @@
 
     
 <!-- Chart piety plugin files -->
-<script src="{{ asset('themes/theme1') }}/vendor/peity/jquery.peity.min.js"></script>
-<script src="{{ asset('themes/theme1') }}/vendor/nouislider/nouislider.min.js"></script>
-<script src="{{ asset('themes/theme1') }}/vendor/wnumb/wNumb.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/peity/jquery.peity.min.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/nouislider/nouislider.min.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/wnumb/wNumb.js"></script>
 
 <!-- Dashboard 1 -->
 <script src="{{ asset('themes/theme1') }}/js/dashboard/dashboard-1.js"></script>
 
-<script src="{{ asset('themes/theme1') }}/vendor/owl-carousel/owl.carousel.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/owl-carousel/owl.carousel.js"></script>
 
 <script src="{{ asset('themes/theme1') }}/js/custom.min.js"></script>
 <script src="{{ asset('themes/theme1') }}/js/dlabnav-init.js"></script>
 <script src="{{ asset('themes/theme1') }}/js/demo.js"></script>
 <script src="{{ asset('themes/theme1') }}/js/styleSwitcher.js"></script>
 
-<script src="{{ asset('themes/theme1') }}/vendor/datatables/js/jquery.dataTables.min.js"></script>
+<script src="{{ asset('themes/theme1') }}/vendor_components/datatables/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('themes/theme1') }}/js/plugins-init/datatables.init.js"></script>
     
 <script src="{{ asset('assets/css/input_image.css') }}"></script>
