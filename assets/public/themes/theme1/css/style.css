@@ -70,10 +70,10 @@
 @import url("../icons/flaticon_1/flaticon_1.css");
 @import url("../icons/icomoon/icomoon.css");
 @import url("../icons/bootstrap-icons/font/bootstrap-icons.css");
-@import url(../vendor/animate/animate.min.css);
-@import url(../vendor/aos/css/aos.min.css);
-@import url(../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
-@import url(../vendor/metismenu/css/metisMenu.min.css);
+@import url(../vendor_components/animate/animate.min.css);
+@import url(../vendor_components/aos/css/aos.min.css);
+@import url(../vendor_components/perfect-scrollbar/css/perfect-scrollbar.css);
+@import url(../vendor_components/metismenu/css/metisMenu.min.css);
 :root {
   --primary: #44814E;
   --secondary: #717579;
