@@ -6,19 +6,15 @@ use Closure;
 use App\Models\Setting;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\View as ViewFacade;
 
 class Guest extends Component
 {
     public $setting;
     public function __construct()
     {
-        $setting = Setting::find(1);
-        Config::set('app.name', $setting['app_name']);
-        Config::set('app.dark_logo', $setting['dark_logo']);
-        Config::set('app.light_logo', $setting['light_logo']);
-        Config::set('app.favicon', $setting['favicon']);
-        $this->setting = $setting;
+        $this->setting = Setting::find(1);
+        ViewFacade::share('setting', $this->setting);
     }
     public function render(): View|Closure|string
     {

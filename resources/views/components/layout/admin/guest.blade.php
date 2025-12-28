@@ -1,6 +1,6 @@
 <x-layout.guest>
     <x-slot name='head'>
-        <link rel="icon" href="{{ asset(config('app.favicon', 'dummy.png')) }}">
+        <link rel="icon" href="{{ asset($setting->favicon ?? 'dummy.png') }}">
         {{ $head }}
     </x-slot>
 

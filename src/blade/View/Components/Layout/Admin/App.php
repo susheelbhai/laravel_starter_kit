@@ -8,27 +8,29 @@ use App\Models\Setting;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\View as ViewFacade;
 use Illuminate\Support\Facades\Session;
 
 class App extends Component
 {
+    /**
+     * The application settings.
+     *
+     * @var \App\Models\Setting
+     */
+    public $setting;
+
     public function __construct()
     {
         $user = Auth::guard('admin')->user();
-        $setting = Setting::find(1);
+        $this->setting = Setting::find(1);
+        ViewFacade::share('setting', $this->setting);
         $theme = 'theme1';
         $user = [
             'login' => $user,
             'theme' => $theme,
         ];
         Session::put('user',$user);
-        Config::set('app.name', $setting['app_name']);
-        Config::set('app.dark_logo', $setting['dark_logo']);
-        Config::set('app.light_logo', $setting['light_logo']);
-        Config::set('app.dark_logo_small', $setting['favicon']);
-        Config::set('app.light_logo_small', $setting['favicon']);
-        Config::set('app.favicon', $setting['favicon']);
     }
 
     public function render(): View|Closure|string

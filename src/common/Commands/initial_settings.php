@@ -24,7 +24,8 @@ class initial_settings extends Command
         'WATERMARK' => 1,
         'ADMIN_MAIL' => 'admin@example.com',
         'ADMIN_NAME' => 'Admin',
-        'QUEUE_CONNECTION' => 'sync'
+        'QUEUE_CONNECTION' => 'sync',
+        'RENDER_TYPE' => 'inertia'
     );
 
     public function handle()
@@ -58,6 +59,9 @@ class initial_settings extends Command
             $this->error($e->getMessage());
         }
         $this->env_values['APP_NAME'] = $app_name;
+        if ($starter_kit_type == 'blade') {
+            $this->env_values['RENDER_TYPE'] = 'blade';
+        }
 
         $env_obj = new EnvValue();
         $env_obj->setEnvironmentValueDatabase($this, $this->env_values, $db_type, $project_name);

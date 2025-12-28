@@ -1,0 +1,133 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Inertia\Inertia;
+use App\Models\Team;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+
+class TeamController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $data = Team::latest()->paginate(15)->through(function ($team) {
+            return [
+                'id' => $team->id,
+                'name' => $team->name,
+                'designation' => $team->designation,
+                'organisation' => $team->organisation ?? '',
+                'message' => $team->message ?? '',
+                'is_active' => $team->is_active,
+                'image' => $team->image,
+                'image_thumb' => $team->getFirstMediaUrl('image', 'thumb'),
+            ];
+        });
+        return $this->render('admin/resources/team/index', compact('data'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return $this->render('admin/resources/team/create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'designation' => 'required',
+        ]);
+        $team = new Team();
+        
+        $team->name = $request->name;
+        $team->designation = $request->designation;
+        $team->is_active = $request->is_active;
+        $team->save();
+
+        if ($request->hasFile('image')) {
+            $team->addMediaFromRequest('image')
+                ->toMediaCollection('image');
+        }
+        return redirect()->route('admin.team.index')->with('success', 'New team member created successfully');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $data = Team::findOrFail($id);
+        return $this->render('admin/resources/team/show', compact('data'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $data = Team::find($id);
+        return $this->render('admin/resources/team/edit', compact('data'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'designation' => 'required',
+        ]);
+        $team =  Team::find($id);
+
+        $team->name = $request->name;
+        $team->designation = $request->designation;
+        $team->is_active = $request->is_active;
+        $team->update();
+
+        if ($request->hasFile('image')) {
+            $team->clearMediaCollection('image');
+            $team->addMediaFromRequest('image')
+                ->toMediaCollection('image');
+        }
+        return redirect()->route('admin.team.index')->with('success', 'Team member updated successfully');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

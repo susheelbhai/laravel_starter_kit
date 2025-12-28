@@ -33,7 +33,6 @@ class StarterKitServiceProvider extends ServiceProvider
     public function registerPublishable()
     {
         $this->publishes([
-            __dir__ . "/blade/Http" => app_path('/Http'),
             __dir__ . "/blade/Livewire" => app_path('/Livewire'),
             __dir__ . "/common/Http" => app_path('/Http'),
             __dir__ . "/common/Models" => app_path('/Models'),
@@ -61,8 +60,6 @@ class StarterKitServiceProvider extends ServiceProvider
         ], 'blade_starter_kit');
 
         $this->publishes([
-            __dir__ . "/react/Http" => app_path('/Http'),
-            // __dir__ . "/Livewire" => app_path('/Livewire'),
             __dir__ . "/common/Http" => app_path('/Http'),
             __dir__ . "/common/Models" => app_path('/Models'),
             __dir__ . "/common/Support" => app_path('/Support'),
