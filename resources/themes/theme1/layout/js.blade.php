@@ -53,10 +53,8 @@
 <script src="{{ asset('themes/theme1') }}/js/custom.min.js"></script>
 <script src="{{ asset('themes/theme1') }}/js/dlabnav-init.js"></script>
 <script src="{{ asset('themes/theme1') }}/js/demo.js"></script>
-<script src="{{ asset('themes/theme1') }}/js/styleSwitcher.js"></script>
 
 <script src="{{ asset('themes/theme1') }}/vendor_components/datatables/js/jquery.dataTables.min.js"></script>
 <script src="{{ asset('themes/theme1') }}/js/plugins-init/datatables.init.js"></script>
     
-<script src="{{ asset('assets/css/input_image.css') }}"></script>
 <script src="{{ asset('js/common.js') }}"></script>

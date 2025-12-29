@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Helpers\Helper;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\File;
+use App\Helpers\Helper;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver as GdDriver;
-use Inertia\Inertia;
 
 class SettingController extends Controller
 {
-
     public $settings;
 
     public function __construct()
@@ -30,18 +27,14 @@ class SettingController extends Controller
         return $this->render('admin/resources/settings/general', compact('setting'));
     }
 
-
     public function advanceSettings()
     {
         $data = $this->settings;
         return view('admin.resources.settings.advance', compact('data'));
     }
 
-
     public function generalSettingsUpdate(Request $req)
     {
-        // return $req;
-        // $settings = $this->settings;
         $setting = Setting::find(1);
 
         $setting->app_name = $req->app_name;
@@ -83,7 +76,6 @@ class SettingController extends Controller
             $setting->addMediaFromRequest('favicon')->toMediaCollection('favicon');
         }
         if ($req->hasFile('dark_logo')) {
-
             $darkLogoFile = $req->file('dark_logo');
             $extension = strtolower($darkLogoFile->getClientOriginalExtension());
             $tmpPath = $darkLogoFile->getRealPath();
@@ -93,7 +85,6 @@ class SettingController extends Controller
             if ($extension === 'svg') {
                 $darkLogoFile->move($publicPath, 'logo.svg');
             } else {
-                // Resize to height 120px, keep aspect ratio
                 $image = $imageManager->read($tmpPath);
                 $origWidth = $image->width();
                 $origHeight = $image->height();

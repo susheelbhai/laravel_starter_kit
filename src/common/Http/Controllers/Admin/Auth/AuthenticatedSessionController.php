@@ -16,7 +16,7 @@ use App\Http\Requests\Auth\LoginRequest;
 class AuthenticatedSessionController extends Controller
 {
     
-    public function create(Request $request): Response
+    public function create(Request $request)
     {
         return $this->render('admin/auth/login', [
             'submitUrl' => route('admin.login'),

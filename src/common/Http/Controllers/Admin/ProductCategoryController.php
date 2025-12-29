@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\ProductCategory;
-use Inertia\Inertia;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
+use App\Models\ProductCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductCategoryRequest;
 
 class ProductCategoryController extends Controller
 {
@@ -29,26 +28,8 @@ class ProductCategoryController extends Controller
         return $this->render('admin/resources/product_category/create', compact('parents'));
     }
 
-    public function store(Request $request)
+    public function store(ProductCategoryRequest $request)
     {
-        // ✅ validation in your pattern
-        $request->validate([
-            'parent_id' => 'nullable|integer',
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-
-            'icon' => 'nullable|image|max:5120',   // 5MB
-            'banner' => 'nullable|image|max:5120', // 5MB
-
-            'position' => 'nullable|integer|min:0',
-            'is_active' => 'required|in:0,1',
-            'is_featured' => 'required|in:0,1',
-
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string',
-        ]);
-
         $data = new ProductCategory();
 
         $data->parent_id = $request->parent_id ?: null;
@@ -98,25 +79,8 @@ class ProductCategoryController extends Controller
         return $this->render('admin/resources/product_category/edit', compact('parents','data'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductCategoryRequest $request, $id)
     {
-        $request->validate([
-            'parent_id' => 'nullable|integer',
-            'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-
-            'icon' => 'nullable|image|max:5120',
-            'banner' => 'nullable|image|max:5120',
-
-            'position' => 'nullable|integer|min:0',
-            'is_active' => 'required|in:0,1',
-            'is_featured' => 'required|in:0,1',
-
-            'meta_title' => 'nullable|string|max:255',
-            'meta_description' => 'nullable|string',
-        ]);
-
         $data = ProductCategory::findOrFail($id);
 
         $data->parent_id = $request->parent_id ?: null;

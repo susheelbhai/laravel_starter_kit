@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Inertia\Inertia;
 use App\Models\Service;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
+use App\Http\Requests\ServiceRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 
 class ServiceController extends Controller
 {
@@ -22,12 +20,8 @@ class ServiceController extends Controller
     {
         return $this->render('admin/resources/service/create');
     }
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'long_description1' => 'required',
-        ]);
         $data = new Service();
 
         $data->title = $request->title;
@@ -48,32 +42,20 @@ class ServiceController extends Controller
         return redirect()->route('admin.service.index')->with('success', 'New service created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         $data = Service::findOrFail($id);
         return $this->render('admin/resources/service/show', compact('data'));
     }
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit($id)
     {
         $data = Service::findOrFail($id);
         return $this->render('admin/resources/service/edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
+    public function update(ServiceRequest $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'long_description1' => 'required',
-        ]);
         $data = Service::find($id);
 
         $data->title = $request->title;
@@ -94,9 +76,7 @@ class ServiceController extends Controller
         return redirect()->route('admin.service.index')->with('success', 'Service data updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+  
     public function destroy(Service $service)
     {
         //

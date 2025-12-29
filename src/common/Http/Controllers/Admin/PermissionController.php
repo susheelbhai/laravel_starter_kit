@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -18,9 +17,6 @@ class PermissionController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return $this->render('admin/resources/permission/create', [
@@ -28,9 +24,6 @@ class PermissionController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -40,17 +33,7 @@ class PermissionController extends Controller
         $permission->syncRoles($request['roles']);
         return to_route('admin.permission.index')->with('success', 'New permission created successfully');
     }
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $roles = Role::select('id', 'name as title')->get();
@@ -82,9 +65,6 @@ class PermissionController extends Controller
         return to_route('admin.permission.index')->with('success', 'Permission updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         Permission::find($id)->delete();

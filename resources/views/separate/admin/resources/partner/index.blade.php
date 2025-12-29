@@ -21,10 +21,10 @@
                     <x-table.element.td :data="$i['email']" />
                     <x-table.element.td :data="$i['phone']" />
                     <x-table.element.td>
-                        <img src="{{ asset('images/profile_pic/partner/'.$i['profile_pic']) }}" width="30px" >
+                        <img src="{{$i['profile_pic_thumb'] }}" width="30px" >
                     </x-table.element.td>
                     <x-table.element.td>
-                        <a href="{{ route('admin.partner.show', $i->id) }}"> <i class="fa fa-eye"></i> </a> 
+                        <a href="{{ route('admin.partner.show', $i['id']) }}"> <i class="fa fa-eye"></i> </a> 
                     </x-table.element.td>
                 </x-table.element.tr>
             @empty

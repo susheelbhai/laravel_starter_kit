@@ -9,8 +9,6 @@
     <link href="{{ asset('themes/theme1') }}/vendor_components/jquery-asColorPicker/css/asColorPicker.min.css" rel="stylesheet">
     <!-- Material color picker -->
     <link href="{{ asset('themes/theme1') }}/vendor_components/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
-	<link href="{{ asset('assets/css/input_switch.css') }}" rel="stylesheet">
-	<link href="{{ asset('assets/css/input_image.css') }}" rel="stylesheet">
 	<link href="{{ asset('themes/theme1') }}/vendor_components/jquery-nice-select/css/nice-select.css" rel="stylesheet">
 	<link href="{{ asset('themes/theme1') }}/vendor_components/owl-carousel/owl.carousel.css" rel="stylesheet">
 	<link href="{{ asset('themes/theme1') }}/vendor_components/nouislider/nouislider.min.css" rel="stylesheet">

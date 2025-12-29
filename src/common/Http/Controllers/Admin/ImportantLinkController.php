@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\ImportantLink;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 
 class ImportantLinkController extends Controller
 {

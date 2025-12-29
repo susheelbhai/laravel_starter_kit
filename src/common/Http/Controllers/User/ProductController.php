@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
-use Inertia\Inertia;
 use App\Models\Product;
-use App\Models\ProductEnquiry;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Controller;

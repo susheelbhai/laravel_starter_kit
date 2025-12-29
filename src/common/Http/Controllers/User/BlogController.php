@@ -4,7 +4,6 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Blog;
 use App\Models\User;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\BlogComment;
@@ -12,7 +11,6 @@ use App\Models\BlogView;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Inertia\Inertia;
 
 class BlogController extends Controller
 {

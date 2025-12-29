@@ -4,9 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Faq;
 use App\Models\Team;
-use Inertia\Inertia;
 use App\Models\PageTnc;
-use App\Models\Product;
 use App\Models\Service;
 use App\Models\PageHome;
 use App\Models\PageAbout;
@@ -18,9 +16,9 @@ use App\Models\PageContact;
 use App\Models\PagePrivacy;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
-use App\Models\ProductCategory;
 use App\Events\ContactFormSubmitted;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserQueryRequest;
 
 class HomeController extends Controller
 {
@@ -64,15 +62,8 @@ class HomeController extends Controller
         $data = PageContact::firstOrFail();
         return $this->render('user/pages/contact/index', compact( 'data'));
     }
-    function contactSubmit(Request $request)
+    function contactSubmit(UserQueryRequest $request)
     {
-        $request->validate([
-            'name'    => 'required|string|max:255',
-            'email'   => 'required|email|max:255',
-            'phone'   => 'required|string|max:20',
-            'subject' => 'required|string|max:255',
-            'message' => 'required|string',
-        ]);
         $data = new UserQuery();
         $data->name = $request['name'];
         $data->email = $request['email'];
@@ -80,7 +71,6 @@ class HomeController extends Controller
         $data->subject = $request['subject'];
         $data->message = $request['message'];
         $data->save();
-        // dd($data);
         event(new ContactFormSubmitted($data));
         return back()->with('success', 'You have successfully submitted the form');
     }
@@ -90,7 +80,7 @@ class HomeController extends Controller
         $request->validate([
             'email'   => 'required|email|max:255',
         ]);
-        $data = Newsletter::updateOrCreate(
+        Newsletter::updateOrCreate(
             ['email' => $request['email']],
             ['unsubscribed_at' => null]
         );
@@ -133,7 +123,6 @@ class HomeController extends Controller
             });
 
         $data = $faqs->values();
-        // dd($data);
         return $this->render('user/pages/faq', compact('data'));
     }
 }

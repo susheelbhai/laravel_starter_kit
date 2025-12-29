@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
-use Inertia\Inertia;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
+use App\Http\Requests\BlogRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
-
     public function index()
     {
         $data = Blog::latest()->get();
@@ -23,16 +20,8 @@ class BlogController extends Controller
         return $this->render('admin/resources/blog/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'long_description1' => 'required',
-        ]);
-
         $data = new Blog();
         $data->title = $request->title;
         $data->slug = Str::slug($request->title);
@@ -46,7 +35,6 @@ class BlogController extends Controller
         $data->highlighted_text2 = $request->highlighted_text2;
         $data->ad_url = $request->ad_url;
         $data->tags = $request->tags;
-        // $data->is_active = $request->is_active;
         $data->save();
 
         if ($request->hasFile('display_img')) {
@@ -61,32 +49,20 @@ class BlogController extends Controller
         return redirect()->route('admin.blog.index')->with('success', 'New blog created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         $data = Blog::findOrFail($id);
         return $this->render('admin/resources/blog/show', compact('data'));
     }
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit($id)
     {
         $data = Blog::find($id);
         return $this->render('admin/resources/blog/edit', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
+    public function update(BlogRequest $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'long_description1' => 'required',
-        ]);
         $data = Blog::find($id);
 
         $data->title = $request->title;

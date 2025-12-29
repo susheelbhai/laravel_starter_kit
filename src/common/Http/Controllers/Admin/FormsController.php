@@ -2,29 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Inertia\Inertia;
-use Inertia\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Route;
 use App\Http\Requests\FormWizardRequest;
 
 class FormsController extends Controller
 {
-    public function simpleCreate(): Response
+    public function simpleCreate()
     {
-        
         return $this->render('admin/resources/forms/simple-create');
     }
-    public function editorCreate(): Response
+    
+    public function editorCreate()
     {
         return $this->render('admin/resources/forms/editor-create');
     }
-    public function dateCreate(): Response
+    public function dateCreate()
     {
         return $this->render('admin/resources/forms/date-create');
     }
-    public function selectCreate(): Response
+    public function selectCreate()
     {
         $states = [
             ['title' => 'Alabama', 'id' => 'AL'],
@@ -40,11 +37,11 @@ class FormsController extends Controller
         ];
         return $this->render('admin/resources/forms/select-create', compact('states'));
     }
-    public function fileCreate(): Response
+    public function fileCreate()
     {
         return $this->render('admin/resources/forms/file-create');
     }
-    public function imageCreate(): Response
+    public function imageCreate()
     {
         return $this->render('admin/resources/forms/image-create');
     }
@@ -60,7 +57,7 @@ class FormsController extends Controller
         return redirect()->route('admin.forms.simple')->with('success', 'Simple form submitted successfully!');
     }
 
-    public function wizardForm(): Response
+    public function wizardForm()
     {
         $data = [];
         return $this->render('admin/resources/forms/wizard/create', compact('data'));

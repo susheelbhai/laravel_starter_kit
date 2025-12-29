@@ -2,18 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Inertia\Inertia;
-use App\Models\Slider;
 use App\Models\Slider1;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Validator;
 
 class Slider1Controller extends Controller
 {
-
     public function index()
     {
         $data = Slider1::latest()->get();
@@ -88,16 +82,5 @@ class Slider1Controller extends Controller
                 ->toMediaCollection('image2');
         }
         return redirect()->route('admin.slider1.index')->with('success', 'Slider updated successfully');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

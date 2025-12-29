@@ -2,19 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Inertia\Inertia;
 use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-
     public function index()
     {
         $data = User::latest()->paginate(15)->through(function ($user) {
@@ -32,26 +27,13 @@ class UserController extends Controller
         ]);
     }
 
-
     public function create()
     {
         return $this->render('admin/resources/user/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required|unique:users,phone',
-            'email' => 'required|email|unique:users,email',
-            'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
         $data = new User();
         $data->name = $request->name;
         $data->phone = $request->phone;
@@ -64,16 +46,9 @@ class UserController extends Controller
                 ->toMediaCollection('profile_pic');
         }
 
-
         return Redirect::route('admin.user.index')->with('success', 'new user created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $data = User::find($id);
@@ -82,34 +57,15 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         return $this->render('admin/resources/user/edit', [
             'data' => User::find($id),
         ]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    
+    public function update(UserRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'phone' => 'required|unique:users,phone,' . $id,
-            'email' => 'required|email|unique:users,email,' . $id,
-            'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
         $data = User::find($id);
         $data->name = $request->name;
         $data->phone = $request->phone;
@@ -124,12 +80,7 @@ class UserController extends Controller
         return Redirect::route('admin.user.update', $id)->with('success', 'profile-updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         //

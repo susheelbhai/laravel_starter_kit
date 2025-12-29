@@ -3,16 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Inertia\Inertia;
+use App\Http\Requests\RoleRequest;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+// Removed unused Inertia import
 
 class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $roles = Role::with('permissions')->get();
@@ -21,9 +18,6 @@ class RoleController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return $this->render('admin/resources/role/create', [
@@ -31,31 +25,17 @@ class RoleController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        $request->validate([
-            'name' => 'required|unique:roles,name',
-            'permissions' => 'required'
-        ]);
         $role = Role::create(['name' => $request['name']]);
         $role->syncPermissions($request['permissions']);
         return to_route('admin.role.index')->with('success', 'New role created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $roles = Role::whereId($id)->with('permissions')->first();
@@ -66,37 +46,22 @@ class RoleController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(RoleRequest $request, string $id)
     {
-        $request->validate([
-            'name' => 'required|unique:roles,name,' . $id,
-            'permissions' => 'required|array',
-        ]);
-
         $role = Role::findOrFail($id);
         $role->update(['name' => $request->name]);
 
-        // permissions come as ['1', '2', '3'] (strings from FormData)
-        // Cast them to integers so Spatie treats them as IDs
         $permissionIds = collect($request->permissions)
-            ->filter()                // remove null/empty values if any
+            ->filter()
             ->map(fn($v) => (int) $v)
-            ->all();                  // result: [1, 2, 3]
+            ->all();
 
         $role->syncPermissions($permissionIds);
 
         return to_route('admin.role.index')->with('success', 'Role updated successfully');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
     }
 }

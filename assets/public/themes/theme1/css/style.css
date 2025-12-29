@@ -12818,7 +12818,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   /* padding:0 1.25rem; */ }
   [data-sidebar-style="full"][data-layout="vertical"] .dlabnav .metismenu > li > a {
     font-size: 1.125rem;
-    padding: 1.375rem 2.1875rem;
+    padding: .55rem 2.1875rem;
     font-weight: 600;
     -webkit-transition: all 0.5s;
     -ms-transition: all 0.5s;

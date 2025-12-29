@@ -36,6 +36,5 @@
     <script src="{{ asset('themes/theme1')}}/vendor_components/global/global.min.js"></script>
     <script src="{{ asset('themes/theme1')}}/js/custom.min.js"></script>
     <script src="{{ asset('themes/theme1')}}/js/dlabnav-init.js"></script>
-	<script src="{{ asset('themes/theme1')}}/js/styleSwitcher.js"></script>
 </body>
 </html>
