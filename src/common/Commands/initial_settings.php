@@ -25,7 +25,7 @@ class initial_settings extends Command
         'ADMIN_MAIL' => 'admin@example.com',
         'ADMIN_NAME' => 'Admin',
         'QUEUE_CONNECTION' => 'sync',
-        'RENDER_TYPE' => 'inertia'
+        'APP_RENDER_TYPE' => 'inertia'
     );
 
     public function handle()

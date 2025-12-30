@@ -13,7 +13,7 @@ class InstallPackages
 
         $this_data->info("Installing NPM packages...");
         $npmPackages = [
-            '@radix-ui/react-popover',
+            'radix-ui',
             'react-day-picker',
             'date-fns',
             'lucide-react',
@@ -24,16 +24,9 @@ class InstallPackages
         $npmPackages2 = [
             '@vitejs/plugin-react',
             '@inertiajs/react',
-            '@radix-ui/react-dropdown-menu',
             'class-variance-authority',
             'tw-animate-css',
             'tailwind-merge',
-            '@radix-ui/react-avatar',
-            '@radix-ui/react-checkbox',
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-label',
-            '@radix-ui/react-separator',
-            '@radix-ui/react-tooltip',
         ];
         
         $this->installNpmPackages($this_data, $npmPackages);
