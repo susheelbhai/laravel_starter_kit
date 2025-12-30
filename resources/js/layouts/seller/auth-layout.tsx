@@ -1,4 +1,4 @@
-import AuthLayoutTemplate from '@/layouts/seller/auth/auth-card-layout';
+import AuthLayoutTemplate from '../../themes/admin_default/auth/auth-card-layout';
 
 export default function AuthLayout({ children, title, description, ...props }: { children: React.ReactNode; title: string; description: string }) {
     return (

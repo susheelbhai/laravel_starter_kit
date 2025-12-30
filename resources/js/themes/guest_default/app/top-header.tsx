@@ -15,7 +15,7 @@ const TopHeader: React.FC = () => {
 
     return (
         <div className="border-b border-gray-200 bg-primary/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">
-            <div className="mx-auto flex max-w-[1320px] items-center justify-between px-4 py-2 text-xs text-gray-600 sm:text-sm dark:text-slate-200">
+            <div className="mx-auto flex items-center justify-between px-4 py-2 text-xs text-gray-600 sm:text-sm dark:text-slate-200">
                 {/* Left: Email + Working hours */}
                 <div className="flex items-center gap-3 sm:gap-4">
                     <a

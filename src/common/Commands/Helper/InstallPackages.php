@@ -23,6 +23,7 @@ class InstallPackages
         ];
         $npmPackages2 = [
             '@vitejs/plugin-react',
+            '@headlessui/react',
             '@inertiajs/react',
             'class-variance-authority',
             'tw-animate-css',

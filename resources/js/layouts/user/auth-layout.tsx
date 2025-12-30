@@ -1,4 +1,4 @@
-import AuthLayoutTemplate from '@/layouts/user/auth/auth-simple-layout';
+import AuthLayoutTemplate from "../../themes/guest_default/auth/auth-simple-layout";
 
 export default function AuthLayout({ children, title, description, ...props }: { children: React.ReactNode; title: string; description: string }) {
     return (

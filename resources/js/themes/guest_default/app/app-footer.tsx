@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
                     href={link.href}
                     className="inline-flex items-center gap-2 text-slate-400 transition-colors hover:text-primary"
                   >
-                    <span className="h-[3px] w-[3px] rounded-full bg-slate-500" />
+                    <span className="rounded-full bg-slate-500" />
                     {link.name}
                   </Link>
                 </li>

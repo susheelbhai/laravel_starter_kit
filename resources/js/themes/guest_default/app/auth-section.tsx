@@ -1,9 +1,11 @@
-import Button from '@/components/button';
-import { Link, usePage } from '@inertiajs/react';
-import React, { useState } from 'react';
+import Button from "@/components/button";
+import { Link, usePage } from "@inertiajs/react";
+import React, { useState } from "react";
 
 interface AuthSectionProps {
     isMobile?: boolean;
+    profileItems: any;
+    loginRoute: string;
 }
 
 // Helper to check if route exists
@@ -16,25 +18,32 @@ const routeExists = (name: string): boolean => {
     }
 };
 
-const AuthSection: React.FC<AuthSectionProps> = ({ isMobile = false }) => {
+export default function AuthSection({
+    isMobile = false,
+    profileItems,
+    loginRoute,
+}: AuthSectionProps) {
     const user = (usePage().props as any).auth?.user;
-    const loginExists = routeExists('login');
+    const loginExists = routeExists(loginRoute);
     const [profileOpen, setProfileOpen] = useState(false);
 
     // Profile menu items (only show if loginExists)
-    const profileItems = loginExists ? [
-        { name: 'Profile', route: route('profile.edit') },
-        { name: 'Logout', route: route('logout'), method: 'post' },
-    ] : [];
+    const profileItems1 = loginExists ? profileItems : [];
 
     const renderProfileMenu = () => (
-        <div className={isMobile ? "" : "absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-slate-200"}>
+        <div
+            className={
+                isMobile
+                    ? ""
+                    : "absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-slate-200"
+            }
+        >
             <ul className="py-1 text-sm text-slate-700">
-                {profileItems.map((item) => (
+                {profileItems1.map((item: any) => (
                     <li key={item.name}>
                         {item.method ? (
                             <Link
-                                href={item.route}
+                                href={route(item.routeName)}
                                 method={item.method as any}
                                 as="button"
                                 className="block w-full px-4 py-2 text-left hover:bg-slate-50"
@@ -43,7 +52,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({ isMobile = false }) => {
                             </Link>
                         ) : (
                             <Link
-                                href={item.route}
+                                href={route(item.routeName)}
                                 className="block px-4 py-2 hover:bg-slate-50"
                             >
                                 {item.name}
@@ -66,10 +75,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({ isMobile = false }) => {
                             className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-slate-50 transition hover:border-[#FAB915]"
                         >
                             <img
-                                src={
-                                    user?.profile_pic ||
-                                    '/default-avatar.png'
-                                }
+                                src={user?.profile_pic || "/default-avatar.png"}
                                 alt="Profile"
                                 className="h-full w-full object-cover"
                             />
@@ -80,7 +86,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({ isMobile = false }) => {
                     <div className="ml-4">
                         <Button
                             className="inline-block"
-                            href={route('login')}
+                            href={route(loginRoute)}
                             text="Login"
                         />
                     </div>
@@ -99,16 +105,11 @@ const AuthSection: React.FC<AuthSectionProps> = ({ isMobile = false }) => {
                         className="flex items-center gap-2 rounded-lg px-2 py-2"
                     >
                         <img
-                            src={
-                                user?.profile_pic ||
-                                '/default-avatar.png'
-                            }
+                            src={user?.profile_pic || "/default-avatar.png"}
                             alt="Profile"
                             className="h-9 w-9 rounded-full border border-slate-200 object-cover"
                         />
-                        <span className="text-sm font-semibold">
-                            Account
-                        </span>
+                        <span className="text-sm font-semibold">Account</span>
                     </button>
                     {profileOpen && (
                         <div className="mt-1 rounded-xl border border-slate-200 bg-white">
@@ -118,11 +119,9 @@ const AuthSection: React.FC<AuthSectionProps> = ({ isMobile = false }) => {
                 </div>
             ) : loginExists ? (
                 <div className="mt-3 border-t border-slate-200 pt-3">
-                    <Button href={route('login')} text="Login" />
+                    <Button href={route(loginRoute)} text="Login" />
                 </div>
             ) : null}
         </>
     );
-};
-
-export default AuthSection;
+}

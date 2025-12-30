@@ -69,7 +69,7 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/common/Events" => app_path('/Events'),
             __dir__ . "/common/Listeners" => app_path('/Listeners'),
             __dir__ . "/react/Providers" => app_path('/Providers'),
-            __dir__ . "/blade/View" => app_path('/View'),
+            __dir__ . "/react/Http/Middleware" => app_path('/Http/Middleware'),
             __dir__ . "/../database" => database_path('/'),
             __dir__ . "/../config" => config_path('/'),
             __dir__ . "/../routes" => base_path('/routes'),

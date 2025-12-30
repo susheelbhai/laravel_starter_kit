@@ -1,9 +1,8 @@
-import { Link, usePage } from '@inertiajs/react';
-import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import AuthSection from './auth-section';
+import { Link, usePage } from "@inertiajs/react";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import AuthSection from "./auth-section";
 
-// Helper to check if route exists
 const routeExists = (name: string): boolean => {
     try {
         route(name);
@@ -13,47 +12,22 @@ const routeExists = (name: string): boolean => {
     }
 };
 
-const Header: React.FC = () => {
+export default function Header({
+    menuItems,
+    profileItems,
+    loginRoute
+}: {
+    menuItems: any;
+    profileItems: any;
+    loginRoute: string;
+}) {
     const appData = (usePage().props as any).appData;
-    const user = (usePage().props as any).auth?.user;
-    const loginExists = routeExists('login');
+    const loginExists = routeExists(loginRoute);
     const [menuOpen, setMenuOpen] = useState(false);
-
-    // Main menu items
-    let menuItems = [
-        { name: 'Home', route: route('home') },
-        { name: 'About', route: route('about') },
-        { name: 'Product', route: route('product.index') },
-        { name: 'Services', route: route('services') },
-        { name: 'Blogs', route: route('blog.index') },
-        { name: 'Contact', route: route('contact') },
-    ];
-
-    if (user != null && user.user_type_id == '1') {
-        menuItems = [
-            { name: 'Dashboard', route: route('dashboard') },
-            { name: 'About', route: route('about') },
-            { name: 'Product', route: route('product.index') },
-            { name: 'Services', route: route('services') },
-            { name: 'Blogs', route: route('blog.index') },
-            { name: 'Contact', route: route('contact') },
-        ];
-    }
-
-    if (user != null && user.user_type_id == '2') {
-        menuItems = [
-            { name: 'Browse Festival', route: route('festivals.index') },
-            { name: 'About', route: route('about') },
-            { name: 'Product', route: route('product.index') },
-            { name: 'Services', route: route('services') },
-            { name: 'Blogs', route: route('blog.index') },
-            { name: 'Contact', route: route('contact') },
-        ];
-    }
 
     return (
         <header className="sticky top-0 z-50 bg-white/90 shadow-sm backdrop-blur-xl">
-            <div className="mx-auto flex max-w-[1320px] items-center justify-between px-4 py-3.5 md:py-4">
+            <div className="mx-auto flex items-center justify-between px-4 py-3.5 md:py-4">
                 {/* Logo */}
                 <div className="flex items-center gap-2">
                     <Link href="/" className="flex items-center">
@@ -67,10 +41,10 @@ const Header: React.FC = () => {
 
                 {/* Desktop Menu */}
                 <nav className="hidden items-center gap-1 text-sm font-medium text-slate-700 md:flex">
-                    {menuItems.map((item) => (
+                    {menuItems.map((item: any) => (
                         <Link
                             key={item.name}
-                            href={item.route}
+                            href={route(item.routeName)}
                             className="rounded-full px-3 py-2 transition-colors hover:bg-slate-100 hover:text-[#FAB915]"
                         >
                             {item.name}
@@ -79,7 +53,7 @@ const Header: React.FC = () => {
                 </nav>
 
                 {/* Right: Profile / Login (Desktop) */}
-                {loginExists && <AuthSection />}
+                {loginExists && <AuthSection profileItems={profileItems} loginRoute={loginRoute} />}
 
                 {/* Mobile Menu Toggle */}
                 <button
@@ -96,10 +70,10 @@ const Header: React.FC = () => {
             {menuOpen && (
                 <div className="border-t border-slate-200 bg-white px-4 pb-4 shadow md:hidden">
                     <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-slate-700">
-                        {menuItems.map((item) => (
+                        {menuItems.map((item: any) => (
                             <Link
                                 key={item.name}
-                                href={item.route}
+                                href={route(item.routeName)}
                                 className="rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-[#FAB915]"
                                 onClick={() => setMenuOpen(false)}
                             >
@@ -108,12 +82,12 @@ const Header: React.FC = () => {
                         ))}
 
                         {/* Mobile Profile / Login */}
-                        {loginExists && <AuthSection isMobile />}
+                        {loginExists && (
+                            <AuthSection profileItems={profileItems} loginRoute={loginRoute} isMobile />
+                        )}
                     </nav>
                 </div>
             )}
         </header>
     );
-};
-
-export default Header;
+}

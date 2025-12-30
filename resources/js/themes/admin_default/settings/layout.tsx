@@ -6,21 +6,8 @@ import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
 
-const sidebarNavItems: NavItem[] = [
-    {
-        title: 'Profile',
-        href: route('seller.profile.edit'),
-        icon: null,
-    },
-    {
-        title: 'Password',
-        href: route('seller.password.edit'),
-        icon: null,
-    },
-    
-];
 
-export default function SettingsLayout({ children }: PropsWithChildren) {
+export default function SettingsLayout({ children, sidebarNavItems}: PropsWithChildren<{sidebarNavItems: NavItem[]}>) {
     // When server-side rendering, we only render the layout on the client...
     if (typeof window === 'undefined') {
         return null;
