@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers\Seller\Auth;
 
-use Inertia\Inertia;
 use App\Models\Seller;
-use Inertia\Response;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +13,7 @@ use App\Http\Requests\Auth\LoginRequest;
 class AuthenticatedSessionController extends Controller
 {
     
-    public function create(Request $request): Response
+    public function create(Request $request)
     {
         return $this->render('seller/auth/login', [
             'submitUrl' => route('seller.login'),

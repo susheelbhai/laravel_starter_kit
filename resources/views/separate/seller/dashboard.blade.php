@@ -2,7 +2,7 @@
     <x-slot name="head">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title> Partner Dashboard | {{ config('app.name') }}</title>
+        <title> Seller Dashboard | {{ config('app.name') }}</title>
     </x-slot>
 
     <section class="content">

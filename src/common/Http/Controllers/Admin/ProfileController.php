@@ -21,8 +21,9 @@ class ProfileController extends Controller
     public function edit(Request $request)
     {
         $data = $request->user();
+        // return $data;
         $status = $request->session()->get('status');
-        return $this->render('admin/settings/profile', compact('data', 'status'));
+        return $this->render('admin/profile/edit', compact('data', 'status'));
     }
 
     /**

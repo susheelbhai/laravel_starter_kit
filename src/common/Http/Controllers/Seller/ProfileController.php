@@ -22,7 +22,7 @@ class ProfileController extends Controller
     {
         $data = $request->user();
         $status = $request->session()->get('status');
-        return $this->render('seller/settings/profile', compact('data', 'status'));
+        return $this->render('seller/profile/edit', compact('data', 'status'));
     }
 
     /**
