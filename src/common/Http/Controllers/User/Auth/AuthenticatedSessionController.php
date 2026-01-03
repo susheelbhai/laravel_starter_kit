@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\User\Auth;
 
 use App\Models\User;
-use Inertia\Inertia;
-use Inertia\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +13,7 @@ use App\Http\Requests\Auth\LoginRequest;
 class AuthenticatedSessionController extends Controller
 {
     
-    public function create(Request $request): Response
+    public function create(Request $request)
     {
         return $this->render('user/auth/login', [
             'submitUrl' => route('login'),
