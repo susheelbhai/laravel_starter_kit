@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Partner;
 
-use Inertia\Inertia;
 use App\Models\Partner;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
@@ -22,7 +19,7 @@ class ProfileController extends Controller
     {
         $data = $request->user();
         $status = $request->session()->get('status');
-        return $this->render('partner/profile/edit', compact('data', 'status'));
+        return $this->render('partner/settings/profile', compact('data', 'status'));
     }
 
     /**

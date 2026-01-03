@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Seller;
 
-use Inertia\Inertia;
 use App\Models\Seller;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
@@ -22,7 +19,7 @@ class ProfileController extends Controller
     {
         $data = $request->user();
         $status = $request->session()->get('status');
-        return $this->render('seller/profile/edit', compact('data', 'status'));
+        return $this->render('seller/settings/profile', compact('data', 'status'));
     }
 
     /**
@@ -51,5 +48,4 @@ class ProfileController extends Controller
 
         return Redirect::route('seller.profile.edit')->with('success', 'profile-updated');
     }
-
 }
