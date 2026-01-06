@@ -17,6 +17,7 @@ class initial_settings extends Command
 
     public $env_values = array(
         'FILESYSTEM_DISK' => 'public',
+        'SEND_MAIL' => 1,
         'MAIL_MAILER' => 'smtp',
         'MAIL_HOST' => '127.0.0.1',
         'APP_TIMEZONE' => 'Asia/Kolkata',
@@ -25,7 +26,12 @@ class initial_settings extends Command
         'ADMIN_MAIL' => 'admin@example.com',
         'ADMIN_NAME' => 'Admin',
         'QUEUE_CONNECTION' => 'sync',
-        'APP_RENDER_TYPE' => 'inertia'
+        'APP_RENDER_TYPE' => 'inertia',
+        'SEND_WHATSAPP_MSG' => 1,
+        'WHATSAPP_TEST_NUMBER' => 9999999999,
+        'WHATSAPP_END_POINT' => '',
+        'WHATSAPP_API_KEY' => '',
+        'WHATSAPP_API_KEY2' => ''
     );
 
     public function handle()

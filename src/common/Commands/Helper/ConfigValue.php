@@ -10,7 +10,7 @@ class ConfigValue
         'render_type' => "env('APP_RENDER_TYPE', 'inertia')"
     );
     public $config_values_mail = array(
-        'send_mail' => "env('SEND_MAIL', '1')",
+        'send_mail' => "env('SEND_MAIL', '0')",
         'admin_mail' => "env('ADMIN_MAIL', 'admin@example.com')",
         'admin_name' => "env('ADMIN_NAME', 'Admin')"
     );
