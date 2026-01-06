@@ -24,6 +24,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
+        "susheelbhai/laratsapp": "^2.2",
         "laravel/fortify": "^1.33",
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.7.0",

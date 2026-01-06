@@ -27,7 +27,14 @@ class ContactFormSubmittedNotificationForUser extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        $channels = [];
+        if (config('mail.send_mail') == 1 && isset($notifiable->email)) {
+            $channels[] = 'mail';
+        }
+        if (config('whatsapp.send_msg') == 1 && isset($notifiable->phone)) {
+            $channels[] = 'whatsapp';
+        }
+        return $channels;
     }
 
     /**
@@ -40,6 +47,12 @@ class ContactFormSubmittedNotificationForUser extends Notification
             ->markdown('mail.contact.contact-form-submitted-for-user', [
                 'data'    => $this->data
             ]);
+    }
+    public function toWhatsAppText(object $notifiable)
+    {
+        return [
+            'message' => 'Thank you for contacting '.config('app.name').'. We have received your message and will get back to you shortly.',
+        ];
     }
 
     /**

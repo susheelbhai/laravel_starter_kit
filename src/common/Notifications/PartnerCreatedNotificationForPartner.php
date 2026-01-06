@@ -18,7 +18,14 @@ class PartnerCreatedNotificationForPartner extends Notification
     }
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        $channels = [];
+        if (config('mail.send_mail') == 1 && isset($notifiable->email)) {
+            $channels[] = 'mail';
+        }
+        if (config('whatsapp.send_msg') == 1 && isset($notifiable->phone)) {
+            $channels[] = 'whatsapp';
+        }
+        return $channels;
     }
 
     /**
