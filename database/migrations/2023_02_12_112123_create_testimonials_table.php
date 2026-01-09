@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('designation');
-            $table->string('organisation');
-            $table->longText('message');
+            $table->string('designation')->nullable();
+            $table->string('organisation')->nullable();
+            $table->longText('message')->nullable();
             $table->string('image')->default('dummy.png');
             $table->boolean('is_active')->default(1);
         });

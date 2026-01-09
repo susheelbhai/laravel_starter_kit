@@ -25,31 +25,35 @@ class AppServiceProvider extends ServiceProvider
             'auth' => function () {
                 return [
                     'user' => Auth::user(), // Default guard
+                    'dashboard_url' => route('dashboard'),
                 ];
             },
             'admin' => function () {
                 return [
                     'user' => Auth::guard('admin')->user(), // Admin guard
                     'permissions' => Auth::guard('admin')->user()?->getAllPermissions()->pluck('name'), 
+                    'dashboard_url' => route('admin.dashboard'),
                 ];
             },
             'partner' => function () {
                 return [
                     'user' => Auth::guard('partner')->user(), // Partner guard
                     'permissions' => Auth::guard('partner')->user()?->getAllPermissions()->pluck('name'), 
+                    'dashboard_url' => route('partner.dashboard'),
                 ];
             },
             'seller' => function () {
                 return [
                     'user' => Auth::guard('seller')->user(), // Seller guard
                     'permissions' => Auth::guard('seller')->user()?->getAllPermissions()->pluck('name'), 
+                    'dashboard_url' => route('seller.dashboard'),
                 ];
             },
         ]);
 
-        /*
+        
         $settings = Setting::find(1); 
-        $important_link = ImportantLink::latest()->get(); 
+        $important_link = ImportantLink::whereIsActive(1)->latest()->get(); 
         config([
             'important_links' => $important_link,
         ]);
@@ -71,6 +75,6 @@ class AppServiceProvider extends ServiceProvider
             ]);
         }
         
-        */
+        
     }
 }

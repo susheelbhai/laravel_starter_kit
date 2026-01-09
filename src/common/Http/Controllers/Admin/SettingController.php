@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Helpers\Helper;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver as GdDriver;
+use App\Http\Requests\UpdateGeneralSettingsRequest;
 
 class SettingController extends Controller
 {
@@ -33,7 +34,7 @@ class SettingController extends Controller
         return view('admin.resources.settings.advance', compact('data'));
     }
 
-    public function generalSettingsUpdate(Request $req)
+    public function generalSettingsUpdate(UpdateGeneralSettingsRequest $req)
     {
         $setting = Setting::find(1);
 
@@ -109,7 +110,7 @@ class SettingController extends Controller
             $setting->addMediaFromRequest('light_logo')
                 ->toMediaCollection('light_logo');
         }
-        return redirect()->route('admin.dashboard')->with('success', 'New service created successfully');
+        return redirect()->route('admin.dashboard')->with('success', 'Settings updated successfully');
     }
 
 

@@ -2,6 +2,7 @@ import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import AuthSection from "./auth-section";
+import { Container } from "@/components/ui/container";
 
 const routeExists = (name: string): boolean => {
     try {
@@ -22,12 +23,15 @@ export default function Header({
     loginRoute: string;
 }) {
     const appData = (usePage().props as any).appData;
-    const loginExists = routeExists(loginRoute);
+    const loginExists = false;
     const [menuOpen, setMenuOpen] = useState(false);
+
+    // Filter menuItems to only those with available routes
+    const availableMenuItems = menuItems.filter((item: any) => routeExists(item.routeName));
 
     return (
         <header className="sticky top-0 z-50 bg-white/90 shadow-sm backdrop-blur-xl">
-            <div className="mx-auto flex items-center justify-between px-4 py-3.5 md:py-4">
+            <Container className="mx-auto flex items-center justify-between px-4 py-3.5 md:py-4">
                 {/* Logo */}
                 <div className="flex items-center gap-2">
                     <Link href="/" className="flex items-center">
@@ -41,7 +45,7 @@ export default function Header({
 
                 {/* Desktop Menu */}
                 <nav className="hidden items-center gap-1 text-sm font-medium text-slate-700 md:flex">
-                    {menuItems.map((item: any) => (
+                    {availableMenuItems.map((item: any) => (
                         <Link
                             key={item.name}
                             href={route(item.routeName)}
@@ -64,13 +68,13 @@ export default function Header({
                 >
                     {menuOpen ? <FaTimes /> : <FaBars />}
                 </button>
-            </div>
+            </Container>
 
             {/* Mobile Menu Dropdown */}
             {menuOpen && (
                 <div className="border-t border-slate-200 bg-white px-4 pb-4 shadow md:hidden">
                     <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-slate-700">
-                        {menuItems.map((item: any) => (
+                        {availableMenuItems.map((item: any) => (
                             <Link
                                 key={item.name}
                                 href={route(item.routeName)}
