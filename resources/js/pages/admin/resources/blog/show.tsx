@@ -1,8 +1,8 @@
+import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
@@ -100,22 +100,17 @@ export default function Dashboard() {
                                 <img src={blog.display_img} alt="" width={320} />
                             </td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Ad Image</td>
                             <td className="p-3">
                                 <img src={blog.ad_img} alt="" width={320} />
                             </td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Status</td>
                             <td className="p-3">{blog.is_active == 1 ? 'active' : 'inactive'}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3">category</td>
-                            <td className="p-3">
-                                <TextLink href={route('admin.blog.edit', blog.id)}>Edit</TextLink>
-                            </td>
-                        </tr>
+                        <EditRow href={route('admin.blog.edit', blog.id)} buttonName='Edit Blog' />
                     </TBody>
                 </Table>
             </TableCard>

@@ -1,3 +1,4 @@
+import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -51,43 +52,43 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Title</td>
                             <td className="p-3">{product_category.title}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Slug</td>
                             <td className="p-3">{product_category.slug}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Parent ID</td>
                             <td className="p-3">
                                 {product_category.parent_id ?? '-'}
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Position</td>
                             <td className="p-3">{product_category.position}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Description</td>
                             <td className="p-3">
                                 {product_category.description ?? '-'}
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Meta Title</td>
                             <td className="p-3">
                                 {product_category.meta_title ?? '-'}
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Meta Description</td>
                             <td className="p-3">
                                 {product_category.meta_description ? (
@@ -102,7 +103,7 @@ export default function Dashboard() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Icon</td>
                             <td className="p-3">
                                 {product_category.icon ? (
@@ -117,7 +118,7 @@ export default function Dashboard() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Banner</td>
                             <td className="p-3">
                                 {product_category.banner ? (
@@ -132,7 +133,7 @@ export default function Dashboard() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Active</td>
                             <td className="p-3">
                                 {product_category.is_active == 1
@@ -141,7 +142,7 @@ export default function Dashboard() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Featured</td>
                             <td className="p-3">
                                 {product_category.is_featured == 1
@@ -150,19 +151,12 @@ export default function Dashboard() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3">Action</td>
-                            <td className="p-3">
-                                <TextLink
-                                    href={route(
-                                        'admin.product_category.edit',
-                                        product_category.id,
-                                    )}
-                                >
-                                    Edit
-                                </TextLink>
-                            </td>
-                        </tr>
+                        <EditRow
+                            href={route(
+                                'admin.product_category.edit',
+                                product_category.id,
+                            )}
+                        />
                     </TBody>
                 </Table>
             </TableCard>

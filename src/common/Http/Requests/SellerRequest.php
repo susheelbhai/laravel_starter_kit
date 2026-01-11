@@ -14,17 +14,20 @@ class SellerRequest extends FormRequest
     public function rules()
     {
         $id = $this->route('seller') ?? $this->route('id');
-        $uniquePhone = 'unique:partners,phone';
-        $uniqueEmail = 'unique:partners,email';
+        $uniquePhone = 'unique:sellers,phone';
+        $uniqueEmail = 'unique:sellers,email';
         if ($id) {
             $uniquePhone .= ",{$id}";
             $uniqueEmail .= ",{$id}";
         }
-        return [
+        $rules = [
             'name' => 'required',
             'phone' => ['required', $uniquePhone],
             'email' => ['required', 'email', $uniqueEmail],
-            'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
+        if ($this->hasFile('profile_pic')) {
+            $rules['profile_pic'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
+        }
+        return $rules;
     }
 }

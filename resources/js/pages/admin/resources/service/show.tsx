@@ -6,6 +6,8 @@ import BtnLink from '@/components/btn-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
+import Button from '@/components/button';
+import EditRow from '@/components/table/edit-row';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -99,11 +101,8 @@ export default function Dashboard() {
                             <td className="p-3">Status</td>
                             <td className="p-3">{service.is_active == 1 ? 'active' : 'inactive'}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3">
-                                <BtnLink href={route('admin.service.edit', service.id)}>Edit</BtnLink>
-                            </td>
-                        </tr>
+                        <EditRow href={route('admin.service.edit', service.id)}>Edit</EditRow>
+
                     </TBody>
                 </Table>
             </TableCard>

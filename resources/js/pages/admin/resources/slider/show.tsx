@@ -1,3 +1,4 @@
+import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -39,29 +40,26 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Name</td>
                             <td className="p-3">{slider.name}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Url</td>
                             <td className="p-3">{slider.url}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Logo</td>
                             <td className="p-3">
                                 <img src={`/storage/${slider.logo}`} alt="" width={320} />
                             </td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Status</td>
                             <td className="p-3">{slider.is_active == 1 ? 'active' : 'inactive'}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3" colSpan={2}>
-                                <TextLink href={route('admin.slider.edit', slider.id)}>Edit</TextLink>
-                            </td>
-                        </tr>
+                        <EditRow href={route('admin.slider.edit', slider.id)} />
+
                     </TBody>
                 </Table>
             </TableCard>

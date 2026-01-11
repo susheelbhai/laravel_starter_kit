@@ -1,4 +1,5 @@
 import Button from '@/components/button';
+import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -40,19 +41,19 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Name</td>
                             <td className="p-3">{team.name}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Email</td>
                             <td className="p-3">{team.email}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Phone</td>
                             <td className="p-3">{team.phone}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Image</td>
                             <td className="p-3">
                                 <img
@@ -62,17 +63,8 @@ export default function Dashboard() {
                                 />
                             </td>
                         </tr>
+                        <EditRow href={route('admin.partner.edit', team.id)} buttonName="Edit Partner" />
 
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3 text-center" colSpan={2}>
-                                <Button
-                                    style="primary"
-                                    href={route('admin.partner.edit', team.id)}
-                                >
-                                    Edit
-                                </Button>
-                            </td>
-                        </tr>
                     </TBody>
                 </Table>
             </TableCard>

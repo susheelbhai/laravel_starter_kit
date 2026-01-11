@@ -65,31 +65,31 @@ export default function ProductEnquiryShow() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Product</td>
                             <td className="p-3">{enquiry.product?.title || '-'}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Name</td>
                             <td className="p-3">{enquiry.name}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Email</td>
                             <td className="p-3">{enquiry.email}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Phone</td>
                             <td className="p-3">{enquiry.phone || '-'}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Message</td>
                             <td className="p-3">{enquiry.message || '-'}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Created At</td>
                             <td className="p-3">{enquiry.created_date_time}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Status</td>
                             <td className="p-3">
                                 <form onSubmit={submit} className="flex gap-2 items-center">

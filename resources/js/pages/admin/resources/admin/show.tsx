@@ -1,4 +1,6 @@
 import BtnLink from '@/components/btn-link';
+import Button from '@/components/button';
+import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -65,43 +67,43 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Name</td>
                             <td className="p-3">{admin.name}</td>
                         </tr>
-                        {/* <tr className="border-t border-gray-200">
+                        {/* <tr className="border-y border-gray-200">
                             <td className="p-3">Date of Birth</td>
                             <td className="p-3">{admin.dob}</td>
                         </tr> */}
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Email</td>
                             <td className="p-3">{admin.email}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Phone</td>
                             <td className="p-3">{admin.phone}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Profile Picture</td>
                             <td className="p-3">
                                 <img className="w-16" src={admin.profile_pic} alt="Profile" width={320} />
                             </td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Address</td>
                             <td className="p-3">{admin.address}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">City</td>
                             <td className="p-3">{admin.city}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">State</td>
                             <td className="p-3">{admin.state}</td>
                         </tr>
                         
                         
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Roles</td>
                             <td className="space-y-2 p-3">
                                 {admin.roles.map((role: any) => (
@@ -126,7 +128,7 @@ export default function Dashboard() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Permissions</td>
                             <td className="p-3">
                                 {admin.permissions.map((perm: any) => (
@@ -139,16 +141,8 @@ export default function Dashboard() {
                                 ))}
                             </td>
                         </tr>
+                        <EditRow href={route('admin.admin.edit', admin.id)} buttonName='Edit Admin' />
 
-                        <tr className="p- border-t border-gray-200">
-                            <td className="p-6 text-center" colSpan={2}>
-                                <BtnLink
-                                    href={route('admin.admin.edit', admin.id)}
-                                >
-                                    Edit
-                                </BtnLink>
-                            </td>
-                        </tr>
                     </TBody>
                 </Table>
             </TableCard>

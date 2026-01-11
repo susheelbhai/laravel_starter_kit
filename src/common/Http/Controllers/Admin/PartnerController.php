@@ -75,7 +75,7 @@ class PartnerController extends Controller
         }
 
 
-        return Redirect::route('admin.partner.update', $id)->with('success', 'profile-updated');
+        return Redirect::route('admin.partner.update', $id)->with('success', 'Partner updated successfully');
     }
 
     /**

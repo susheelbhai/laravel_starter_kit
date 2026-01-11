@@ -7,6 +7,7 @@ import BtnLink from '@/components/btn-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
+import EditRow from '@/components/table/edit-row';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -39,23 +40,19 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Title</td>
                             <td className="p-3">{important_links.name}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Href</td>
                             <td className="p-3">{important_links.href}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Status</td>
                             <td className="p-3">{important_links.is_active == 1 ? 'active' : 'inactive'}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3" colSpan={2}>
-                                <BtnLink href={route('admin.important_links.edit', important_links.id)}>Edit</BtnLink>
-                            </td>
-                        </tr>
+                        <EditRow href={route('admin.important_links.edit', important_links.id)} buttonName="Edit Important Link" />
                     </TBody>
                 </Table>
             </TableCard>

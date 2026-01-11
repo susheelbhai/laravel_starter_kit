@@ -38,20 +38,20 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Name</td>
                             <td className="p-3">{team.name}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Email</td>
                             <td className="p-3">{team.email}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Phone</td>
                             <td className="p-3">{team.phone}</td>
                         </tr>
 
-                        {/* <tr className="border-t border-gray-200">
+                        {/* <tr className="border-y border-gray-200">
                             <td className="p-3" colSpan={2}>
                                 <TextLink href={route('admin.userQuery.edit', team.id)}>Edit</TextLink>
                             </td>

@@ -20,11 +20,14 @@ class UserRequest extends FormRequest
             $uniquePhone .= ",{$id}";
             $uniqueEmail .= ",{$id}";
         }
-        return [
+        $rules = [
             'name' => 'required',
             'phone' => ['required', $uniquePhone],
             'email' => ['required', 'email', $uniqueEmail],
-            'profile_pic' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
+        if ($this->hasFile('profile_pic')) {
+            $rules['profile_pic'] = 'image|mimes:jpeg,png,jpg,gif|max:2048';
+        }
+        return $rules;
     }
 }

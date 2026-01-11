@@ -1,3 +1,4 @@
+import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -41,37 +42,34 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Name</td>
                             <td className="p-3">{testimonial.name}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Designation</td>
                             <td className="p-3">{testimonial.designation}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Organisation</td>
                             <td className="p-3">{testimonial.organisation}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Message</td>
                             <td className="p-3">{testimonial.message}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Image</td>
                             <td className="p-3">
                                 <img src={`${testimonial.image}`} alt="" width={320} />
                             </td>
                         </tr>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Status</td>
                             <td className="p-3">{testimonial.is_active == 1 ? 'active' : 'inactive'}</td>
                         </tr>
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3" colSpan={2}>
-                                <TextLink href={route('admin.testimonial.edit', testimonial.id)}>Edit</TextLink>
-                            </td>
-                        </tr>
+                        <EditRow href={route('admin.testimonial.edit', testimonial.id)}>Edit</EditRow>
+
                     </TBody>
                 </Table>
             </TableCard>

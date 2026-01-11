@@ -79,7 +79,7 @@ class SellerController extends Controller
         }
 
 
-        return Redirect::route('admin.seller.update', $id)->with('success', 'profile-updated');
+        return Redirect::route('admin.seller.update', $id)->with('success', 'Seller updated successfully');
     }
 
     /**

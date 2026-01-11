@@ -27,8 +27,8 @@ class ProductCategoryRequest extends FormRequest
             'slug' => 'nullable|string|max:255',
             'description' => 'nullable|string',
 
-            'icon' => 'nullable|image|max:5120',
-            'banner' => 'nullable|image|max:5120',
+            'icon' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
 
             'position' => 'nullable|integer|min:0',
             'is_active' => 'required|in:0,1',

@@ -1,3 +1,4 @@
+import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -29,37 +30,37 @@ export default function Show() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Title</td>
                             <td className="p-3">{product.title}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Slug</td>
                             <td className="p-3">{product.slug}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Seller ID</td>
                             <td className="p-3">{product.seller_id}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Category ID</td>
                             <td className="p-3">{product.product_category_id}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">SKU</td>
                             <td className="p-3">{product.sku ?? '-'}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Short Description</td>
                             <td className="p-3">{product.short_description ?? '-'}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Description</td>
                             <td className="p-3">
                                 {product.description ? (
@@ -74,27 +75,27 @@ export default function Show() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Price</td>
                             <td className="p-3">{product.price}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">MRP</td>
                             <td className="p-3">{product.mrp ?? '-'}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Stock</td>
                             <td className="p-3">{product.stock}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Manage Stock</td>
                             <td className="p-3">{product.manage_stock == 1 ? 'yes' : 'no'}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Thumbnail</td>
                             <td className="p-3">
                                 {product.images && product.images.length > 0 ? (
@@ -105,7 +106,7 @@ export default function Show() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Gallery</td>
                             <td className="p-3">
                                 {product.images && product.images.length > 0 ? (
@@ -120,34 +121,28 @@ export default function Show() {
                             </td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Active</td>
                             <td className="p-3">{product.is_active == 1 ? 'active' : 'inactive'}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Featured</td>
                             <td className="p-3">{product.is_featured == 1 ? 'yes' : 'no'}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Meta Title</td>
                             <td className="p-3">{product.meta_title ?? '-'}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
+                        <tr className="border-y border-gray-200">
                             <td className="p-3">Meta Description</td>
                             <td className="p-3">{product.meta_description ?? '-'}</td>
                         </tr>
 
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3">Action</td>
-                            <td className="p-3">
-                                <TextLink href={route('admin.product.edit', product.id)}>
-                                    Edit
-                                </TextLink>
-                            </td>
-                        </tr>
+                        <EditRow href={route('admin.product.edit', product.id)} buttonName="Edit Product" />
+
                     </TBody>
                 </Table>
             </TableCard>
