@@ -1,12 +1,11 @@
 import { usePage } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
 
 import { InputDiv } from '@/components/form/input-div';
-import { Button } from '@/components/ui/button';
 import { ContainerFluid } from '@/components/ui/container-fluid';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import { type BreadcrumbItem, SharedData } from '@/types';
+import { FormContainer } from '@/components/form/form-container';
 
 type AdminForm = {
     name: string;
@@ -78,7 +77,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     return (
         <AppLayout breadcrumbs={breadcrumbs} title="Create Admin">
             <ContainerFluid>
-                <form className="flex flex-col gap-6" onSubmit={submit}>
+                <FormContainer onSubmit={submit} processing={processing} buttonLabel='Create Admin'>
                     <div className="grid gap-6">
                         <InputDiv
                             type="text"
@@ -146,25 +145,9 @@ const breadcrumbs: BreadcrumbItem[] = [
                             options={permissionOptions}
                         />
 
-                        <Button
-                            type="submit"
-                            className="mt-4 w-full"
-                            tabIndex={4}
-                            disabled={processing}
-                        >
-                            {processing && (
-                                <LoaderCircle className="h-4 w-4 animate-spin" />
-                            )}
-                            Create Now
-                        </Button>
                     </div>
-                </form>
+                </FormContainer >
 
-                {status && (
-                    <div className="mb-4 text-center text-sm font-medium text-green-600">
-                        {status}
-                    </div>
-                )}
             </ContainerFluid>
         </AppLayout>
     );

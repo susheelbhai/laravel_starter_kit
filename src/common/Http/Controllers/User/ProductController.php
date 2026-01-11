@@ -20,6 +20,23 @@ class ProductController extends Controller
         });
         return $this->render('user/pages/product/index', compact('categories', 'data'));
     }
+    function productCategory($slug)
+    {
+        $data = ProductCategory::whereSlug($slug)
+            ->whereIsActive(1)
+            ->firstOrFail();
+        $products = Product::where('product_category_id', $data->id)
+            ->whereIsActive(1)
+            ->get()
+            ->map(function ($product) {
+                return array_merge($product->toArray(), [
+                    'thumbnail' => $product->getFirstMediaUrl('images', 'small') ?: $product->display_img,
+                ]);
+            });
+        $data->products = $products;
+        // dd($data);
+        return $this->render('user/pages/product_category/show', compact('data'));
+    }
     function productDetail($slug)
     {
         $data = Product::with('category')
@@ -44,10 +61,10 @@ class ProductController extends Controller
         $data->phone = $request->phone;
         $data->message = $request->message;
         $data->save();
-        
+
         // Load the product relationship for the event
         $data->load('product');
-        
+
         // Fire the event
         event(new ProductEnquirySubmitted($data));
 

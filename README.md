@@ -94,6 +94,23 @@ Make production build
 
   ``` 
 
+## Deployment checklist
+ 
+ ### update .env file
+  ```
+  APP_ENV=production
+  APP_DEBUG=false
+  APP_URL="actual url"
+  ```
+
+  ### AppServiceProvider
+  replace public_html with your actual public folder name
+
+  ### Create symlink
+  
+  ```
+  https://yourdomain.com/link-storage
+  ```  
 
 ### License
 

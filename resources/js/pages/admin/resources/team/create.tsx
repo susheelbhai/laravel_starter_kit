@@ -1,10 +1,9 @@
-import { Button } from '@/components/ui/button';
 import { InputDiv } from '@/components/form/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { BreadcrumbItem } from '@/types';
-import { Head, useForm } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
+import { Head } from '@inertiajs/react';
 import { useFormHandler } from '@/lib/use-form-handler';
+import { FormContainer } from '@/components/form/form-container';
 
 type FormType = {
     name: string;
@@ -41,16 +40,13 @@ export default function Create() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create Team" />
-            <form onSubmit={submit} className="space-y-6 p-6">
+            <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv type="text" label="Name" name="name" inputDivData={inputDivData} />
                 <InputDiv type="text" label="Designation" name="designation" inputDivData={inputDivData} />
                 <InputDiv type="image" label="Image" name="image" inputDivData={inputDivData} />
-
                 <InputDiv type="switch" label="Active" name="is_active" inputDivData={inputDivData} />
-                <Button type="submit" disabled={processing}>
-                    {processing ? 'Submitting...' : 'Submit'}
-                </Button>
-            </form>
+                
+            </FormContainer>
         </AppLayout>
     );
 }

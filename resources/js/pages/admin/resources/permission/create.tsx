@@ -8,6 +8,7 @@ import { InputDiv } from '@/components/form/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem } from '@/types';
 import { can } from '@/lib/can';
+import { FormContainer } from '@/components/form/form-container';
 
 interface LoginProps {
     submitUrl?: string;
@@ -54,7 +55,7 @@ export default function CreatePermission({ status }: LoginProps) {
     return (
         <AppLayout breadcrumbs={breadcrumbs} title="AIASA Membership Registration">
             <ContainerFluid>
-                <form className="flex flex-col gap-6" onSubmit={submit}>
+                <FormContainer onSubmit={submit} processing={processing}>
                     <div className="grid gap-6">
                         <InputDiv type="text" label="Name" name="name" inputDivData={inputDivData} />
                         <InputDiv type="multicheckbox" label="Roles" name="roles" inputDivData={inputDivData} options={roles} />
@@ -64,7 +65,7 @@ export default function CreatePermission({ status }: LoginProps) {
                             Create Now
                         </Button>}
                     </div>
-                </form>
+                </FormContainer>
 
                 {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
             </ContainerFluid>

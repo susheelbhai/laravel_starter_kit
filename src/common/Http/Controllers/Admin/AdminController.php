@@ -7,6 +7,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\AdminRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -48,25 +49,8 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminRequest $request)
     {
-        // dd($request->all());
-
-        $request->validate([
-            'name'   => 'required',
-            'phone'  => 'required|unique:admins,phone',
-            'email'  => 'required|email|unique:admins,email',
-            'dob'    => 'nullable|date',
-            'address' => 'nullable|string',
-            'city'   => 'nullable|string',
-            'state'  => 'nullable|string',
-            'profile_pic' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-
-            // from multicheckbox
-            'roles'       => 'nullable|array',
-            'permissions' => 'nullable|array',
-        ]);
-
         $admin = new Admin();
         $admin->name   = $request->name;
         $admin->dob    = $request->dob;
@@ -141,24 +125,9 @@ class AdminController extends Controller
         return $this->render('admin/resources/admin/edit', compact('data', 'roles', 'permissions'));
     }
 
-    public function update(Request $request, $id)
+    public function update(AdminRequest $request, $id)
     {
-        // dd($request->all());
-
-        $request->validate([
-            'name'   => 'required|string|max:255',
-            'email'  => 'required|email|unique:admins,email,' . $id,
-            'phone'  => 'required|unique:admins,phone,' . $id,
-            'dob'    => 'nullable|date',
-            'address' => 'nullable|string',
-            'city'   => 'nullable|string',
-            'state'  => 'nullable|string',
-            'profile_pic' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-
-            'roles'       => 'nullable|array',
-            'permissions' => 'nullable|array',
-        ]);
-
+        
         $admin = Admin::findOrFail($id);
 
         // --------------------------

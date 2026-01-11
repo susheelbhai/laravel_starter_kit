@@ -1,3 +1,4 @@
+import { FormContainer } from '@/components/form/form-container';
 import { InputDiv } from '@/components/form/input-div';
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
@@ -63,7 +64,7 @@ export default function EditPermission() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Edit Permission" />
-            <form onSubmit={submit} className="space-y-6 p-6">
+            <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv
                     label="Name"
                     name="name"
@@ -79,10 +80,8 @@ export default function EditPermission() {
                     options={roleOptions}
                 />
 
-                <Button type="submit" disabled={processing}>
-                    {processing ? 'Submitting...' : 'Submit'}
-                </Button>
-            </form>
+                
+            </FormContainer>
         </AppLayout>
     );
 }

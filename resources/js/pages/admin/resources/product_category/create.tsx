@@ -1,3 +1,4 @@
+import { FormContainer } from '@/components/form/form-container';
 import { InputDiv } from '@/components/form/input-div';
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
@@ -77,7 +78,7 @@ export default function Create() {
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create Product Category" />
 
-            <form onSubmit={submit} className="space-y-6 p-6">
+            <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv
                     type="select"
                     label="Parent Category"
@@ -156,10 +157,8 @@ export default function Create() {
                     inputDivData={inputDivData}
                 />
 
-                <Button type="submit" disabled={processing}>
-                    {processing ? 'Submitting...' : 'Submit'}
-                </Button>
-            </form>
+                
+            </FormContainer>
         </AppLayout>
     );
 }

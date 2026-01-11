@@ -4,6 +4,7 @@ import AppLayout from '@/layouts/admin/app-layout';
 import { BreadcrumbItem } from '@/types';
 import { Head, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
+import { FormContainer } from '@/components/form/form-container';
 
 type CreateForm = {
     name: string;
@@ -51,17 +52,15 @@ export default function Create() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create Portfolio" />
-            <form onSubmit={submit} className="space-y-6 p-6">
+            <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv type="text" label="Name" name="name" inputDivData={inputDivData} />
                 <InputDiv type="text" label="Url" name="url" inputDivData={inputDivData} />
                 
                 <InputDiv type="image" label="Logo" name="logo" inputDivData={inputDivData} />
 
                 <InputDiv type="switch" label="Active" name="is_active" inputDivData={inputDivData} />
-                <Button type="submit" disabled={processing}>
-                    {processing ? 'Submitting...' : 'Submit'}
-                </Button>
-            </form>
+                
+            </FormContainer>
         </AppLayout>
     );
 }

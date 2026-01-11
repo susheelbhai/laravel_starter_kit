@@ -9,6 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/partner/auth-layout';
+import { FormContainer } from '@/components/form/form-container';
 
 type LoginForm = {
     email: string;
@@ -45,7 +46,7 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
         <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
             <Head title="Log in" />
 
-            <form className="flex flex-col gap-6" onSubmit={submit}>
+            <FormContainer onSubmit={submit} processing={processing} buttonLabel="Log in">
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
@@ -96,15 +97,10 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
                         <Label htmlFor="remember">Remember me</Label>
                     </div>
 
-                    <Button type="submit" className="mt-4 w-full" tabIndex={4} disabled={processing}>
-                        {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
-                        Log in
-                    </Button>
                 </div>
 
-            </form>
+            </FormContainer>
 
-            {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
         </AuthLayout>
     );
 }

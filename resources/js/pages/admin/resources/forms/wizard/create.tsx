@@ -12,6 +12,7 @@ import BankDetail from './input-group/_2_bank';
 import Education from './input-group/_3_education';
 import OtherInfoSection from './input-group/_4_other_info';
 import PreviewSection from './preview-group/index';
+import { FormContainer } from '@/components/form/form-container';
 // steps definition
 const steps = [
     { id: 1, title: 'Basic Details', Component: BasicDetails },
@@ -131,7 +132,7 @@ export default function EditEvent() {
                         })}
                     </div>
 
-                    <form onSubmit={submit}>
+                    <FormContainer onSubmit={submit} processing={processing}>
                         <CurrentStepComponent
                             inputDivData={inputDivData}
                             data={data}
@@ -162,7 +163,7 @@ export default function EditEvent() {
                                 </Button>
                             )}
                         </div>
-                    </form>
+                    </FormContainer>
                 </Container>
             </ContainerFluid>
         </AppLayout>

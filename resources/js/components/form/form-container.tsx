@@ -1,4 +1,6 @@
 import { Button } from '@/components/ui/button';
+import { usePage } from '@inertiajs/react';
+import { LoaderCircle } from 'lucide-react';
 import React from 'react';
 
 type FormContainerProps = {
@@ -22,6 +24,11 @@ export function FormContainer({
   buttonType = 'submit',
   buttonClassName,
 }: FormContainerProps) {
+  const appData = usePage().props.appData as any;
+  console.log(appData);
+  if (appData.debug) {
+    processing = false;
+  }
   return (
     <form onSubmit={onSubmit} className={className}>
       {children}
@@ -29,12 +36,18 @@ export function FormContainer({
       {showButton && (
         <Button
           type={buttonType}
+          className={`${buttonClassName} mt-4 w-full`}
+          tabIndex={4}
           disabled={processing}
-          className={buttonClassName}
         >
-          {processing ? 'Submitting...' : buttonLabel}
+          {processing && (
+            <LoaderCircle className="h-4 w-4 animate-spin" />
+          )}
+          {buttonLabel}
         </Button>
       )}
+
+
     </form>
   );
 }

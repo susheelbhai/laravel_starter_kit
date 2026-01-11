@@ -16,7 +16,9 @@ class AppServiceProvider extends ServiceProvider
     {
         $loader = AliasLoader::getInstance();
         $loader->alias('Helper', \App\Helpers\Helper::class);
-        
+        if(config('app.env') == 'production'){
+            $this->app->usePublicPath(base_path('public_html'));
+        }
     }
 
     public function boot(): void

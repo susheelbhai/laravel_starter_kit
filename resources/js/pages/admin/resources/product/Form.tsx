@@ -1,4 +1,5 @@
 import Button from '@/components/button';
+import { FormContainer } from '@/components/form/form-container';
 import InputDiv from '@/components/form/input-div';
 
 export default function Form({
@@ -13,7 +14,7 @@ export default function Form({
     categories: any[];
 }) {
     return (
-        <form onSubmit={submit} className="space-y-6 p-6">
+        <FormContainer onSubmit={submit} processing={processing}>
             <InputDiv
                 type="select"
                 label="Category"
@@ -138,9 +139,6 @@ export default function Form({
                 inputDivData={inputDivData}
             />
 
-            <Button type="submit" disabled={processing}>
-                {processing ? 'Submitting...' : 'Submit'}
-            </Button>
-        </form>
+        </FormContainer>
     );
 }

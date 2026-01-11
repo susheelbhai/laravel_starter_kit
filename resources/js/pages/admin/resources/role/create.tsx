@@ -7,6 +7,7 @@ import { ContainerFluid } from '@/components/ui/container-fluid';
 import { InputDiv } from '@/components/form/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem } from '@/types';
+import { FormContainer } from '@/components/form/form-container';
 
 interface LoginProps {
     submitUrl?: string;
@@ -37,7 +38,6 @@ export default function Login({ status }: LoginProps) {
         errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
     };
     const permissions = usePage().props.permissions as any;
-    console.log('Available roles:', permissions);
     const breadcrumbs: BreadcrumbItem[] = [
         {
             title: 'Role',
@@ -52,7 +52,7 @@ export default function Login({ status }: LoginProps) {
     return (
         <AppLayout breadcrumbs={breadcrumbs} title="AIASA Membership Registration">
             <ContainerFluid>
-                <form className="flex flex-col gap-6" onSubmit={submit}>
+                <FormContainer onSubmit={submit} processing={processing}>
                     <div className="grid gap-6">
                         <InputDiv type="text" label="Name" name="name" inputDivData={inputDivData} />
                         <InputDiv type="multicheckbox" label="Permission" name="permissions" inputDivData={inputDivData} options={permissions} />
@@ -62,9 +62,8 @@ export default function Login({ status }: LoginProps) {
                             Register Now
                         </Button>
                     </div>
-                </form>
+                </FormContainer>
 
-                {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
             </ContainerFluid>
         </AppLayout>
     );

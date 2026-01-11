@@ -1,3 +1,4 @@
+import { FormContainer } from '@/components/form/form-container';
 import { InputDiv } from '@/components/form/input-div';
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
@@ -49,7 +50,7 @@ export default function PageHome() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Edit Home Page" />
-            <form onSubmit={submit} className="space-y-6 p-6">
+            <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv
                     type="textarea"
                     label="Banner Heading"
@@ -105,10 +106,8 @@ export default function PageHome() {
                     inputDivData={inputDivData}
                 />
 
-                <Button type="submit" disabled={processing}>
-                    {processing ? 'Submitting...' : 'Submit'}
-                </Button>
-            </form>
+                
+            </FormContainer>
         </AppLayout>
     );
 }

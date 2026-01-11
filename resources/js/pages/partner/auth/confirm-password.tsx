@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/partner/auth-layout';
+import { FormContainer } from '@/components/form/form-container';
 
 export default function ConfirmPassword() {
     const { data, setData, post, processing, errors, reset } = useForm<Required<{ password: string }>>({
@@ -29,7 +30,7 @@ export default function ConfirmPassword() {
         >
             <Head title="Confirm password" />
 
-            <form onSubmit={submit}>
+            <FormContainer onSubmit={submit} processing={processing} buttonLabel="Confirm password">
                 <div className="space-y-6">
                     <div className="grid gap-2">
                         <Label htmlFor="password">Password</Label>
@@ -47,14 +48,8 @@ export default function ConfirmPassword() {
                         <InputError message={errors.password} />
                     </div>
 
-                    <div className="flex items-center">
-                        <Button className="w-full" disabled={processing}>
-                            {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
-                            Confirm password
-                        </Button>
-                    </div>
                 </div>
-            </form>
+            </FormContainer>
         </AuthLayout>
     );
 }

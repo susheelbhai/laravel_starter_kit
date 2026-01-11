@@ -1,13 +1,12 @@
 import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/user/auth-layout';
+import { FormContainer } from '@/components/form/form-container';
 
 type RegisterForm = {
     name: string;
@@ -34,7 +33,7 @@ export default function Register() {
     return (
         <AuthLayout title="Create an account" description="Enter your details below to create your account">
             <Head title="Register" />
-            <form className="flex flex-col gap-6" onSubmit={submit}>
+            <FormContainer onSubmit={submit} processing={processing} buttonLabel="Register">
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="name">Name</Label>
@@ -101,10 +100,6 @@ export default function Register() {
                         <InputError message={errors.password_confirmation} />
                     </div>
 
-                    <Button type="submit" className="mt-2 w-full" tabIndex={5} disabled={processing}>
-                        {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
-                        Create account
-                    </Button>
                 </div>
 
                 <div className="text-muted-foreground text-center text-sm">
@@ -113,7 +108,7 @@ export default function Register() {
                         Log in
                     </TextLink>
                 </div>
-            </form>
+            </FormContainer>
         </AuthLayout>
     );
 }

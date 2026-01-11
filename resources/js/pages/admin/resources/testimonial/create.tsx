@@ -1,5 +1,5 @@
+import { FormContainer } from '@/components/form/form-container';
 import { InputDiv } from '@/components/form/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import { BreadcrumbItem } from '@/types';
@@ -44,7 +44,7 @@ export default function Create() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create Testimonial" />
-            <form onSubmit={submit} className="space-y-6 p-6">
+            <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv
                     type="text"
                     label="Name"
@@ -82,10 +82,8 @@ export default function Create() {
                     name="is_active"
                     inputDivData={inputDivData}
                 />
-                <Button type="submit" disabled={processing}>
-                    {processing ? 'Submitting...' : 'Submit'}
-                </Button>
-            </form>
+                
+            </FormContainer>
         </AppLayout>
     );
 }
