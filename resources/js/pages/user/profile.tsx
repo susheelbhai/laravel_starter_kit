@@ -2,7 +2,7 @@ import { type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
-import { InputDiv } from '@/components/form/input-div';
+import { InputDiv } from '@/components/form/container/input-div';
 import HeadingSmall from '@/components/heading-small';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';

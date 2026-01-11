@@ -1,5 +1,5 @@
-import { FormContainer } from '@/components/form/form-container';
-import { InputDiv } from '@/components/form/input-div';
+import { FormContainer } from '@/components/form/container/form-container';
+import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import { BreadcrumbItem, SharedData } from '@/types';

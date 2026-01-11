@@ -85,7 +85,8 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/../assets/storage/.gitignore" => storage_path('app/public/.gitignore'),
             __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('app/public/.sync-exclude.lst'),
             __dir__ . "/../assets/public/css" => public_path('css'),
-            __dir__ . "/../assets/public/themes/ck_editor" => public_path('themes/ck_editor')
+            __dir__ . "/../assets/public/themes/ck_editor" => public_path('themes/ck_editor'),
+            __dir__ . "/../assets/public/themes/tinymce" => public_path('themes/tinymce')
         ], 'react_starter_kit');
 
         $this->publishes([

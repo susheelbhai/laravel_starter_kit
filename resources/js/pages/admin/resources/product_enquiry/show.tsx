@@ -1,4 +1,4 @@
-import { InputDiv } from '@/components/form/input-div';
+import { InputDiv } from '@/components/form/container/input-div';
 import { Button } from '@/components/ui/button';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';

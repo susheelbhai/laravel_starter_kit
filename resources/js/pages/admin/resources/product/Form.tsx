@@ -1,6 +1,6 @@
 import Button from '@/components/button';
-import { FormContainer } from '@/components/form/form-container';
-import InputDiv from '@/components/form/input-div';
+import { FormContainer } from '@/components/form/container/form-container';
+import InputDiv from '@/components/form/container/input-div';
 
 export default function Form({
     submit,

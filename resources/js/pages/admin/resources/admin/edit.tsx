@@ -1,13 +1,13 @@
 import { usePage } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 
-import { InputDiv } from '@/components/form/input-div';
+import { InputDiv } from '@/components/form/container/input-div';
 import { Button } from '@/components/ui/button';
 import { ContainerFluid } from '@/components/ui/container-fluid';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import { type BreadcrumbItem, SharedData } from '@/types';
-import { FormContainer } from '@/components/form/form-container';
+import { FormContainer } from '@/components/form/container/form-container';
 
 type AdminForm = {
     id: number | string;

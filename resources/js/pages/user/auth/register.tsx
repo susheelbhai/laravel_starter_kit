@@ -6,7 +6,7 @@ import TextLink from '@/components/text-link';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/user/auth-layout';
-import { FormContainer } from '@/components/form/form-container';
+import { FormContainer } from '@/components/form/container/form-container';
 
 type RegisterForm = {
     name: string;

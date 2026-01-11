@@ -4,10 +4,10 @@ import { FormEventHandler } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { ContainerFluid } from '@/components/ui/container-fluid';
-import { InputDiv } from '@/components/form/input-div';
+import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem } from '@/types';
-import { FormContainer } from '@/components/form/form-container';
+import { FormContainer } from '@/components/form/container/form-container';
 
 interface LoginProps {
     submitUrl?: string;

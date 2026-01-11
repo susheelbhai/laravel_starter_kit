@@ -1,4 +1,4 @@
-import { InputDiv } from '@/components/form/input-div';
+import { InputDiv } from '@/components/form/container/input-div';
 import InputFieldset from '@/components/form/input-fieldset';
 import { Input } from '@/components/ui/input';
 // Define InputDivData locally if not exported from '@/types'

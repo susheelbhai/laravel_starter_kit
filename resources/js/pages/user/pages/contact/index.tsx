@@ -1,7 +1,7 @@
 import { usePage } from '@inertiajs/react';
 import { Clock, LoaderCircle, Mail, MapPin, Phone } from 'lucide-react';
 
-import { InputDiv } from '@/components/form/input-div';
+import { InputDiv } from '@/components/form/container/input-div';
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/user/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';

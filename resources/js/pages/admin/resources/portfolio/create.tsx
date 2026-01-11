@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button';
-import { InputDiv } from '@/components/form/input-div';
+import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { BreadcrumbItem } from '@/types';
 import { Head, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
-import { FormContainer } from '@/components/form/form-container';
+import { FormContainer } from '@/components/form/container/form-container';
 
 type CreateForm = {
     name: string;

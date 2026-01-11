@@ -1,4 +1,4 @@
-import { InputDiv } from '@/components/form/input-div';
+import { InputDiv } from '@/components/form/container/input-div';
 import InputFieldset from '@/components/form/input-fieldset';
 
 export default function BasicDetails({ inputDivData }: { inputDivData: any }) {

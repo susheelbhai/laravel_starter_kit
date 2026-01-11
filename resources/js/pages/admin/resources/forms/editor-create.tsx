@@ -1,5 +1,5 @@
-import { FormContainer } from '@/components/form/form-container';
-import { InputDiv } from '@/components/form/input-div';
+import { FormContainer } from '@/components/form/container/form-container';
+import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import { BreadcrumbItem } from '@/types';
@@ -36,7 +36,8 @@ export default function CreateForm() {
 
             <FormContainer onSubmit={submit} processing={processing}>
                 {/* Editor / Textarea */}
-                <InputDiv type="editor" label="Editor" name="editor" inputDivData={inputDivData} />
+                <InputDiv type="editor" label="CK Editor" name="ckeditor" inputDivData={inputDivData} editorType="ckeditor" />
+                <InputDiv type="editor" label="TinyMCE" name="tinymce" inputDivData={inputDivData} editorType="tinymce" />
                 <InputDiv type="textarea" label="Textarea" name="textarea" inputDivData={inputDivData} />
 
             </FormContainer>
