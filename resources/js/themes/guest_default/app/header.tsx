@@ -23,7 +23,7 @@ export default function Header({
     loginRoute: string;
 }) {
     const appData = (usePage().props as any).appData;
-    const loginExists = false;
+    const loginExists = routeExists(loginRoute);
     const [menuOpen, setMenuOpen] = useState(false);
 
     // Filter menuItems to only those with available routes
