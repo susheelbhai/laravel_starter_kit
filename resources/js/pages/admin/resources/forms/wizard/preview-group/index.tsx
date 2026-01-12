@@ -1,4 +1,4 @@
-import InputFieldset from '@/components/form/input-fieldset';
+import InputFieldset from '@/components/form/container/input-fieldset';
 import PreviewBasic from './_1_preview_basic';
 import PreviewOrganisers from './_2_preview_organisers';
 import PreviewDates from './_3_preview_dates';
