@@ -25,27 +25,63 @@ class Setting extends BaseInternalMediaModel
     public function getFaviconAttribute(): string
     {
         $media = $this->getFirstMedia('favicon');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getFaviconConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('favicon');
+        if (!$media) {
+            return [];
         }
-        return $this->attributes['favicon'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 
     public function getDarkLogoAttribute(): string
     {
         $media = $this->getFirstMedia('dark_logo');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl('small') : '/dummy.png';
+    }
+
+    public function getDarkLogoConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('dark_logo');
+        if (!$media) {
+            return [];
         }
-        return $this->attributes['dark_logo'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 
     public function getLightLogoAttribute(): string
     {
         $media = $this->getFirstMedia('light_logo');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl('small') : '/dummy.png';
+    }
+
+    public function getLightLogoConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('light_logo');
+        if (!$media) {
+            return [];
         }
-        return $this->attributes['light_logo'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 }

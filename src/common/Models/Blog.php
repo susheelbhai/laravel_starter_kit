@@ -23,20 +23,42 @@ class Blog extends BaseExternalMediaModel
     public function getDisplayImgAttribute(): string
     {
         $media = $this->getFirstMedia('display_image');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getDisplayImgConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('display_image');
+        if (!$media) {
+            return [];
         }
-        // Fallback to old attribute if exists
-        return $this->attributes['display_img'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
     
     public function getAdImgAttribute(): string
     {
         $media = $this->getFirstMedia('ad_image');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getAdImgConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('ad_image');
+        if (!$media) {
+            return [];
         }
-        // Fallback to old attribute if exists
-        return $this->attributes['ad_img'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 }

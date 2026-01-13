@@ -24,20 +24,42 @@ class Slider1 extends BaseExternalMediaModel
     public function getImage1Attribute(): string
     {
         $media = $this->getFirstMedia('image1');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getImage1ConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('image1');
+        if (!$media) {
+            return [];
         }
-        // Fallback to old attribute if exists
-        return $this->attributes['image1'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 
     public function getImage2Attribute(): string
     {
         $media = $this->getFirstMedia('image2');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getImage2ConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('image2');
+        if (!$media) {
+            return [];
         }
-        // Fallback to old attribute if exists
-        return $this->attributes['image2'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 }

@@ -168,4 +168,7 @@
     body {
         @apply bg-background text-foreground;
     }
+    p{
+        padding-bottom: 1.2rem;
+    }
 }

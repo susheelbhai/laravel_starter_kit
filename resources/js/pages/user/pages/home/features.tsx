@@ -19,7 +19,7 @@ export default function FeatureSection({ data }: any) {
 
                 <div className="relative">
                     <img
-                        src={data?.why_us_image}
+                        src={data?.why_us_image_converted.medium}
                         alt="About"
                         className="w-full rounded-md"
                     />

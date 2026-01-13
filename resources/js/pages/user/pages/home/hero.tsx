@@ -4,8 +4,6 @@ export default function HeroSection(props: any) {
     const appName = props.data?.appData?.name;
     const whatsapp = props.data?.appData?.whatsapp;
     const bannerImage = props.data?.data?.banner_image;
-    console.log('Hero Section Data:', props.data.data);
-    console.log('Banner Image URL:', bannerImage);
     
     return (
         <section

@@ -8,6 +8,7 @@ use App\Models\BaseModels\BaseInternalMediaModel;
 class Testimonial extends BaseInternalMediaModel
 {
     use HasFactory;
+    protected $appends = ['image', 'image_converted'];
     
     public function registerMediaCollections(): void
     {
@@ -18,10 +19,21 @@ class Testimonial extends BaseInternalMediaModel
     public function getImageAttribute(): string
     {
         $media = $this->getFirstMedia('image');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getImageConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('image');
+        if (!$media) {
+            return [];
         }
-        // Fallback to old attribute if exists
-        return $this->attributes['image'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 }

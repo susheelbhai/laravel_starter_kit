@@ -9,17 +9,17 @@ import EditRow from '@/components/table/edit-row';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Service',
-        href: '/admin/service',
+        title: 'Project',
+        href: '/admin/project',
     },
     {
-        title: 'Service Detail',
+        title: 'Project Detail',
         href: '/dashboard',
     },
 ];
 
 export default function Dashboard() {
-    const service =
+    const project =
         ((usePage<SharedData>().props as any)?.data as {
             id: number;
             title: string;
@@ -31,15 +31,19 @@ export default function Dashboard() {
             long_description3: string;
             category: string;
             is_active: number;
-            display_img: string;
+            images: Array<string>;
             ad_img: string;
+            ad_url: string;
+            views: string;
+            highlighted_text1: string;
+            highlighted_text2: string;
         }) || [];
     const thead = [
-        { title: 'Service Detail', className: 'p-3', colSpan: 2 },
+        { title: 'Project Detail', className: 'p-3', colSpan: 2 },
     ];
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Service Detail" />
+            <Head title="Project Detail" />
 
             <TableCard>
                 <Table>
@@ -47,59 +51,80 @@ export default function Dashboard() {
                     <TBody>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Title</td>
-                            <td className="p-3">{service.title}</td>
+                            <td className="p-3">{project.title}</td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Author</td>
-                            <td className="p-3">{service.author}</td>
+                            <td className="p-3">{project.author}</td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Tags</td>
-                            <td className="p-3">{service.tags}</td>
+                            <td className="p-3">{project.tags}</td>
+                        </tr>
+                        {/* Category removed, not in migration */}
+                        <tr className="border-t border-gray-200">
+                            <td className="p-3">Ad URL</td>
+                            <td className="p-3">{project.ad_url}</td>
                         </tr>
                         <tr className="border-t border-gray-200">
-                            <td className="p-3">category</td>
-                            <td className="p-3">{service.category}</td>
+                            <td className="p-3">Views</td>
+                            <td className="p-3">{project.views}</td>
+                        </tr>
+                        <tr className="border-t border-gray-200">
+                            <td className="p-3">Highlighted Text 1</td>
+                            <td className="p-3"><div dangerouslySetInnerHTML={{ __html: project.highlighted_text1 }} /></td>
+                        </tr>
+                        <tr className="border-t border-gray-200">
+                            <td className="p-3">Highlighted Text 2</td>
+                            <td className="p-3"><div dangerouslySetInnerHTML={{ __html: project.highlighted_text2 }} /></td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Short Description</td>
-                            <td className="p-3">{service.short_description}</td>
+                            <td className="p-3">{project.short_description}</td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Long Description 1</td>
                             <td className="p-3">
-                                <div dangerouslySetInnerHTML={{ __html: service.long_description1 }} />
+                                <div dangerouslySetInnerHTML={{ __html: project.long_description1 }} />
                             </td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Long Description 2</td>
                             <td className="p-3">
-                                <div dangerouslySetInnerHTML={{ __html: service.long_description2 }} />
+                                <div dangerouslySetInnerHTML={{ __html: project.long_description2 }} />
                             </td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Long Description 3</td>
                             <td className="p-3">
-                                <div dangerouslySetInnerHTML={{ __html: service.long_description3 }} />
+                                <div dangerouslySetInnerHTML={{ __html: project.long_description3 }} />
                             </td>
                         </tr>
-                        <tr className="border-t border-gray-200">
-                            <td className="p-3">Image</td>
+                        <tr className="border-y border-gray-200">
+                            <td className="p-3">Gallery</td>
                             <td className="p-3">
-                                <img src={`${service.display_img}`} alt="" width={320} />
+                                {project.images && project.images.length > 0 ? (
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.images.map((img: any, index: number) => (
+                                            <img key={index} src={img.url} alt="" width={160} />
+                                        ))}
+                                    </div>
+                                ) : (
+                                    '-'
+                                )}
                             </td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Ad Image</td>
                             <td className="p-3">
-                                <img src={`${service.ad_img}`} alt="" width={320} />
+                                <img src={`${project.ad_img}`} alt="" width={320} />
                             </td>
                         </tr>
                         <tr className="border-t border-gray-200">
                             <td className="p-3">Status</td>
-                            <td className="p-3">{service.is_active == 1 ? 'active' : 'inactive'}</td>
+                            <td className="p-3">{project.is_active == 1 ? 'active' : 'inactive'}</td>
                         </tr>
-                        <EditRow href={route('admin.service.edit', service.id)}>Edit</EditRow>
+                        <EditRow href={route('admin.project.edit', project.id)}>Edit</EditRow>
 
                     </TBody>
                 </Table>

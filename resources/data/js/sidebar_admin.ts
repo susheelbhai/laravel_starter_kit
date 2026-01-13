@@ -204,6 +204,22 @@ const mainNavItems = [
         ],
     },
     {
+        title: "Projects",
+        icon: Layout, // Updated icon
+        children: [
+            {
+                title: "All Projects",
+                routeName: "admin.project.index",
+                icon: Layout, // Updated icon
+            },
+            {
+                title: "Create Projects",
+                routeName: "admin.project.create",
+                icon: FileSignature,
+            },
+        ],
+    },
+    {
         title: "Blogs",
         icon: BookOpen,
         children: [

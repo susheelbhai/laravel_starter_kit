@@ -24,20 +24,42 @@ class ProductCategory extends BaseExternalMediaModel
     public function getBannerAttribute(): string
     {
         $media = $this->getFirstMedia('banner');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getBannerConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('banner');
+        if (!$media) {
+            return [];
         }
-        // Fallback to old attribute if exists
-        return $this->attributes['banner'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
     
     public function getIconAttribute(): string
     {
         $media = $this->getFirstMedia('icon');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getIconConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('icon');
+        if (!$media) {
+            return [];
         }
-        // Fallback to old attribute if exists
-        return $this->attributes['icon'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 }

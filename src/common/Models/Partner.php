@@ -22,10 +22,22 @@ class Partner extends BaseExternalAuthenticatable
     public function getProfilePicAttribute(): string
     {
         $media = $this->getFirstMedia('profile_pic');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getProfilePicConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('profile_pic');
+        if (!$media) {
+            return [];
         }
-        return $this->attributes['profile_pic'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 
     /**

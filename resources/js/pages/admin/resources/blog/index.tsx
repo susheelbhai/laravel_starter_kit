@@ -1,4 +1,3 @@
-import Button from '@/components/button';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';

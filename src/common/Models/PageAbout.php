@@ -9,6 +9,7 @@ class PageAbout extends BaseExternalMediaModel
 {
     use HasFactory;
     protected $table = 'page_about';
+    protected $appends = ['banner', 'founder_image', 'banner_converted', 'founder_image_converted'];
 
     public function registerMediaCollections(): void
     {
@@ -22,18 +23,42 @@ class PageAbout extends BaseExternalMediaModel
     public function getBannerAttribute(): string
     {
         $media = $this->getFirstMedia('banner');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getBannerConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('banner');
+        if (!$media) {
+            return [];
         }
-        return $this->attributes['banner'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 
     public function getFounderImageAttribute(): string
     {
         $media = $this->getFirstMedia('founder_image');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getFounderImageConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('founder_image');
+        if (!$media) {
+            return [];
         }
-        return $this->attributes['founder_image'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 }

@@ -68,6 +68,14 @@ return $sidebarMenu = [
                 ]
             ],
             [
+                'name' => 'Projects',
+                'icon' => 'fab fa-pagelines', // Updated icon
+                'children' => [
+                    ['name' => 'All Projects', 'route' => 'admin.project.index'],
+                    ['name' => 'Create Projects', 'route' => 'admin.project.create'],
+                ]
+            ],
+            [
                 'name' => 'Blogs',
                 'icon' => 'fas fa-blog',
                 'children' => [

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Faq;
 use App\Models\Team;
 use App\Models\PageTnc;
+use App\Models\Project;
 use App\Models\Service;
 use App\Models\PageHome;
 use App\Models\PageAbout;
@@ -33,11 +34,19 @@ class HomeController extends Controller
     function home()
     {
         $services = Service::whereIsActive(1)->get();
+        $projects = Project::whereIsActive(1)->limit(3)->latest()->get()->map(function ($project) {
+            $media = $project->getMedia('images');
+            return [
+                ...$project->toArray(),
+                'thumbnail' => $media->first()?->getUrl('thumb'),
+                'image' => $media->first()?->getUrl('medium'),
+            ];
+        });
         $team = Team::whereIsActive(1)->get();
         $testimonials = Testimonial::whereIsActive(1)->get();
         $clients = Portfolio::whereIsActive(1)->get();
         $data = PageHome::whereId(1)->first();
-        return $this->render('user/pages/home/index', compact( 'services', 'testimonials', 'team', 'clients', 'data'));
+        return $this->render('user/pages/home/index', compact( 'services', 'projects', 'testimonials', 'team', 'clients', 'data'));
     }
     function about()
     {

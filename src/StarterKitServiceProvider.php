@@ -34,6 +34,7 @@ class StarterKitServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __dir__ . "/blade/Livewire" => app_path('/Livewire'),
+            __dir__ . "/common/Console" => app_path('/Console'),
             __dir__ . "/common/Http" => app_path('/Http'),
             __dir__ . "/common/Models" => app_path('/Models'),
             __dir__ . "/common/Support" => app_path('/Support'),
@@ -56,11 +57,12 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/../assets/storage/images" => storage_path('app/public/images'),
             __dir__ . "/../assets/storage/media" => storage_path('app/public'),
             __dir__ . "/../assets/storage/.gitignore" => storage_path('app/public/.gitignore'),
-            __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('app/public/.sync-exclude.lst'),
+            __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('/.sync-exclude.lst'),
             __dir__ . "/../assets/public/css" => public_path('css'),
         ], 'blade_starter_kit');
 
         $this->publishes([
+            __dir__ . "/common/Console" => app_path('/Console'),
             __dir__ . "/common/Http" => app_path('/Http'),
             __dir__ . "/common/Models" => app_path('/Models'),
             __dir__ . "/common/Support" => app_path('/Support'),
@@ -83,7 +85,7 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/../assets/storage/images" => storage_path('app/public/images'),
             __dir__ . "/../assets/storage/media" => storage_path('app/public'),
             __dir__ . "/../assets/storage/.gitignore" => storage_path('app/public/.gitignore'),
-            __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('app/public/.sync-exclude.lst'),
+            __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('/.sync-exclude.lst'),
             __dir__ . "/../assets/public/css" => public_path('css'),
             __dir__ . "/../assets/public/themes/ck_editor" => public_path('themes/ck_editor'),
             __dir__ . "/../assets/public/themes/tinymce" => public_path('themes/tinymce')

@@ -15,7 +15,7 @@ export default function TeamSection(data: any) {
                             className="rounded-lg bg-background2 p-6"
                         >
                             <img
-                                src={`${team.image}`}
+                                src={`${team.image_converted.small}`}
                                 alt={team.name}
                                 className="mx-auto mb-4 h-32 w-32 rounded-full object-cover"
                             />

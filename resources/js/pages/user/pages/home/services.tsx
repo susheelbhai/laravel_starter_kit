@@ -15,7 +15,7 @@ export default function ServicesSection(data: any) {
                             className="rounded-lg bg-white p-8 shadow transition hover:shadow-lg"
                         >
                             <img
-                                src={`${service.display_img}`}
+                                src={`${service.display_img_converted.thumb}`}
                                 alt={service.title}
                                 className="mx-auto mb-6 h-16 w-16"
                             />

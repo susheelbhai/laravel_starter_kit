@@ -9,6 +9,7 @@ class Team extends BaseInternalMediaModel
 {
     use HasFactory;
     protected $table = 'team';
+    protected $appends = ['image', 'image_converted'];
     
     public function registerMediaCollections(): void
     {
@@ -20,10 +21,21 @@ class Team extends BaseInternalMediaModel
     public function getImageAttribute(): string
     {
         $media = $this->getFirstMedia('image');
-        if ($media) {
-            return $media->getUrl();
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getImageConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('image');
+        if (!$media) {
+            return [];
         }
-        // Fallback to old attribute if exists
-        return $this->attributes['image'] ?? '';
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 }

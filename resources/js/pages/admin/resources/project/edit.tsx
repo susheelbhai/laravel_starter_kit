@@ -2,8 +2,8 @@ import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
-import { BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/react';
+import { BreadcrumbItem, SharedData } from '@/types';
+import { Head, usePage } from '@inertiajs/react';
 
 type FormType = {
     title: string;
@@ -13,47 +13,52 @@ type FormType = {
     long_description1: string;
     long_description2: string;
     long_description3: string;
-    category: string;
+    highlighted_text1: string;
+    highlighted_text2: string;
+    ad_url: string;
     is_active: number;
-    display_img: string;
-    ad_img: string;
+    images: string | File;
+    ad_img: string | File;
 };
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Service',
-        href: '/admin/service',
+        title: 'Project',
+        href: '/admin/project',
     },
     {
-        title: 'Create',
+        title: 'Edit',
         href: '/dashboard',
     },
 ];
 
 export default function Create() {
-    const initialValues: FormType = {
-        title: '',
-        author: '',
-        tags: '',
-        short_description: '',
-        long_description1: '',
-        long_description2: '',
-        long_description3: '',
-        category: '',
-        is_active: 1,
-        display_img: '',
-        ad_img: '',
-    };
+    const project = usePage<SharedData>().props.data as any;
 
+    const initialValues: FormType = {
+        title: project.title,
+        author: project.author,
+        tags: project.tags || '',
+        short_description: project.short_description || '',
+        long_description1: project.long_description1 || '',
+        long_description2: project.long_description2 || '',
+        long_description3: project.long_description3 || '',
+        highlighted_text1: project.highlighted_text1 || '',
+        highlighted_text2: project.highlighted_text2 || '',
+        ad_url: project.ad_url || '',
+        is_active: project.is_active ?? 1,
+        images: project.images || '',
+        ad_img: project.ad_img || '',
+    };
     const { submit, inputDivData, processing } = useFormHandler<FormType>({
-        url: route('admin.service.store'),
+        url: route('admin.project.update', project.id),
         initialValues,
-        method: 'POST',
+        method: 'PATCH',
         onSuccess: () => console.log('Simple form created successfully!'),
     });
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Create Service" />
+            <Head title="Edit Project" />
             <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv
                     type="text"
@@ -102,24 +107,40 @@ export default function Create() {
 
                 <InputDiv
                     type="text"
-                    label="Category"
-                    name="category"
+                    label="Ad URL"
+                    name="ad_url"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="editor"
+                    label="Highlighted Text 1"
+                    name="highlighted_text1"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="editor"
+                    label="Highlighted Text 2"
+                    name="highlighted_text2"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="images"
+                    label="Images"
+                    name="images"
                     inputDivData={inputDivData}
                 />
                 <InputDiv
                     type="image"
-                    label="Image"
-                    name="display_img"
+                    label="Ad Image"
+                    name="ad_img"
                     inputDivData={inputDivData}
                 />
-
                 <InputDiv
                     type="switch"
                     label="Active"
                     name="is_active"
                     inputDivData={inputDivData}
                 />
-                
             </FormContainer>
         </AppLayout>
     );

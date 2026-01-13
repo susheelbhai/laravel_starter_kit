@@ -2,38 +2,22 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\BaseModels\BaseExternalMediaModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Product extends BaseExternalMediaModel
+class Project extends BaseExternalMediaModel
 {
-    /** @use HasFactory<\Database\Factories\ProductFactory> */
+    /** @use HasFactory<\Database\Factories\ProjectFactory> */
     use HasFactory;
-
-    protected $appends = ['images'];
-
-    protected $casts = [
-        'features' => 'array',
-    ];
-
+    protected $appends = ['images', 'ad_img'];
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('images');
+        $this->addMediaCollection('ad_img');
     }
 
- 
-    /**
-     * Get the product category.
-     */
-    public function category()
-    {
-        return $this->belongsTo(ProductCategory::class, 'product_category_id');
-    }
-
-    /**
-     * Get the product images.
-     */
     public function images(): Attribute
     {
         return Attribute::make(
@@ -49,5 +33,11 @@ class Product extends BaseExternalMediaModel
                 ];
             }),
         );
+    }
+
+    public function getAdImgAttribute(): string
+    {
+        $media = $this->getFirstMedia('ad_img');
+        return $media ? $media->getUrl() : '/dummy.png';
     }
 }

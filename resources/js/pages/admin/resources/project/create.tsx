@@ -13,16 +13,19 @@ type FormType = {
     long_description1: string;
     long_description2: string;
     long_description3: string;
-    category: string;
+    highlighted_text1: string;
+    highlighted_text2: string;
+    ad_url: string;
+    views: string;
     is_active: number;
-    display_img: string;
+    images: string;
     ad_img: string;
 };
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Service',
-        href: '/admin/service',
+        title: 'Project',
+        href: '/admin/project',
     },
     {
         title: 'Create',
@@ -39,21 +42,25 @@ export default function Create() {
         long_description1: '',
         long_description2: '',
         long_description3: '',
-        category: '',
+        highlighted_text1: '',
+        highlighted_text2: '',
+        // category: '',
+        ad_url: '',
+        views: '',
         is_active: 1,
-        display_img: '',
+        images: '',
         ad_img: '',
     };
 
     const { submit, inputDivData, processing } = useFormHandler<FormType>({
-        url: route('admin.service.store'),
+        url: route('admin.project.store'),
         initialValues,
         method: 'POST',
         onSuccess: () => console.log('Simple form created successfully!'),
     });
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Create Service" />
+            <Head title="Create Project" />
             <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv
                     type="text"
@@ -102,24 +109,46 @@ export default function Create() {
 
                 <InputDiv
                     type="text"
-                    label="Category"
-                    name="category"
+                    label="Ad URL"
+                    name="ad_url"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="text"
+                    label="Views"
+                    name="views"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="editor"
+                    label="Highlighted Text 1"
+                    name="highlighted_text1"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="editor"
+                    label="Highlighted Text 2"
+                    name="highlighted_text2"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="images"
+                    label="Images"
+                    name="images"
                     inputDivData={inputDivData}
                 />
                 <InputDiv
                     type="image"
-                    label="Image"
-                    name="display_img"
+                    label="Ad Image"
+                    name="ad_img"
                     inputDivData={inputDivData}
                 />
-
                 <InputDiv
                     type="switch"
                     label="Active"
                     name="is_active"
                     inputDivData={inputDivData}
                 />
-                
             </FormContainer>
         </AppLayout>
     );

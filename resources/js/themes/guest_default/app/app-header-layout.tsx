@@ -23,7 +23,6 @@ export default function AppHeaderLayout({
     loginRoute:string
 }>) {
     const page = usePage<SharedData>();
-    console.log(menuItems);
     const { flash = {} } = page.props as {
         flash?: Partial<Record<FlashType, string>>;
     };
