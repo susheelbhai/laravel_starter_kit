@@ -5,15 +5,15 @@
  */
 
 /**
- * Database `a48`
+ * Database `a52`
  */
 
-/* `a48`.`admins` */
+/* `a52`.`admins` */
 $admins = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-04-07 14:24:26','name' => 'Susheel Kumar Singh','email' => 'admin@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','address' => NULL,'city' => NULL,'state' => NULL,'dob' => NULL,'remember_token' => 'c983AmI82JJZf7maNXNXqxI5tJaQWcOjjf6yz0DigEGdl4xuzWkCwCnNCoiQ')
 );
 
-/* `a48`.`blogs` */
+/* `a52`.`blogs` */
 $blogs = array(
   array('id' => '1','created_at' => '2024-04-06 00:38:32','updated_at' => '2024-04-06 00:42:46','created_by' => NULL,'title' => 'Profitable business makes your profit','slug' => 'profitable-business-makes-your-profit','category' => 'Business','author' => 'Susheel Singh','tags' => 'business, profit','short_description' => 'Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services','long_description1' => '<p>Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services</p>
 
@@ -49,26 +49,26 @@ $blogs = array(
 <div class="single-check">Minim veniam sodium glutimate nostrud</div>
 <!-- single check End --></div>
 </div>
-</div>','highlighted_text1' => '“Placerat pretium tristique mattis tellus accuan metus dictumst vivamus odio nulla fusce auctor into suscipit habitasse class congue potenti iaculis”','highlighted_text2' => NULL,'views' => NULL,'is_active' => '1')
+</div>','highlighted_text1' => '“Placerat pretium tristique mattis tellus accuan metus dictumst vivamus odio nulla fusce auctor into suscipit habitasse class congue potenti iaculis”','highlighted_text2' => NULL,'ad_url' => NULL,'views' => NULL,'is_active' => '1')
 );
 
-/* `a48`.`blog_comments` */
+/* `a52`.`blog_comments` */
 $blog_comments = array(
 );
 
-/* `a48`.`blog_views` */
+/* `a52`.`blog_views` */
 $blog_views = array(
 );
 
-/* `a48`.`cache` */
+/* `a52`.`cache` */
 $cache = array(
 );
 
-/* `a48`.`cache_locks` */
+/* `a52`.`cache_locks` */
 $cache_locks = array(
 );
 
-/* `a48`.`clients` */
+/* `a52`.`clients` */
 $clients = array(
   array('id' => '1','created_at' => '2024-04-07 08:55:42','updated_at' => '2024-04-07 08:57:50','name' => 'Zoe Hansen','url' => 'https://www.dixurono.org.uk','is_active' => '1'),
   array('id' => '2','created_at' => '2024-04-07 08:58:31','updated_at' => '2024-04-07 08:58:31','name' => 'Rashad Randall','url' => 'https://www.rexazosyr.com.au','is_active' => '1'),
@@ -77,24 +77,24 @@ $clients = array(
   array('id' => '5','created_at' => '2024-04-07 08:59:24','updated_at' => '2024-04-07 08:59:24','name' => 'Tallulah Mcdaniel','url' => 'https://www.mazufuvaw.net','is_active' => '1')
 );
 
-/* `a48`.`failed_jobs` */
+/* `a52`.`failed_jobs` */
 $failed_jobs = array(
 );
 
-/* `a48`.`faqs` */
+/* `a52`.`faqs` */
 $faqs = array(
   array('id' => '1','created_at' => '2025-05-20 12:26:15','updated_at' => '2025-05-20 12:26:15','faq_category_id' => '1','question' => 'What is your return policy?','answer' => '<p>We offer a 30-day return policy on all products. If you are not satisfied with your purchase, please contact our support team to initiate the return process.</p>','is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-20 12:27:45','updated_at' => '2025-05-20 12:27:45','faq_category_id' => '1','question' => 'How do I track my order?','answer' => '<p>You can track your order using the tracking number provided in your order confirmation email. Simply enter the tracking number on our website\'s tracking page to see the status of your shipment.</p>','is_active' => '1'),
   array('id' => '3','created_at' => '2025-05-20 12:28:30','updated_at' => '2025-05-20 12:28:30','faq_category_id' => '2','question' => 'Do you offer discounts for bulk purchases?','answer' => '<p>Yes, we offer discounts for bulk purchases. Please contact our sales team for more information on pricing and available discounts.</p>','is_active' => '1')
 );
 
-/* `a48`.`faq_categories` */
+/* `a52`.`faq_categories` */
 $faq_categories = array(
   array('id' => '1','title' => 'General','is_active' => '1'),
   array('id' => '2','title' => 'Pricing','is_active' => '1')
 );
 
-/* `a48`.`important_links` */
+/* `a52`.`important_links` */
 $important_links = array(
   array('id' => '1','created_at' => '2025-05-17 16:40:35','updated_at' => '2025-05-17 16:40:35','href' => 'tnc','name' => 'Terms of Uses','is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-17 16:40:53','updated_at' => '2025-05-17 16:40:53','href' => 'privacy','name' => 'Privacy Policy','is_active' => '1'),
@@ -102,44 +102,52 @@ $important_links = array(
   array('id' => '4','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'faq','name' => 'FAQ','is_active' => '1')
 );
 
-/* `a48`.`jobs` */
+/* `a52`.`jobs` */
 $jobs = array(
 );
 
-/* `a48`.`job_batches` */
+/* `a52`.`job_batches` */
 $job_batches = array(
 );
 
-/* `a48`.`media` */
+/* `a52`.`media` */
 $media = array(
 );
 
-/* `a48`.`media_external` */
+/* `a52`.`media_external` */
 $media_external = array(
-  array('id' => '1','model_type' => 'App\\Models\\User','model_id' => '1','uuid' => 'ccc42648-7fec-4595-9824-bd754d497d15','collection_name' => 'profile_pic','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 15:04:03','updated_at' => '2025-12-22 15:04:07'),
-  array('id' => '2','model_type' => 'App\\Models\\Partner','model_id' => '1','uuid' => '17d56678-115c-4e4b-985e-6eca1da30f2c','collection_name' => 'profile_pic','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 15:04:20','updated_at' => '2025-12-22 15:04:24'),
-  array('id' => '3','model_type' => 'App\\Models\\Seller','model_id' => '1','uuid' => 'd5033e77-4216-4127-bb83-b6fe53d9d394','collection_name' => 'profile_pic','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 15:04:34','updated_at' => '2025-12-22 15:04:39')
+  array('id' => '1','model_type' => 'App\\Models\\User','model_id' => '1','uuid' => 'ccc42648-7fec-4595-9824-bd754d497d15','collection_name' => 'profile_pic','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 15:04:03','updated_at' => '2026-01-14 00:39:03'),
+  array('id' => '2','model_type' => 'App\\Models\\Partner','model_id' => '1','uuid' => '17d56678-115c-4e4b-985e-6eca1da30f2c','collection_name' => 'profile_pic','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 15:04:20','updated_at' => '2026-01-14 00:39:08'),
+  array('id' => '3','model_type' => 'App\\Models\\Seller','model_id' => '1','uuid' => 'd5033e77-4216-4127-bb83-b6fe53d9d394','collection_name' => 'profile_pic','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 15:04:34','updated_at' => '2026-01-14 00:39:12'),
+  array('id' => '4','model_type' => 'App\\Models\\Service','model_id' => '3','uuid' => '5cdb020d-35c2-4e46-bdd8-33cf6af9cfad','collection_name' => 'display_image','name' => 'service1','file_name' => 'service1.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '27303','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:41:18','updated_at' => '2026-01-14 00:41:25'),
+  array('id' => '5','model_type' => 'App\\Models\\Service','model_id' => '2','uuid' => '50b996bf-9457-436d-930c-36847dd5fa41','collection_name' => 'display_image','name' => 'service2','file_name' => 'service2.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '51883','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:41:50','updated_at' => '2026-01-14 00:41:58'),
+  array('id' => '6','model_type' => 'App\\Models\\Service','model_id' => '1','uuid' => '4b5c675e-fbeb-4f31-8c4b-c5294b9c0254','collection_name' => 'display_image','name' => 'service3','file_name' => 'service3.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '24094','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:42:23','updated_at' => '2026-01-14 00:42:31'),
+  array('id' => '7','model_type' => 'App\\Models\\Portfolio','model_id' => '5','uuid' => '4ad097ea-57d4-457e-913b-eef18e3b3b52','collection_name' => 'logo','name' => 'brand1','file_name' => 'brand1.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '543195','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:43:28','updated_at' => '2026-01-14 00:43:37'),
+  array('id' => '8','model_type' => 'App\\Models\\Portfolio','model_id' => '4','uuid' => '0f0e203c-2a85-4565-8435-6c49d6cc7b3c','collection_name' => 'logo','name' => 'brand2','file_name' => 'brand2.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '12131','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:43:56','updated_at' => '2026-01-14 00:43:59'),
+  array('id' => '9','model_type' => 'App\\Models\\Portfolio','model_id' => '3','uuid' => '0f2b4ec5-eb63-4e29-ad68-b11940740f41','collection_name' => 'logo','name' => 'brand3','file_name' => 'brand3.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '20387','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:44:19','updated_at' => '2026-01-14 00:44:24'),
+  array('id' => '10','model_type' => 'App\\Models\\Portfolio','model_id' => '2','uuid' => '8f75074d-f4d2-48fd-bb38-b759be23965e','collection_name' => 'logo','name' => 'brand4','file_name' => 'brand4.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '18723','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:44:38','updated_at' => '2026-01-14 00:44:42'),
+  array('id' => '11','model_type' => 'App\\Models\\Portfolio','model_id' => '1','uuid' => '6168d533-a126-464e-8089-3da41d294164','collection_name' => 'logo','name' => 'brand5','file_name' => 'brand5.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '32392','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:44:57','updated_at' => '2026-01-14 00:45:03')
 );
 
-/* `a48`.`media_internal` */
+/* `a52`.`media_internal` */
 $media_internal = array(
-  array('id' => '1','model_type' => 'App\\Models\\Setting','model_id' => '1','uuid' => 'b61d3d51-bce8-4f57-8f6e-82fb23dad343','collection_name' => 'favicon','name' => '66126b57961af','file_name' => '66126b57961af.png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '9485','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:35:43','updated_at' => '2025-12-22 14:35:46'),
-  array('id' => '2','model_type' => 'App\\Models\\Setting','model_id' => '1','uuid' => '1379590c-d78a-4cdc-bc21-188f17a6fb9f','collection_name' => 'dark_logo','name' => '66126b5796aba','file_name' => '66126b5796aba.png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '38829','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:35:46','updated_at' => '2025-12-22 14:35:49'),
-  array('id' => '3','model_type' => 'App\\Models\\Setting','model_id' => '1','uuid' => 'a08bc538-1c1a-4073-bb5a-aea707155685','collection_name' => 'light_logo','name' => '66126b5796aba','file_name' => '66126b5796aba.png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '38829','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:35:49','updated_at' => '2025-12-22 14:35:51'),
-  array('id' => '4','model_type' => 'App\\Models\\PageHome','model_id' => '1','uuid' => '27bbe57a-b419-49a0-bc50-db04c44e9ac0','collection_name' => 'banner_image','name' => 'banner3 (1)','file_name' => 'banner3-(1).jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '202129','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:41:46','updated_at' => '2025-12-22 14:41:50'),
-  array('id' => '5','model_type' => 'App\\Models\\PageHome','model_id' => '1','uuid' => '18cd6ec3-8448-4895-8ef7-8382518a7114','collection_name' => 'about_image','name' => 'about (1)','file_name' => 'about-(1).png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '1475082','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:44:21','updated_at' => '2025-12-22 14:44:25'),
-  array('id' => '6','model_type' => 'App\\Models\\PageHome','model_id' => '1','uuid' => '9d255d02-403d-406b-9f2d-e02cb8225738','collection_name' => 'why_us_image','name' => 'about2 (1)','file_name' => 'about2-(1).png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '1508047','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:44:25','updated_at' => '2025-12-22 14:44:29'),
-  array('id' => '7','model_type' => 'App\\Models\\Team','model_id' => '4','uuid' => '0b7cf759-227a-4083-9b0e-abb1d27777e6','collection_name' => 'image','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:45:26','updated_at' => '2025-12-22 14:45:30'),
-  array('id' => '8','model_type' => 'App\\Models\\Team','model_id' => '3','uuid' => 'd88ccd84-ac6b-45d4-9df5-671b64377d21','collection_name' => 'image','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:46:03','updated_at' => '2025-12-22 14:46:07'),
-  array('id' => '9','model_type' => 'App\\Models\\Team','model_id' => '2','uuid' => '7652699b-2830-4d21-bf9e-4512fb4742cf','collection_name' => 'image','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:46:13','updated_at' => '2025-12-22 14:46:17'),
-  array('id' => '10','model_type' => 'App\\Models\\Team','model_id' => '1','uuid' => '8edbb850-92e9-4c0f-b75c-e9f1ab885f03','collection_name' => 'image','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:46:27','updated_at' => '2025-12-22 14:46:31'),
-  array('id' => '11','model_type' => 'App\\Models\\Testimonial','model_id' => '3','uuid' => '786ead6e-d5be-4307-9ae4-a81d4a0057aa','collection_name' => 'image','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:48:45','updated_at' => '2025-12-22 14:48:49'),
-  array('id' => '12','model_type' => 'App\\Models\\Testimonial','model_id' => '2','uuid' => '5e6b77eb-4507-4549-9536-27584b2ac229','collection_name' => 'image','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:48:55','updated_at' => '2025-12-22 14:48:59'),
-  array('id' => '13','model_type' => 'App\\Models\\Testimonial','model_id' => '1','uuid' => '36e9e843-0dac-4e98-8290-e11a98d416fb','collection_name' => 'image','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:49:06','updated_at' => '2025-12-22 14:49:10'),
-  array('id' => '14','model_type' => 'App\\Models\\PageAuth','model_id' => '1','uuid' => '6cb380a9-af57-4cb0-b1e1-0487d060766f','collection_name' => 'side_image','name' => 'auth','file_name' => 'auth.jpeg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '163598','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-25 00:56:32','updated_at' => '2025-12-25 00:56:35')
+  array('id' => '1','model_type' => 'App\\Models\\Setting','model_id' => '1','uuid' => 'b61d3d51-bce8-4f57-8f6e-82fb23dad343','collection_name' => 'favicon','name' => '66126b57961af','file_name' => '66126b57961af.png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '9485','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:35:43','updated_at' => '2026-01-14 00:39:18'),
+  array('id' => '2','model_type' => 'App\\Models\\Setting','model_id' => '1','uuid' => '1379590c-d78a-4cdc-bc21-188f17a6fb9f','collection_name' => 'dark_logo','name' => '66126b5796aba','file_name' => '66126b5796aba.png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '38829','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:35:46','updated_at' => '2026-01-14 00:39:21'),
+  array('id' => '3','model_type' => 'App\\Models\\Setting','model_id' => '1','uuid' => 'a08bc538-1c1a-4073-bb5a-aea707155685','collection_name' => 'light_logo','name' => '66126b5796aba','file_name' => '66126b5796aba.png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '38829','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:35:49','updated_at' => '2026-01-14 00:39:25'),
+  array('id' => '4','model_type' => 'App\\Models\\PageHome','model_id' => '1','uuid' => '27bbe57a-b419-49a0-bc50-db04c44e9ac0','collection_name' => 'banner_image','name' => 'banner3 (1)','file_name' => 'banner3-(1).jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '202129','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:41:46','updated_at' => '2026-01-14 00:39:29'),
+  array('id' => '5','model_type' => 'App\\Models\\PageHome','model_id' => '1','uuid' => '18cd6ec3-8448-4895-8ef7-8382518a7114','collection_name' => 'about_image','name' => 'about (1)','file_name' => 'about-(1).png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '1475082','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:44:21','updated_at' => '2026-01-14 00:39:48'),
+  array('id' => '6','model_type' => 'App\\Models\\PageHome','model_id' => '1','uuid' => '9d255d02-403d-406b-9f2d-e02cb8225738','collection_name' => 'why_us_image','name' => 'about2 (1)','file_name' => 'about2-(1).png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '1508047','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:44:25','updated_at' => '2026-01-14 00:40:05'),
+  array('id' => '7','model_type' => 'App\\Models\\Team','model_id' => '4','uuid' => '0b7cf759-227a-4083-9b0e-abb1d27777e6','collection_name' => 'image','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:45:26','updated_at' => '2026-01-14 00:40:12'),
+  array('id' => '8','model_type' => 'App\\Models\\Team','model_id' => '3','uuid' => 'd88ccd84-ac6b-45d4-9df5-671b64377d21','collection_name' => 'image','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:46:03','updated_at' => '2026-01-14 00:40:20'),
+  array('id' => '9','model_type' => 'App\\Models\\Team','model_id' => '2','uuid' => '7652699b-2830-4d21-bf9e-4512fb4742cf','collection_name' => 'image','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:46:13','updated_at' => '2026-01-14 00:40:27'),
+  array('id' => '10','model_type' => 'App\\Models\\Team','model_id' => '1','uuid' => '8edbb850-92e9-4c0f-b75c-e9f1ab885f03','collection_name' => 'image','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:46:27','updated_at' => '2026-01-14 00:40:35'),
+  array('id' => '11','model_type' => 'App\\Models\\Testimonial','model_id' => '3','uuid' => '786ead6e-d5be-4307-9ae4-a81d4a0057aa','collection_name' => 'image','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:48:45','updated_at' => '2026-01-14 00:40:42'),
+  array('id' => '12','model_type' => 'App\\Models\\Testimonial','model_id' => '2','uuid' => '5e6b77eb-4507-4549-9536-27584b2ac229','collection_name' => 'image','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:48:55','updated_at' => '2026-01-14 00:40:50'),
+  array('id' => '13','model_type' => 'App\\Models\\Testimonial','model_id' => '1','uuid' => '36e9e843-0dac-4e98-8290-e11a98d416fb','collection_name' => 'image','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:49:06','updated_at' => '2026-01-14 00:40:56'),
+  array('id' => '14','model_type' => 'App\\Models\\PageAuth','model_id' => '1','uuid' => '6cb380a9-af57-4cb0-b1e1-0487d060766f','collection_name' => 'side_image','name' => 'auth','file_name' => 'auth.jpeg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '163598','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-25 00:56:32','updated_at' => '2026-01-14 00:41:02')
 );
 
-/* `a48`.`migrations` */
+/* `a52`.`migrations` */
 $migrations = array(
   array('id' => '1','migration' => '0001_01_01_000000_create_states_table','batch' => '1'),
   array('id' => '2','migration' => '0001_01_01_000000_create_users_table','batch' => '1'),
@@ -178,38 +186,39 @@ $migrations = array(
   array('id' => '35','migration' => '2025_12_22_062145_create_media_external_table','batch' => '1'),
   array('id' => '36','migration' => '2025_12_22_062145_create_media_internal_table','batch' => '1'),
   array('id' => '37','migration' => '2025_12_22_165224_create_page_auth_table','batch' => '1'),
-  array('id' => '38','migration' => '2025_12_23_151154_create_product_enquiries_table','batch' => '1')
+  array('id' => '38','migration' => '2025_12_23_151154_create_product_enquiries_table','batch' => '1'),
+  array('id' => '39','migration' => '2026_01_13_203104_create_projects_table','batch' => '1')
 );
 
-/* `a48`.`model_has_permissions` */
+/* `a52`.`model_has_permissions` */
 $model_has_permissions = array(
 );
 
-/* `a48`.`model_has_roles` */
+/* `a52`.`model_has_roles` */
 $model_has_roles = array(
   array('role_id' => '1','model_type' => 'App\\Models\\Admin','model_id' => '1')
 );
 
-/* `a48`.`newsletters` */
+/* `a52`.`newsletters` */
 $newsletters = array(
 );
 
-/* `a48`.`page_about` */
+/* `a52`.`page_about` */
 $page_about = array(
   array('id' => '1','created_at' => '2025-12-22 14:31:44','updated_at' => '2025-12-22 14:31:44','para1' => NULL,'para2' => NULL,'objective' => NULL,'mission' => NULL,'vision' => NULL,'founder_message' => NULL)
 );
 
-/* `a48`.`page_auth` */
+/* `a52`.`page_auth` */
 $page_auth = array(
   array('id' => '1','created_at' => NULL,'updated_at' => NULL)
 );
 
-/* `a48`.`page_contact` */
+/* `a52`.`page_contact` */
 $page_contact = array(
   array('id' => '1','created_at' => '2025-12-22 14:31:44','updated_at' => '2025-12-22 14:31:44','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
 );
 
-/* `a48`.`page_home` */
+/* `a52`.`page_home` */
 $page_home = array(
   array('id' => '1','created_at' => '2025-12-22 14:31:44','updated_at' => '2025-12-22 14:44:21','banner_heading' => 'Smart Solutions For
 Your Business Needs','banner_description' => '<p>We are a team of talented designers making websites with Bootstrap</p>','why_us_heading' => 'We\'re Ready To Grow
@@ -249,7 +258,7 @@ Consulting Agency','about_description' => '<p>We help you to grow your business 
 </ul>','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
 );
 
-/* `a48`.`page_privacy` */
+/* `a52`.`page_privacy` */
 $page_privacy = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:11:08','title' => 'Privacy Policy','content' => '<h1>Who we are</h1>
 
@@ -296,7 +305,7 @@ $page_privacy = array(
 <p><strong>Visitor comments may be checked through an automated spam detection service.</strong></p>')
 );
 
-/* `a48`.`page_refund` */
+/* `a52`.`page_refund` */
 $page_refund = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:33:35','title' => 'Refund Policy','content' => '<h1>&nbsp;</h1>
 
@@ -306,7 +315,7 @@ $page_refund = array(
 </ul>')
 );
 
-/* `a48`.`page_tnc` */
+/* `a52`.`page_tnc` */
 $page_tnc = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:35:40','title' => 'Terms and Conditions','content' => '<h1>&nbsp;</h1>
 
@@ -334,51 +343,55 @@ $page_tnc = array(
 </ul>')
 );
 
-/* `a48`.`partners` */
+/* `a52`.`partners` */
 $partners = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-07 14:23:25','name' => 'Susheel Singh Partner','email' => 'partner@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
 );
 
-/* `a48`.`password_reset_tokens` */
+/* `a52`.`password_reset_tokens` */
 $password_reset_tokens = array(
 );
 
-/* `a48`.`permissions` */
+/* `a52`.`permissions` */
 $permissions = array(
-  array('id' => '1','name' => 'all rights','guard_name' => 'admin','created_at' => '2026-01-13 12:58:21','updated_at' => '2026-01-13 12:58:21'),
-  array('id' => '2','name' => 'user.create','guard_name' => 'admin','created_at' => '2026-01-13 12:58:21','updated_at' => '2026-01-13 12:58:21')
+  array('id' => '1','name' => 'all rights','guard_name' => 'admin','created_at' => '2026-01-14 00:35:59','updated_at' => '2026-01-14 00:35:59'),
+  array('id' => '2','name' => 'user.create','guard_name' => 'admin','created_at' => '2026-01-14 00:35:59','updated_at' => '2026-01-14 00:35:59')
 );
 
-/* `a48`.`products` */
+/* `a52`.`products` */
 $products = array(
 );
 
-/* `a48`.`product_categories` */
+/* `a52`.`product_categories` */
 $product_categories = array(
 );
 
-/* `a48`.`product_enquiries` */
+/* `a52`.`product_enquiries` */
 $product_enquiries = array(
 );
 
-/* `a48`.`roles` */
-$roles = array(
-  array('id' => '1','name' => 'Super Admin','guard_name' => 'admin','created_at' => '2026-01-13 12:58:21','updated_at' => '2026-01-13 12:58:21')
+/* `a52`.`projects` */
+$projects = array(
 );
 
-/* `a48`.`role_has_permissions` */
+/* `a52`.`roles` */
+$roles = array(
+  array('id' => '1','name' => 'Super Admin','guard_name' => 'admin','created_at' => '2026-01-14 00:35:59','updated_at' => '2026-01-14 00:35:59')
+);
+
+/* `a52`.`role_has_permissions` */
 $role_has_permissions = array(
   array('permission_id' => '1','role_id' => '1')
 );
 
-/* `a48`.`sellers` */
+/* `a52`.`sellers` */
 $sellers = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-07 14:23:25','name' => 'Susheel Singh Seller','email' => 'seller@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
 );
 
-/* `a48`.`services` */
+/* `a52`.`services` */
 $services = array(
-  array('id' => '1','created_at' => '2024-04-06 09:23:05','updated_at' => '2024-04-06 09:23:05','created_by' => NULL,'title' => 'Business Growth Mangment','slug' => 'business-growth-mangment','category' => 'Business','tags' => 'jsh,df','short_description' => 'Catalysts for change before fully tested markets are maintain wireless scenarios after intermandated applications predominate revolutionary.','long_description1' => '<p>Continually myocardinate holistic mindshare with client-based web services. Assertively e-enable catalysts for change before tested markets. Phosfluorescently maintain wireless scenarios after intermandated applications. Conveniently predominate revolutionary quality vectors through future-proof manufactured products. Enthusiastically transform distinctive collaboration.</p>
+  array('id' => '1','created_at' => '2024-04-06 09:23:05','updated_at' => '2026-01-14 00:42:23','created_by' => NULL,'title' => 'Business Growth Mangment','slug' => 'business-growth-mangment','category' => 'Business','tags' => 'jsh,df','short_description' => 'Catalysts for change before fully tested markets are maintain wireless scenarios after intermandated applications predominate revolutionary.','long_description1' => '<p>Continually myocardinate holistic mindshare with client-based web services. Assertively e-enable catalysts for change before tested markets. Phosfluorescently maintain wireless scenarios after intermandated applications. Conveniently predominate revolutionary quality vectors through future-proof manufactured products. Enthusiastically transform distinctive collaboration.</p>
 
 <p>Intrinsicly coordinate multifunctional functionalities reliable potentialities. Objectively envisioneer high in convergence through collaborative networks. Interactively generate B2C e-tailers for business data restore fully researched relationships through resource maximizing results.</p>
 
@@ -492,21 +505,17 @@ $services = array(
   array('id' => '3','created_at' => '2025-12-11 17:38:32','updated_at' => '2025-12-11 17:38:32','created_by' => NULL,'title' => 'Nisi in recusandae','slug' => 'nisi-in-recusandae','category' => 'Quibusdam porro ab f','tags' => 'Quibusdam minus dolo','short_description' => 'Doloribus officia en','long_description1' => '<p>dsfaasd</p>','long_description2' => NULL,'long_description3' => NULL,'is_active' => '1')
 );
 
-/* `a48`.`sessions` */
+/* `a52`.`sessions` */
 $sessions = array(
-  array('id' => 'MVRn8WSKxG8d9jnHHwulHKX7R2HlmhkcOSNGpme9','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Herd/1.24.0 Chrome/120.0.6099.291 Electron/28.2.5 Safari/537.36','payload' => 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiRVdrZjZJY3dEWlNoSmJYMVcyNjV2bG1DaE1mVTZFT0hSM1p0Z1JKaCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjk6Imh0dHA6Ly9hNDgudGVzdC8/aGVyZD1wcmV2aWV3IjtzOjU6InJvdXRlIjtzOjQ6ImhvbWUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19','last_activity' => '1768289458'),
-  array('id' => 'pJxnGUhowC3T2d4EklpocccAJwOPCfuoBmDdhRin','user_id' => '1','ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36','payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiZW1VWUk3bjNTU3Bsb0x2SUtBTHJTZEFQSEZBNWhaM211cEJDVG14SiI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjg6Imh0dHBzOi8vYTQ4LnRlc3QvYWRtaW4vbG9naW4iO3M6NToicm91dGUiO3M6MTE6ImFkbWluLmxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9','last_activity' => '1768289702'),
-  array('id' => 'WyCjgMUPHm9M6t4cfHslKXJylL4PCBcDQkV4EkPD','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Herd/1.24.0 Chrome/120.0.6099.291 Electron/28.2.5 Safari/537.36','payload' => 'YTozOntzOjY6Il90b2tlbiI7czo0MDoieXhUWjVXZWhOYUVVd0V2QzFBWEY4cDROQ2hVM01ONzZ1VzRMbEpiQSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzA6Imh0dHBzOi8vYTQ4LnRlc3QvP2hlcmQ9cHJldmlldyI7czo1OiJyb3V0ZSI7czo0OiJob21lIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==','last_activity' => '1768289462'),
-  array('id' => 'XZMKpxbSCzCCSVMerviIzOYPSkNwzU0wN1P5gVWo','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36','payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiYk1SZFRXN1ZSU3k5U2FCTEVzeWl1b1Frb3ppWGhLTjZiNnF2M0p5NSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjg6Imh0dHBzOi8vYTQ4LnRlc3QvYWRtaW4vbG9naW4iO3M6NToicm91dGUiO3M6MTE6ImFkbWluLmxvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MDp7fXM6NTI6ImxvZ2luX2FkbWluXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9','last_activity' => '1768289632'),
-  array('id' => 'Y370qeP7U4bDHeHkjfHGZAOOhRHanCNT4IyE3idq','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Herd/1.24.0 Chrome/120.0.6099.291 Electron/28.2.5 Safari/537.36','payload' => 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMmliVlpaTzBXRGV1VWFmelk4dHM0RUg5R01YUUtjTlVZZGZYUzdPRCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHBzOi8vYTQ4LnRlc3QvYXBpL3Zpc2l0b3JzL2NvdW50IjtzOjU6InJvdXRlIjtOO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19','last_activity' => '1768289463')
+  array('id' => '9Str7bzDzZFwuiiVrbIWyhGFxT9IBGUg9mvG081Z','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36','payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMGYzZUYxaGxZN2xjWmZGOVlVZHNFckpMc1p1YVF5dTRTS1pXRXZBViI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHBzOi8vYTUyLnRlc3QvYXBpL3Zpc2l0b3JzL2NvdW50IjtzOjU6InJvdXRlIjtOO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=','last_activity' => '1768331712')
 );
 
-/* `a48`.`settings` */
+/* `a52`.`settings` */
 $settings = array(
   array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2025-12-22 14:35:43','app_name' => 'Application Name','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '7979851485','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','youtube' => NULL,'google_map' => NULL,'whatsapp' => '7979851485','admin_theme' => NULL,'user_theme' => NULL,'partner_theme' => NULL,'color1' => NULL,'color2' => NULL,'color3' => NULL,'color4' => NULL,'color5' => NULL,'color6' => NULL)
 );
 
-/* `a48`.`slider1` */
+/* `a52`.`slider1` */
 $slider1 = array(
   array('id' => '1','created_at' => '2025-05-22 18:28:54','updated_at' => '2025-05-22 22:05:37','heading1' => 'Aspernatur facere ni','heading2' => 'Consequuntur commodo','paragraph1' => 'Enim animi cum est','paragraph2' => 'Quas occaecat quis e','btn_name' => 'Praesentium animi a','btn_url' => 'Quia accusantium id','btn_target' => 'Id quidem quo omnis','is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-22 18:30:21','updated_at' => '2025-05-22 22:05:32','heading1' => 'Vel optio et simili','heading2' => 'Natus unde velit exc','paragraph1' => 'Nobis tempore verit','paragraph2' => 'Nulla minim consequu','btn_name' => 'Quia velit minima c','btn_url' => 'Voluptates distincti','btn_target' => 'Velit ut dolore maxi','is_active' => '1'),
@@ -516,11 +525,11 @@ $slider1 = array(
   array('id' => '6','created_at' => '2025-05-22 18:46:12','updated_at' => '2025-05-22 22:02:21','heading1' => 'Hic adipis','heading2' => 'Dicta tempor fuga I','paragraph1' => 'Eos et nulla volupt','paragraph2' => 'Fugiat enim dolor t','btn_name' => 'Accusantium veniam','btn_url' => 'Pariatur Mollit vol','btn_target' => 'Architecto officia r','is_active' => '1')
 );
 
-/* `a48`.`states` */
+/* `a52`.`states` */
 $states = array(
 );
 
-/* `a48`.`team` */
+/* `a52`.`team` */
 $team = array(
   array('id' => '1','created_at' => '2025-12-11 15:04:24','updated_at' => '2025-12-11 15:05:53','name' => 'Malachi Howard','designation' => 'Incidunt omnis ad n','is_active' => '1'),
   array('id' => '2','created_at' => '2025-12-11 17:35:44','updated_at' => '2025-12-11 17:35:44','name' => 'Reagan Hess','designation' => 'Ullam debitis volupt','is_active' => '1'),
@@ -528,19 +537,19 @@ $team = array(
   array('id' => '4','created_at' => '2025-12-11 17:37:09','updated_at' => '2025-12-11 17:37:09','name' => 'Alfonso Wynn','designation' => 'Culpa dicta magnam','is_active' => '1')
 );
 
-/* `a48`.`testimonials` */
+/* `a52`.`testimonials` */
 $testimonials = array(
   array('id' => '1','created_at' => '2025-12-11 14:58:46','updated_at' => '2025-12-11 15:06:50','name' => 'Lilah Moran','designation' => 'Optio laboris cupid','organisation' => 'Serrano and Sosa Co','message' => 'Molestias quas delec','is_active' => '1'),
   array('id' => '2','created_at' => '2025-12-11 14:59:43','updated_at' => '2025-12-11 15:06:45','name' => 'Autumn Wise','designation' => 'Inventore voluptatum','organisation' => 'Compton Hampton LLC','message' => 'Sint dolor voluptate','is_active' => '1'),
   array('id' => '3','created_at' => '2025-12-11 14:59:48','updated_at' => '2025-12-11 15:06:38','name' => 'Kirsten Farrell','designation' => 'Velit nisi facilis r','organisation' => 'Underwood and Randolph Traders','message' => 'Optio voluptatem ha','is_active' => '1')
 );
 
-/* `a48`.`users` */
+/* `a52`.`users` */
 $users = array(
   array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => '07979851485','email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','two_factor_secret' => NULL,'two_factor_recovery_codes' => NULL,'two_factor_confirmed_at' => NULL,'remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2025-12-22 15:04:03')
 );
 
-/* `a48`.`user_queries` */
+/* `a52`.`user_queries` */
 $user_queries = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Alexa Wolf I','email' => 'brionna74@example.com','phone' => '1-930-284-0965','message' => 'Calista Powlowski DDS','subject' => 'Lizeth Greenfelder II','status_id' => '1','deleted_at' => NULL),
   array('id' => '2','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Dr. Cathryn Beer DDS','email' => 'apredovic@example.com','phone' => '1-480-716-4461','message' => 'Alexandro Weber','subject' => 'Gabrielle Grant','status_id' => '1','deleted_at' => NULL),
@@ -646,7 +655,7 @@ $user_queries = array(
   array('id' => '102','created_at' => '2025-12-11 14:16:42','updated_at' => '2025-12-11 14:16:42','name' => 'Amanda Trevino','email' => 'wadimap@mailinator.com','phone' => '+1 (556) 944-6046','message' => 'Dolore quas ipsum c','subject' => 'Repudiandae ipsam ve','status_id' => '1','deleted_at' => NULL)
 );
 
-/* `a48`.`user_query_statuses` */
+/* `a52`.`user_query_statuses` */
 $user_query_statuses = array(
   array('id' => '1','name' => 'Unread'),
   array('id' => '2','name' => 'Viewd'),
@@ -655,7 +664,7 @@ $user_query_statuses = array(
   array('id' => '5','name' => 'Closed')
 );
 
-/* `a48`.`visitors` */
+/* `a52`.`visitors` */
 $visitors = array(
-  array('id' => '1','ip_address' => '127.0.0.1','created_at' => '2026-01-13 13:00:58','updated_at' => '2026-01-13 13:00:58')
+  array('id' => '1','ip_address' => '127.0.0.1','created_at' => '2026-01-14 00:36:16','updated_at' => '2026-01-14 00:36:16')
 );
