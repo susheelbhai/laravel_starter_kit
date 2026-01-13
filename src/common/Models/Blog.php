@@ -8,6 +8,7 @@ use App\Models\BaseModels\BaseExternalMediaModel;
 class Blog extends BaseExternalMediaModel
 {
     use HasFactory;
+    protected $appends = ['display_img', 'display_img_converted', 'ad_img', 'ad_img_converted'];
 
     public function registerMediaCollections(): void
     {

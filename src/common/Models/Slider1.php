@@ -9,6 +9,7 @@ class Slider1 extends BaseExternalMediaModel
 {
     use HasFactory;
     protected $table = 'slider1';
+    protected $appends = ['image1', 'image1_converted', 'image2', 'image2_converted'];
 
     public function registerMediaCollections(): void
     {

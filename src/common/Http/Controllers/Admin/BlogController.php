@@ -11,7 +11,17 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $data = Blog::latest()->get();
+        $data = Blog::latest()->paginate(15)->through(function ($blog) {
+            return [
+                'id' => $blog->id,
+                'title' => $blog->title,
+                'category' => $blog->category,
+                'short_description' => $blog->short_description,
+                'slug' => $blog->slug,
+                'is_active' => $blog->is_active,
+                'display_img' => $blog->getFirstMediaUrl('display_image'),
+            ];
+        });
         return $this->render('admin/resources/blog/index', compact('data'));
     }
 

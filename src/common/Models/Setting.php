@@ -9,6 +9,7 @@ class Setting extends BaseInternalMediaModel
 {
     use HasFactory;
     protected $guarded = [];
+    protected $appends = ['favicon', 'favicon_converted', 'dark_logo', 'dark_logo_converted', 'light_logo', 'light_logo_converted'];
 
     public function registerMediaCollections(): void
     {

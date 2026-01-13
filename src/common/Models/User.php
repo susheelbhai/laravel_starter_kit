@@ -10,6 +10,7 @@ use App\Models\BaseModels\BaseExternalAuthenticatable;
 class User extends BaseExternalAuthenticatable
 {
     use HasFactory, Notifiable;
+    protected $appends = ['profile_pic', 'profile_pic_converted'];
 
     public function registerMediaCollections(): void
     {

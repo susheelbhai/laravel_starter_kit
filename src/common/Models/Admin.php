@@ -12,6 +12,7 @@ use App\Models\BaseModels\BaseInternalAuthenticatable;
 class Admin extends BaseInternalAuthenticatable
 {
     use HasFactory, Notifiable, HasRoles;
+    protected $appends = ['profile_pic', 'profile_pic_converted'];
 
     public function registerMediaCollections(): void
     {
