@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->nullable();
             $table->string('category')->nullable();
-            $table->string('display_img')->default('dummy.png');
             $table->string('tags')->nullable();
             $table->longText('short_description')->nullable();
             $table->longText('long_description1')->nullable();

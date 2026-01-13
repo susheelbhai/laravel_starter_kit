@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreignId('created_by')->nullable()->references('id')->on('admins');
             $table->string('title');
             $table->string('slug');
-            $table->string('display_img')->nullable();
             $table->string('category')->nullable();
             $table->string('author')->nullable();
             $table->string('tags')->nullable();
@@ -27,8 +26,6 @@ return new class extends Migration
             $table->longText('long_description3')->nullable();
             $table->longText('highlighted_text1')->nullable();
             $table->longText('highlighted_text2')->nullable();
-            $table->string('ad_img')->nullable();
-            $table->string('ad_url')->nullable();
             $table->string('views')->nullable();
             $table->boolean('is_active')->default(1);
         });

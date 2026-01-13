@@ -17,9 +17,6 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('app_name')->nullable();
-            $table->string('favicon')->nullable();
-            $table->string('dark_logo')->nullable();
-            $table->string('light_logo')->nullable();
             $table->string('title')->nullable();
             $table->string('address')->nullable();
             $table->longText('detailed_address')->nullable();

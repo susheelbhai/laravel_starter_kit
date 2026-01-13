@@ -19,9 +19,7 @@ return new class extends Migration
             $table->longText('objective')->nullable();
             $table->longText('mission')->nullable();
             $table->longText('vision')->nullable();
-            $table->string('founder_image')->default('dummy.png');
             $table->longText('founder_message')->nullable();
-            $table->string('banner')->default('dummy.png');
         });
     }
 

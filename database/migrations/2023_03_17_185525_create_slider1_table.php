@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('btn_name')->nullable();
             $table->string('btn_url')->nullable();
             $table->string('btn_target')->nullable();
-            $table->string('image1')->nullable();
-            $table->string('image2')->nullable();
             $table->boolean('is_active')->default(1);
         });
     }

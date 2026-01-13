@@ -25,9 +25,6 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->longText('long_description')->nullable();
 
-            $table->string('icon')->nullable();
-            $table->string('banner')->nullable();
-
             $table->integer('position')->default(0);
             $table->boolean('is_active')->default(true);
             $table->boolean('is_featured')->default(false);

@@ -18,7 +18,6 @@ return new class extends Migration
             $table->timestamps();
             $table->string('href');
             $table->string('name');
-            $table->string('image')->default('dummy.png');
             $table->boolean('is_active')->default(1);
         });
     }

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('url');
-            $table->string('logo')->default('dummy.png');
             $table->boolean('is_active')->default(1);
         });
     }
