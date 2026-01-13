@@ -10,28 +10,34 @@ trait HasMediaConversions
     {
         $this->addMediaConversion('thumb')
             ->fit(Fit::Max, 150, 150)
-            ->sharpen(10);
+            ->sharpen(10)
+            ->keepOriginalImageFormat();
 
         $this->addMediaConversion('thumbSquare')
             ->fit(Fit::Crop, 150, 150)
-            ->sharpen(10);
+            ->sharpen(10)
+            ->keepOriginalImageFormat();
 
         // Maintain aspect ratio for other sizes
         $this->addMediaConversion('small')
             ->width(320)
-            ->sharpen(5);
+            ->sharpen(5)
+            ->keepOriginalImageFormat();
 
         $this->addMediaConversion('medium')
             ->width(640)
-            ->sharpen(5);
+            ->sharpen(5)
+            ->keepOriginalImageFormat();
 
         $this->addMediaConversion('large')
             ->width(1024)
-            ->sharpen(3);
+            ->sharpen(3)
+            ->keepOriginalImageFormat();
 
         $this->addMediaConversion('xlarge')
             ->width(1920)
-            ->sharpen(2);
+            ->sharpen(2)
+            ->keepOriginalImageFormat();
     }
 
     public function registerMediaConversions(\Spatie\MediaLibrary\MediaCollections\Models\Media $media = null): void

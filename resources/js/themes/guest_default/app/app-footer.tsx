@@ -172,9 +172,24 @@ const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-slate-800/80 py-4 text-center text-xs text-slate-500">
-          © {new Date().getFullYear()}{" "}
-          <span className="font-medium text-slate-300">{appData.name}</span>. All
-          rights reserved.
+          <div className="flex flex-col justify-between md:flex-row md:gap-4">
+            <div className="copy">
+              © {new Date().getFullYear()}{" "}
+              <span className="font-medium text-slate-300">{appData.name}</span>. All
+              rights reserved.
+            </div>
+            <div className="credit">
+              Developed by{" "}
+              <a
+                href="https://digamite.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-primary hover:underline"
+              >
+                Digamite Private Limited
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
