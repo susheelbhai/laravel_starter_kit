@@ -34,7 +34,7 @@ export default function HeroSection(props: any) {
                     </div>
 
                     <div className="mt-8 flex space-x-4">
-                        <a href="#">
+                        <a href={route('product.index')}>
                             <button className="cursor-pointer rounded-md bg-primary px-6 py-3 font-semibold text-white hover:bg-primary/80">
                                 See Products
                             </button>

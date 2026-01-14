@@ -20,6 +20,7 @@ type FormType = {
     is_active: number;
     display_img: string | File;
     ad_img: string | File;
+    ad_url: string;
 };
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -51,18 +52,19 @@ export default function Create() {
         is_active: blog?.is_active ?? 1,
         display_img: blog?.display_img || '',
         ad_img: blog?.ad_img || '',
+        ad_url: blog?.ad_url || '',
     };
 
     const { submit, inputDivData, processing } = useFormHandler<FormType>({
         url: route('admin.blog.update', blog?.id),
         initialValues,
-        method: 'POST',
+        method: 'PUT',
         onSuccess: () => console.log('Simple form created successfully!'),
     });
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Create Blog" />
+            <Head title="Edit Blog" />
             <FormContainer onSubmit={submit} processing={processing}>
                 <InputDiv
                     type="text"
@@ -83,7 +85,7 @@ export default function Create() {
                     inputDivData={inputDivData}
                 />
                 <InputDiv
-                    type="text"
+                    type="textarea"
                     label="Short Description"
                     name="short_description"
                     inputDivData={inputDivData}
@@ -138,6 +140,12 @@ export default function Create() {
                     type="image"
                     label="Ad Image"
                     name="ad_img"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="url"
+                    label="Ad URL"
+                    name="ad_url"
                     inputDivData={inputDivData}
                 />
 

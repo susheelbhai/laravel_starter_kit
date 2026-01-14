@@ -27,6 +27,12 @@ class BlogController extends Controller
                 'ip_address'=> $request->ip()
             ]
         );
+        $related_blogs = Blog::whereIsActive(1)
+            ->where('id', '!=', $data['id'])
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+        $data['related_blogs'] = $related_blogs;
         return $this->render('user/pages/blog/detail', compact('data', 'comments'));
     }
     public function postComment(Request $request, $id) {

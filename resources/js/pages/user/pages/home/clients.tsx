@@ -1,14 +1,21 @@
 export default function ClientSection(data: any) {
     return (
         <section className="bg-background2 py-10 md:py-16">
-                <div className="mx-auto max-w-[1320px] px-4 text-center md:px-6">
-                    <h3 className="mb-6 text-sm font-semibold text-[#6B7280] uppercase">Our Partners</h3>
-                    <div className="flex flex-wrap items-center justify-center gap-10">
-                        {data.data.map((logo:any) => (
-                            <img key={logo.id} src={logo.logo} alt={logo.name} className="h-12 object-contain grayscale transition hover:grayscale-0" />
-                        ))}
-                    </div>
+            <div className="mx-auto max-w-[1320px] px-4 text-center md:px-6">
+                <h3 className="mb-6 text-sm font-semibold text-[#6B7280] uppercase">Our Partners</h3>
+                <div className="flex flex-wrap items-center justify-center gap-10">
+                    {data.data.map((logo: any) => (
+                        <a
+                            href={logo.url}
+                            target="_blank"
+                            key={logo.id}
+                            className="h-12 w-32 grayscale opacity-60 transition hover:grayscale-0 hover:opacity-100 md:h-16 flex items-center justify-center"
+                        >
+                            <img src={logo.logo} alt={logo.name} className="object-contain transition hover:scale-110" />
+                        </a>
+                    ))}
                 </div>
-            </section>
+            </div>
+        </section>
     );
 }

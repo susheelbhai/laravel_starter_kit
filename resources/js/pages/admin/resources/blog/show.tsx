@@ -35,6 +35,7 @@ export default function Dashboard() {
             is_active: number;
             display_img: string;
             ad_img: string;
+            ad_url: string;
         }) || [];
     const thead = [
         { title: 'Blog Detail', className: 'p-3' },
@@ -105,6 +106,10 @@ export default function Dashboard() {
                             <td className="p-3">
                                 <img src={blog.ad_img} alt="" width={320} />
                             </td>
+                        </tr>
+                        <tr className="border-y border-gray-200">
+                            <td className="p-3">Ad URL</td>
+                            <td className="p-3">{blog.ad_url}</td>
                         </tr>
                         <tr className="border-y border-gray-200">
                             <td className="p-3">Status</td>

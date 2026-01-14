@@ -19,6 +19,7 @@ type FormType = {
     is_active: number;
     display_img: string;
     ad_img: string;
+    ad_url: string;
 };
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -47,6 +48,7 @@ export default function Create() {
         is_active: 1,
         display_img: '',
         ad_img: '',
+        ad_url: '',
     };
 
     const { submit, inputDivData, processing } = useFormHandler<FormType>({
@@ -78,7 +80,7 @@ export default function Create() {
                     inputDivData={inputDivData}
                 />
                 <InputDiv
-                    type="text"
+                    type="textarea"
                     label="Short Description"
                     name="short_description"
                     inputDivData={inputDivData}
@@ -133,6 +135,12 @@ export default function Create() {
                     type="image"
                     label="Ad Image"
                     name="ad_img"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="ad_url"
+                    label="Ad URL"
+                    name="ad_url"
                     inputDivData={inputDivData}
                 />
 

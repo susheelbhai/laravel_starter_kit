@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductEnquiryController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\Slider1Controller;
 use App\Http\Controllers\Admin\PortfolioController;
@@ -92,6 +93,7 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
         Route::resource('/team', TeamController::class);
         Route::resource('/testimonial', TestimonialController::class);
         Route::resource('/portfolio', PortfolioController::class);
+        Route::resource('/project', ProjectController::class);
         Route::resource('/service', ServiceController::class);
         Route::resource('/blog', BlogController::class);
         Route::resource('/faq', FaqController::class);

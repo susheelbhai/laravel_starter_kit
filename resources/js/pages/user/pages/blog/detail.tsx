@@ -25,27 +25,42 @@ export default function Create() {
                         {/* Long Descriptions */}
                         <div className="space-y-4">
                             <section>
-                                <h2 className="mb-2 text-xl font-semibold">Overview</h2>
                                 <div dangerouslySetInnerHTML={{ __html: blog.long_description1 }} />
                             </section>
                             <section>
-                                <h2 className="mb-2 text-xl font-semibold">How It Works</h2>
                                 <div dangerouslySetInnerHTML={{ __html: blog.long_description2 }} />
                             </section>
                             <section>
-                                <h2 className="mb-2 text-xl font-semibold">Why Choose Us</h2>
                                 <div dangerouslySetInnerHTML={{ __html: blog.long_description3 }} />
                             </section>
                         </div>
                     </div>
 
                     {/* Sidebar */}
-                    <div className="space-y-4 rounded-xl bg-gray-50 p-6 shadow">
-                        <h3 className="mb-2 text-xl font-semibold">Why Choose This Service</h3>
-                        <ul className="list-inside list-disc space-y-2 text-sm text-gray-600">
-                            {blog.features?.map((feature, i) => <li key={i}>{feature}</li>)}
-                        </ul>
-                        <button className="mt-6 w-full rounded-md bg-[#FAB915] py-2 text-white transition hover:bg-yellow-500">Book Now</button>
+                    <div className="right">
+                        <a href={blog.ad_url} target='_blank' className="space-y-4 rounded-xl bg-gray-50 shadow">
+                            <img src={blog.ad_img} alt="" />
+                        </a>
+
+                        <div className="space-y-4 rounded-xl bg-gray-50 p-6 shadow">
+                            <h3 className="mb-2 text-xl font-semibold">Related Blogs</h3>
+                            <ul className="list-inside list-disc space-y-2 text-sm text-gray-600">
+                                {blog.related_blogs?.map((related_blog: any) => (
+                                    <div key={related_blog.id}>
+                                        <a href={route('blog.show', related_blog.slug)} className="ml-2 hover:underline">
+                                            <div className="flex">
+                                                <div className="img_div flex-1">
+                                                    <img src={related_blog.display_img} alt={related_blog.title} />
+                                                </div>
+                                                <div className="img_title flex-3">
+                                                    {related_blog.title}
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
