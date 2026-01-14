@@ -81,7 +81,7 @@ export default function Create() {
                     inputDivData={inputDivData}
                 />
                 <InputDiv
-                    type="text"
+                    type="textarea"
                     label="Short Description"
                     name="short_description"
                     inputDivData={inputDivData}
@@ -108,18 +108,6 @@ export default function Create() {
                 />
 
                 <InputDiv
-                    type="text"
-                    label="Ad URL"
-                    name="ad_url"
-                    inputDivData={inputDivData}
-                />
-                <InputDiv
-                    type="text"
-                    label="Views"
-                    name="views"
-                    inputDivData={inputDivData}
-                />
-                <InputDiv
                     type="editor"
                     label="Highlighted Text 1"
                     name="highlighted_text1"
@@ -141,6 +129,12 @@ export default function Create() {
                     type="image"
                     label="Ad Image"
                     name="ad_img"
+                    inputDivData={inputDivData}
+                />
+                <InputDiv
+                    type="url"
+                    label="Ad URL"
+                    name="ad_url"
                     inputDivData={inputDivData}
                 />
                 <InputDiv

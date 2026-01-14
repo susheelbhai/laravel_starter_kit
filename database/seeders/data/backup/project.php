@@ -5,70 +5,144 @@
  */
 
 /**
- * Database `a52`
+ * Database `a54`
  */
 
-/* `a52`.`admins` */
+/* `a54`.`admins` */
 $admins = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:02','updated_at' => '2024-04-07 14:24:26','name' => 'Susheel Kumar Singh','email' => 'admin@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','address' => NULL,'city' => NULL,'state' => NULL,'dob' => NULL,'remember_token' => 'c983AmI82JJZf7maNXNXqxI5tJaQWcOjjf6yz0DigEGdl4xuzWkCwCnNCoiQ')
 );
 
-/* `a52`.`blogs` */
+/* `a54`.`blogs` */
 $blogs = array(
-  array('id' => '1','created_at' => '2024-04-06 00:38:32','updated_at' => '2024-04-06 00:42:46','created_by' => NULL,'title' => 'Profitable business makes your profit','slug' => 'profitable-business-makes-your-profit','category' => 'Business','author' => 'Susheel Singh','tags' => 'business, profit','short_description' => 'Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services','long_description1' => '<p>Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services</p>
+  array('id' => '1','created_at' => '2024-04-06 00:38:32','updated_at' => '2026-01-14 19:11:11','created_by' => NULL,'title' => 'Profitable business makes your profit','slug' => 'profitable-business-makes-your-profit','category' => 'Business','author' => 'Susheel Singh','tags' => 'business, profit','short_description' => 'Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services','long_description1' => '<p>Collaboratively pontificate bleeding edge resources with inexpensive methodologies globally initiate multidisciplinary compatible architectures pidiously repurpose leading edge growth strategies with just in time web readiness communicate timely meta services</p>
 
-<p>Onubia semper vel donec torquent fusce mauris felis aptent lacinia nisl, lectus himenaeos euismod molestie iaculis interdum in laoreet condimentum dictum, quisque quam risus sollicitudin gravida ut odio per a et. Gravida maecenas lobortis suscipit mus sociosqu convallis, mollis vestibulum donec aliquam risus sapien ridiculus, nulla sollicitudin eget in venenatis. Tortor montes platea iaculis posuere per mauris, eros porta blandit curabitur ullamcorper varius</p>','long_description2' => '<p>Ultrices iaculis commodo parturient euismod pulvinar donec cum eget a, accumsan viverra cras praesent cubilia dignissim ad rhoncus. Gravida maecenas lobortis suscipit mus sociosqu convallis, mollis vestibulum donec aliquam risus sapien ridiculus, nulla sollicitudin eget in venenatis. Tortor montes platea iaculis posuere per mauris, eros porta blandit curabitur ullamcorper varius, nostra ante risus egestas suscipit. Quisque interdum nec parturient facilisis nunc ac quam, ad est cubilia mauris himenaeos nascetur vestibulum.</p>
-
-<div class="g-5 row">
-<div class="col-lg-6 col-md-6">
-<div class="details thumbnail"><img alt="finbiz_buseness" src="assets/images/blog/details/01.jpg" /></div>
-</div>
-
-<div class="col-lg-6 col-md-6">
-<div class="details thumbnail"><img alt="finbiz_buseness" src="assets/images/blog/details/02.jpg" /></div>
-</div>
-</div>','long_description3' => '<div class="align-items-center row">
+<p>Onubia semper vel donec torquent fusce mauris felis aptent lacinia nisl, lectus himenaeos euismod molestie iaculis interdum in laoreet condimentum dictum, quisque quam risus sollicitudin gravida ut odio per a et. Gravida maecenas lobortis suscipit mus sociosqu convallis, mollis vestibulum donec aliquam risus sapien ridiculus, nulla sollicitudin eget in venenatis. Tortor montes platea iaculis posuere per mauris, eros porta blandit curabitur ullamcorper varius</p>','long_description2' => '<p>Ultrices iaculis commodo parturient euismod pulvinar donec cum eget a, accumsan viverra cras praesent cubilia dignissim ad rhoncus. Gravida maecenas lobortis suscipit mus sociosqu convallis, mollis vestibulum donec aliquam risus sapien ridiculus, nulla sollicitudin eget in venenatis. Tortor montes platea iaculis posuere per mauris, eros porta blandit curabitur ullamcorper varius, nostra ante risus egestas suscipit. Quisque interdum nec parturient facilisis nunc ac quam, ad est cubilia mauris himenaeos nascetur vestibulum.</p>','long_description3' => '<div class="align-items-center row">
 <div class="col-lg-5">
-<div class="details mb_sm--15 thumbnail"><img alt="finbiz_buseness" src="assets/images/blog/details/03.jpg" /></div>
+<div class="details mb_sm--15 thumbnail">How will activities traditional manufacturing</div>
 </div>
-
 <div class="col-lg-7">
-<div class="check-area-details"><!-- single check -->
-<div class="single-check">How will activities traditional manufacturing</div>
-<!-- single check End --><!-- single check -->
-
+<div class="check-area-details"><!-- single check End --><!-- single check -->
 <div class="single-check">All these digital and projects aim to enhance</div>
 <!-- single check End --><!-- single check -->
-
 <div class="single-check">I monitor my software that takes screenshots</div>
 <!-- single check End --><!-- single check -->
-
 <div class="single-check">Laoreet dolore niacin sodium glutimate</div>
 <!-- single check End --><!-- single check -->
-
 <div class="single-check">Minim veniam sodium glutimate nostrud</div>
 <!-- single check End --></div>
 </div>
-</div>','highlighted_text1' => '“Placerat pretium tristique mattis tellus accuan metus dictumst vivamus odio nulla fusce auctor into suscipit habitasse class congue potenti iaculis”','highlighted_text2' => NULL,'ad_url' => NULL,'views' => NULL,'is_active' => '1')
+</div>','highlighted_text1' => '“Placerat pretium tristique mattis tellus accuan metus dictumst vivamus odio nulla fusce auctor into suscipit habitasse class congue potenti iaculis”','highlighted_text2' => NULL,'ad_url' => 'https://www.qyqetyxovoqe.com.au','views' => NULL,'is_active' => '1'),
+  array('id' => '2','created_at' => '2026-01-14 19:14:01','updated_at' => '2026-01-14 19:14:01','created_by' => NULL,'title' => 'Non iusto quis sunt','slug' => 'non-iusto-quis-sunt','category' => 'Temporibus magnam pr','author' => 'Fugit enim ab dolor','tags' => 'Ea dolore reiciendis','short_description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).','long_description1' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','long_description2' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','long_description3' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','highlighted_text1' => 'Id qui lorem volupt','highlighted_text2' => 'Laborum Quasi elige','ad_url' => 'https://www.sehyhetuzexyxa.biz','views' => NULL,'is_active' => '1'),
+  array('id' => '3','created_at' => '2026-01-14 19:15:13','updated_at' => '2026-01-14 19:15:13','created_by' => NULL,'title' => 'Impedit aut quis vo','slug' => 'impedit-aut-quis-vo','category' => 'Anim autem sint nece','author' => 'Blanditiis quis eos','tags' => 'Reprehenderit cumqu','short_description' => 'Et sit qui voluptas','long_description1' => '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>','long_description2' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','long_description3' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','highlighted_text1' => 'Error optio non ea','highlighted_text2' => 'Ut odit inventore vo','ad_url' => 'https://www.sehyhetuzexyxa.biz','views' => NULL,'is_active' => '1')
 );
 
-/* `a52`.`blog_comments` */
+/* `a54`.`blog_comments` */
 $blog_comments = array(
 );
 
-/* `a52`.`blog_views` */
+/* `a54`.`blog_views` */
 $blog_views = array(
+  array('id' => '1','created_at' => '2026-01-14 19:09:42','updated_at' => '2026-01-14 19:09:42','ip_address' => '127.0.0.1','blog_id' => '1'),
+  array('id' => '2','created_at' => '2026-01-14 19:11:53','updated_at' => '2026-01-14 19:11:53','ip_address' => '127.0.0.1','blog_id' => '1'),
+  array('id' => '3','created_at' => '2026-01-14 19:15:46','updated_at' => '2026-01-14 19:15:46','ip_address' => '127.0.0.1','blog_id' => '3'),
+  array('id' => '4','created_at' => '2026-01-14 19:27:59','updated_at' => '2026-01-14 19:27:59','ip_address' => '127.0.0.1','blog_id' => '1')
 );
 
-/* `a52`.`cache` */
+/* `a54`.`cache` */
 $cache = array(
 );
 
-/* `a52`.`cache_locks` */
+/* `a54`.`cache_locks` */
 $cache_locks = array(
 );
 
-/* `a52`.`clients` */
+/* `a54`.`clients` */
 $clients = array(
   array('id' => '1','created_at' => '2024-04-07 08:55:42','updated_at' => '2024-04-07 08:57:50','name' => 'Zoe Hansen','url' => 'https://www.dixurono.org.uk','is_active' => '1'),
   array('id' => '2','created_at' => '2024-04-07 08:58:31','updated_at' => '2024-04-07 08:58:31','name' => 'Rashad Randall','url' => 'https://www.rexazosyr.com.au','is_active' => '1'),
@@ -77,24 +151,24 @@ $clients = array(
   array('id' => '5','created_at' => '2024-04-07 08:59:24','updated_at' => '2024-04-07 08:59:24','name' => 'Tallulah Mcdaniel','url' => 'https://www.mazufuvaw.net','is_active' => '1')
 );
 
-/* `a52`.`failed_jobs` */
+/* `a54`.`failed_jobs` */
 $failed_jobs = array(
 );
 
-/* `a52`.`faqs` */
+/* `a54`.`faqs` */
 $faqs = array(
   array('id' => '1','created_at' => '2025-05-20 12:26:15','updated_at' => '2025-05-20 12:26:15','faq_category_id' => '1','question' => 'What is your return policy?','answer' => '<p>We offer a 30-day return policy on all products. If you are not satisfied with your purchase, please contact our support team to initiate the return process.</p>','is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-20 12:27:45','updated_at' => '2025-05-20 12:27:45','faq_category_id' => '1','question' => 'How do I track my order?','answer' => '<p>You can track your order using the tracking number provided in your order confirmation email. Simply enter the tracking number on our website\'s tracking page to see the status of your shipment.</p>','is_active' => '1'),
   array('id' => '3','created_at' => '2025-05-20 12:28:30','updated_at' => '2025-05-20 12:28:30','faq_category_id' => '2','question' => 'Do you offer discounts for bulk purchases?','answer' => '<p>Yes, we offer discounts for bulk purchases. Please contact our sales team for more information on pricing and available discounts.</p>','is_active' => '1')
 );
 
-/* `a52`.`faq_categories` */
+/* `a54`.`faq_categories` */
 $faq_categories = array(
   array('id' => '1','title' => 'General','is_active' => '1'),
   array('id' => '2','title' => 'Pricing','is_active' => '1')
 );
 
-/* `a52`.`important_links` */
+/* `a54`.`important_links` */
 $important_links = array(
   array('id' => '1','created_at' => '2025-05-17 16:40:35','updated_at' => '2025-05-17 16:40:35','href' => 'tnc','name' => 'Terms of Uses','is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-17 16:40:53','updated_at' => '2025-05-17 16:40:53','href' => 'privacy','name' => 'Privacy Policy','is_active' => '1'),
@@ -102,19 +176,19 @@ $important_links = array(
   array('id' => '4','created_at' => '2025-05-17 16:41:15','updated_at' => '2025-05-17 16:41:15','href' => 'faq','name' => 'FAQ','is_active' => '1')
 );
 
-/* `a52`.`jobs` */
+/* `a54`.`jobs` */
 $jobs = array(
 );
 
-/* `a52`.`job_batches` */
+/* `a54`.`job_batches` */
 $job_batches = array(
 );
 
-/* `a52`.`media` */
+/* `a54`.`media` */
 $media = array(
 );
 
-/* `a52`.`media_external` */
+/* `a54`.`media_external` */
 $media_external = array(
   array('id' => '1','model_type' => 'App\\Models\\User','model_id' => '1','uuid' => 'ccc42648-7fec-4595-9824-bd754d497d15','collection_name' => 'profile_pic','name' => '693adc5f07b4e','file_name' => '693adc5f07b4e.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 15:04:03','updated_at' => '2026-01-14 00:39:03'),
   array('id' => '2','model_type' => 'App\\Models\\Partner','model_id' => '1','uuid' => '17d56678-115c-4e4b-985e-6eca1da30f2c','collection_name' => 'profile_pic','name' => '693add78ab662','file_name' => '693add78ab662.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '19201','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 15:04:20','updated_at' => '2026-01-14 00:39:08'),
@@ -126,10 +200,26 @@ $media_external = array(
   array('id' => '8','model_type' => 'App\\Models\\Portfolio','model_id' => '4','uuid' => '0f0e203c-2a85-4565-8435-6c49d6cc7b3c','collection_name' => 'logo','name' => 'brand2','file_name' => 'brand2.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '12131','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:43:56','updated_at' => '2026-01-14 00:43:59'),
   array('id' => '9','model_type' => 'App\\Models\\Portfolio','model_id' => '3','uuid' => '0f2b4ec5-eb63-4e29-ad68-b11940740f41','collection_name' => 'logo','name' => 'brand3','file_name' => 'brand3.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '20387','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:44:19','updated_at' => '2026-01-14 00:44:24'),
   array('id' => '10','model_type' => 'App\\Models\\Portfolio','model_id' => '2','uuid' => '8f75074d-f4d2-48fd-bb38-b759be23965e','collection_name' => 'logo','name' => 'brand4','file_name' => 'brand4.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '18723','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:44:38','updated_at' => '2026-01-14 00:44:42'),
-  array('id' => '11','model_type' => 'App\\Models\\Portfolio','model_id' => '1','uuid' => '6168d533-a126-464e-8089-3da41d294164','collection_name' => 'logo','name' => 'brand5','file_name' => 'brand5.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '32392','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:44:57','updated_at' => '2026-01-14 00:45:03')
+  array('id' => '11','model_type' => 'App\\Models\\Portfolio','model_id' => '1','uuid' => '6168d533-a126-464e-8089-3da41d294164','collection_name' => 'logo','name' => 'brand5','file_name' => 'brand5.png','mime_type' => 'image/png','disk' => 'external_media','conversions_disk' => 'external_media','size' => '32392','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 00:44:57','updated_at' => '2026-01-14 00:45:03'),
+  array('id' => '12','model_type' => 'App\\Models\\Blog','model_id' => '1','uuid' => 'a1ff00bc-efe5-459c-8135-653f3c2bb865','collection_name' => 'display_image','name' => 'blog1','file_name' => 'blog1.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '1468279','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:11:11','updated_at' => '2026-01-14 19:11:18'),
+  array('id' => '13','model_type' => 'App\\Models\\Blog','model_id' => '1','uuid' => '3aa7a277-00c8-463c-9b7e-9f50c917788b','collection_name' => 'ad_image','name' => 'ad1','file_name' => 'ad1.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '2898008','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:11:18','updated_at' => '2026-01-14 19:11:42'),
+  array('id' => '14','model_type' => 'App\\Models\\Blog','model_id' => '2','uuid' => '7ad1a0e2-a564-41bb-932d-750b34d0c45a','collection_name' => 'display_image','name' => 'blog2','file_name' => 'blog2.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '1671914','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:14:01','updated_at' => '2026-01-14 19:14:08'),
+  array('id' => '15','model_type' => 'App\\Models\\Blog','model_id' => '2','uuid' => '8e7bb04b-2665-458d-8fde-4ab60b0b03ab','collection_name' => 'ad_image','name' => 'ad2','file_name' => 'ad2.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '3656710','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:14:08','updated_at' => '2026-01-14 19:14:25'),
+  array('id' => '16','model_type' => 'App\\Models\\Blog','model_id' => '3','uuid' => 'a98b7f52-7387-4757-8041-76cefdc9e888','collection_name' => 'display_image','name' => 'blog3','file_name' => 'blog3.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '382793','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:15:13','updated_at' => '2026-01-14 19:15:23'),
+  array('id' => '17','model_type' => 'App\\Models\\Blog','model_id' => '3','uuid' => '3dd62505-fe87-419e-af07-41071bc3a7f9','collection_name' => 'ad_image','name' => 'ad3','file_name' => 'ad3.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '2837313','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:15:23','updated_at' => '2026-01-14 19:16:04'),
+  array('id' => '18','model_type' => 'App\\Models\\Project','model_id' => '1','uuid' => '068c5f3f-f5e1-4df9-a764-aa207cb0d2f6','collection_name' => 'ad_img','name' => 'ad1','file_name' => 'ad1.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '2898008','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:24:20','updated_at' => '2026-01-14 19:24:37'),
+  array('id' => '19','model_type' => 'App\\Models\\Project','model_id' => '1','uuid' => '1eade608-f513-4854-835d-52fd7bbaee32','collection_name' => 'images','name' => 'project1c','file_name' => 'project1c.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '1166865','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:24:37','updated_at' => '2026-01-14 19:24:42'),
+  array('id' => '20','model_type' => 'App\\Models\\Project','model_id' => '1','uuid' => 'd42181d7-8a65-4299-963f-4e48a1b5da3b','collection_name' => 'images','name' => 'project1b','file_name' => 'project1b.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '1124394','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:24:42','updated_at' => '2026-01-14 19:24:48'),
+  array('id' => '21','model_type' => 'App\\Models\\Project','model_id' => '1','uuid' => '1b05d953-5073-4337-bc99-b30b1811003a','collection_name' => 'images','name' => 'project1a','file_name' => 'project1a.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '1150946','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:24:48','updated_at' => '2026-01-14 19:24:53'),
+  array('id' => '22','model_type' => 'App\\Models\\Project','model_id' => '2','uuid' => '6c74d3b2-bb4d-4bc9-9a3e-a0ab56b3c7e2','collection_name' => 'ad_img','name' => 'ad2','file_name' => 'ad2.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '3656710','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:25:34','updated_at' => '2026-01-14 19:25:45'),
+  array('id' => '23','model_type' => 'App\\Models\\Project','model_id' => '2','uuid' => '548c56a7-3ce7-4cfd-bc52-e21aa7630518','collection_name' => 'images','name' => 'project2a','file_name' => 'project2a.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '749305','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:25:46','updated_at' => '2026-01-14 19:25:51'),
+  array('id' => '24','model_type' => 'App\\Models\\Project','model_id' => '3','uuid' => '8f5a1441-cc87-475e-b036-9fe3c3cc6220','collection_name' => 'ad_img','name' => 'ad3','file_name' => 'ad3.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '2837313','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:26:14','updated_at' => '2026-01-14 19:26:41'),
+  array('id' => '25','model_type' => 'App\\Models\\Project','model_id' => '3','uuid' => 'b3ae037e-e6ce-45e5-a87e-3012f571587c','collection_name' => 'images','name' => 'project3','file_name' => 'project3.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '58036','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:26:41','updated_at' => '2026-01-14 19:26:45'),
+  array('id' => '26','model_type' => 'App\\Models\\PageAbout','model_id' => '1','uuid' => 'b77b8bd5-65d3-4881-a39b-3c236e66cd09','collection_name' => 'founder_image','name' => '`','file_name' => '`.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '288605','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:31:37','updated_at' => '2026-01-14 19:31:43'),
+  array('id' => '27','model_type' => 'App\\Models\\PageAbout','model_id' => '1','uuid' => '4520aaa9-9a5c-4f02-bfe4-96b234ed8807','collection_name' => 'banner','name' => 'about_banner','file_name' => 'about_banner.jpg','mime_type' => 'image/jpeg','disk' => 'external_media','conversions_disk' => 'external_media','size' => '431431','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2026-01-14 19:31:43','updated_at' => '2026-01-14 19:31:49')
 );
 
-/* `a52`.`media_internal` */
+/* `a54`.`media_internal` */
 $media_internal = array(
   array('id' => '1','model_type' => 'App\\Models\\Setting','model_id' => '1','uuid' => 'b61d3d51-bce8-4f57-8f6e-82fb23dad343','collection_name' => 'favicon','name' => '66126b57961af','file_name' => '66126b57961af.png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '9485','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:35:43','updated_at' => '2026-01-14 00:39:18'),
   array('id' => '2','model_type' => 'App\\Models\\Setting','model_id' => '1','uuid' => '1379590c-d78a-4cdc-bc21-188f17a6fb9f','collection_name' => 'dark_logo','name' => '66126b5796aba','file_name' => '66126b5796aba.png','mime_type' => 'image/png','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '38829','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-22 14:35:46','updated_at' => '2026-01-14 00:39:21'),
@@ -147,7 +237,7 @@ $media_internal = array(
   array('id' => '14','model_type' => 'App\\Models\\PageAuth','model_id' => '1','uuid' => '6cb380a9-af57-4cb0-b1e1-0487d060766f','collection_name' => 'side_image','name' => 'auth','file_name' => 'auth.jpeg','mime_type' => 'image/jpeg','disk' => 'internal_media','conversions_disk' => 'internal_media','size' => '163598','manipulations' => '[]','custom_properties' => '[]','generated_conversions' => '{"large": true, "small": true, "thumb": true, "medium": true, "xlarge": true, "thumbSquare": true}','responsive_images' => '[]','order_column' => NULL,'created_at' => '2025-12-25 00:56:32','updated_at' => '2026-01-14 00:41:02')
 );
 
-/* `a52`.`migrations` */
+/* `a54`.`migrations` */
 $migrations = array(
   array('id' => '1','migration' => '0001_01_01_000000_create_states_table','batch' => '1'),
   array('id' => '2','migration' => '0001_01_01_000000_create_users_table','batch' => '1'),
@@ -190,35 +280,37 @@ $migrations = array(
   array('id' => '39','migration' => '2026_01_13_203104_create_projects_table','batch' => '1')
 );
 
-/* `a52`.`model_has_permissions` */
+/* `a54`.`model_has_permissions` */
 $model_has_permissions = array(
 );
 
-/* `a52`.`model_has_roles` */
+/* `a54`.`model_has_roles` */
 $model_has_roles = array(
   array('role_id' => '1','model_type' => 'App\\Models\\Admin','model_id' => '1')
 );
 
-/* `a52`.`newsletters` */
+/* `a54`.`newsletters` */
 $newsletters = array(
 );
 
-/* `a52`.`page_about` */
+/* `a54`.`page_about` */
 $page_about = array(
-  array('id' => '1','created_at' => '2025-12-22 14:31:44','updated_at' => '2025-12-22 14:31:44','para1' => NULL,'para2' => NULL,'objective' => NULL,'mission' => NULL,'vision' => NULL,'founder_message' => NULL)
+  array('id' => '1','created_at' => '2025-12-22 14:31:44','updated_at' => '2026-01-14 19:33:50','para1' => '<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>','para2' => '<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>','objective' => '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.</p>','mission' => '<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>','vision' => '<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text.</p>','founder_message' => '<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>')
 );
 
-/* `a52`.`page_auth` */
+/* `a54`.`page_auth` */
 $page_auth = array(
   array('id' => '1','created_at' => NULL,'updated_at' => NULL)
 );
 
-/* `a52`.`page_contact` */
+/* `a54`.`page_contact` */
 $page_contact = array(
   array('id' => '1','created_at' => '2025-12-22 14:31:44','updated_at' => '2025-12-22 14:31:44','form_heading1' => 'Lets talk about all things!','form_paragraph1' => 'Write to us or give us a call. We will reply to you as soon as possible. But yes, it can take up to 24 hours.','map_embad_url' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14017.914109416573!2d77.34703302383423!3d28.555389930658254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5ccaf6a0617%3A0x59318c70194d0a95!2sCANARA%20BANK%20-%20NOIDA%20SECTOR%2045!5e0!3m2!1sen!2sin!4v1679114987600!5m2!1sen!2sin','working_hour' => 'We are open from 9am — 5pm business days.')
 );
 
-/* `a52`.`page_home` */
+/* `a54`.`page_home` */
 $page_home = array(
   array('id' => '1','created_at' => '2025-12-22 14:31:44','updated_at' => '2025-12-22 14:44:21','banner_heading' => 'Smart Solutions For
 Your Business Needs','banner_description' => '<p>We are a team of talented designers making websites with Bootstrap</p>','why_us_heading' => 'We\'re Ready To Grow
@@ -258,7 +350,7 @@ Consulting Agency','about_description' => '<p>We help you to grow your business 
 </ul>','why_us' => '1','testimonials' => '1','video' => '1','blogs' => '1','listings' => '1')
 );
 
-/* `a52`.`page_privacy` */
+/* `a54`.`page_privacy` */
 $page_privacy = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:11:08','title' => 'Privacy Policy','content' => '<h1>Who we are</h1>
 
@@ -305,7 +397,7 @@ $page_privacy = array(
 <p><strong>Visitor comments may be checked through an automated spam detection service.</strong></p>')
 );
 
-/* `a52`.`page_refund` */
+/* `a54`.`page_refund` */
 $page_refund = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:33:35','title' => 'Refund Policy','content' => '<h1>&nbsp;</h1>
 
@@ -315,7 +407,7 @@ $page_refund = array(
 </ul>')
 );
 
-/* `a52`.`page_tnc` */
+/* `a54`.`page_tnc` */
 $page_tnc = array(
   array('id' => '1','created_at' => NULL,'updated_at' => '2025-05-17 15:35:40','title' => 'Terms and Conditions','content' => '<h1>&nbsp;</h1>
 
@@ -343,53 +435,175 @@ $page_tnc = array(
 </ul>')
 );
 
-/* `a52`.`partners` */
+/* `a54`.`partners` */
 $partners = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-07 14:23:25','name' => 'Susheel Singh Partner','email' => 'partner@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
 );
 
-/* `a52`.`password_reset_tokens` */
+/* `a54`.`password_reset_tokens` */
 $password_reset_tokens = array(
 );
 
-/* `a52`.`permissions` */
+/* `a54`.`permissions` */
 $permissions = array(
-  array('id' => '1','name' => 'all rights','guard_name' => 'admin','created_at' => '2026-01-14 00:35:59','updated_at' => '2026-01-14 00:35:59'),
-  array('id' => '2','name' => 'user.create','guard_name' => 'admin','created_at' => '2026-01-14 00:35:59','updated_at' => '2026-01-14 00:35:59')
+  array('id' => '1','name' => 'all rights','guard_name' => 'admin','created_at' => '2026-01-14 19:07:58','updated_at' => '2026-01-14 19:07:58'),
+  array('id' => '2','name' => 'user.create','guard_name' => 'admin','created_at' => '2026-01-14 19:07:58','updated_at' => '2026-01-14 19:07:58')
 );
 
-/* `a52`.`products` */
+/* `a54`.`products` */
 $products = array(
 );
 
-/* `a52`.`product_categories` */
+/* `a54`.`product_categories` */
 $product_categories = array(
 );
 
-/* `a52`.`product_enquiries` */
+/* `a54`.`product_enquiries` */
 $product_enquiries = array(
 );
 
-/* `a52`.`projects` */
+/* `a54`.`projects` */
 $projects = array(
+  array('id' => '1','created_at' => '2026-01-14 19:24:20','updated_at' => '2026-01-14 19:24:20','created_by' => NULL,'updated_by' => NULL,'title' => 'In nostrud illum et','slug' => 'in-nostrud-illum-et','category' => NULL,'author' => 'Recusandae Rerum cu','tags' => 'Quia ad distinctio','short_description' => 'Error culpa vel volu','long_description1' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','long_description2' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','long_description3' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','highlighted_text1' => NULL,'highlighted_text2' => NULL,'ad_url' => 'https://www.bevenu.tv','views' => NULL,'is_active' => '1'),
+  array('id' => '2','created_at' => '2026-01-14 19:25:34','updated_at' => '2026-01-14 19:25:34','created_by' => NULL,'updated_by' => NULL,'title' => 'Voluptatem odit deb','slug' => 'voluptatem-odit-deb','category' => NULL,'author' => 'Ad dolor nesciunt d','tags' => 'Eaque cillum minus s','short_description' => 'Dolores beatae quia','long_description1' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','long_description2' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','long_description3' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','highlighted_text1' => NULL,'highlighted_text2' => NULL,'ad_url' => 'https://www.selylepyq.com','views' => NULL,'is_active' => '1'),
+  array('id' => '3','created_at' => '2026-01-14 19:26:14','updated_at' => '2026-01-14 19:26:14','created_by' => NULL,'updated_by' => NULL,'title' => 'Laboriosam veniam','slug' => 'laboriosam-veniam','category' => NULL,'author' => 'Laborum ab incidunt','tags' => 'Labore omnis occaeca','short_description' => 'Culpa modi aut est','long_description1' => '<div>
+<h2>What is Lorem Ipsum?</h2>
+<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+<div>
+<h2>Why do we use it?</h2>
+<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+</div>
+<p>&nbsp;</p>
+<div>
+<h2>Where does it come from?</h2>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+</div>
+<div>
+<h2>Where can I get some?</h2>
+<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+</div>','long_description2' => NULL,'long_description3' => NULL,'highlighted_text1' => NULL,'highlighted_text2' => NULL,'ad_url' => 'https://www.luxykewu.me','views' => NULL,'is_active' => '1')
 );
 
-/* `a52`.`roles` */
+/* `a54`.`roles` */
 $roles = array(
-  array('id' => '1','name' => 'Super Admin','guard_name' => 'admin','created_at' => '2026-01-14 00:35:59','updated_at' => '2026-01-14 00:35:59')
+  array('id' => '1','name' => 'Super Admin','guard_name' => 'admin','created_at' => '2026-01-14 19:07:58','updated_at' => '2026-01-14 19:07:58')
 );
 
-/* `a52`.`role_has_permissions` */
+/* `a54`.`role_has_permissions` */
 $role_has_permissions = array(
   array('permission_id' => '1','role_id' => '1')
 );
 
-/* `a52`.`sellers` */
+/* `a54`.`sellers` */
 $sellers = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-04-07 14:23:25','name' => 'Susheel Singh Seller','email' => 'seller@gmail.com','phone' => '7979851485','email_verified_at' => '2024-03-23 09:22:02','password' => '$2y$12$hI2X.nQ2/fRRCllbZYCYP.RZMOX5REcBTktcwZ7cpVlNVelY0Y.ki','dob' => '2024-12-12','remember_token' => 'WfJ08TVEJbrR3aqoyksu3vTBz7CuCM9GTq7nAb3X4OsfxhOH0pbIlRj9twaI')
 );
 
-/* `a52`.`services` */
+/* `a54`.`services` */
 $services = array(
   array('id' => '1','created_at' => '2024-04-06 09:23:05','updated_at' => '2026-01-14 00:42:23','created_by' => NULL,'title' => 'Business Growth Mangment','slug' => 'business-growth-mangment','category' => 'Business','tags' => 'jsh,df','short_description' => 'Catalysts for change before fully tested markets are maintain wireless scenarios after intermandated applications predominate revolutionary.','long_description1' => '<p>Continually myocardinate holistic mindshare with client-based web services. Assertively e-enable catalysts for change before tested markets. Phosfluorescently maintain wireless scenarios after intermandated applications. Conveniently predominate revolutionary quality vectors through future-proof manufactured products. Enthusiastically transform distinctive collaboration.</p>
 
@@ -505,17 +719,17 @@ $services = array(
   array('id' => '3','created_at' => '2025-12-11 17:38:32','updated_at' => '2025-12-11 17:38:32','created_by' => NULL,'title' => 'Nisi in recusandae','slug' => 'nisi-in-recusandae','category' => 'Quibusdam porro ab f','tags' => 'Quibusdam minus dolo','short_description' => 'Doloribus officia en','long_description1' => '<p>dsfaasd</p>','long_description2' => NULL,'long_description3' => NULL,'is_active' => '1')
 );
 
-/* `a52`.`sessions` */
+/* `a54`.`sessions` */
 $sessions = array(
-  array('id' => '9Str7bzDzZFwuiiVrbIWyhGFxT9IBGUg9mvG081Z','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36','payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiMGYzZUYxaGxZN2xjWmZGOVlVZHNFckpMc1p1YVF5dTRTS1pXRXZBViI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHBzOi8vYTUyLnRlc3QvYXBpL3Zpc2l0b3JzL2NvdW50IjtzOjU6InJvdXRlIjtOO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=','last_activity' => '1768331712')
+  array('id' => '0Cn2Qljmtabl72xzR5Uf3D2xjHBz2WzO8rXmFlnu','user_id' => NULL,'ip_address' => '127.0.0.1','user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36','payload' => 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoibkNQdmhQblRtNUlzTVgxQlJwdEdqWGdwOG1UV0JPenI3dVRnUHNodCI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHBzOi8vYTU0LnRlc3QvYXBpL3Zpc2l0b3JzL2NvdW50IjtzOjU6InJvdXRlIjtOO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MjoibG9naW5fYWRtaW5fNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=','last_activity' => '1768399436')
 );
 
-/* `a52`.`settings` */
+/* `a54`.`settings` */
 $settings = array(
   array('id' => '1','created_at' => '2024-03-23 09:24:46','updated_at' => '2025-12-22 14:35:43','app_name' => 'Application Name','title' => NULL,'address' => 'In corrupti omnis v','detailed_address' => NULL,'email' => 'xihawojyfa@mailinator.com','phone' => '7979851485','short_description' => 'Dolores amet nihil','facebook' => 'https://www.facebook.com/digamite','instagram' => 'https://www.instagram.com/digamitepvtltd/','linkedin' => 'https://www.linkedin.com/company/digamite','twitter' => 'https://twitter.com/digamitepvtltd','youtube' => NULL,'google_map' => NULL,'whatsapp' => '7979851485','admin_theme' => NULL,'user_theme' => NULL,'partner_theme' => NULL,'color1' => NULL,'color2' => NULL,'color3' => NULL,'color4' => NULL,'color5' => NULL,'color6' => NULL)
 );
 
-/* `a52`.`slider1` */
+/* `a54`.`slider1` */
 $slider1 = array(
   array('id' => '1','created_at' => '2025-05-22 18:28:54','updated_at' => '2025-05-22 22:05:37','heading1' => 'Aspernatur facere ni','heading2' => 'Consequuntur commodo','paragraph1' => 'Enim animi cum est','paragraph2' => 'Quas occaecat quis e','btn_name' => 'Praesentium animi a','btn_url' => 'Quia accusantium id','btn_target' => 'Id quidem quo omnis','is_active' => '1'),
   array('id' => '2','created_at' => '2025-05-22 18:30:21','updated_at' => '2025-05-22 22:05:32','heading1' => 'Vel optio et simili','heading2' => 'Natus unde velit exc','paragraph1' => 'Nobis tempore verit','paragraph2' => 'Nulla minim consequu','btn_name' => 'Quia velit minima c','btn_url' => 'Voluptates distincti','btn_target' => 'Velit ut dolore maxi','is_active' => '1'),
@@ -525,11 +739,11 @@ $slider1 = array(
   array('id' => '6','created_at' => '2025-05-22 18:46:12','updated_at' => '2025-05-22 22:02:21','heading1' => 'Hic adipis','heading2' => 'Dicta tempor fuga I','paragraph1' => 'Eos et nulla volupt','paragraph2' => 'Fugiat enim dolor t','btn_name' => 'Accusantium veniam','btn_url' => 'Pariatur Mollit vol','btn_target' => 'Architecto officia r','is_active' => '1')
 );
 
-/* `a52`.`states` */
+/* `a54`.`states` */
 $states = array(
 );
 
-/* `a52`.`team` */
+/* `a54`.`team` */
 $team = array(
   array('id' => '1','created_at' => '2025-12-11 15:04:24','updated_at' => '2025-12-11 15:05:53','name' => 'Malachi Howard','designation' => 'Incidunt omnis ad n','is_active' => '1'),
   array('id' => '2','created_at' => '2025-12-11 17:35:44','updated_at' => '2025-12-11 17:35:44','name' => 'Reagan Hess','designation' => 'Ullam debitis volupt','is_active' => '1'),
@@ -537,19 +751,19 @@ $team = array(
   array('id' => '4','created_at' => '2025-12-11 17:37:09','updated_at' => '2025-12-11 17:37:09','name' => 'Alfonso Wynn','designation' => 'Culpa dicta magnam','is_active' => '1')
 );
 
-/* `a52`.`testimonials` */
+/* `a54`.`testimonials` */
 $testimonials = array(
   array('id' => '1','created_at' => '2025-12-11 14:58:46','updated_at' => '2025-12-11 15:06:50','name' => 'Lilah Moran','designation' => 'Optio laboris cupid','organisation' => 'Serrano and Sosa Co','message' => 'Molestias quas delec','is_active' => '1'),
   array('id' => '2','created_at' => '2025-12-11 14:59:43','updated_at' => '2025-12-11 15:06:45','name' => 'Autumn Wise','designation' => 'Inventore voluptatum','organisation' => 'Compton Hampton LLC','message' => 'Sint dolor voluptate','is_active' => '1'),
   array('id' => '3','created_at' => '2025-12-11 14:59:48','updated_at' => '2025-12-11 15:06:38','name' => 'Kirsten Farrell','designation' => 'Velit nisi facilis r','organisation' => 'Underwood and Randolph Traders','message' => 'Optio voluptatem ha','is_active' => '1')
 );
 
-/* `a52`.`users` */
+/* `a54`.`users` */
 $users = array(
   array('id' => '1','name' => 'Test User','email' => 'test@example.com','phone' => '07979851485','email_verified_at' => '2024-03-23 09:22:01','password' => '$2y$12$QKHQ6ZaxuEkmVgmAn.5OIemMLsLCWP5cMUz9Io2LhKSiwlmT4ysZq','two_factor_secret' => NULL,'two_factor_recovery_codes' => NULL,'two_factor_confirmed_at' => NULL,'remember_token' => 'lNOJpST0Sk','created_at' => '2024-03-23 09:22:02','updated_at' => '2025-12-22 15:04:03')
 );
 
-/* `a52`.`user_queries` */
+/* `a54`.`user_queries` */
 $user_queries = array(
   array('id' => '1','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Alexa Wolf I','email' => 'brionna74@example.com','phone' => '1-930-284-0965','message' => 'Calista Powlowski DDS','subject' => 'Lizeth Greenfelder II','status_id' => '1','deleted_at' => NULL),
   array('id' => '2','created_at' => '2024-03-23 09:22:03','updated_at' => '2024-03-23 09:22:03','name' => 'Dr. Cathryn Beer DDS','email' => 'apredovic@example.com','phone' => '1-480-716-4461','message' => 'Alexandro Weber','subject' => 'Gabrielle Grant','status_id' => '1','deleted_at' => NULL),
@@ -655,7 +869,7 @@ $user_queries = array(
   array('id' => '102','created_at' => '2025-12-11 14:16:42','updated_at' => '2025-12-11 14:16:42','name' => 'Amanda Trevino','email' => 'wadimap@mailinator.com','phone' => '+1 (556) 944-6046','message' => 'Dolore quas ipsum c','subject' => 'Repudiandae ipsam ve','status_id' => '1','deleted_at' => NULL)
 );
 
-/* `a52`.`user_query_statuses` */
+/* `a54`.`user_query_statuses` */
 $user_query_statuses = array(
   array('id' => '1','name' => 'Unread'),
   array('id' => '2','name' => 'Viewd'),
@@ -664,7 +878,7 @@ $user_query_statuses = array(
   array('id' => '5','name' => 'Closed')
 );
 
-/* `a52`.`visitors` */
+/* `a54`.`visitors` */
 $visitors = array(
-  array('id' => '1','ip_address' => '127.0.0.1','created_at' => '2026-01-14 00:36:16','updated_at' => '2026-01-14 00:36:16')
+  array('id' => '1','ip_address' => '127.0.0.1','created_at' => '2026-01-14 19:08:16','updated_at' => '2026-01-14 19:08:16')
 );
