@@ -38,7 +38,7 @@ export default function Create() {
 
                     {/* Sidebar */}
                     <div className="right">
-                        <a href={blog.ad_url} target='_blank' className="space-y-4 rounded-xl bg-gray-50 shadow">
+                        <a href={blog.ad_url} target='_blank' className="space-y-4 rounded-xl bg-gray-50 bg-background2 shadow mb-6 overflow-hidden block">
                             <img src={blog.ad_img} alt="" />
                         </a>
 

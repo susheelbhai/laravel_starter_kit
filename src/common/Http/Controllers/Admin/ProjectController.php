@@ -46,15 +46,17 @@ class ProjectController extends Controller
         $data->is_active = $request->is_active;
         $data->save();
 
+        // Handle ad_img first to avoid file stream issues
+        if ($request->hasFile('ad_img')) {
+            $data->addMediaFromRequest('ad_img')
+                ->toMediaCollection('ad_img');
+        }
+        // Handle images (multiple)
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
                 $data->addMedia($file)
                     ->toMediaCollection('images');
             }
-        }
-        if ($request->hasFile('ad_img')) {
-            $data->addMediaFromRequest('ad_img')
-                ->toMediaCollection('ad_img');
         }
         return redirect()->route('admin.project.index')->with('success', 'New project created successfully');
     }
@@ -101,12 +103,13 @@ class ProjectController extends Controller
                 $media->delete(); // This triggers Spatie's cleanup and deletes actual files
             }
         }
+        // Handle ad_img first to avoid file stream issues
         if ($request->hasFile('ad_img')) {
             $data->clearMediaCollection('ad_img');
             $data->addMediaFromRequest('ad_img')
                 ->toMediaCollection('ad_img');
         }
-        // Add new images
+        // Add new images (multiple)
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $file) {
                 $data->addMedia($file)
