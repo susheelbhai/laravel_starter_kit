@@ -15,10 +15,9 @@ use App\Http\Controllers\Admin\SellerController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\ProductEnquiryController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\Slider1Controller;
 use App\Http\Controllers\Admin\PortfolioController;
@@ -26,7 +25,9 @@ use App\Http\Controllers\Admin\UserQueryController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\ImportantLinkController;
+use App\Http\Controllers\Admin\ProductEnquiryController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 
 Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
@@ -36,6 +37,8 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
+        Route::get('/notifications', [NotificationController::class, 'index'])->name('notification.index');
+        Route::get('/notification/{id}', [NotificationController::class, 'show'])->name('notification.show');
         Route::name('settings.')->controller(SettingController::class)->prefix('setting')->group(function () {
             Route::get('/general', 'generalSettings')->name('general');
             Route::get('/advanced', 'advanceSettings')->name('advanced');
@@ -50,7 +53,6 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
             Route::get('/select', 'selectCreate')->name('select');
             Route::get('/file', 'fileCreate')->name('file');
             Route::get('/image', 'imageCreate')->name('image');
-
 
             Route::patch('/simple', 'storeSimpleForm')->name('simple.store');
             Route::patch('/editor', 'storeEditorForm')->name('editor.store');

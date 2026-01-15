@@ -33,6 +33,10 @@ export default function Create() {
         method: 'POST',
         onSuccess: () => console.log('Contact form created successfully!'),
     });
+    let processing1 = processing;
+    if(appData.debug){
+        processing1 = false;
+    }
     return (
         <AppLayout title="Contact Us">
             <div className="min-h-screen bg-background  text-foreground">
@@ -196,12 +200,12 @@ export default function Create() {
                                         type="submit"
                                         className="relative mt-2 flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow hover:bg-accent/90 disabled:opacity-70 md:w-auto"
                                         tabIndex={4}
-                                        disabled={processing}
+                                        disabled={processing1}
                                     >
-                                        {processing && (
+                                        {processing1 && (
                                             <LoaderCircle className="h-4 w-4 animate-spin" />
                                         )}
-                                        {processing
+                                        {processing1
                                             ? 'Sending...'
                                             : 'Submit Message'}
                                     </Button>

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Newsletter;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Notifications\DatabaseNotification;
 
-class NewsletterSeeder extends Seeder
+class NotificationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class NewsletterSeeder extends Seeder
     public function run(): void
     {
         include('data/data.php');
-        Newsletter::insert($newsletters);
+        DatabaseNotification::insert($notifications);
     }
 }

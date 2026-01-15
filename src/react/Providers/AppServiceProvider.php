@@ -25,35 +25,59 @@ class AppServiceProvider extends ServiceProvider
     {
         Inertia::share([
             'auth' => function () {
+                /** @var \App\Models\User $user */
+                $user = Auth::user();
+                $unreadNotifications = $user ? $user->unreadNotifications()->take(10)->get()->map(function($n) { return $n->toArray(); }) : [];
+                $unreadCount = $user ? count($unreadNotifications) : 0;
                 return [
-                    'user' => Auth::user(), // Default guard
+                    'user' => $user, // Default guard
                     'dashboard_url' => route('dashboard'),
+                    'unread_notifications_count' => $unreadCount,
+                    'unread_notifications' => $unreadNotifications,
                 ];
             },
             'admin' => function () {
+                /** @var \App\Models\Admin $user */
+                $user = Auth::guard('admin')->user();
+                $unreadNotifications = $user ? $user->unreadNotifications()->take(10)->get()->map(function($n) { return $n->toArray(); }) : [];
+                $unreadCount = $user ? count($unreadNotifications) : 0;
                 return [
-                    'user' => Auth::guard('admin')->user(), // Admin guard
-                    'permissions' => Auth::guard('admin')->user()?->getAllPermissions()->pluck('name'), 
+                    'user' => $user, // Admin guard
+                    'permissions' => $user?->getAllPermissions()->pluck('name'), 
                     'dashboard_url' => route('admin.dashboard'),
+                    'unread_notifications_count' => $unreadCount,
+                    'unread_notifications' => $unreadNotifications,
                 ];
             },
             'partner' => function () {
+                /** @var \App\Models\Partner $user */
+                $user = Auth::guard('partner')->user();
+                $unreadNotifications = $user ? $user->unreadNotifications()->take(10)->get()->map(function($n) { return $n->toArray(); }) : [];
+                $unreadCount = $user ? count($unreadNotifications) : 0;
                 return [
-                    'user' => Auth::guard('partner')->user(), // Partner guard
-                    'permissions' => Auth::guard('partner')->user()?->getAllPermissions()->pluck('name'), 
+                    'user' => $user, // Partner guard
+                    'permissions' => $user?->getAllPermissions()->pluck('name'), 
                     'dashboard_url' => route('partner.dashboard'),
+                    'unread_notifications_count' => $unreadCount,
+                    'unread_notifications' => $unreadNotifications,
                 ];
             },
             'seller' => function () {
+                /** @var \App\Models\Seller $user */
+                $user = Auth::guard('seller')->user();
+                $unreadNotifications = $user ? $user->unreadNotifications()->take(10)->get()->map(function($n) { return $n->toArray(); }) : [];
+                $unreadCount = $user ? count($unreadNotifications) : 0;
                 return [
-                    'user' => Auth::guard('seller')->user(), // Seller guard
-                    'permissions' => Auth::guard('seller')->user()?->getAllPermissions()->pluck('name'), 
+                    'user' => $user, // Seller guard
+                    'permissions' => $user?->getAllPermissions()->pluck('name'), 
                     'dashboard_url' => route('seller.dashboard'),
+                    'unread_notifications_count' => $unreadCount,
+                    'unread_notifications' => $unreadNotifications,
                 ];
             },
         ]);
 
-        /*
+        
         $settings = Setting::find(1); 
         $important_link = ImportantLink::whereIsActive(1)->latest()->get(); 
         config([
@@ -77,7 +101,7 @@ class AppServiceProvider extends ServiceProvider
             ]);
         }
         
-        */
+        
         
     }
 }

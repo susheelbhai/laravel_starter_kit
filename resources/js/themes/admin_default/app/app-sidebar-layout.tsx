@@ -1,7 +1,7 @@
 import { AppContent } from "@/components/app-content";
 import { AppShell } from "@/components/app-shell";
-import { AppSidebar } from "@/components/app-sidebar";
-import { AppSidebarHeader } from "@/components/app-sidebar-header";
+import { AppSidebar } from "@/themes/admin_default/app/components/app-sidebar";
+import { AppSidebarHeader } from "@/themes/admin_default/app/components/app-sidebar-header";
 import { type BreadcrumbItem } from "@/types";
 import { type PropsWithChildren } from "react";
 import { FlashMessage, FlashType } from "@/components/ui/alert/flash1";
@@ -14,13 +14,19 @@ export default function AppSidebarLayout({
     mainNavItems,
     footerNavItems,
     profileNavItems,
+    notificationData,
     breadcrumbs = [],
 }: PropsWithChildren<{
-    breadcrumbs?: BreadcrumbItem[];
     authUser?: any;
     footerNavItems?: any;
     mainNavItems?: any;
     profileNavItems?: any;
+    notificationData?: {
+        unreadNotificationsCount: number;
+        unreadNotifications: any[];
+        all_notifications_url: string;
+    };
+    breadcrumbs?: BreadcrumbItem[];
 }>) {
     const page = usePage<SharedData>();
 
@@ -60,7 +66,7 @@ export default function AppSidebarLayout({
                 profileNavItems={profileNavItems}
             />
             <AppContent variant="sidebar">
-                <AppSidebarHeader breadcrumbs={breadcrumbs} />
+                <AppSidebarHeader breadcrumbs={breadcrumbs} notificationData={notificationData} />
                 <div className="mx-auto items-center justify-between">
                     {visibleFlash && (
                         <FlashMessage

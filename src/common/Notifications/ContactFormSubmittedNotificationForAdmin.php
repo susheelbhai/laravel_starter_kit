@@ -26,13 +26,16 @@ class ContactFormSubmittedNotificationForAdmin extends Notification implements S
      */
     public function via(object $notifiable): array
     {
-       $channels = [];
+        $channels = [];
         if (config('mail.send_mail') == 1 && isset($notifiable->email)) {
             $channels[] = 'mail';
         }
         if (config('whatsapp.send_msg') == 1 && isset($notifiable->phone)) {
             $channels[] = 'whatsapp';
         }
+        // Always add database and broadcast (push) channels
+        $channels[] = 'database';
+        $channels[] = 'broadcast';
         return $channels;
     }
 
@@ -50,6 +53,29 @@ class ContactFormSubmittedNotificationForAdmin extends Notification implements S
 
     public function toArray(object $notifiable): array
     {
-        return [];
+        return [
+            'type' => 'contact_form',
+            'title' => 'New Contact Form Submission',
+            'url' => route('admin.userQuery.show', $this->data['id']),
+            'data' => $this->data,
+        ];
+    }
+
+    /**
+     * Get the database representation of the notification.
+     */
+    public function toDatabase(object $notifiable): array
+    {
+        return $this->toArray($notifiable);
+    }
+
+    /**
+     * Get the broadcast (push) representation of the notification.
+     */
+    public function toBroadcast(object $notifiable)
+    {
+        return [
+            'data' => $this->toArray($notifiable),
+        ];
     }
 }

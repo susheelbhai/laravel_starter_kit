@@ -15,7 +15,18 @@ export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
   const { seller } = page.props;
 
   breadcrumbs = [{ title: 'Dasshboard', href: '/seller' }, ...(breadcrumbs || [])];
-
+  const unreadNotificationsCount = page.props.seller?.unread_notifications_count ?? 0;
+  const unreadNotifications = page.props.seller?.unread_notifications ?? [];
+  const all_notifications_url = route('seller.notification.index');
+  unreadNotifications.map((notification: any) => {
+    notification.href = route('seller.notification.show', notification.id);
+    return notification;
+  });
+  const notificationData = {
+    unreadNotificationsCount,
+    unreadNotifications,
+    all_notifications_url,
+  };
 
   return (
     <AppLayoutTemplate
@@ -23,6 +34,7 @@ export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
       mainNavItems={filteredMainNavItems}
       footerNavItems={filteredFooterNavItems}
       profileNavItems={filteredProfileNavItems}
+      notificationData={notificationData}
       breadcrumbs={breadcrumbs}
       {...props}
     >
