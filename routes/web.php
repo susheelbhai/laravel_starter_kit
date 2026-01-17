@@ -1,6 +1,7 @@
 <?php
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\ShareDataMiddleware;
 
 Route::get('/link-storage', function () {
     $target = storage_path('app/public');
@@ -17,9 +18,6 @@ Route::get('/link-storage', function () {
     return "Symlink created successfully: $target -> $link";
 });
 
-Route::get('/', function () {
-    return Inertia::render('welcome');
-})->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
@@ -27,8 +25,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
-
-require __DIR__.'/user/web.php';
-require __DIR__.'/seller/web.php';
-require __DIR__.'/admin/web.php';
-require __DIR__.'/partner/web.php';
+Route::middleware([ShareDataMiddleware::class])->group(function () {
+    require __DIR__ . '/user/web.php';
+    require __DIR__ . '/seller/web.php';
+    require __DIR__ . '/admin/web.php';
+    require __DIR__ . '/partner/web.php';
+});
