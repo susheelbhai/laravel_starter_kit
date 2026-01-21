@@ -5,24 +5,40 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
-use App\Traits\HasDynamicMediaAttributes;
-use App\Models\BaseModels\BaseExternalAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Notifications\Auth\Partner\ResetPasswordNotification;
+use App\Models\BaseModels\BaseExternalAuthenticatable;
 
 class Partner extends BaseExternalAuthenticatable
 {
-    use HasFactory, Notifiable, HasRoles, HasDynamicMediaAttributes;
-
-    protected array $mediaAttributes = [
-        'profile_pic',
-    ];
+    use HasFactory, Notifiable, HasRoles;
+    protected $appends = ['profile_pic', 'profile_pic_converted'];
 
     public function registerMediaCollections(): void
     {
-        foreach ($this->mediaAttributes as $attribute) {
-            $this->addMediaCollection($attribute)->singleFile();
+        $this->addMediaCollection('profile_pic')
+            ->singleFile();
+    }
+
+    public function getProfilePicAttribute()
+    {
+        $media = $this->getFirstMedia('profile_pic');
+        return $media ? $media->getUrl() : $this->avatar;
+    }
+
+    public function getProfilePicConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('profile_pic');
+        if (!$media) {
+            return [];
         }
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
     }
 
     /**

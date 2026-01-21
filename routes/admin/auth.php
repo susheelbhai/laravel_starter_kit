@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Admin\Auth\NewPasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Admin\Auth\SocialAuthController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->name('login');
 
         Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
+        // Generic social OAuth routes
+        Route::get('auth/{provider}', [SocialAuthController::class, 'redirectToProvider'])
+            ->name('social.login')
+            ->where('provider', 'google|facebook|x|linkedin');
+
+        Route::get('auth/{provider}/callback', [SocialAuthController::class, 'handleProviderCallback'])
+            ->name('social.callback')
+            ->where('provider', 'google|facebook|x|linkedin');
 
         Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
             ->name('password.request');

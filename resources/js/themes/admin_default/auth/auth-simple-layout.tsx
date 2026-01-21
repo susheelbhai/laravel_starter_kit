@@ -1,4 +1,5 @@
 import AppLogoIcon from '@/components/app-logo-icon';
+import FlashMessageHandler from '@/components/FlashMessageHandler';
 import { Link } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
 
@@ -11,8 +12,9 @@ interface AuthLayoutProps {
 export default function AuthSimpleLayout({ children, title, description }: PropsWithChildren<AuthLayoutProps>) {
     return (
         <div className="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-            <div className="w-full max-w-sm">
-                <div className="flex flex-col gap-8">
+            <div className="w-full max-w-sm">                            <FlashMessageHandler />
+            
+                <div className="flex flex-col gap-2">
                     <div className="flex flex-col items-center gap-4">
                         <Link href={route('home')} className="flex flex-col items-center gap-2 font-medium">
                             <div className="mb-1 flex  items-center justify-center rounded-md">

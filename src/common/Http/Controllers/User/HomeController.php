@@ -26,10 +26,19 @@ class HomeController extends Controller
     function dashboard()
     {
         $services = Service::whereIsActive(1)->get();
+        $projects = Project::whereIsActive(1)->limit(3)->latest()->get()->map(function ($project) {
+            $media = $project->getMedia('images');
+            return [
+                ...$project->toArray(),
+                'thumbnail' => $media->first()?->getUrl('thumb'),
+                'image' => $media->first()?->getUrl('medium'),
+            ];
+        });
         $team = Team::whereIsActive(1)->get();
         $testimonials = Testimonial::whereIsActive(1)->get();
         $clients = Portfolio::whereIsActive(1)->get();
-        return $this->render('user/dashboard', compact( 'services', 'testimonials', 'team', 'clients'));
+        $data = PageHome::whereId(1)->first();
+        return $this->render('user/pages/home/index', compact( 'services', 'projects', 'testimonials', 'team', 'clients', 'data'));
     }
     function home()
     {

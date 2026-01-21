@@ -20,6 +20,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->date('dob')->nullable();
+            $table->string('avatar')->nullable();
+            $table->string('google_id')->nullable()->unique();
+            $table->string('facebook_id')->nullable()->unique();
+            $table->string('x_id')->nullable()->unique();
+            $table->string('linkedin_id')->nullable()->unique();
             $table->rememberToken();
         });
     }

@@ -1,6 +1,6 @@
 import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
-import { FormEventHandler } from 'react';
+import { LoaderCircle, Eye, EyeOff } from 'lucide-react';
+import { FormEventHandler, useState } from 'react';
 
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
@@ -10,6 +10,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/user/auth-layout';
 import { FormContainer } from '@/components/form/container/form-container';
+import ContinueWithGoogle from '@/components/auth/ContinueWithGoogle';
+import ContinueWithFacebook from '@/components/auth/ContinueWithFacebook';
+import ContinueWithX from '@/components/auth/ContinueWithX';
+import ContinueWithLinkedIn from '@/components/auth/ContinueWithLinkedIn';
+import ContinueWithText from '@/components/auth/ContinueWithText';
 
 type LoginForm = {
     email: string;
@@ -30,6 +35,8 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
         remember: false,
     });
 
+    const [showPassword, setShowPassword] = useState(false);
+
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
         if (submitUrl) {
@@ -45,8 +52,13 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
     return (
         <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
             <Head title="Log in" />
+            <ContinueWithGoogle href={route('social.login', 'google')} />
+            <ContinueWithFacebook href={route('social.login', 'facebook')} />
+            <ContinueWithX href={route('social.login', 'x')} />
+            <ContinueWithLinkedIn href={route('social.login', 'linkedin')} />
+            <ContinueWithText />
 
-            <FormContainer onSubmit={submit} processing={processing} buttonLabel="Log in">
+            <FormContainer onSubmit={submit} processing={processing} buttonLabel="Log in" className="space-y-2">
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
@@ -73,16 +85,33 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
                                 </TextLink>
                             )}
                         </div>
-                        <Input
-                            id="password"
-                            type="password"
-                            required
-                            tabIndex={2}
-                            autoComplete="current-password"
-                            value={data.password}
-                            onChange={(e) => setData('password', e.target.value)}
-                            placeholder="Password"
-                        />
+                        <div className="relative">
+                            <Input
+                                id="password"
+                                type={showPassword ? 'text' : 'password'}
+                                required
+                                tabIndex={2}
+                                autoComplete="current-password"
+                                value={data.password}
+                                onChange={(e) => setData('password', e.target.value)}
+                                placeholder="Password"
+                                className="pr-10"
+                            />
+                            <Button
+                                type="button"
+                                variant="ghost"
+                                size="sm"
+                                className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                                onClick={() => setShowPassword(!showPassword)}
+                                tabIndex={-1}
+                            >
+                                {showPassword ? (
+                                    <EyeOff className="h-4 w-4 text-gray-500" />
+                                ) : (
+                                    <Eye className="h-4 w-4 text-gray-500" />
+                                )}
+                            </Button>
+                        </div>
                         <InputError message={errors.password} />
                     </div>
 

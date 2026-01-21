@@ -3,24 +3,42 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Notifications\Notifiable;
-use App\Traits\HasDynamicMediaAttributes;
-use App\Models\BaseModels\BaseExternalAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
+use App\Models\BaseModels\BaseExternalAuthenticatable;
 
 class User extends BaseExternalAuthenticatable
 {
-    use HasFactory, Notifiable, HasDynamicMediaAttributes;
+    use HasFactory, Notifiable;
+    protected $appends = ['profile_pic', 'profile_pic_converted'];
 
-    protected array $mediaAttributes = [
-        'profile_pic',
-    ];
-public function registerMediaCollections(): void
+    public function registerMediaCollections(): void
     {
-        foreach ($this->mediaAttributes as $attribute) {
-            $this->addMediaCollection($attribute)->singleFile();
-        }
+        $this->addMediaCollection('profile_pic')
+            ->singleFile();
     }
+
+    public function getProfilePicAttribute()
+    {
+        $media = $this->getFirstMedia('profile_pic');
+        return $media ? $media->getUrl() : $this->avatar;
+    }
+
+    public function getProfilePicConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('profile_pic');
+        if (!$media) {
+            return [];
+        }
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -32,6 +50,11 @@ public function registerMediaCollections(): void
         'phone',
         'password',
         'profile_pic',
+        'google_id',
+        'facebook_id',
+        'x_id',
+        'linkedin_id',
+        'avatar',
     ];
 
     /**

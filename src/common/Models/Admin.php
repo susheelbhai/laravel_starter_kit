@@ -3,26 +3,44 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
-use App\Traits\HasDynamicMediaAttributes;
-use App\Models\BaseModels\BaseInternalAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Notifications\Auth\Admin\ResetPasswordNotification;
+use Spatie\Permission\Traits\HasRoles;
+use App\Models\BaseModels\BaseInternalAuthenticatable;
 
 class Admin extends BaseInternalAuthenticatable
 {
-    use HasFactory, Notifiable, HasRoles, HasDynamicMediaAttributes;
+    use HasFactory, Notifiable, HasRoles;
+    protected $appends = ['profile_pic', 'profile_pic_converted'];
 
-    protected array $mediaAttributes = [
-        'profile_pic',
-    ];
     public function registerMediaCollections(): void
     {
-        foreach ($this->mediaAttributes as $attribute) {
-            $this->addMediaCollection($attribute)->singleFile();
-        }
+        $this->addMediaCollection('profile_pic')
+            ->singleFile();
     }
+
+    public function getProfilePicAttribute()
+    {
+        $media = $this->getFirstMedia('profile_pic');
+        return $media ? $media->getUrl()  : $this->avatar;
+    }
+
+    public function getProfilePicConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('profile_pic');
+        if (!$media) {
+            return [];
+        }
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -32,6 +50,11 @@ class Admin extends BaseInternalAuthenticatable
         'name',
         'email',
         'password',
+        'google_id',
+        'facebook_id',
+        'x_id',
+        'linkedin_id',
+        'avatar',
     ];
     protected $guard_name = 'admin';
     /**

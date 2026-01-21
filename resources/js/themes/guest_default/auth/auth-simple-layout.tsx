@@ -30,7 +30,7 @@ export default function AuthSimpleLayout({ children, title, description }: Props
                 {/* Right side form */}
                 <div className="flex w-full items-center justify-center bg-background p-6 md:w-1/2 md:p-10">
                     <div className="w-full max-w-sm">
-                        <div className="flex flex-col gap-8">
+                        <div className="flex flex-col gap-2">
                             <div className="flex flex-col items-center gap-4">
                                 <Link href={route('home')} className="flex flex-col items-center gap-2 font-medium">
                                     <div className="mb-1 flex  items-center justify-center rounded-md">
