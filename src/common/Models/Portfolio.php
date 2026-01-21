@@ -4,38 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\BaseModels\BaseExternalMediaModel;
+use App\Traits\HasDynamicMediaAttributes;
 
 class Portfolio extends BaseExternalMediaModel
 {
-    use HasFactory;
+    use HasFactory, HasDynamicMediaAttributes;
     protected $table = 'clients';
-    protected $appends = ['logo', 'logo_converted'];
-    
+    protected array $mediaAttributes = ['logo',];    
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('logo')
-            ->useDisk('external_media')
-            ->singleFile();
+        foreach ($this->mediaAttributes as $attribute) {
+            $this->addMediaCollection($attribute)->singleFile();
+        }
     }
     
-    public function getLogoAttribute(): string
-    {
-        $media = $this->getFirstMedia('logo');
-        return $media ? $media->getUrl() : '/dummy.png';
-    }
-
-    public function getLogoConvertedAttribute(): array
-    {
-        $media = $this->getFirstMedia('logo');
-        if (!$media) {
-            return [];
-        }
-        $urls = [];
-        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
-            if ($isGenerated) {
-                $urls[$conversionName] = $media->getUrl($conversionName);
-            }
-        }
-        return $urls;
-    }
 }

@@ -11,11 +11,7 @@ class ProductCategoryController extends Controller
 {
     public function index()
     {
-        $data = ProductCategory::latest()->paginate(15)->through(function ($category) {
-            return array_merge($category->toArray(), [
-                'icon_thumb' => $category->getFirstMediaUrl('icon', 'thumb'),
-            ]);
-        });
+        $data = ProductCategory::latest()->paginate(15);
         return $this->render('admin/resources/product_category/index', compact('data'));
     }
 

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('gst_state_code');
+            $table->string('gst_state_short_name');
         });
     }
 

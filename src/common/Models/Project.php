@@ -3,14 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Traits\HasDynamicMediaAttributes;
 use App\Models\BaseModels\BaseExternalMediaModel;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Project extends BaseExternalMediaModel
 {
     /** @use HasFactory<\Database\Factories\ProjectFactory> */
-    use HasFactory;
+    use HasFactory, HasDynamicMediaAttributes;
     protected $appends = ['images', 'ad_img'];
     public function registerMediaCollections(): void
     {

@@ -3,44 +3,26 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\HasDynamicMediaAttributes;
+use App\Models\BaseModels\BaseExternalAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Notifications\Auth\Seller\ResetPasswordNotification;
-use Spatie\Permission\Traits\HasRoles;
-use App\Models\BaseModels\BaseExternalAuthenticatable;
 
 class Seller extends BaseExternalAuthenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
-    protected $appends = ['profile_pic', 'profile_pic_converted'];
+    use HasFactory, Notifiable, HasRoles, HasDynamicMediaAttributes;
 
+    protected array $mediaAttributes = [
+        'profile_pic',
+    ];
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('profile_pic')
-            ->singleFile();
-    }
-
-    public function getProfilePicAttribute(): string
-    {
-        $media = $this->getFirstMedia('profile_pic');
-        return $media ? $media->getUrl() : '/dummy.png';
-    }
-
-    public function getProfilePicConvertedAttribute(): array
-    {
-        $media = $this->getFirstMedia('profile_pic');
-        if (!$media) {
-            return [];
+        foreach ($this->mediaAttributes as $attribute) {
+            $this->addMediaCollection($attribute)->singleFile();
         }
-        $urls = [];
-        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
-            if ($isGenerated) {
-                $urls[$conversionName] = $media->getUrl($conversionName);
-            }
-        }
-        return $urls;
     }
-
     /**
      * The attributes that are mass assignable.
      *
