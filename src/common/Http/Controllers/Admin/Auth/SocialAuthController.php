@@ -11,62 +11,49 @@ use Laravel\Socialite\Facades\Socialite;
 class SocialAuthController extends Controller
 {
 
-    protected $supportedProviders = ['google', 'facebook', 'x', 'linkedin'];
+    protected $supportedProviders;
 
     public function __construct()
     {
-        Config::set('services.google.redirect', route('admin.social.callback', 'google'));
-        Config::set('services.facebook.redirect', route('admin.social.callback', 'facebook'));
-        Config::set('services.x.redirect', route('admin.social.callback', 'x'));
-        Config::set('services.linkedin-openid.redirect', route('admin.social.callback', 'linkedin'));
-    }
-    protected function getDriverName($provider)
-    {
-        $driverMap = [
-            'google' => 'google',
-            'facebook' => 'facebook',
-            'x' => 'x',
-            'linkedin' => 'linkedin-openid',
-        ];
-
-        return $driverMap[$provider] ?? $provider;
+        $this->supportedProviders = config('services.supportedSocialProviders.admin');
+        foreach ($this->supportedProviders as $provider => $data) {
+            $driver = $data['driver'];
+            $redirectRoute = route('admin.social.callback', $provider);
+            Config::set("services.{$driver}.redirect", $redirectRoute);
+        }
     }
 
-  
     public function redirectToProvider($provider)
     {
-        if (!in_array($provider, $this->supportedProviders)) {
+        if (!array_key_exists($provider, $this->supportedProviders)) {
             abort(404);
         }
 
-        $driver = $this->getDriverName($provider);
+        $driver = $this->supportedProviders[$provider]['driver'];
         return Socialite::driver($driver)->redirect();
     }
 
     public function handleProviderCallback($provider)
     {
-        if (!in_array($provider, $this->supportedProviders)) {
+        if (!array_key_exists($provider, $this->supportedProviders)) {
             abort(404);
         }
-
         try {
-            $driver = $this->getDriverName($provider);
+            $driver = $this->supportedProviders[$provider]['driver'];
             $socialUser = Socialite::driver($driver)->user();
-
             $admin = Admin::where('email', $socialUser->getEmail())->first();
 
             if ($admin) {
                 // Admin exists, log them in
                 Auth::guard('admin')->login($admin);
             } else {
-                return redirect()->route('admin.login')->withErrors([$provider => "No admin account associated with this {$provider} account."]);
+                return redirect()->route('admin.login')->with(['error' => "No admin account associated with this {$provider} account."]);
             }
 
             return redirect()->intended(route('admin.dashboard'));
         } catch (\Exception $e) {
             $providerName = ucfirst($provider);
-            return redirect()->route('admin.login')->withErrors([$provider => "Unable to login with {$providerName}."]);
+            return redirect()->route('admin.login')->with(['error' => "Unable to login with {$providerName}."]);
         }
     }
-
 }

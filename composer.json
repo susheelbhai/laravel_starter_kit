@@ -31,6 +31,8 @@
         "spatie/laravel-permission": "^6.18",
         "spatie/laravel-medialibrary": "^11.17",
         "laravel/socialite": "^5.24",
+        "socialiteproviders/amazon": "^4.1",
+        "socialiteproviders/apple": "^5.7",
         "intervention/image": "^3.11",
         "tightenco/ziggy": "^2.6",
         "inertiajs/inertia-laravel": "*"

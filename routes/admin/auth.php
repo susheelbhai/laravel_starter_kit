@@ -21,12 +21,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Generic social OAuth routes
         Route::get('auth/{provider}', [SocialAuthController::class, 'redirectToProvider'])
-            ->name('social.login')
-            ->where('provider', 'google|facebook|x|linkedin');
+            ->name('social.login');
 
         Route::get('auth/{provider}/callback', [SocialAuthController::class, 'handleProviderCallback'])
-            ->name('social.callback')
-            ->where('provider', 'google|facebook|x|linkedin');
+            ->name('social.callback');
 
         Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
             ->name('password.request');

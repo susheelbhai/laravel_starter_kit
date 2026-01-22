@@ -24,10 +24,6 @@ return new class extends Migration
             $table->string('state')->nullable();
             $table->string('dob')->nullable();
             $table->string('avatar')->nullable();
-            $table->string('google_id')->nullable()->unique();
-            $table->string('facebook_id')->nullable()->unique();
-            $table->string('x_id')->nullable()->unique();
-            $table->string('linkedin_id')->nullable()->unique();
             $table->rememberToken();
         });
     }

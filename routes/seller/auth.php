@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('seller')->name('seller.')->group(function () {
     Route::middleware('guest:seller')->group(function () {
-       
+
         Route::get('login', [AuthenticatedSessionController::class, 'create'])
             ->name('login');
 
@@ -21,12 +21,10 @@ Route::prefix('seller')->name('seller.')->group(function () {
 
         // Generic social OAuth routes
         Route::get('auth/{provider}', [SocialAuthController::class, 'redirectToProvider'])
-            ->name('social.login')
-            ->where('provider', 'google|facebook|x|linkedin');
+            ->name('social.login');
 
         Route::get('auth/{provider}/callback', [SocialAuthController::class, 'handleProviderCallback'])
-            ->name('social.callback')
-            ->where('provider', 'google|facebook|x|linkedin');
+            ->name('social.callback');
 
         Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
             ->name('password.request');

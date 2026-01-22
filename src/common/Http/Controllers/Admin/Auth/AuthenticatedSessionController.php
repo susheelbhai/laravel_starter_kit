@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Auth;
 
-use Inertia\Inertia;
 use App\Models\Admin;
-use Inertia\Response;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -15,13 +12,21 @@ use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
-    
     public function create(Request $request)
     {
+       $socialData = collect(config('services.supportedSocialProviders.admin'))->map(function ($item, $key) {
+            return [
+                $key => [
+                    'driver' => $item['driver'],
+                    'href' => route('admin.social.login', $key),
+                ],
+            ];
+        })->values();
         return $this->render('admin/auth/login', [
             'submitUrl' => route('admin.login'),
             'canResetPassword' => Route::has('password.request'),
             'status' => $request->session()->get('status'),
+            'socialData' => $socialData,
         ]);
     }
 
@@ -33,7 +38,6 @@ class AuthenticatedSessionController extends Controller
         $user = Admin::whereEmail($request['email'])
         ->orWhere('phone', $request['email'])
         ->first();
-        // dd($user);
         $request->authenticate($user,'admin');
 
         $request->session()->regenerate();

@@ -15,10 +15,19 @@ class AuthenticatedSessionController extends Controller
     
     public function create(Request $request)
     {
+        $socialData = collect(config('services.supportedSocialProviders.user'))->map(function ($item, $key) {
+            return [
+                $key => [
+                    'driver' => $item['driver'],
+                    'href' => route('social.login', $key),
+                ],
+            ];
+        })->values();
         return $this->render('user/auth/login', [
             'submitUrl' => route('login'),
             'canResetPassword' => Route::has('password.request'),
             'status' => $request->session()->get('status'),
+            'socialData' => $socialData,
         ]);
     }
 

@@ -33,7 +33,7 @@ export default function FlashMessageHandler() {
             return () => clearTimeout(timer);
         }
     }, [flash]);
-    console.log('Rendering FlashMessageHandler with visibleFlash:', visibleFlash);
+    
     return (
         <div className="mx-auto items-center justify-between">
             {visibleFlash && (

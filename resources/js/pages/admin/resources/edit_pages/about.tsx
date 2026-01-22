@@ -27,7 +27,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 export default function PageContact() {
     const data = ((usePage<SharedData>().props as any)?.data as any) || [];
-    console.log('About Page Data:', data);
     const initialValues: FormType = {
         id: data.id,
         para1: data.para1,

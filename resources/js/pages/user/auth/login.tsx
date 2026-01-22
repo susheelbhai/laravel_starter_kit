@@ -1,5 +1,5 @@
-import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle, Eye, EyeOff } from 'lucide-react';
+import { Head, useForm, usePage } from '@inertiajs/react';
+import { Eye, EyeOff } from 'lucide-react';
 import { FormEventHandler, useState } from 'react';
 
 import InputError from '@/components/input-error';
@@ -10,11 +10,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/user/auth-layout';
 import { FormContainer } from '@/components/form/container/form-container';
-import ContinueWithGoogle from '@/components/auth/ContinueWithGoogle';
-import ContinueWithFacebook from '@/components/auth/ContinueWithFacebook';
-import ContinueWithX from '@/components/auth/ContinueWithX';
-import ContinueWithLinkedIn from '@/components/auth/ContinueWithLinkedIn';
 import ContinueWithText from '@/components/auth/ContinueWithText';
+import ContinueWithSocial from '@/components/auth/ContinueWithSocial';
 
 type LoginForm = {
     email: string;
@@ -48,15 +45,23 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
             console.error('Submit URL is not defined.');
         }
     };
+    const socialData = usePage().props.socialData as any;
 
     return (
         <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
             <Head title="Log in" />
-            <ContinueWithGoogle href={route('social.login', 'google')} />
-            <ContinueWithFacebook href={route('social.login', 'facebook')} />
-            <ContinueWithX href={route('social.login', 'x')} />
-            <ContinueWithLinkedIn href={route('social.login', 'linkedin')} />
-            <ContinueWithText />
+            {socialData.map((item: any, id: number) => {
+                const key = Object.keys(item)[0];
+                const data = item[key];
+                return (
+                    <ContinueWithSocial
+                        key={id}
+                        platform={key as any}
+                        href={data.href}
+                    />
+                );
+            })}
+            {socialData.length > 0 && <ContinueWithText />}
 
             <FormContainer onSubmit={submit} processing={processing} buttonLabel="Log in" className="space-y-2">
                 <div className="grid gap-6">
