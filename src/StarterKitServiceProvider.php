@@ -47,7 +47,8 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/blade/Providers" => app_path('/Providers'),
             __dir__ . "/blade/View" => app_path('/View'),
             __dir__ . "/../database" => database_path('/'),
-            __dir__ . "/../config" => config_path('/'),
+            __dir__ . "/../config" => config_path('/common'),
+            __dir__ . "/../config" => config_path('/blade'),
             __dir__ . "/../routes" => base_path('/routes'),
             __DIR__ . '/../resources/themes' => base_path('resources/themes'),
             __DIR__ . '/../resources/views' => base_path('resources/views'),
@@ -59,6 +60,7 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/../assets/storage/.gitignore" => storage_path('app/public/.gitignore'),
             __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('/.sync-exclude.lst'),
             __dir__ . "/../assets/public/css" => public_path('css'),
+            __dir__ . "/../tests" => base_path('tests'),
         ], 'blade_starter_kit');
 
         $this->publishes([
@@ -74,7 +76,7 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/react/Http/Middleware" => app_path('/Http/Middleware'),
             __dir__ . "/react/Providers" => app_path('/Providers'),
             __dir__ . "/../database" => database_path('/'),
-            __dir__ . "/../config" => config_path('/'),
+            __dir__ . "/../config" => config_path('/common'),
             __dir__ . "/../routes" => base_path('/routes'),
             __DIR__ . '/../resources/css' => base_path('resources/css'),
             __DIR__ . '/../resources/js' => base_path('resources/js'),
@@ -88,7 +90,8 @@ class StarterKitServiceProvider extends ServiceProvider
             __dir__ . "/../assets/storage/.sync-exclude.lst" => storage_path('/.sync-exclude.lst'),
             __dir__ . "/../assets/public/css" => public_path('css'),
             __dir__ . "/../assets/public/themes/ck_editor" => public_path('themes/ck_editor'),
-            __dir__ . "/../assets/public/themes/tinymce" => public_path('themes/tinymce')
+            __dir__ . "/../assets/public/themes/tinymce" => public_path('themes/tinymce'),
+            __dir__ . "/../tests" => base_path('tests')
         ], 'react_starter_kit');
 
         $this->publishes([

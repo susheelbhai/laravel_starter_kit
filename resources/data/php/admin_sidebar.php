@@ -1,4 +1,5 @@
 <?php
+
 return $sidebarMenu = [
     [
         'group' => 'Menu',
@@ -17,12 +18,9 @@ return $sidebarMenu = [
             ['name' => 'Seller', 'icon' => 'fas fa-user-tie', 'route' => 'admin.seller.index'],
             ['name' => 'User', 'icon' => 'fas fa-user', 'route' => 'admin.user.index'],
             [
-                'name' => 'Setting',
+                'name' => 'App Setting',
                 'icon' => 'fa fa-cog',
-                'children' => [
-                    ['name' => 'General Setting', 'route' => 'admin.settings.general'],
-                    ['name' => 'Advance Setting', 'route' => 'admin.settings.advanced'],
-                ]
+                'route' => 'admin.settings.general',
             ],
             [
                 'name' => 'Forms',
@@ -35,9 +33,9 @@ return $sidebarMenu = [
                     ['name' => 'File', 'route' => 'admin.forms.file'],
                     ['name' => 'Image', 'route' => 'admin.forms.image'],
                     ['name' => 'Wizard', 'route' => 'admin.forms.wizard'],
-                ]
+                ],
             ],
-        ]
+        ],
     ],
     [
         'group' => 'Menu2',
@@ -57,7 +55,7 @@ return $sidebarMenu = [
                     ['name' => 'Terms & Conditions', 'route' => 'admin.pages.tncPage'],
                     ['name' => 'Privacy Policy', 'route' => 'admin.pages.privacyPage'],
                     ['name' => 'Refund Policy', 'route' => 'admin.pages.refundPage'],
-                ]
+                ],
             ],
             [
                 'name' => 'Services',
@@ -65,7 +63,7 @@ return $sidebarMenu = [
                 'children' => [
                     ['name' => 'All Services', 'route' => 'admin.service.index'],
                     ['name' => 'Create Services', 'route' => 'admin.service.create'],
-                ]
+                ],
             ],
             [
                 'name' => 'Projects',
@@ -73,7 +71,7 @@ return $sidebarMenu = [
                 'children' => [
                     ['name' => 'All Projects', 'route' => 'admin.project.index'],
                     ['name' => 'Create Projects', 'route' => 'admin.project.create'],
-                ]
+                ],
             ],
             [
                 'name' => 'Blogs',
@@ -81,7 +79,7 @@ return $sidebarMenu = [
                 'children' => [
                     ['name' => 'All Blog', 'route' => 'admin.blog.index'],
                     ['name' => 'Create Blog', 'route' => 'admin.blog.create'],
-                ]
+                ],
             ],
             [
                 'name' => 'Layouts',
@@ -90,10 +88,10 @@ return $sidebarMenu = [
                     [
                         'name' => 'Footer',
                         'children' => [
-                            ['name' => 'Important Links', 'route' => 'admin.important_links.index']
-                        ]
-                    ]
-                ]
+                            ['name' => 'Important Links', 'route' => 'admin.important_links.index'],
+                        ],
+                    ],
+                ],
             ],
             [
                 'name' => 'Profile',
@@ -101,8 +99,8 @@ return $sidebarMenu = [
                 'children' => [
                     ['name' => 'Settings', 'route' => 'admin.profile.edit'],
                     ['name' => 'Log Out', 'route' => 'admin.logout'],
-                ]
+                ],
             ],
-        ]
-    ]
+        ],
+    ],
 ];

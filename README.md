@@ -94,6 +94,13 @@ Make production build
 
   ``` 
 
+  ### start development server.
+  #### if php artisan serve is not working, you use the alternative command
+  ```
+  php -S 127.0.0.1:23456 -t public
+  ```
+  
+
 ## Deployment checklist
  
  ### update .env file
@@ -111,6 +118,7 @@ Make production build
   ```
   https://yourdomain.com/link-storage
   ```  
+
 
 ### License
 

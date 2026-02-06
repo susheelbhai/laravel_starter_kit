@@ -8,15 +8,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use Inertia\Response;
 
 class ConfirmablePasswordController extends Controller
 {
     /**
      * Show the confirm password view.
      */
-    public function show(): View
+    public function show(): Response|View
     {
-        return view('separate.partner.auth.confirm-password');
+        return $this->render('partner.auth.confirm-password');
     }
 
     /**

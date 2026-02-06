@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
+use Inertia\Response;
 
 class ConfirmablePasswordController extends Controller
 {
-    
-    public function show(): View
+    public function show(): Response|View
     {
-        return view('separate.user.auth.confirm-password');
+        return $this->render('user.auth.confirm-password');
     }
 
     public function store(Request $request): RedirectResponse
