@@ -54,6 +54,12 @@ class Admin extends BaseInternalAuthenticatable
         'facebook_id',
         'x_id',
         'linkedin_id',
+        "github_id",
+        'gitlab_id',
+        'bitbucket_id',
+        'slack_id',
+        'apple_id',
+        'amazon_id',
         'avatar',
     ];
     protected $guard_name = 'admin';
@@ -65,6 +71,16 @@ class Admin extends BaseInternalAuthenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'google_id',
+        'facebook_id',
+        'x_id',
+        'linkedin_id',
+        "github_id",
+        'gitlab_id',
+        'bitbucket_id',
+        'slack_id',
+        'apple_id',
+        'amazon_id',
     ];
 
     /**

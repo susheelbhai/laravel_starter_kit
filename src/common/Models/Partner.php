@@ -12,6 +12,26 @@ use App\Models\BaseModels\BaseExternalAuthenticatable;
 class Partner extends BaseExternalAuthenticatable
 {
     use HasFactory, Notifiable, HasRoles;
+
+    protected $fillable = [
+        'name',
+        'email',
+        'phone',
+        'password',
+        'profile_pic',
+        'google_id',
+        'facebook_id',
+        'x_id',
+        'linkedin_id',
+        "github_id",
+        'gitlab_id',
+        'bitbucket_id',
+        'slack_id',
+        'apple_id',
+        'amazon_id',
+        'avatar',
+    ];
+    
     protected $appends = ['profile_pic', 'profile_pic_converted'];
 
     public function registerMediaCollections(): void
@@ -57,6 +77,16 @@ class Partner extends BaseExternalAuthenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'google_id',
+        'facebook_id',
+        'x_id',
+        'linkedin_id',
+        "github_id",
+        'gitlab_id',
+        'bitbucket_id',
+        'slack_id',
+        'apple_id',
+        'amazon_id',
     ];
 
     /**
