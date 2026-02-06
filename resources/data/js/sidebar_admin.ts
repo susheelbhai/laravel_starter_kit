@@ -61,23 +61,31 @@ const mainNavItems = [
         ],
     },
     
-    {
+      {
         title: "Admin",
         routeName: "admin.admin.index",
         icon: Users2,
         permission: ["all rights"],
-    },
-    {
-        title: "Role",
-        routeName: "admin.role.index",
-        icon: Shield,
-        permission: "all rights",
-    },
-    {
-        title: "Permission",
-        routeName: "admin.permission.index",
-        icon: Key,
-        permission: "all rights",
+        children: [
+            {
+                title: "All Admin",
+                routeName: "admin.admin.index",
+                permission: ["all rights"],
+                icon: Notebook,
+            },
+            {
+                title: "Role",
+                routeName: "admin.role.index",
+                icon: Shield,
+                permission: ["all rights"],
+            },
+            {
+                title: "Permission",
+                routeName: "admin.permission.index",
+                icon: Key,
+                permission: ["all rights"],
+            },
+        ],
     },
     {
         title: "Seller",

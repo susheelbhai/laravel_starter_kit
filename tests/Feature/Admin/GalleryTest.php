@@ -33,7 +33,23 @@ test('admin gallery show', function () {
     $admin = Admin::factory()->create();
     $gallery = Gallery::factory()->create();
 
-    $this->actingAs($admin, 'admin')->get(route('admin.gallery.show', $gallery->id))->assertInertia(fn ($page) => $page->component('admin/resources/gallery/show'));
+    // Generate a temporary image file
+    $tmpImage = tempnam(sys_get_temp_dir(), 'test_img_') . '.jpg';
+    $img = imagecreatetruecolor(100, 100);
+    $bg = imagecolorallocate($img, 255, 0, 0);
+    imagefill($img, 0, 0, $bg);
+    imagejpeg($img, $tmpImage);
+    imagedestroy($img);
+
+    $gallery->addMedia($tmpImage)->toMediaCollection('images');
+
+    $response = $this->actingAs($admin, 'admin')->get(route('admin.gallery.show', $gallery->id));
+    $response->assertStatus(200);
+    $response->assertInertia(fn ($page) => $page->component('admin/resources/gallery/show'));
+    $response->assertSee($gallery->title);
+
+    // Clean up temp image
+    @unlink($tmpImage);
 });
 
 test('admin gallery edit', function () {

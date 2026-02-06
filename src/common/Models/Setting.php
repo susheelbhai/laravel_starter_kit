@@ -9,11 +9,14 @@ class Setting extends BaseInternalMediaModel
 {
     use HasFactory;
     protected $guarded = [];
-    protected $appends = ['favicon', 'favicon_converted', 'dark_logo', 'dark_logo_converted', 'light_logo', 'light_logo_converted'];
+    protected $appends = ['favicon','square_dark_logo', 'square_dark_logo_converted', 'square_light_logo', 'square_light_logo_converted', 'dark_logo', 'dark_logo_converted', 'light_logo', 'light_logo_converted'];
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('favicon')
+        $this->addMediaCollection('square_dark_logo')
+            ->singleFile();
+        
+        $this->addMediaCollection('square_light_logo')
             ->singleFile();
         
         $this->addMediaCollection('dark_logo')
@@ -25,13 +28,39 @@ class Setting extends BaseInternalMediaModel
 
     public function getFaviconAttribute(): string
     {
-        $media = $this->getFirstMedia('favicon');
+        $media = $this->getFirstMedia('square_dark_logo');
+        return $media ? $media->getUrl('thumbSquare') : '/dummy.png';
+    }
+    public function getSquareDarkLogoAttribute(): string
+    {
+        $media = $this->getFirstMedia('square_dark_logo');
         return $media ? $media->getUrl() : '/dummy.png';
     }
 
-    public function getFaviconConvertedAttribute(): array
+    public function getSquareDarkLogoConvertedAttribute(): array
     {
-        $media = $this->getFirstMedia('favicon');
+        $media = $this->getFirstMedia('square_dark_logo');
+        if (!$media) {
+            return [];
+        }
+        $urls = [];
+        foreach ($media->getGeneratedConversions() as $conversionName => $isGenerated) {
+            if ($isGenerated) {
+                $urls[$conversionName] = $media->getUrl($conversionName);
+            }
+        }
+        return $urls;
+    }
+
+    public function getSquareLightLogoAttribute(): string
+    {
+        $media = $this->getFirstMedia('square_light_logo');
+        return $media ? $media->getUrl() : '/dummy.png';
+    }
+
+    public function getSquareLightLogoConvertedAttribute(): array
+    {
+        $media = $this->getFirstMedia('square_light_logo');
         if (!$media) {
             return [];
         }

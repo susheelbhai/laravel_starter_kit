@@ -85,6 +85,8 @@ class ShareDataMiddleware
                 'app.favicon' => $settings->favicon,
                 'app.dark_logo' => $settings->dark_logo,
                 'app.light_logo' => $settings->light_logo,
+                'app.square_dark_logo' => $settings->square_dark_logo,
+                'app.square_light_logo' => $settings->square_light_logo,
                 'app.email' => $settings->email,
                 'app.phone' => $settings->phone,
                 'app.facebook' => $settings->facebook,

@@ -12,6 +12,8 @@ type CreateForm = {
     address: string;
     dark_logo: string;
     light_logo: string;
+    square_dark_logo: string;
+    square_light_logo: string;
     favicon: string;
     email: string;
     phone: string;
@@ -28,10 +30,6 @@ const breadcrumbs: BreadcrumbItem[] = [
         title: 'Website Settings',
         href: '/admin/setting/general',
     },
-    {
-        title: 'Edit',
-        href: '/dashboard',
-    },
 ];
 
 export default function GeneralSetting() {
@@ -44,6 +42,8 @@ export default function GeneralSetting() {
         dark_logo: data.dark_logo || '',
         light_logo: data.light_logo || '',
         favicon: data.favicon || '',
+        square_dark_logo: data.square_dark_logo || '',
+        square_light_logo: data.square_light_logo || '',
         email: data.email || '',
         phone: data.phone || '',
         facebook: data.facebook || '',
@@ -83,12 +83,23 @@ export default function GeneralSetting() {
                     name="address"
                     inputDivData={inputDivData}
                 />
-                <InputDiv
-                    type="image"
-                    label="Favicon"
-                    name="favicon"
-                    inputDivData={inputDivData}
-                />
+                <div className="flex gap-4">
+                    <InputDiv
+                        type="image"
+                        label="Square Dark Logo"
+                        name="square_dark_logo"
+                        inputDivData={inputDivData}
+                        widthMultiplier={1}
+                    />
+
+                    <InputDiv
+                        type="image"
+                        label="Square Light Logo"
+                        name="square_light_logo"
+                        inputDivData={inputDivData}
+                        widthMultiplier={1}
+                    />
+                </div>
                 <InputDiv
                     type="image"
                     label="Dark Logo"
@@ -150,7 +161,7 @@ export default function GeneralSetting() {
                     name="whatsapp"
                     inputDivData={inputDivData}
                 />
-                
+
             </FormContainer>
         </AppLayout>
     );

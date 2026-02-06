@@ -48,6 +48,8 @@ class HandleInertiaRequests extends Middleware
                 'favicon' => config('app.favicon'),
                 'dark_logo' => config('app.dark_logo'),
                 'light_logo' => config('app.light_logo'),
+                'square_dark_logo' => config('app.square_dark_logo'),
+                'square_light_logo' => config('app.square_light_logo'),
                 'email' => config('app.email'),
                 'phone' => config('app.phone'),
                 'whatsapp' => config('app.whatsapp'),
