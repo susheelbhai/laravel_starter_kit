@@ -45,6 +45,8 @@ class final_settings extends Command
             File::deleteDirectory(base_path('resources/js/pages/settings'));
             File::deleteDirectory(base_path('app/Http/Controllers/Auth'));
             File::deleteDirectory(base_path('app/Http/Controllers/Settings'));
+            File::deleteDirectory(base_path('tests/Feature/Auth'));
+            File::deleteDirectory(base_path('tests/Feature/Settings'));
         } catch (\Throwable $th) {
             return $th;
         }

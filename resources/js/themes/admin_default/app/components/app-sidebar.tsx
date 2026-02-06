@@ -10,9 +10,9 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { PropsWithChildren } from 'react';
-// import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
+import type { PropsWithChildren } from 'react';
+// import { type NavItem } from '@/types';
 
 import AppLogo from './app-logo';
 
@@ -29,11 +29,14 @@ export function AppSidebar({
 }>) {
     return (
         <Sidebar collapsible="icon" variant="inset">
-            <SidebarHeader>
+            <SidebarHeader className="mb-5 p-0">
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href={authUser?.dashboard_url || '/dashboard'} prefetch>
+                            <Link
+                                href={authUser?.dashboard_url || '/dashboard'}
+                                prefetch
+                            >
                                 <AppLogo />
                             </Link>
                         </SidebarMenuButton>
@@ -55,3 +58,4 @@ export function AppSidebar({
         </Sidebar>
     );
 }
+

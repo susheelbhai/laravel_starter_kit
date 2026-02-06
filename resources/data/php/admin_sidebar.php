@@ -9,9 +9,16 @@ return $sidebarMenu = [
             ['name' => 'Partner', 'icon' => 'fa-solid fa-people-arrows', 'route' => 'admin.partner.index'],
             ['name' => 'User Query', 'icon' => 'fas fa-clipboard-question', 'route' => 'admin.userQuery.index'],
             ['name' => 'Newsletter', 'icon' => 'fas fa-newspaper', 'route' => 'admin.newsletter.index'],
-            ['name' => 'Category', 'icon' => 'fas fa-folder-tree', 'route' => 'admin.product_category.index'],
-            ['name' => 'Product', 'icon' => 'fas fa-box', 'route' => 'admin.product.index'],
-            ['name' => 'Product Enquiry', 'icon' => 'fas fa-message-square', 'route' => 'admin.productEnquiry.index'],
+            ['name' => 'Gallery', 'icon' => 'fas fa-image', 'route' => 'admin.gallery.index'],
+            [
+                'name' => 'Product',
+                'icon' => 'fas fa-box',
+                'children' => [
+                    ['name' => 'Products Category', 'route' => 'admin.product_category.index'],
+                    ['name' => 'All Products', 'route' => 'admin.product.index'],
+                    ['name' => 'Product Enquiry', 'route' => 'admin.productEnquiry.index'],
+                ]
+            ],
             ['name' => 'Admin', 'icon' => 'fas fa-users-cog', 'route' => 'admin.admin.index'],
             ['name' => 'Role', 'icon' => 'fas fa-user-shield', 'route' => 'admin.role.index'],
             ['name' => 'Permission', 'icon' => 'fas fa-key', 'route' => 'admin.permission.index'],

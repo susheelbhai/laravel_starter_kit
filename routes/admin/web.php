@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\UserQueryController;
 use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\GalleryController;
 
 Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
     Route::prefix('admin')->name('admin.')->middleware(['auth:admin'])->group(function () {
@@ -101,6 +102,8 @@ Route::middleware(['web', HandleInertiaRequests::class])->group(function () {
         Route::resource('/product', ProductController::class);
 
         Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter.index');
+        
+        Route::resource('/gallery', GalleryController::class);
     });
     require __DIR__.'/auth.php';
     require __DIR__.'/settings.php';

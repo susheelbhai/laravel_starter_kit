@@ -105,6 +105,11 @@ const mainNavItems = [
         icon: Newspaper,
     },
     {
+        title: 'Gallery',
+        routeName: 'admin.gallery.index',
+        icon: Image,
+    },
+    {
         title: "Forms",
         icon: FileText,
         children: [
