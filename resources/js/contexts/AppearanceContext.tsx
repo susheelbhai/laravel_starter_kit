@@ -23,6 +23,28 @@ const prefersDark = () => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
 };
 
+const getDefaultAppearance = (): Appearance => {
+    if (typeof document === 'undefined') {
+        return 'system';
+    }
+    const attr = document.documentElement.getAttribute('data-appearance');
+    if (attr === 'light' || attr === 'dark' || attr === 'system') {
+        return attr;
+    }
+    return 'system';
+};
+
+const getStoredAppearance = (): Appearance | null => {
+    if (typeof window === 'undefined') {
+        return null;
+    }
+    const value = localStorage.getItem('appearance');
+    if (value === 'light' || value === 'dark' || value === 'system') {
+        return value;
+    }
+    return null;
+};
+
 const setCookie = (name: string, value: string, days = 365) => {
     if (typeof document === 'undefined') {
         return;
@@ -39,7 +61,8 @@ const mediaQuery = () => {
 };
 
 export const AppearanceProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [appearance, setAppearance] = useState<Appearance>('system');
+    const defaultAppearance = getDefaultAppearance();
+    const [appearance, setAppearance] = useState<Appearance>(defaultAppearance);
     const [isDark, setIsDark] = useState(false);
 
     const applyTheme = useCallback((mode: Appearance) => {
@@ -56,19 +79,19 @@ export const AppearanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     }, [applyTheme]);
 
     const handleSystemThemeChange = useCallback(() => {
-        const currentAppearance = localStorage.getItem('appearance') as Appearance;
-        applyTheme(currentAppearance || 'system');
-    }, [applyTheme]);
+        const currentAppearance = getStoredAppearance() ?? defaultAppearance;
+        applyTheme(currentAppearance);
+    }, [applyTheme, defaultAppearance]);
 
     useEffect(() => {
-        const savedAppearance = localStorage.getItem('appearance') as Appearance | null;
-        updateAppearance(savedAppearance || 'system');
+        const savedAppearance = getStoredAppearance();
+        updateAppearance(savedAppearance ?? defaultAppearance);
 
         const mq = mediaQuery();
         mq?.addEventListener('change', handleSystemThemeChange);
 
         return () => mq?.removeEventListener('change', handleSystemThemeChange);
-    }, [updateAppearance, handleSystemThemeChange]);
+    }, [updateAppearance, handleSystemThemeChange, defaultAppearance]);
 
     return (
         <AppearanceContext.Provider value={{ appearance, isDark, updateAppearance }}>

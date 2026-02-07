@@ -7,7 +7,8 @@ class ConfigValue
     public $config_values_app = array(
         'timezone' => "env('APP_TIMEZONE', 'Asia/Kolkata')",
         'watermark' => "env('WATERMARK', 1)",
-        'render_type' => "env('APP_RENDER_TYPE', 'inertia')"
+        'render_type' => "env('APP_RENDER_TYPE', 'inertia')",
+        'appearance_default' => "env('APP_APPEARANCE', 'system')"
     );
     public $config_values_mail = array(
         'send_mail' => "env('SEND_MAIL', '0')",

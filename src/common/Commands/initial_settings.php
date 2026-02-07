@@ -16,6 +16,7 @@ class initial_settings extends Command
     protected $description = 'To change some initial configuration which is required on starting new project';
 
     public $env_values = array(
+        'APP_APPEARANCE' => 'system',
         'FILESYSTEM_DISK' => 'public',
         'SEND_MAIL' => 1,
         'MAIL_MAILER' => 'smtp',
@@ -46,6 +47,11 @@ class initial_settings extends Command
         $starter_kit_installed = $this->ask("have you installed laravel starter kit? (yes/no)", 'yes');
         $project_name = $this->ask("Project Name", 'new');
         $app_name = $this->ask("App Name", $project_name);
+        $app_appearance = $this->choice(
+            'APP_APPEARANCE',
+            ['system', 'light', 'dark'],
+            1,
+        );
         $has_ssl = $this->ask("do you have ssl available? (yes/no)", 'yes');
         $db_type = $this->choice(
             'DB_CONNECTION',
@@ -61,6 +67,7 @@ class initial_settings extends Command
 
         try {
             $this->env_values['APP_URL'] = $app_url;
+            $this->env_values['APP_APPEARANCE'] = $app_appearance;
         } catch (Exception $e) {
             $this->error($e->getMessage());
         }
