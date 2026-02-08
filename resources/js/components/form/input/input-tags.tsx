@@ -1,8 +1,9 @@
-import { useState, KeyboardEvent } from 'react';
 import { X } from 'lucide-react';
-import { InputDivProps } from '../container/input-types';
-import { Label } from '@/components/ui/label';
+import type { KeyboardEvent } from 'react';
+import { useState } from 'react';
 import InputError from '@/components/input-error';
+import { Label } from '@/components/ui/label';
+import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
 
 export default function InputTags(props: InputDivProps) {
@@ -69,7 +70,7 @@ export default function InputTags(props: InputDivProps) {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder={placeholder || 'Type and press Enter'}
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="w-full rounded-md border-2 bg-[var(--input-bg)] border-[var(--input-border)] px-3 py-2 text-sm text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:outline-none focus:border-secondary/60 focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]"
                 />
             </div>
 

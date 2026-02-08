@@ -1,12 +1,12 @@
+import { Link } from '@inertiajs/react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 import {
     SidebarGroup,
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { Link } from '@inertiajs/react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import { useState } from 'react';
 
 import { canAny } from '@/lib/can';
 import { type NavItem } from '@/types';

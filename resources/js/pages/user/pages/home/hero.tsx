@@ -14,7 +14,7 @@ export default function HeroSection(props: any) {
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                backgroundColor: bannerImage ? 'transparent' : '#F5F6FA',
+                backgroundColor: bannerImage ? 'transparent' : 'var(--background)',
             }}
         >
             <div className="mx-auto grid max-w-[1320px] items-center gap-8 px-4 md:grid-cols-2 md:px-6">
@@ -29,13 +29,13 @@ export default function HeroSection(props: any) {
                         <div dangerouslySetInnerHTML={{ __html: props.data?.data?.banner_heading }} />
                     </h1>
 
-                    <div className="mt-6 max-w-md text-[#6B7280]">
+                    <div className="mt-6 max-w-md text-muted-foreground">
                         <div dangerouslySetInnerHTML={{ __html: props.data?.data?.banner_description }} />
                     </div>
 
                     <div className="mt-8 flex space-x-4">
                         <a href={route('product.index')}>
-                            <button className="cursor-pointer rounded-md bg-primary px-6 py-3 font-semibold text-white hover:bg-primary/80">
+                            <button className="cursor-pointer rounded-md bg-primary px-6 py-3 font-semibold text-primary-foreground hover:bg-primary/80">
                                 See Products
                             </button>
                         </a>
@@ -44,7 +44,7 @@ export default function HeroSection(props: any) {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <button className="cursor-pointer rounded-md border border-primary px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-white">
+                            <button className="cursor-pointer rounded-md border border-primary px-6 py-3 font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
                                 <FaWhatsapp className="inline-block mr-2" />
                                 Contact Us
                             </button>

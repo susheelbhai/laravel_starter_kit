@@ -12,7 +12,7 @@ export default function ServicesSection(data: any) {
                     {data.data.map((service: any, i: number) => (
                         <div
                             key={i}
-                            className="rounded-lg bg-white p-8 shadow transition hover:shadow-lg"
+                            className="rounded-lg bg-card p-8 shadow transition hover:shadow-lg"
                         >
                             <img
                                 src={`${service.display_img_converted.thumb}`}
@@ -22,7 +22,7 @@ export default function ServicesSection(data: any) {
                             <h3 className="mb-2 text-xl font-semibold">
                                 {service.title}
                             </h3>
-                            <p className="text-[#6B7280]">{service.desc}</p>
+                            <p className="text-muted-foreground">{service.desc}</p>
                         </div>
                     ))}
                 </div>

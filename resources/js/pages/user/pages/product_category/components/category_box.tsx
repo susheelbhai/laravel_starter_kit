@@ -45,8 +45,8 @@ export default function CategorySection({ categories }: CategorySectionProps) {
               href={route("productCategory.show", category.slug)}
               className="group block"
             >
-              <div className="relative h-full rounded-3xl bg-linear-to-br from-white to-slate-50 p-8 shadow-md border border-slate-200/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#FAB915]/20 hover:border-[#FAB915]/30 overflow-hidden">
-                <div className="absolute inset-0 bg-linear-to-br from-[#FAB915]/0 to-[#FAB915]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative h-full rounded-3xl bg-linear-to-br from-white to-slate-50 p-8 shadow-md border border-slate-200/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 overflow-hidden">
+                <div className="absolute inset-0 bg-linear-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   {category.icon && (
                     <img
@@ -55,7 +55,7 @@ export default function CategorySection({ categories }: CategorySectionProps) {
                       className="mx-auto mb-2 h-48 w-48 object-contain"
                     />
                   )}
-                  <h3 className="mb-3 text-xl font-bold text-slate-900 transition-colors group-hover:text-[#FAB915]">
+                  <h3 className="mb-3 text-xl font-bold text-slate-900 transition-colors group-hover:text-primary">
                     {category.title}
                   </h3>
                   {category.description && (
@@ -63,7 +63,7 @@ export default function CategorySection({ categories }: CategorySectionProps) {
                       {category.description}
                     </p>
                   )}
-                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-[#FAB915] translate-x-0 group-hover:translate-x-2 transition-transform duration-300">
+                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-primary translate-x-0 group-hover:translate-x-2 transition-transform duration-300">
                     <span>Explore</span>
                     <span className="text-lg">→</span>
                   </div>

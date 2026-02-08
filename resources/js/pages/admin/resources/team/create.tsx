@@ -1,9 +1,9 @@
+import { Head } from '@inertiajs/react';
+import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
-import { BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/react';
 import { useFormHandler } from '@/lib/use-form-handler';
-import { FormContainer } from '@/components/form/container/form-container';
+import type { BreadcrumbItem } from '@/types';
 
 type FormType = {
     name: string;

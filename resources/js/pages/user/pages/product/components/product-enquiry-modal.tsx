@@ -1,7 +1,7 @@
+import { X, Loader2 } from 'lucide-react';
 import { InputDiv } from '@/components/form/container/input-div';
 import { Button } from '@/components/ui/button';
 import { useFormHandler } from '@/lib/use-form-handler';
-import { X, Loader2 } from 'lucide-react';
 
 interface ProductEnquiryModalProps {
     isOpen: boolean;

@@ -1,8 +1,8 @@
 import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import AuthSection from "./auth-section";
 import { Container } from "@/components/ui/container";
+import AuthSection from "./auth-section";
 
 const routeExists = (name: string): boolean => {
     try {
@@ -30,7 +30,7 @@ export default function Header({
     const availableMenuItems = menuItems.filter((item: any) => routeExists(item.routeName));
 
     return (
-        <header className="sticky top-0 z-50 bg-white/90 shadow-sm backdrop-blur-xl">
+        <header className="sticky top-0 z-50 bg-[var(--header-bg)]/90 shadow-sm backdrop-blur-xl">
             <Container className="mx-auto flex items-center justify-between px-4 py-3.5 md:py-4">
                 {/* Logo */}
                 <div className="flex items-center gap-2">
@@ -44,12 +44,12 @@ export default function Header({
                 </div>
 
                 {/* Desktop Menu */}
-                <nav className="hidden items-center gap-1 text-sm font-medium text-slate-700 md:flex">
+                <nav className="hidden items-center gap-1 text-sm font-medium text-[var(--header-text)] md:flex">
                     {availableMenuItems.map((item: any) => (
                         <Link
                             key={item.name}
                             href={route(item.routeName)}
-                            className="rounded-full px-3 py-2 transition-colors hover:bg-slate-100 hover:text-[#FAB915]"
+                            className="rounded-full px-3 py-2 transition-colors hover:bg-muted hover:text-primary"
                         >
                             {item.name}
                         </Link>
@@ -64,7 +64,7 @@ export default function Header({
                     onClick={() => {
                         setMenuOpen((prev) => !prev);
                     }}
-                    className="flex items-center text-xl text-slate-700 md:hidden"
+                    className="flex items-center text-xl text-muted-foreground md:hidden"
                 >
                     {menuOpen ? <FaTimes /> : <FaBars />}
                 </button>
@@ -72,13 +72,13 @@ export default function Header({
 
             {/* Mobile Menu Dropdown */}
             {menuOpen && (
-                <div className="border-t border-slate-200 bg-white px-4 pb-4 shadow md:hidden">
-                    <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-slate-700">
+                <div className="border-t border-border bg-[var(--header-bg)] px-4 pb-4 shadow md:hidden">
+                    <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-[var(--header-text)]">
                         {availableMenuItems.map((item: any) => (
                             <Link
                                 key={item.name}
                                 href={route(item.routeName)}
-                                className="rounded-lg px-3 py-2 transition-colors hover:bg-slate-100 hover:text-[#FAB915]"
+                                className="rounded-lg px-3 py-2 transition-colors hover:bg-muted hover:text-primary"
                                 onClick={() => setMenuOpen(false)}
                             >
                                 {item.name}

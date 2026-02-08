@@ -1,6 +1,6 @@
 import '../../../../css/picker.css';
 import React, { useState } from 'react';
-import { InputDivProps } from '../container/input-types';
+import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
 
 interface InputClockTimePickerProps extends InputDivProps {
@@ -56,7 +56,7 @@ export default function InputClockTimePicker({
         setHour(h);
         setMinute(m);
         setAMPM(ampmVal);
-        let hour24 =
+        const hour24 =
             ampmVal === 'PM' ? (h === 12 ? 12 : h + 12) : h === 12 ? 0 : h;
         setData(name, `${pad(hour24)}:${pad(m)}`);
         if (close) setIsOpen(false);
@@ -88,7 +88,7 @@ export default function InputClockTimePicker({
                 <div className="relative w-full">
                     <input
                         type="text"
-                        className={`w-full rounded-lg border px-3 py-2 text-left ${className || ''}`}
+                        className={`w-full rounded-lg border-2 bg-[var(--input-bg)] border-[var(--input-border)] px-3 py-2 text-left text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:outline-none focus:border-secondary/60 focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)] ${className || ''}`}
                         value={value}
                         placeholder={placeholder}
                         readOnly={readOnly}
@@ -119,12 +119,12 @@ export default function InputClockTimePicker({
                         onChange={(e) => {
                             const val = e.target.value;
                             // Accept HH:MM or H:MM, 24h or 12h with AM/PM
-                            let match = val.match(
+                            const match = val.match(
                                 /^(\d{1,2}):(\d{2})(?:\s*(AM|PM))?$/i,
                             );
                             if (match) {
                                 let h = parseInt(match[1], 10);
-                                let m = parseInt(match[2], 10);
+                                const m = parseInt(match[2], 10);
                                 let ampmVal: 'AM' | 'PM' = ampm;
                                 if (match[3])
                                     ampmVal = match[3].toUpperCase() as
@@ -164,7 +164,7 @@ export default function InputClockTimePicker({
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 text-gray-400"
+                            className="h-4 w-4 text-[var(--input-placeholder)]"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -180,7 +180,7 @@ export default function InputClockTimePicker({
                 </div>
                 {isOpen && (
                     <div
-                        className="clock-popover absolute left-0 z-10 mt-2 rounded-lg border bg-white p-4 shadow-lg"
+                        className="clock-popover absolute left-0 z-10 mt-2 rounded-lg border bg-background p-4 shadow-lg"
                     >
                         <div
                             className="clock-face"
@@ -196,7 +196,7 @@ export default function InputClockTimePicker({
                                     cy={110}
                                     r={107}
                                     fill="none"
-                                    stroke="#e5e7eb"
+                                    stroke="var(--muted-foreground, #64748b)"
                                     strokeWidth={3}
                                 />
                             </svg>
@@ -206,7 +206,7 @@ export default function InputClockTimePicker({
                                   (() => {
                                       if (value) {
                                           const [vh] = value.split(':');
-                                          let h = parseInt(vh, 10);
+                                          const h = parseInt(vh, 10);
                                           // 12 or 0 is index 0, 1 is 1, ..., 11 is 11
                                           const posIndex =
                                               h === 0 || h === 12 ? 0 : h;
@@ -232,7 +232,7 @@ export default function InputClockTimePicker({
                                                       y1={center}
                                                       x2={x2}
                                                       y2={y2}
-                                                      stroke="#2563eb"
+                                                      stroke="var(--primary, #0212AC)"
                                                       strokeWidth={3}
                                                   />
                                               </svg>
@@ -265,7 +265,7 @@ export default function InputClockTimePicker({
                                                   y1={center}
                                                   x2={x2}
                                                   y2={y2}
-                                                  stroke="#2563eb"
+                                                  stroke="var(--primary, #0212AC)"
                                                   strokeWidth={3}
                                               />
                                           </svg>

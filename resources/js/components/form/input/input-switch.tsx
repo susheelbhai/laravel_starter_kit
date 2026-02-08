@@ -1,8 +1,8 @@
 import React from "react";
-import { Label } from "@/components/ui/label";
 import InputError from "@/components/input-error";
+import { Label } from "@/components/ui/label";
+import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
-import { InputDivProps } from "../container/input-types";
 
 export default function InputSwitch({
   label,
@@ -37,11 +37,11 @@ export default function InputSwitch({
           aria-checked={value}
           onClick={handleToggle}
           className={`relative inline-flex h-8 w-24 items-center rounded-full transition-colors focus:outline-none cursor-pointer ${
-            value ? "bg-green-500" : "bg-gray-300"
+            value ? "bg-green-500" : "bg-[var(--input-border)]"
           }`}
         >
           <span
-            className={`inline-block h-8 w-8 transform rounded-full bg-white transition-transform ${
+            className={`inline-block h-8 w-8 transform rounded-full bg-[var(--input-bg)] transition-transform ${
               value ? "translate-x-16" : "translate-x-0"
             }`}
           />

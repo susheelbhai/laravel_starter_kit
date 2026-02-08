@@ -1,6 +1,6 @@
 
-import AppLayout from "@/layouts/user/app-layout";
 import { usePage } from "@inertiajs/react";
+import AppLayout from "@/layouts/user/app-layout";
 import ProductDescription from "../product/components/product-description";
 import ProductSection from "../product/components/product_box";
 
@@ -19,7 +19,7 @@ export default function ProductCategoryShow() {
             className="absolute inset-0 bg-cover bg-center scale-105"
             style={{ backgroundImage: `url('${category.image || "/images/products-banner.jpg"}')` }}
           />
-          <div className="absolute inset-0 bg-linear-to-br from-[#FAB915]/90 via-orange-600/80 to-purple-900/90" />
+          <div className="absolute inset-0 bg-linear-to-br from-primary/90 via-secondary/80 to-primary/70" />
           <div className="absolute inset-0 backdrop-blur-[2px]" />
           <div className="relative z-10 flex h-full items-center justify-center px-4">
             <div className="flex flex-row items-center justify-center w-full max-w-5xl gap-8">

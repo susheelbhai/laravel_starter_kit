@@ -1,4 +1,3 @@
-import { type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
@@ -8,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import AppLayout from '@/layouts/user/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
+import { type SharedData } from '@/types';
 
 type FormType = {
     name: string;

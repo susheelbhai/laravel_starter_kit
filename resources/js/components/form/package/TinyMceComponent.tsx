@@ -12,10 +12,13 @@ declare global {
 }
 
 const TINYMCE_STYLES = {
-    borderRadius: '0rem',
+    borderRadius: '1rem',
     headerBgCssVar: '--background2',
     footerBgCssVar: '--primary',
-    defaultHeight: 480
+    defaultHeight: 480,
+    primaryColor: 'var(--primary)',
+    primaryForeground: 'var(--primary-foreground)',
+    bodyForDark: 'var(--input-bg)',
 };
 
 interface TinyMceComponentProps {
@@ -50,20 +53,20 @@ export default function TinyMceComponent({
             // You can adjust these colors/variables as needed
             styleElement.textContent = `
                 .tox .tox-menubar+.tox-toolbar, .tox .tox-menubar+.tox-toolbar-overlord .tox-toolbar__primary {
-                    border-top: .1rem solid var(--primary, #6d15fa) !important;
-                    border-bottom: .1rem solid var(--primary, #6d15fa) !important;
+                    border-top: .1rem solid ${TINYMCE_STYLES.primaryColor} !important;
+                    border-bottom: .1rem solid ${TINYMCE_STYLES.primaryColor} !important;
                 }
                 .tox.tox-tinymce {
                     border-radius: ${TINYMCE_STYLES.borderRadius} !important;
-                    border: 1.5px solid var(--primary, #6d15fa) !important;
+                    border: 1.5px solid ${TINYMCE_STYLES.primaryColor} !important;
                     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
                     overflow: hidden !important;
                 }
                 .tox .tox-toolbar, .tox .tox-menubar {
-                    background: var(--background2, #eee6fd) !important;
+                    background: var(${TINYMCE_STYLES.headerBgCssVar}) !important;
                 }
                 .tox .tox-statusbar {
-                    background: var(--primary, #6d15fa) !important;
+                    background: ${TINYMCE_STYLES.primaryColor} !important;
                 }
                 .tox .tox-statusbar__text,
                 .tox .tox-statusbar__branding,
@@ -71,14 +74,93 @@ export default function TinyMceComponent({
                 .tox .tox-statusbar__path-item,
                 .tox .tox-statusbar__wordcount,
                 .tox .tox-statusbar :not(svg):not(rect) {
-                    color: var(--primary-foreground, #fff) !important;
+                    color: ${TINYMCE_STYLES.primaryForeground} !important;
                     font-weight: 600 !important;
                     text-shadow: 0 1px 2px rgba(0,0,0,0.18) !important;
                     opacity: 1 !important;
                 }
                 .tox .tox-statusbar{height: 2rem !important;}
-                .tox .tox-edit-area__iframe {
-                    border-radius: 0 0 ${TINYMCE_STYLES.borderRadius} ${TINYMCE_STYLES.borderRadius} !important;
+                
+                /* Dropdown Menu Styling - Light Mode */
+                .tox .tox-menu,
+                .tox .tox-collection,
+                .tox .tox-collection--list,
+                .tox .tox-menu.tox-menu,
+                .tox .tox-collection.tox-collection {
+                    background: white !important;
+                    border: 1px solid #e1e5e9 !important;
+                }
+                
+                .tox .tox-collection__item,
+                .tox .tox-menu__item,
+                .tox .tox-collection__item.tox-collection__item,
+                .tox .tox-menu__item.tox-menu__item {
+                    color: #3c4146 !important;
+                    background: transparent !important;
+                }
+                
+                .tox .tox-collection__item:hover,
+                .tox .tox-menu__item:hover,
+                .tox .tox-collection__item--active,
+                .tox .tox-menu__item--active {
+                    background: ${TINYMCE_STYLES.primaryColor} !important;
+                    color: ${TINYMCE_STYLES.primaryForeground} !important;
+                }
+                
+                .tox .tox-mbtn:hover{
+                 background: ${TINYMCE_STYLES.primaryColor} !important;
+                    color: ${TINYMCE_STYLES.primaryForeground} !important;
+                }
+
+                
+                .tox .tox-mbtn:hover{
+                 background: ${TINYMCE_STYLES.primaryColor} !important;
+                    color: ${TINYMCE_STYLES.primaryForeground} !important;
+                }
+
+                .tox .tox-collection__item--state-disabled,
+                .tox .tox-menu__item--state-disabled {
+                    color: #a6a6a6 !important;
+                }
+
+                
+
+                /* Dark mode editable area background */
+                .dark .tox :not(svg):not(rect){
+                    color: ${TINYMCE_STYLES.primaryForeground} !important;
+                }
+                .dark .tox .tox-toolbar, .dark .tox .tox-toolbar__overflow, .dark .tox .tox-toolbar__primary {
+                    background: ${TINYMCE_STYLES.bodyForDark} !important;
+                }
+                .dark .tox .tox-edit-area iframe {
+                    background: ${TINYMCE_STYLES.bodyForDark} !important;
+                }
+                
+                /* Dropdown Menu Styling - Dark Mode */
+                .dark .tox .tox-menu,
+                .dark .tox .tox-collection,
+                .dark .tox .tox-collection--list {
+                    background: #2d3748 !important;
+                    border: 1px solid #4a5568 !important;
+                }
+                
+                .dark .tox .tox-collection__item,
+                .dark .tox .tox-menu__item {
+                    color: #e2e8f0 !important;
+                    background: transparent !important;
+                }
+                
+                .dark .tox .tox-collection__item:hover,
+                .dark .tox .tox-menu__item:hover,
+                .dark .tox .tox-collection__item--active,
+                .dark .tox .tox-menu__item--active {
+                    background: ${TINYMCE_STYLES.primaryColor} !important;
+                    color: #e2e8f0 !important;
+                }
+                
+                .dark .tox .tox-collection__item--state-disabled,
+                .dark .tox .tox-menu__item--state-disabled {
+                    color: #718096 !important;
                 }
             `;
             document.head.appendChild(styleElement);

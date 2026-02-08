@@ -1,7 +1,7 @@
-import AppLayout from '@/layouts/admin/app-layout';
-import type { BreadcrumbItem } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
 import { useState } from 'react';
+import AppLayout from '@/layouts/admin/app-layout';
+import type { BreadcrumbItem } from '@/types';
 
 import { FullscreenModal } from './components/FullscreenModal';
 import { GalleryHeader } from './components/GalleryHeader';

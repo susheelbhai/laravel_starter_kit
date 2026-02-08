@@ -1,10 +1,10 @@
+import { ChevronsUpDown } from 'lucide-react';
+import type { PropsWithChildren } from 'react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from '@/components/ui/sidebar';
 import { UserInfo } from '@/components/user-info';
 import { UserMenuContent } from '@/components/user-menu-content';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { ChevronsUpDown } from 'lucide-react';
-import { PropsWithChildren } from 'react';
 
 
 export function NavUser({ authUser, profileNavItems }: PropsWithChildren<{ authUser?: any; profileNavItems?: any }>) {

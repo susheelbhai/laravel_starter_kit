@@ -21,7 +21,7 @@ export default function HelpTooltip({ help }: { help?: string }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <span className="text-sm text-gray-600 cursor-help italic ">
+      <span className="text-sm text-[var(--muted-foreground)] cursor-help italic ">
         What is this?
       </span>
 

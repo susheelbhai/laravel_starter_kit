@@ -1,10 +1,10 @@
 import InputError from '@/components/input-error';
 import { Label } from '@/components/ui/label';
+import type { InputDivProps } from '../container/input-types';
+import { InputWrapper } from '../container/input-wrapper';
 import CkEditor4Component from '../package/CkEditor4Component';
 import TinyMceComponent from '../package/TinyMceComponent';
 import HelpTooltip from './input-help-tool';
-import { InputDivProps } from '../container/input-types';
-import { InputWrapper } from '../container/input-wrapper';
 
 export default function InputEditor({
     label,

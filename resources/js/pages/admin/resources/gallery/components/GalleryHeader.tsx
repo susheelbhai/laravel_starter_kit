@@ -1,5 +1,5 @@
-import Button from '@/components/button';
 import { Edit, Trash2 } from 'lucide-react';
+import Button from '@/components/button';
 
 interface GalleryHeaderProps {
     item: any;

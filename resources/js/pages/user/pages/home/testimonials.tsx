@@ -12,7 +12,7 @@ export default function TestimonialSection(data: any) {
                     {data.data.map((testimonial: any) => (
                         <div
                             key={testimonial.id}
-                            className="rounded-lg bg-white p-8 shadow transition hover:shadow-lg"
+                            className="rounded-lg bg-card p-8 shadow transition hover:shadow-lg"
                         >
                             <img
                                 src={`${testimonial.image}`}
@@ -25,10 +25,10 @@ export default function TestimonialSection(data: any) {
                             <p className="mb-1 text-sm text-primary">
                                 {testimonial.organisation}
                             </p>
-                            <p className="text-[#6B7280]">
+                            <p className="text-muted-foreground">
                                 {testimonial.designation}
                             </p>
-                            <p className="text-[#6B7280]">
+                            <p className="text-muted-foreground">
                                 {testimonial.message}
                             </p>
                         </div>

@@ -22,7 +22,7 @@ export default function TeamSection(data: any) {
                             <h3 className="text-xl font-semibold">
                                 {team.name}
                             </h3>
-                            <p className="text-[#6B7280]">{team.designation}</p>
+                            <p className="text-muted-foreground">{team.designation}</p>
                         </div>
                     ))}
                 </div>

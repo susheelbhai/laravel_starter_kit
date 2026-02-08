@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import type { InputHTMLAttributes } from "react";
 
 export interface InputDivProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;

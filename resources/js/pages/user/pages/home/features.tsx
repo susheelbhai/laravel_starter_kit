@@ -10,7 +10,7 @@ export default function FeatureSection({ data }: any) {
                         {data?.why_us_heading}
                     </h2>
                     <div
-                        className="prose max-w-none text-gray-600"
+                        className="prose max-w-none text-muted-foreground"
                         dangerouslySetInnerHTML={{
                             __html: data?.why_us_description,
                         }}

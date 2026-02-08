@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { InputDivProps } from '../container/input-types';
-import { InputWrapper } from '../container/input-wrapper';
-import Calendar from '../package/calendar';
-import { Button } from '@/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { format } from 'date-fns';
 import { Calendar as CalendarIcon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import type { InputDivProps } from '../container/input-types';
+import { InputWrapper } from '../container/input-wrapper';
+import Calendar from '../package/calendar';
 
 function formatLocalDate(date?: Date) {
     if (!date) return '';
@@ -68,7 +68,7 @@ export default function InputDateRangePicker({
                     <Button
                         type="button"
                         variant="outline"
-                        className={className + ' w-full justify-start text-left font-normal'}
+                        className={className + ' w-full justify-start text-left font-normal bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--input-text)] hover:bg-[var(--input-hover-bg)]'}
                         disabled={readOnly}
                     >
                         <CalendarIcon className="mr-2 h-4 w-4" />

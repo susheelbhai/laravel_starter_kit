@@ -180,10 +180,10 @@ $faq_categories = array(
 
 /* `a59`.`important_links` */
 $important_links = array(
-  array('id' => '1', 'created_at' => '2025-05-17 16:40:35', 'updated_at' => '2025-05-17 16:40:35', 'href' => 'tnc', 'name' => 'Terms of Uses', 'is_active' => '1'),
-  array('id' => '2', 'created_at' => '2025-05-17 16:40:53', 'updated_at' => '2025-05-17 16:40:53', 'href' => 'privacy', 'name' => 'Privacy Policy', 'is_active' => '1'),
-  array('id' => '3', 'created_at' => '2025-05-17 16:41:15', 'updated_at' => '2025-05-17 16:41:15', 'href' => 'refund', 'name' => 'Refund Policy', 'is_active' => '1'),
-  array('id' => '4', 'created_at' => '2025-05-17 16:41:15', 'updated_at' => '2025-05-17 16:41:15', 'href' => 'faq', 'name' => 'FAQ', 'is_active' => '1')
+  array('id' => '1', 'created_at' => '2025-05-17 16:40:35', 'updated_at' => '2025-05-17 16:40:35', 'href' => '/tnc', 'name' => 'Terms of Uses', 'is_active' => '1'),
+  array('id' => '2', 'created_at' => '2025-05-17 16:40:53', 'updated_at' => '2025-05-17 16:40:53', 'href' => '/privacy', 'name' => 'Privacy Policy', 'is_active' => '1'),
+  array('id' => '3', 'created_at' => '2025-05-17 16:41:15', 'updated_at' => '2025-05-17 16:41:15', 'href' => '/refund', 'name' => 'Refund Policy', 'is_active' => '1'),
+  array('id' => '4', 'created_at' => '2025-05-17 16:41:15', 'updated_at' => '2025-05-17 16:41:15', 'href' => '/faq', 'name' => 'FAQ', 'is_active' => '1')
 );
 
 /* `a59`.`jobs` */

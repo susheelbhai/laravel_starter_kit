@@ -1,8 +1,8 @@
-import { type ReactNode } from "react";
-import AppLayoutTemplate from "../../themes/guest_default/app/app-header-layout";
-import { type BreadcrumbItem, type SharedData } from "@/types";
 import { Head, usePage } from "@inertiajs/react";
+import { type ReactNode } from "react";
+import { type BreadcrumbItem, type SharedData } from "@/types";
 import { menuItems, profileItems,loginRoute } from "../../../data/js/header_user";
+import AppLayoutTemplate from "../../themes/guest_default/app/app-header-layout";
 
 interface AppLayoutProps {
     children: ReactNode;

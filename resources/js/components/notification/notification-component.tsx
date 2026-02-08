@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
 import { router } from '@inertiajs/react';
+import { useState, useRef, useEffect } from 'react';
 import NotificationBox from './notification-box';
 import { NotificationIcon } from './notification-icon';
 

@@ -1,6 +1,6 @@
-import Button from "@/components/button";
 import { Link, usePage } from "@inertiajs/react";
 import React, { useState } from "react";
+import Button from "@/components/button";
 
 interface AuthSectionProps {
     isMobile?: boolean;
@@ -35,10 +35,10 @@ export default function AuthSection({
             className={
                 isMobile
                     ? ""
-                    : "absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-slate-200"
+                    : "absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-xl bg-card shadow-lg ring-1 ring-border"
             }
         >
-            <ul className="py-1 text-sm text-slate-700">
+            <ul className="py-1 text-sm text-foreground">
                 {profileItems1.map((item: any) => (
                     <li key={item.name}>
                         {item.method ? (
@@ -46,14 +46,14 @@ export default function AuthSection({
                                 href={route(item.routeName)}
                                 method={item.method as any}
                                 as="button"
-                                className="block w-full px-4 py-2 text-left hover:bg-slate-50"
+                                className="block w-full px-4 py-2 text-left hover:bg-muted"
                             >
                                 {item.name}
                             </Link>
                         ) : (
                             <Link
                                 href={route(item.routeName)}
-                                className="block px-4 py-2 hover:bg-slate-50"
+                                className="block px-4 py-2 hover:bg-muted"
                             >
                                 {item.name}
                             </Link>
@@ -72,7 +72,7 @@ export default function AuthSection({
                     <div className="relative ml-4">
                         <button
                             onClick={() => setProfileOpen((prev) => !prev)}
-                            className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-slate-200 bg-slate-50 transition hover:border-[#FAB915]"
+                            className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-border bg-muted transition hover:border-primary"
                         >
                             <img
                                 src={user?.profile_pic || "/default-avatar.png"}
@@ -99,7 +99,7 @@ export default function AuthSection({
     return (
         <>
             {user ? (
-                <div className="mt-3 border-t border-slate-200 pt-3">
+                <div className="mt-3 border-t border-border pt-3">
                     <button
                         onClick={() => setProfileOpen((prev) => !prev)}
                         className="flex items-center gap-2 rounded-lg px-2 py-2"
@@ -107,18 +107,18 @@ export default function AuthSection({
                         <img
                             src={user?.profile_pic || "/default-avatar.png"}
                             alt="Profile"
-                            className="h-9 w-9 rounded-full border border-slate-200 object-cover"
+                            className="h-9 w-9 rounded-full border border-border object-cover"
                         />
                         <span className="text-sm font-semibold">Account</span>
                     </button>
                     {profileOpen && (
-                        <div className="mt-1 rounded-xl border border-slate-200 bg-white">
+                        <div className="mt-1 rounded-xl border border-border bg-card">
                             {renderProfileMenu()}
                         </div>
                     )}
                 </div>
             ) : loginExists ? (
-                <div className="mt-3 border-t border-slate-200 pt-3">
+                <div className="mt-3 border-t border-border pt-3">
                     <Button href={route(loginRoute)} text="Login" />
                 </div>
             ) : null}

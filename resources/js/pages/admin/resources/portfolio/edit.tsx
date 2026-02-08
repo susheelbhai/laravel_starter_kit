@@ -1,11 +1,11 @@
-import { Button } from '@/components/ui/button';
-import { InputDiv } from '@/components/form/container/input-div';
-import AppLayout from '@/layouts/admin/app-layout';
-import { BreadcrumbItem, SharedData } from '@/types';
 import { Head, useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
 import { router } from '@inertiajs/react';
+import type { FormEventHandler } from 'react';
 import { FormContainer } from '@/components/form/container/form-container';
+import { InputDiv } from '@/components/form/container/input-div';
+import { Button } from '@/components/ui/button';
+import AppLayout from '@/layouts/admin/app-layout';
+import type { BreadcrumbItem, SharedData } from '@/types';
 
 type CreateForm = {
     name: string;

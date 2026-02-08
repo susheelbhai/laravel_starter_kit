@@ -1,9 +1,9 @@
 
 import React from 'react';
+import type { InputDivProps } from '../container/input-types';
+import { InputWrapper } from '../container/input-wrapper';
 import InputDatePicker from './input-date-picker';
 import InputTimePicker from './input-time-picker';
-import { InputDivProps } from '../container/input-types';
-import { InputWrapper } from '../container/input-wrapper';
 
 interface InputDateTimePickerProps extends InputDivProps {
     label?: string;

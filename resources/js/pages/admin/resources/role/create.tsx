@@ -1,13 +1,13 @@
 import { useForm, usePage } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
-import { FormEventHandler } from 'react';
+import type { FormEventHandler } from 'react';
 
+import { FormContainer } from '@/components/form/container/form-container';
+import { InputDiv } from '@/components/form/container/input-div';
 import { Button } from '@/components/ui/button';
 import { ContainerFluid } from '@/components/ui/container-fluid';
-import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem } from '@/types';
-import { FormContainer } from '@/components/form/container/form-container';
 
 interface LoginProps {
     submitUrl?: string;

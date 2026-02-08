@@ -1,7 +1,6 @@
-import { type BreadcrumbItem, type SharedData } from "@/types";
 import { Transition } from "@headlessui/react";
 import { Head, Link, useForm, usePage } from "@inertiajs/react";
-import { FormEventHandler } from "react";
+import type { FormEventHandler } from "react";
 
 import HeadingSmall from "@/components/heading-small";
 import InputError from "@/components/input-error";
@@ -9,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AppLayout from "@/layouts/partner/app-layout";
+import { type BreadcrumbItem, type SharedData } from "@/types";
 import SettingsLayout from "../../../themes/admin_default/settings/layout";
 import { sidebarNavItems } from "./data";
 

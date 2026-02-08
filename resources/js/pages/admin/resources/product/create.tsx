@@ -1,7 +1,7 @@
+import { Head, usePage } from '@inertiajs/react';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
-import { BreadcrumbItem, SharedData } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
+import type { BreadcrumbItem, SharedData } from '@/types';
 import Form from './Form';
 
 const breadcrumbs: BreadcrumbItem[] = [

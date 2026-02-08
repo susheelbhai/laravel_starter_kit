@@ -1,6 +1,7 @@
-import { FlashMessage, FlashType } from "@/components/ui/alert/flash1";
-import { useEffect, useState } from "react";
 import { usePage } from "@inertiajs/react";
+import { useEffect, useState } from "react";
+import type { FlashType } from "@/components/ui/alert/flash1";
+import { FlashMessage } from "@/components/ui/alert/flash1";
 import { type SharedData } from "@/types";
 
 export default function FlashMessageHandler() {

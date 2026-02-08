@@ -1,5 +1,3 @@
-import AppearanceToggleDropdown from '@/components/appearance-dropdown';
-import { Container } from '@/components/ui/container';
 import { usePage } from '@inertiajs/react';
 import React from 'react';
 import {
@@ -10,6 +8,8 @@ import {
     FaYoutube,
     FaEnvelope,
 } from 'react-icons/fa';
+import AppearanceToggleDropdown from '@/components/appearance-dropdown';
+import { Container } from '@/components/ui/container';
 
 const TopHeader: React.FC = () => {
     const appData = (usePage().props as any).appData;
@@ -97,7 +97,7 @@ const TopHeader: React.FC = () => {
                         )}
                     </div>
 
-                    <span className="hidden h-4 w-px bg-gray-300 md:inline-block dark:bg-slate-600" />
+                    <span className="hidden h-4 w-px bg-border md:inline-block" />
 
                     <AppearanceToggleDropdown />
                 </div>

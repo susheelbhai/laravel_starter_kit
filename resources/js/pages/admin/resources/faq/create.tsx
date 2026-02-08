@@ -1,10 +1,10 @@
+import { Head, usePage } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
-import { BreadcrumbItem } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
+import type { BreadcrumbItem } from '@/types';
 
 type FormType = {
     faq_category_id: string;

@@ -72,7 +72,7 @@ export default function CkEditor4Component({
         // Inject dynamic CSS for CKEditor UI elements using primary color
         if (primaryColorValue || uiColor) {
             const styleId = `ckeditor-dynamic-style-${id}`;
-            let existingStyle = document.getElementById(styleId);
+            const existingStyle = document.getElementById(styleId);
             
             if (!existingStyle) {
                 const styleElement = document.createElement('style');

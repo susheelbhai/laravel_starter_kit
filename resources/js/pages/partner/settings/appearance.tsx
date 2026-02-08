@@ -2,9 +2,9 @@ import { Head } from "@inertiajs/react";
 
 import AppearanceTabs from "@/components/appearance-tabs";
 import HeadingSmall from "@/components/heading-small";
+import AppLayout from "@/layouts/partner/app-layout";
 import { type BreadcrumbItem } from "@/types";
 
-import AppLayout from "@/layouts/partner/app-layout";
 import SettingsLayout from "../../../themes/admin_default/settings/layout";
 import { sidebarNavItems } from "./data";
 

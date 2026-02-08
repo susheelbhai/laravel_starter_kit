@@ -1,5 +1,5 @@
-import AppLayout from '@/layouts/user/app-layout';
 import { usePage } from '@inertiajs/react';
+import AppLayout from '@/layouts/user/app-layout';
 import AboutSection from './about';
 import ClientSection from './clients';
 import FeatureSection from './features';

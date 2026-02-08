@@ -1,8 +1,8 @@
 
-import { cn } from '@/lib/utils';
 import { router } from '@inertiajs/react';
 import React from 'react';
 import Swal from 'sweetalert2';
+import { cn } from '@/lib/utils';
 import TextLink from './text-link';
 
 const handleDelete = (action: string): void => {
@@ -11,8 +11,8 @@ const handleDelete = (action: string): void => {
         text: 'You won’t be able to revert this!',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
+        confirmButtonColor: 'hsl(var(--primary))',
+        cancelButtonColor: 'hsl(var(--muted-foreground))',
         confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
         if (result.isConfirmed) {
@@ -34,8 +34,8 @@ const handleSubmit = (action: string): void => {
         text: 'You won’t be able to revert this!',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: 'green',
-        cancelButtonColor: '#3085d6',
+        confirmButtonColor: 'hsl(var(--primary))',
+        cancelButtonColor: 'hsl(var(--muted-foreground))',
         confirmButtonText: 'Yes, Submit it!',
     }).then((result) => {
         if (result.isConfirmed) {

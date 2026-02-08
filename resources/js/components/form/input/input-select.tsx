@@ -1,9 +1,9 @@
 import InputError from '@/components/input-error';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import HelpTooltip from './input-help-tool';
-import { InputDivProps } from '../container/input-types';
+import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
+import HelpTooltip from './input-help-tool';
 
 export default function InputSelect({
     label,
@@ -37,8 +37,8 @@ export default function InputSelect({
                 onChange={(e) => setData(name, e.target.value)}
                 required={required}
                 className={cn(
-                    'flex h-10 w-full rounded-md border-2 border-primary bg-white px-3 py-2 text-sm text-gray-900',
-                    'focus:border-secondary/60 focus:outline-none',
+                    'flex h-10 w-full rounded-md border-2 bg-[var(--input-bg)] border-[var(--input-border)] px-3 py-2 text-sm text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)]',
+                    'focus:border-secondary/60 focus:outline-none focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]',
                     'disabled:cursor-not-allowed disabled:opacity-50',
                     className,
                 )}

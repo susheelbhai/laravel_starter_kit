@@ -19,7 +19,7 @@
 .picker-clock-center-dot-inner {
   width: 16px;
   height: 16px;
-  background-color: #2563eb;
+  background-color: var(--primary);
   border-radius: 50%;
 }
 
@@ -78,10 +78,10 @@
     flex-wrap: wrap;
     gap: var(--rdp-months-gap);
     max-width: fit-content;
-    border: solid .05rem gray;
+    border: solid .05rem var(--border);
     border-radius: .5rem;
     padding: .5rem;
-    background: white;
+    background: var(--background);
 }
 
 /* Styles for InputClockTimePicker moved from inline to CSS */
@@ -105,7 +105,7 @@
 .clock-center-dot-inner {
   width: 16px;
   height: 16px;
-  background-color: #2563eb;
+  background-color: var(--primary);
   border-radius: 50%;
 }
 
@@ -139,14 +139,14 @@
     height: 32px;
     width: 32px;
     border-radius: 50%;
-    border: 1px solid #e5e7eb;
-    background: #f9fafb;
+    border: 1px solid var(--border);
+    background: var(--muted);
     font-size: 0.85rem;
     text-align: center;
     transition: background 0.2s;
 }
 .clock-hour-btn:hover {
-    background: #dbeafe;
+    background: var(--accent);
 }
 .clock-center-dot {
     position: absolute;
@@ -170,7 +170,7 @@
     height: 24px;
     width: 24px;
     border-radius: 50%;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     background: transparent;
     font-size: 0.7rem;
     text-align: center;
@@ -184,42 +184,42 @@
     z-index: 10;
 }
 .clock-minute-btn.selected {
-    background: #2563eb;
-    color: #fff;
+    background: var(--primary);
+    color: var(--primary-foreground);
 }
 .am-pm-btn {
     border-radius: 4px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     padding: 2px 8px;
     font-size: 0.75rem;
-    background: #f9fafb;
-    color: #111;
+    background: var(--muted);
+    color: var(--foreground);
     margin-right: 4px;
     transition: background 0.2s;
 }
 .am-pm-btn.selected {
-    background: #2563eb;
-    color: #fff;
+    background: var(--primary);
+    color: var(--primary-foreground);
 }
 .done-btn {
     margin-left: 8px;
     border-radius: 4px;
-    background: #2563eb;
-    color: #fff;
+    background: var(--primary);
+    color: var(--primary-foreground);
     padding: 4px 12px;
     font-size: 0.75rem;
     transition: background 0.2s;
 }
 .done-btn:disabled {
-    background: #a5b4fc;
-    color: #fff;
+    background: var(--muted);
+    color: var(--muted-foreground);
 }
 .selected-time {
     margin-top: 8px;
     text-align: center;
     font-size: 1rem;
     font-weight: 600;
-    color: #2563eb;
+    color: var(--primary);
 }
 
 /* Styles for InputTimePicker dropdown moved from inline <style> to CSS */

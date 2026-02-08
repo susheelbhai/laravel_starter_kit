@@ -1,3 +1,5 @@
+import { Head, usePage } from '@inertiajs/react';
+import { Eye } from 'lucide-react';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -6,8 +8,6 @@ import TextLink from '@/components/text-link';
 import ButtonCreate from '@/components/ui/button-create';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
-import { Eye } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

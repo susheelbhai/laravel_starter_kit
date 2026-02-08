@@ -1,6 +1,6 @@
 import { usePage } from "@inertiajs/react";
-import PreviewSection from "../components/PreviewSection";
 import PreviewItem from "../components/PreviewItem";
+import PreviewSection from "../components/PreviewSection";
 
 export default function PreviewSubmissionRequirements({ data }: { data: any }) {
     // ✅ Same as form — get all lists from Inertia props

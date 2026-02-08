@@ -1,5 +1,5 @@
 import { usePage } from '@inertiajs/react';
-import { SVGAttributes } from 'react';
+import type { SVGAttributes } from 'react';
 
 export default function AppLogoIcon(props: SVGAttributes<SVGElement>) {
     const appData = (usePage().props as any).appData;

@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Label } from "@/components/ui/label";
 import InputError from "@/components/input-error";
+import { Label } from "@/components/ui/label";
+import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
-import { InputDivProps } from "../container/input-types";
 
 export default function InputImage({
   label,
@@ -64,10 +64,10 @@ export default function InputImage({
           }}
           onDragLeave={() => setDragging(false)}
           onDrop={handleDrop}
-          className={`relative flex cursor-pointer items-center justify-center overflow-hidden rounded-md border-2 border-dashed ${
+          className={`relative flex cursor-pointer items-center justify-center overflow-hidden rounded-md border-2 border-dashed bg-[var(--input-bg)] border-[var(--input-border)] hover:bg-[var(--input-hover-bg)] ${
             dragging
-              ? "border-blue-500 bg-blue-100"
-              : "border-gray-400 bg-gray-100"
+              ? "border-secondary bg-[var(--input-focused-bg)]"
+              : ""
           }`}
           style={{ height, width, maxWidth: "100%" }}
         >
@@ -84,7 +84,7 @@ export default function InputImage({
               className="h-full w-full object-contain"
             />
           ) : (
-            <div className="text-center text-gray-500">
+            <div className="text-center text-[var(--input-placeholder)]">
               <p className="text-sm font-medium">
                 Drag & drop or click to upload
               </p>

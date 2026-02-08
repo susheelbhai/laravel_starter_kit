@@ -1,9 +1,9 @@
-import { Container } from '@/components/ui/container';
-import { ContainerFluid } from '@/components/ui/container-fluid';
-import AppLayout from '@/layouts/user/app-layout';
 import { usePage } from '@inertiajs/react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
+import { Container } from '@/components/ui/container';
+import { ContainerFluid } from '@/components/ui/container-fluid';
+import AppLayout from '@/layouts/user/app-layout';
 
 interface FAQ {
     id: number;
@@ -40,12 +40,12 @@ export default function FAQ() {
                                     const isOpen = openIndex[section.category_title] === faq.id;
                                     return (
                                         <div key={faq.id} className="cursor-pointer" onClick={() => toggle(section.category_title, faq.id)}>
-                                            <div className="flex items-center justify-between rounded-t-lg bg-primary/30 p-4">
+                                            <div className="flex items-center justify-between rounded-t-lg bg-primary/30 p-4 text-foreground">
                                                 <h3 className="text-lg font-medium">{faq.question}</h3>
                                                 {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                                             </div>
                                             {isOpen && (
-                                                <div className="rounded-b-lg border-t-black bg-white p-4 whitespace-pre-line text-gray-700">
+                                                <div className="rounded-b-lg border-t bg-card p-4 whitespace-pre-line text-muted-foreground">
                                                     <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
                                                 </div>
                                             )}

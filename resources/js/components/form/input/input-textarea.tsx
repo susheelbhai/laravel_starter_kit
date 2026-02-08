@@ -1,9 +1,9 @@
 import React from "react";
-import { Label } from "@/components/ui/label";
 import InputError from "@/components/input-error";
+import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
-import { InputDivProps } from "../container/input-types";
 
 export default function InputTextarea({
   label,
@@ -29,9 +29,8 @@ export default function InputTextarea({
         onChange={(e) => setData(name, e.target.value)}
         readOnly={readOnly}
         className={cn(
-          "flex w-full rounded-md border-2 border-primary bg-white px-3 py-2 text-sm text-gray-900",
-          "placeholder:text-gray-400",
-          "focus:outline-none focus:border-secondary/60",
+          "flex w-full rounded-md border-2 bg-[var(--input-bg)] border-[var(--input-border)] px-3 py-2 text-sm text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)]",
+          "focus:outline-none focus:border-secondary/60 focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]",
           "disabled:cursor-not-allowed disabled:opacity-50",
           className
         )}

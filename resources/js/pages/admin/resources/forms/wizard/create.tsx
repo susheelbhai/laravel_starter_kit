@@ -1,11 +1,12 @@
+import { useForm, usePage } from '@inertiajs/react';
+import type { FormEventHandler} from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { ContainerFluid } from '@/components/ui/container-fluid';
-import { SharedData } from '@/types';
-import { useForm, usePage } from '@inertiajs/react';
-import { FormEventHandler, useEffect, useState } from 'react';
-
 import AppLayout from '@/layouts/admin/app-layout';
+import type { SharedData } from '@/types';
+
 import { initForm } from './_init_form';
 import BasicDetails from './input-group/_1_basic-details';
 import BankDetail from './input-group/_2_bank';

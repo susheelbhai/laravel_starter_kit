@@ -1,7 +1,8 @@
+import type { MultiValue } from 'react-select';
+import Select from 'react-select';
 import InputError from '@/components/input-error';
 import { Label } from '@/components/ui/label';
-import Select, { MultiValue } from 'react-select';
-import { InputDivProps } from '../container/input-types';
+import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
 
 export default function InputMultiSelect({
@@ -53,29 +54,31 @@ export default function InputMultiSelect({
                     setData(name, ids);
                 }}
                 placeholder="Select…"
-                className="react-select-container rounded-md border-2 border-primary"
+                className="react-select-container rounded-md border-2 border-[var(--input-border)]"
                 classNamePrefix="react-select"
                 menuPortalTarget={document.body}
                 styles={{
                     menuPortal: (base) => ({ ...base, zIndex: 9999 }),
-                    menu: (base) => ({ ...base, backgroundColor: '#fff' }),
+                    menu: (base) => ({ ...base, backgroundColor: 'var(--input-bg)', border: '1px solid var(--input-border)', borderRadius: '6px' }),
                     option: (base, state) => ({
                         ...base,
                         backgroundColor:
                             state.isFocused || state.isSelected
-                                ? '#2563eb'
-                                : '#fff',
+                                ? 'var(--accent)'
+                                : 'var(--input-bg)',
                         color:
                             state.isFocused || state.isSelected
-                                ? '#fff'
-                                : '#111827',
+                                ? 'var(--accent-foreground)'
+                                : 'var(--input-text)',
                     }),
                     control: (base, state) => ({
                         ...base,
-                        backgroundColor: '#fff',
-                        borderColor: state.isFocused
-                            ? '#2563eb'
-                            : base.borderColor,
+                        backgroundColor: state.isFocused ? 'var(--input-focused-bg)' : 'var(--input-bg)',
+                        borderColor: state.isFocused ? 'var(--secondary)' : 'var(--input-border)',
+                        '&:hover': {
+                            borderColor: 'var(--secondary)',
+                        },
+                        color: state.isFocused ? 'var(--input-focused-text)' : 'var(--input-text)',
                     }),
                 }}
             />

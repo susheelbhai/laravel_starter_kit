@@ -1,6 +1,6 @@
-import PreviewSection from "../components/PreviewSection";
-import PreviewItem from "../components/PreviewItem";
 import PreviewImages from "../components/PreviewImages";
+import PreviewItem from "../components/PreviewItem";
+import PreviewSection from "../components/PreviewSection";
 
 export default function PreviewOrganisers({ data }: { data: any }) {
     const organisers = Array.isArray(data.eventOrganisers) ? data.eventOrganisers : [];

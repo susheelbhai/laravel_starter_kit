@@ -1,8 +1,8 @@
 import React from "react";
-import { Label } from "@/components/ui/label";
 import InputError from "@/components/input-error";
+import { Label } from "@/components/ui/label";
+import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
-import { InputDivProps } from "../container/input-types";
 
 export default function InputMultiCheckbox({
   label,
@@ -49,7 +49,7 @@ export default function InputMultiCheckbox({
         )}
       </Label>
 
-      <div className="flex flex-col gap-2 border-2 border-primary rounded-md p-3 bg-white">
+      <div className="flex flex-col gap-2 border-2 border-[var(--input-border)] rounded-md p-3 bg-[var(--input-bg)] focus-within:bg-[var(--input-focused-bg)] focus-within:border-secondary/60 transition-colors">
         {(options ?? []).map((option: any) => {
           const value = String(option.id ?? option.value ?? option);
           const title = String(option.title ?? option.name ?? value);
@@ -58,7 +58,7 @@ export default function InputMultiCheckbox({
           return (
             <label
               key={value}
-              className="flex items-center gap-2 cursor-pointer select-none text-gray-800"
+              className="flex items-center gap-2 cursor-pointer select-none text-[var(--foreground)]"
             >
               <input
                 type="checkbox"

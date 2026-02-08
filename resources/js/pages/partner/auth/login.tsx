@@ -1,7 +1,11 @@
 import { Head, useForm, usePage } from '@inertiajs/react';
 import { Eye, EyeOff } from 'lucide-react';
-import { FormEventHandler, useState } from 'react';
+import type { FormEventHandler} from 'react';
+import { useState } from 'react';
 
+import ContinueWithSocial from '@/components/auth/ContinueWithSocial';
+import ContinueWithText from '@/components/auth/ContinueWithText';
+import { FormContainer } from '@/components/form/container/form-container';
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
@@ -9,9 +13,6 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/partner/auth-layout';
-import { FormContainer } from '@/components/form/container/form-container';
-import ContinueWithText from '@/components/auth/ContinueWithText';
-import ContinueWithSocial from '@/components/auth/ContinueWithSocial';
 
 type LoginForm = {
     email: string;

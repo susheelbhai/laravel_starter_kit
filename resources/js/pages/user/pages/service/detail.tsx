@@ -1,18 +1,18 @@
-import AppLayout from '@/layouts/user/app-layout';
 import { usePage } from '@inertiajs/react';
+import AppLayout from '@/layouts/user/app-layout';
 
 export default function Create() {
     const service = usePage().props.data as any;
     return (
         <AppLayout title={service.title}>
-            <div className="bg-white text-[#0E1339]">
+            <div className="bg-background text-foreground">
                 {/* Banner */}
                 <div
                     className="h-64 w-full bg-cover bg-center"
                     style={{ backgroundImage: `url('${service.display_img}')` }}
                 >
                     <div className="flex h-full w-full items-center justify-center bg-black/40">
-                        <h1 className="text-4xl font-bold text-white md:text-5xl">
+                        <h1 className="text-4xl font-bold text-primary-foreground md:text-5xl">
                             {service.title}
                         </h1>
                     </div>
@@ -31,7 +31,7 @@ export default function Create() {
                         )}
 
                         {/* Short Description */}
-                        <p className="text-lg text-gray-700">
+                        <p className="text-lg text-muted-foreground">
                             {service.short_description}
                         </p>
 
@@ -71,16 +71,16 @@ export default function Create() {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="space-y-4 rounded-xl bg-gray-50 p-6 shadow">
-                        <h3 className="mb-2 text-xl font-semibold">
+                    <div className="space-y-4 rounded-xl bg-[var(--sidebar)] border border-[var(--sidebar-border)] p-6 shadow">
+                        <h3 className="mb-2 text-xl font-semibold text-[var(--sidebar-foreground)]">
                             Why Choose This Service
                         </h3>
-                        <ul className="list-inside list-disc space-y-2 text-sm text-gray-600">
+                        <ul className="list-inside list-disc space-y-2 text-sm text-[var(--sidebar-foreground)]">
                             {service.features?.map((feature: any) => (
                                 <li key={feature.id}>{feature}</li>
                             ))}
                         </ul>
-                        <button className="mt-6 w-full rounded-md bg-[#FAB915] py-2 text-white transition hover:bg-yellow-500">
+                        <button className="mt-6 w-full rounded-md bg-[var(--sidebar-primary)] py-2 text-[var(--sidebar-primary-foreground)] transition hover:bg-[var(--sidebar-primary)]/90">
                             Book Now
                         </button>
                     </div>

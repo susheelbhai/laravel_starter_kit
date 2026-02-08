@@ -1,5 +1,5 @@
-import PreviewSection from "../components/PreviewSection";
 import PreviewItem from "../components/PreviewItem";
+import PreviewSection from "../components/PreviewSection";
 
 export default function PreviewSocialMedia({ data }: { data: any }) {
     return (

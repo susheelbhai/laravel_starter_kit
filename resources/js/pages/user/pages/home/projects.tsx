@@ -12,7 +12,7 @@ export default function ProjectSection({data}: {data: any}) {
                     {data.map((project: any, i: number) => (
                         <div
                             key={i}
-                            className="overflow-hidden rounded-lg bg-white shadow transition hover:shadow-lg"
+                            className="overflow-hidden rounded-lg bg-card shadow transition hover:shadow-lg"
                         >
                             <img
                                 src={project.image}

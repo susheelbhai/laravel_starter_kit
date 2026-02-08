@@ -35,7 +35,7 @@ export default function NewsletterSection() {
         <section
             id="newsletter"
             ref={sectionRef}
-            className="bg-white py-20 md:py-28"
+            className="bg-card py-20 md:py-28"
         >
             <div className="mx-auto max-w-[700px] px-4 text-center md:px-6">
                 <span className="text-sm font-semibold text-primary uppercase">
@@ -44,19 +44,19 @@ export default function NewsletterSection() {
                 <h2 className="mt-2 mb-6 text-3xl font-bold md:text-5xl">
                     Stay Updated With Our Latest News
                 </h2>
-                <p className="mb-8 text-[#6B7280]">
+                <p className="mb-8 text-muted-foreground">
                     Subscribe to receive the latest updates and offers from Finbiz.
                 </p>
 
                 <form onSubmit={submit} className="mx-auto max-w-md">
-                    <div className="flex w-full items-stretch overflow-hidden rounded-full border border-primary bg-white">
+                    <div className="flex w-full items-stretch overflow-hidden rounded-full border border-primary bg-background">
                         <input
                             type="email"
                             name="email"
                             value={data.email}
                             onChange={(e) => setData("email", e.target.value)}
                             placeholder="Enter your email"
-                            className="flex-1 border-none bg-transparent px-4 py-2.5 text-sm text-gray-700 placeholder:text-gray-400 outline-none focus:outline-none focus:ring-0"
+                            className="flex-1 border-none bg-transparent px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:outline-none focus:ring-0"
                         />
 
                         <Button
@@ -68,7 +68,7 @@ export default function NewsletterSection() {
                                 rounded-none rounded-r-full 
                                 bg-primary 
                                 px-6 
-                                text-sm font-semibold text-white 
+                                text-sm font-semibold text-primary-foreground 
                                 hover:bg-primary/90
                                 border-2 border-primary
                                 hover:border-primary/90

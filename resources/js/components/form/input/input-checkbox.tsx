@@ -1,8 +1,8 @@
 import React from "react";
-import { Label } from "@/components/ui/label";
 import InputError from "@/components/input-error";
+import { Label } from "@/components/ui/label";
+import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
-import { InputDivProps } from "../container/input-types";
 
 export default function InputCheckbox({
   label,
@@ -35,17 +35,17 @@ export default function InputCheckbox({
           className="
             h-5 w-5
             accent-secondary
-            border-2 border-primary
+            border-2 border-[var(--input-border)]
             rounded-md
             cursor-pointer
             appearance-auto
-            checked:bg-secondary checked:border-primary
-            focus:ring-2 focus:ring-secondary focus:ring-offset-0 focus:ring-offset-white
-            bg-white
+            checked:bg-secondary checked:border-[var(--input-border)]
+            focus:ring-2 focus:ring-secondary focus:ring-offset-0 focus:ring-offset-[var(--input-bg)]
+            bg-[var(--input-bg)]
             transition
           "
         />
-        <Label htmlFor={name} className="cursor-pointer text-gray-800">
+        <Label htmlFor={name} className="cursor-pointer text-[var(--foreground)]">
           {label}
           {required && (
             <span className="text-red-500 font-bold text-xl">*</span>

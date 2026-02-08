@@ -1,4 +1,6 @@
 import '../../../../css/picker.css';
+import { ChevronDown, Clock } from 'lucide-react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,11 +11,9 @@ import {
     PopoverTrigger,
 } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
-import { ChevronDown, Clock } from 'lucide-react';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import HelpTooltip from './input-help-tool';
-import { InputDivProps } from '../container/input-types';
+import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
+import HelpTooltip from './input-help-tool';
 
 interface TimePickerProps extends InputDivProps {
     timeFormat?: '12' | '24'; // 12-hour or 24-hour format
@@ -408,7 +408,7 @@ export default function InputTimePicker({
                             placeholder={timeFormat === '12' ? 'HH:MM' : 'HH:MM'}
                             value={data[name] || ''}
                             onChange={handleInputChange}
-                            className="text-center"
+                            className="text-center bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]"
                         />
                     </div>
                 </PopoverContent>

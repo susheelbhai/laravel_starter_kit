@@ -1,7 +1,7 @@
-import AppLayoutTemplate from '../../themes/admin_default/app/app-sidebar-layout';
-import { type BreadcrumbItem, type SharedData } from '@/types';
 import { usePage } from '@inertiajs/react';
 import { type ReactNode } from 'react';
+import { type BreadcrumbItem, type SharedData } from '@/types';
+import AppLayoutTemplate from '../../themes/admin_default/app/app-sidebar-layout';
 import { filteredFooterNavItems, filteredMainNavItems, filteredProfileNavItems } from './side-menu';
 
 interface AppLayoutProps {

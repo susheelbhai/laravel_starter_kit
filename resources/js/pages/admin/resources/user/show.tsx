@@ -1,3 +1,4 @@
+import { Head, usePage } from '@inertiajs/react';
 import Button from '@/components/button';
 import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
@@ -7,7 +8,6 @@ import THead from '@/components/table/thead';
 import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

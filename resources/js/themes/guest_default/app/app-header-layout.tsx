@@ -1,11 +1,12 @@
+import { usePage } from "@inertiajs/react";
 import type { PropsWithChildren } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import type { FlashType } from "@/components/ui/alert/flash1";
+import { FlashMessage } from "@/components/ui/alert/flash1";
+import { type BreadcrumbItem, type SharedData } from "@/types";
 import Footer from "./app-footer";
 import Header from "./header";
 import TopHeader from "./top-header";
-import { FlashMessage, FlashType } from "@/components/ui/alert/flash1";
-import { useEffect, useState, type ReactNode } from "react";
-import { type BreadcrumbItem, type SharedData } from "@/types";
-import { usePage } from "@inertiajs/react";
 
 export default function AppHeaderLayout({
     children,
@@ -51,7 +52,7 @@ export default function AppHeaderLayout({
         }
     }, [flash]);
     return (
-        <div className="overflow-x-hidden bg-background text-[#0E1339]">
+        <div className="overflow-x-hidden bg-background text-foreground">
             <header className="w-full">
                 <TopHeader />
                 <Header menuItems={menuItems} profileItems={profileItems} loginRoute={loginRoute} />

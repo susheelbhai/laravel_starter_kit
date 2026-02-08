@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Label } from "@/components/ui/label";
 import InputError from "@/components/input-error";
+import { Label } from "@/components/ui/label";
+import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
-import { InputDivProps } from "../container/input-types";
 
 export default function InputMultiFile({
   label,
@@ -77,13 +77,13 @@ export default function InputMultiFile({
           }}
           onDragLeave={() => setDragging(false)}
           onDrop={handleDrop}
-          className={`relative flex h-40 w-150 cursor-pointer items-center justify-center overflow-auto rounded-md border-2 border-dashed ${
+          className={`relative flex h-40 w-150 cursor-pointer items-center justify-center overflow-auto rounded-md border-2 border-dashed transition-colors ${
             dragging
               ? "border-blue-500 bg-blue-100"
-              : "border-gray-400 bg-gray-100"
+              : "border-[var(--input-border)] bg-[var(--input-bg)] hover:bg-[var(--input-focused-bg)]"
           }`}
         >
-          <div className="text-center text-gray-700 px-2 py-2">
+          <div className="text-center text-[var(--foreground)] px-2 py-2">
             {fileCount > 0 ? (
               <>
                 <p className="font-semibold text-sm mb-1">

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Label } from "@/components/ui/label";
 import InputError from "@/components/input-error";
+import { Label } from "@/components/ui/label";
+import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
-import { InputDivProps } from "../container/input-types";
 
 export default function InputMultiImage({
   label,
@@ -119,10 +119,10 @@ export default function InputMultiImage({
         onDrop={handleDrop}
         className={`relative cursor-pointer flex items-center justify-center overflow-hidden 
           rounded-md border-2 border-dashed transition-colors
-          ${dragging ? "border-blue-500 bg-blue-100" : "border-gray-400 bg-gray-100"}`}
+          ${dragging ? "border-secondary bg-[var(--input-focused-bg)]" : "border-[var(--input-border)] bg-[var(--input-bg)] hover:bg-[var(--input-hover-bg)]"}`}
         style={{ height, width, maxWidth: "100%" }}
       >
-        <div className="text-center text-gray-500">
+        <div className="text-center text-[var(--input-placeholder)]">
           <p className="text-sm font-medium">
             Click or drag to upload multiple images
           </p>
@@ -141,7 +141,7 @@ export default function InputMultiImage({
           {previews.map((url, idx) => (
             <div
               key={idx}
-              className="relative group rounded-md overflow-hidden border border-gray-300"
+              className="relative group rounded-md overflow-hidden border border-[var(--input-border)]"
               style={{ width: "100%", height: "100px" }}
             >
               <img

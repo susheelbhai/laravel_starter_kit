@@ -1,6 +1,6 @@
 import { usePage } from '@inertiajs/react';
-import { useAppearance } from '@/hooks/use-appearance';
 import { useSidebar } from '@/components/ui/sidebar';
+import { useAppearance } from '@/hooks/use-appearance';
 
 export default function AppLogo() {
     const appData = (usePage().props as any).appData;

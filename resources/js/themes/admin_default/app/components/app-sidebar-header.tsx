@@ -1,8 +1,8 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { NotificationComponent } from '@/components/notification/notification-component';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { type BreadcrumbItem as BreadcrumbItemType } from '@/types';
 import AppearanceToggleDropdown from '../../../../components/appearance-dropdown';
-import { NotificationComponent } from '@/components/notification/notification-component';
 
 export function AppSidebarHeader({
     breadcrumbs = [],

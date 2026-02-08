@@ -1,5 +1,5 @@
-import type { BreadcrumbItem } from "@/types";
 import type { PropsWithChildren } from "react";
+import type { BreadcrumbItem } from "@/types";
 import Footer from "./app-footer";
 import Header from "./header";
 import TopHeader from "./top-header";
@@ -20,7 +20,7 @@ export default function AppSidebarLayout({
     loginRoute: string;
 }>) {
     return (
-        <div className="overflow-x-hidden bg-background text-[#0E1339]">
+        <div className="overflow-x-hidden bg-background text-foreground">
             <header className="w-full">
                 <TopHeader />
                 <Header

@@ -1,6 +1,6 @@
-import AppLayout from '@/layouts/user/app-layout';
 import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
+import AppLayout from '@/layouts/user/app-layout';
 import ImageSlider from './components/image-slider';
 import ProductCTA from './components/product-cta';
 import ProductDescription from './components/product-description';
@@ -17,7 +17,7 @@ export default function ProductDetail() {
         return (
             <AppLayout title="Product Not Found">
                 <div className="flex min-h-[400px] items-center justify-center">
-                    <p className="text-lg text-gray-600">Product not found</p>
+                    <p className="text-lg text-muted-foreground">Product not found</p>
                 </div>
             </AppLayout>
         );

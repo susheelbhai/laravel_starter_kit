@@ -1,8 +1,8 @@
+import { Link, usePage } from '@inertiajs/react';
+import { type PropsWithChildren } from 'react';
 import AppLogoIcon from '@/components/app-logo-icon';
 import { Container } from '@/components/ui/container';
 import { ContainerFluid } from '@/components/ui/container-fluid';
-import { Link, usePage } from '@inertiajs/react';
-import { type PropsWithChildren } from 'react';
 
 interface AuthLayoutProps {
     name?: string;

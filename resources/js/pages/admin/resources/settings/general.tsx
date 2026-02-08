@@ -1,9 +1,9 @@
+import { Head, usePage } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
-import { BreadcrumbItem, SharedData } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
+import type { BreadcrumbItem, SharedData } from '@/types';
 
 type CreateForm = {
     id: number;

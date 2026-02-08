@@ -1,6 +1,6 @@
 import { usePage } from "@inertiajs/react";
-import PreviewSection from "../components/PreviewSection";
 import PreviewItem from "../components/PreviewItem";
+import PreviewSection from "../components/PreviewSection";
 
 export default function PreviewVenues({ data }: { data: any }) {
     const { event }: any = usePage().props;

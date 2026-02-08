@@ -1,3 +1,6 @@
+import { format } from 'date-fns';
+import { Calendar as CalendarIcon } from 'lucide-react';
+import React, { useState } from 'react';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,13 +10,10 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover';
-import { format } from 'date-fns';
-import { Calendar as CalendarIcon } from 'lucide-react';
-import React, { useState } from 'react';
+import type { InputDivProps } from '../container/input-types';
+import { InputWrapper } from '../container/input-wrapper';
 import Calendar from '../package/calendar';
 import HelpTooltip from './input-help-tool';
-import { InputDivProps } from '../container/input-types';
-import { InputWrapper } from '../container/input-wrapper';
 
 export default function InputDatePicker({
     label,
@@ -178,7 +178,7 @@ export default function InputDatePicker({
                         onKeyDown={handleKeyDown}
                         placeholder={placeholder || 'YYYY-MM-DD'}
                         readOnly={readOnly}
-                        className="pr-10"
+                        className="pr-10 bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]"
                         maxLength={10}
                     />
 
