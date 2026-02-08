@@ -1,3 +1,4 @@
+import { Container } from '@/components/ui/container';
 import { Link, usePage } from "@inertiajs/react";
 import React, { useEffect, useState } from "react";
 import {
@@ -25,7 +26,7 @@ const Footer: React.FC = () => {
       {/* Accent top border */}
       <div className="h-1 w-full bg-primary " />
 
-      <div className="mx-auto max-w-7xl px-6 py-10 md:px-10 lg:px-14">
+      <Container className="py-10">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           {/* Section 1: Logo + Contact */}
           <div className="space-y-4">
@@ -175,7 +176,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col justify-between md:flex-row md:gap-4">
             <div className="copy">
               © {new Date().getFullYear()}{" "}
-              <span className="font-medium text-foreground">{appData.name}</span>. All
+              <span className="font-medium">{appData.name}</span>. All
               rights reserved.
             </div>
             <div className="credit">
@@ -184,14 +185,14 @@ const Footer: React.FC = () => {
                 href="https://digamite.com"
                 target="_blank"
                 rel="noreferrer"
-                className="text-primary hover:underline"
+                className="hover:underline"
               >
                 Digamite Private Limited
               </a>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 };

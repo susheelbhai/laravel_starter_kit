@@ -1,3 +1,4 @@
+import { Container } from '@/components/ui/container';
 import { usePage } from "@inertiajs/react";
 import AppLayout from "@/layouts/user/app-layout";
 import CategorySection from "../product_category/components/category_box";
@@ -20,12 +21,12 @@ export default function Products() {
           </div>
         </section>
         {/* Main Content */}
-        <section className="mx-auto max-w-7xl px-4 py-14 md:py-16 space-y-16">
+        <Container className="py-14 md:py-16 space-y-16">
           {/* ---------- CATEGORIES ---------- */}
           <CategorySection categories={product_categories} />
           {/* ---------- PRODUCTS (data) ---------- */}
           <ProductSection products={data} />
-        </section>
+        </Container>
       </div>
     </AppLayout>
   );

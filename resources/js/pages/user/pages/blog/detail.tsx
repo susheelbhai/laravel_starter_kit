@@ -1,3 +1,4 @@
+import { Container } from '@/components/ui/container';
 import { usePage } from '@inertiajs/react';
 import AppLayout from '@/layouts/user/app-layout';
 
@@ -14,7 +15,7 @@ export default function Create() {
                 </div>
 
                 {/* Main Content */}
-                <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 md:grid-cols-3">
+                <Container className="grid grid-cols-1 gap-10 py-16 md:grid-cols-3">
                     <div className="space-y-6 md:col-span-2">
                         {/* Image */}
                         {blog.display_img && <img src={blog.display_img} alt={blog.title} className="mb-4 w-full rounded-xl shadow" />}
@@ -62,7 +63,7 @@ export default function Create() {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </Container>
             </div>
         </AppLayout>
     );

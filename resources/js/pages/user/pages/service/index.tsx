@@ -1,3 +1,4 @@
+import { Container } from '@/components/ui/container';
 import { Link, usePage } from "@inertiajs/react";
 import AppLayout from "@/layouts/user/app-layout";
 
@@ -33,7 +34,7 @@ export default function Services() {
         </section>
 
         {/* Services List */}
-        <section className="mx-auto max-w-7xl px-4 py-14 md:py-16">
+        <Container className="py-14 md:py-16">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service: any) => (
               <Link
@@ -71,7 +72,7 @@ export default function Services() {
               </Link>
             ))}
           </div>
-        </section>
+        </Container>
       </div>
     </AppLayout>
   );

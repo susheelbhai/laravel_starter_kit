@@ -1,3 +1,4 @@
+import { Container } from '@/components/ui/container';
 
 import { usePage } from "@inertiajs/react";
 import AppLayout from "@/layouts/user/app-layout";
@@ -51,15 +52,15 @@ export default function ProductCategoryShow() {
 
         {/* Category Description (optional) */}
         {category.short_description && (
-          <div className="mx-auto max-w-4xl px-4 mb-10">
+          <Container className="mb-10">
             <ProductDescription shortDescription={category.short_description} />
-          </div>
+          </Container>
         )}
 
         {/* Products List */}
-        <section className="mx-auto max-w-7xl px-4 py-8 md:py-12">
+        <Container className="py-8 md:py-12">
           <ProductSection products={products} />
-        </section>
+        </Container>
       </div>
     </AppLayout>
   );

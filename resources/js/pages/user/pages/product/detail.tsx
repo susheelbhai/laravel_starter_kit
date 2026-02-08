@@ -1,3 +1,4 @@
+import { Container } from '@/components/ui/container';
 import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import AppLayout from '@/layouts/user/app-layout';
@@ -16,7 +17,7 @@ export default function ProductDetail() {
     if (!product) {
         return (
             <AppLayout title="Product Not Found">
-                <div className="flex min-h-[400px] items-center justify-center">
+                <div className="flex min-h-100 items-center justify-center">
                     <p className="text-lg text-muted-foreground">Product not found</p>
                 </div>
             </AppLayout>
@@ -44,7 +45,7 @@ export default function ProductDetail() {
     return (
         <AppLayout title={product.title}>
             <div className="bg-background text-foreground">
-                <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+                <Container className="py-12 lg:py-16">
                     {/* Upper Section: Images and Price */}
                     <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
                         {/* Image Slider */}
@@ -106,7 +107,7 @@ export default function ProductDetail() {
                             longDescription3={product.long_description3}
                         />
                     </div>
-                </div>
+                </Container>
             </div>
 
             {/* Enquiry Modal */}

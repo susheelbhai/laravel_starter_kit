@@ -1,3 +1,4 @@
+import { Container } from '@/components/ui/container';
 import { usePage } from "@inertiajs/react";
 import { Target, Flag, Eye, Quote } from "lucide-react";
 
@@ -16,7 +17,7 @@ export default function Create() {
             style={{ backgroundImage: `url('${data.banner}')` }}
           />
           {/* Neutral dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/60 to-black/80" />
           <div className="relative z-10 flex h-full items-center justify-center px-4">
             <div className="text-center">
               <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/80">
@@ -34,7 +35,7 @@ export default function Create() {
         </section>
 
         {/* Main Content */}
-        <section className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+        <Container className="py-10 md:py-14">
           {/* Intro card */}
           <div className="rounded-3xl bg-card/90 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.08)] ring-1 ring-border md:p-8 lg:p-10">
             {/* Intro paragraphs */}
@@ -97,7 +98,7 @@ export default function Create() {
               <div className="mx-auto mb-6 flex flex-col items-center md:mb-0 md:items-start">
                 <div className="relative">
                   {/* Brand-ish glow using accent/primary tones */}
-                  <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-primary/40 via-accent/40 to-primary/40 blur" />
+                  <div className="absolute -inset-1 rounded-full bg-linear-to-tr from-primary/40 via-accent/40 to-primary/40 blur" />
                   <div className="relative rounded-full bg-card p-1">
                     <img
                       src={`${data.founder_image}`}
@@ -124,7 +125,7 @@ export default function Create() {
               </div>
             </div>
           </div>
-        </section>
+        </Container>
       </div>
     </AppLayout>
   );

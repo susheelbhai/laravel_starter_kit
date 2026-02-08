@@ -1,3 +1,4 @@
+import { Container } from '@/components/ui/container';
 import { Link, usePage } from '@inertiajs/react';
 import AppLayout from '@/layouts/user/app-layout';
 
@@ -6,7 +7,7 @@ export default function Create() {
 
     return (
         <AppLayout title="Blogs">
-            <div className="bg-gradient-to-b from-background to-card text-foreground min-h-screen">
+            <div className="bg-linear-to-b from-background to-card text-foreground min-h-screen">
                 {/* Banner */}
                 <div className="h-64 w-full bg-cover bg-center relative" style={{ backgroundImage: "url('/images/blogs-banner.jpg')" }}>
                     <div className="absolute inset-0 flex items-center justify-center bg-black/40">
@@ -15,7 +16,7 @@ export default function Create() {
                 </div>
 
                 {/* Blog Grid */}
-                <div className="mx-auto max-w-7xl px-4 py-16">
+                <Container className="py-16">
                     <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
                         {blogs.map((blog:any) => (
                             <Link href={route('blog.show', blog.slug)} className="group" key={blog.id}>
@@ -34,7 +35,7 @@ export default function Create() {
                             </Link>
                         ))}
                     </div>
-                </div>
+                </Container>
             </div>
         </AppLayout>
     );

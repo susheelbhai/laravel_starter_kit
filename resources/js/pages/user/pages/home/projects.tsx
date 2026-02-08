@@ -1,7 +1,8 @@
+import { Container } from '@/components/ui/container';
 export default function ProjectSection({data}: {data: any}) {
     return (
         <section id="projects" className="bg-background2 py-20 md:py-28">
-            <div className="mx-auto max-w-[1320px] px-4 text-center md:px-6">
+            <Container className="text-center">
                 <span className="text-sm font-semibold text-primary uppercase">
                     Our Projects
                 </span>
@@ -30,7 +31,7 @@ export default function ProjectSection({data}: {data: any}) {
                         </div>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }

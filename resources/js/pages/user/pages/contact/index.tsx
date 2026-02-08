@@ -1,4 +1,5 @@
 import { usePage } from '@inertiajs/react';
+import { Container } from '@/components/ui/container';
 import { Clock, LoaderCircle, Mail, MapPin, Phone } from 'lucide-react';
 
 import { InputDiv } from '@/components/form/container/input-div';
@@ -40,7 +41,7 @@ export default function Create() {
     return (
         <AppLayout title="Contact Us">
             <div className="min-h-screen bg-background  text-foreground">
-                <div className="mx-auto max-w-6xl px-4 py-12 lg:py-16">
+                <Container className="py-12 lg:py-16">
                     {/* Page Heading */}
                     <div className="mb-10 text-center">
                         <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground uppercase">
@@ -231,7 +232,7 @@ export default function Create() {
                             ></iframe>
                         </div>
                     </div>
-                </div>
+                </Container>
             </div>
         </AppLayout>
     );

@@ -1,7 +1,8 @@
+import { Container } from '@/components/ui/container';
 export default function ServicesSection(data: any) {
     return (
         <section id="services" className="bg-background2 py-20 md:py-28">
-            <div className="mx-auto max-w-[1320px] px-4 text-center md:px-6">
+            <Container className="text-center">
                 <span className="text-sm font-semibold text-primary uppercase">
                     What We Do
                 </span>
@@ -26,7 +27,7 @@ export default function ServicesSection(data: any) {
                         </div>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }

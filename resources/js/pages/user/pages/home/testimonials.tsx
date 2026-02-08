@@ -1,7 +1,8 @@
+import { Container } from '@/components/ui/container';
 export default function TestimonialSection(data: any) {
     return data.data.length === 0 ? null : (
         <section id="testimonials" className="bg-background2 py-20 md:py-28">
-            <div className="mx-auto max-w-[1320px] px-4 text-center md:px-6">
+            <Container className="text-center">
                 <span className="text-sm font-semibold text-primary uppercase">
                     Testimonials
                 </span>
@@ -34,7 +35,7 @@ export default function TestimonialSection(data: any) {
                         </div>
                     ))}
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }
