@@ -1,7 +1,9 @@
+import { Container } from "@/components/ui/container";
+
 export default function FeatureSection({ data }: any) {
     return (
         <section id="features" className="bg-background py-20 md:py-28">
-            <div className="mx-auto grid max-w-[1320px] items-center gap-12 px-4 md:grid-cols-2 md:px-6">
+            <Container className="grid gap-12 px-4 md:grid-cols-2">
                 <div>
                     <span className="text-sm font-semibold tracking-wider text-primary uppercase">
                         Why Choose Us
@@ -24,7 +26,7 @@ export default function FeatureSection({ data }: any) {
                         className="w-full rounded-md"
                     />
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }

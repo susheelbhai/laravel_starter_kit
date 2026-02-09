@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useFormHandler } from "@/lib/use-form-handler";
+import { Container } from "@/components/ui/container";
 
 type NewsletterForm = {
     email: string;
@@ -37,7 +38,7 @@ export default function NewsletterSection() {
             ref={sectionRef}
             className="bg-card py-20 md:py-28"
         >
-            <div className="mx-auto max-w-[700px] px-4 text-center md:px-6">
+            <Container className="">
                 <span className="text-sm font-semibold text-primary uppercase">
                     Newsletter
                 </span>
@@ -86,7 +87,7 @@ export default function NewsletterSection() {
                         </p>
                     )}
                 </form>
-            </div>
+            </Container>
         </section>
     );
 }

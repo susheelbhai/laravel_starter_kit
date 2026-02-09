@@ -1,3 +1,4 @@
+import { Container } from "@/components/ui/container";
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function HeroSection(props: any) {
@@ -17,7 +18,7 @@ export default function HeroSection(props: any) {
                 backgroundColor: bannerImage ? 'transparent' : 'var(--background)',
             }}
         >
-            <div className="mx-auto grid max-w-[1320px] items-center gap-8 px-4 md:grid-cols-2 md:px-6">
+            <Container className="grid gap-8 px-4 md:grid-cols-2">
                 
                 {/* LEFT: CONTENT */}
                 <div>
@@ -54,7 +55,7 @@ export default function HeroSection(props: any) {
 
                 {/* RIGHT: EMPTY SPACER */}
                 <div className="h-[260px] md:h-[360px]"></div>
-            </div>
+            </Container>
         </section>
     );
 }
