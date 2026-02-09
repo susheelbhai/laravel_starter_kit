@@ -59,6 +59,29 @@
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
+
+    --color-white: var(--color-white);
+    --color-dark: var(--color-dark);
+    --color-light-bg: var(--color-light-bg);
+    --color-card-bg: var(--color-card-bg);
+    --color-border-light: var(--color-border-light);
+    --color-muted-light: var(--color-muted-light);
+    --color-placeholder: var(--color-placeholder);
+
+    --color-input-bg: var(--input-bg);
+    --color-input-text: var(--input-text);
+    --color-input-focused-bg: var(--input-focused-bg);
+    --color-input-focused-text: var(--input-focused-text);
+    --color-input-border: var(--input-border);
+    --color-input-placeholder: var(--input-placeholder);
+    --color-input-hover-bg: var(--input-hover-bg);
+    --color-input-error-border: var(--input-error-border);
+    --color-input-success-border: var(--input-success-border);
+
+    --color-header-bg: var(--header-bg);
+    --color-header-text: var(--header-text);
+    --color-footer-bg: var(--footer-bg);
+    --color-footer-text: var(--footer-text);
 }
 
 /* 🌞 LIGHT THEME (brand) */

@@ -30,7 +30,7 @@ export default function Header({
     const availableMenuItems = menuItems.filter((item: any) => routeExists(item.routeName));
 
     return (
-        <header className="sticky top-0 z-50 bg-[var(--header-bg)]/90 shadow-sm backdrop-blur-xl">
+        <header className="sticky top-0 z-50 bg-header-bg/90 shadow-sm backdrop-blur-xl">
             <Container className="mx-auto flex items-center justify-between px-4 py-3.5 md:py-4">
                 {/* Logo */}
                 <div className="flex items-center gap-2">
@@ -44,7 +44,7 @@ export default function Header({
                 </div>
 
                 {/* Desktop Menu */}
-                <nav className="hidden items-center gap-1 text-sm font-medium text-[var(--header-text)] md:flex">
+                <nav className="hidden items-center gap-1 text-sm font-medium text-header-text md:flex">
                     {availableMenuItems.map((item: any) => (
                         <Link
                             key={item.name}
@@ -72,8 +72,8 @@ export default function Header({
 
             {/* Mobile Menu Dropdown */}
             {menuOpen && (
-                <div className="border-t border-border bg-[var(--header-bg)] px-4 pb-4 shadow md:hidden">
-                    <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-[var(--header-text)]">
+                <div className="border-t border-border bg-header-bg px-4 pb-4 shadow md:hidden">
+                    <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-header-text">
                         {availableMenuItems.map((item: any) => (
                             <Link
                                 key={item.name}

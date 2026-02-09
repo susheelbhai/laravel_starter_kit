@@ -27,7 +27,7 @@ export default function ProductSection({ products }: ProductSectionProps) {
         )}
       </div>
       {!hasProducts ? (
-        <div className="rounded-3xl border-2 border-dashed border-border bg-gradient-to-br from-card to-muted px-8 py-16 text-center shadow-sm">
+        <div className="rounded-3xl border-2 border-dashed border-border bg-linear-to-br from-card to-muted px-8 py-16 text-center shadow-sm">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
             <span className="text-3xl">🎯</span>
           </div>

@@ -72,16 +72,16 @@ export default function Create() {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="space-y-4 rounded-xl bg-[var(--sidebar)] border border-[var(--sidebar-border)] p-6 shadow">
-                        <h3 className="mb-2 text-xl font-semibold text-[var(--sidebar-foreground)]">
+                    <div className="space-y-4 rounded-xl bg-sidebar border border-sidebar-border p-6 shadow">
+                        <h3 className="mb-2 text-xl font-semibold text-sidebar-foreground">
                             Why Choose This Service
                         </h3>
-                        <ul className="list-inside list-disc space-y-2 text-sm text-[var(--sidebar-foreground)]">
+                        <ul className="list-inside list-disc space-y-2 text-sm text-sidebar-foreground">
                             {service.features?.map((feature: any) => (
                                 <li key={feature.id}>{feature}</li>
                             ))}
                         </ul>
-                        <button className="mt-6 w-full rounded-md bg-[var(--sidebar-primary)] py-2 text-[var(--sidebar-primary-foreground)] transition hover:bg-[var(--sidebar-primary)]/90">
+                        <button className="mt-6 w-full rounded-md bg-sidebar-primary py-2 text-sidebar-primary-foreground transition hover:bg-sidebar-primary/90">
                             Book Now
                         </button>
                     </div>

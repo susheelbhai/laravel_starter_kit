@@ -37,11 +37,11 @@ export default function InputSwitch({
           aria-checked={value}
           onClick={handleToggle}
           className={`relative inline-flex h-8 w-24 items-center rounded-full transition-colors focus:outline-none cursor-pointer ${
-            value ? "bg-green-500" : "bg-[var(--input-border)]"
+            value ? "bg-green-500" : "bg-input-border"
           }`}
         >
           <span
-            className={`inline-block h-8 w-8 transform rounded-full bg-[var(--input-bg)] transition-transform ${
+            className={`inline-block h-8 w-8 transform rounded-full bg-input-bg transition-transform ${
               value ? "translate-x-16" : "translate-x-0"
             }`}
           />

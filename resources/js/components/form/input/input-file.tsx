@@ -60,10 +60,10 @@ export default function InputFile({
           className={`relative flex h-32 w-150 cursor-pointer items-center justify-center overflow-hidden rounded-md border-2 border-dashed transition-colors ${
             dragging
               ? "border-blue-500 bg-blue-100"
-              : "border-[var(--input-border)] bg-[var(--input-bg)] hover:bg-[var(--input-focused-bg)]"
+              : "border-input-border bg-input-bg hover:bg-input-focused-bg"
           }`}
         >
-          <div className="text-center text-[var(--foreground)]">
+          <div className="text-center text-foreground">
             {fileName ? (
               <p className="text-sm font-medium">Selected File: {fileName}</p>
             ) : value1 ? (

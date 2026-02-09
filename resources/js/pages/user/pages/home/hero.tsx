@@ -54,7 +54,7 @@ export default function HeroSection(props: any) {
                 </div>
 
                 {/* RIGHT: EMPTY SPACER */}
-                <div className="h-[260px] md:h-[360px]"></div>
+                <div className="h-65 md:h-90"></div>
             </Container>
         </section>
     );

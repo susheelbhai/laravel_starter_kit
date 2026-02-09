@@ -80,10 +80,10 @@ export default function InputMultiFile({
           className={`relative flex h-40 w-150 cursor-pointer items-center justify-center overflow-auto rounded-md border-2 border-dashed transition-colors ${
             dragging
               ? "border-blue-500 bg-blue-100"
-              : "border-[var(--input-border)] bg-[var(--input-bg)] hover:bg-[var(--input-focused-bg)]"
+              : "border-input-border bg-input-bg hover:bg-input-focused-bg"
           }`}
         >
-          <div className="text-center text-[var(--foreground)] px-2 py-2">
+          <div className="text-center text-foreground px-2 py-2">
             {fileCount > 0 ? (
               <>
                 <p className="font-semibold text-sm mb-1">

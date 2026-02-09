@@ -29,7 +29,7 @@ export default function InputDefault({
         value={data[name]}
         onChange={(e) => setData(name, e.target.value)}
         readOnly={readOnly}
-        className="bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]"
+        className="bg-input-bg border-input-border text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:bg-input-focused-bg focus:text-input-focused-text"
         {...props}
       />
       <InputError message={errors[name]?.[0]} />

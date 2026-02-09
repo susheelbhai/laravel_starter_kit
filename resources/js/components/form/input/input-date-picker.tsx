@@ -178,7 +178,7 @@ export default function InputDatePicker({
                         onKeyDown={handleKeyDown}
                         placeholder={placeholder || 'YYYY-MM-DD'}
                         readOnly={readOnly}
-                        className="pr-10 bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]"
+                        className="pr-10 bg-input-bg border-input-border text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:bg-input-focused-bg focus:text-input-focused-text"
                         maxLength={10}
                     />
 

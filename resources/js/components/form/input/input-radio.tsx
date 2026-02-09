@@ -34,7 +34,7 @@ export default function InputRadio({
         )}
       </Label>
 
-      <div className="flex flex-col gap-2 border-2 border-[var(--input-border)] rounded-md p-3 bg-[var(--input-bg)] focus-within:bg-[var(--input-focused-bg)] focus-within:border-secondary/60 transition-colors">
+      <div className="flex flex-col gap-2 border-2 border-input-border rounded-md p-3 bg-input-bg focus-within:bg-input-focused-bg focus-within:border-secondary/60 transition-colors">
         {(options ?? []).map((option: any) => {
           const value = String(option.id ?? option.value ?? option);
           const title = String(option.title ?? option.name ?? value);
@@ -42,7 +42,7 @@ export default function InputRadio({
           return (
             <label
               key={value}
-              className="flex items-center gap-2 cursor-pointer select-none text-[var(--foreground)]"
+              className="flex items-center gap-2 cursor-pointer select-none text-foreground"
             >
               <input
                 type="radio"

@@ -88,7 +88,7 @@ export default function InputClockTimePicker({
                 <div className="relative w-full">
                     <input
                         type="text"
-                        className={`w-full rounded-lg border-2 bg-[var(--input-bg)] border-[var(--input-border)] px-3 py-2 text-left text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:outline-none focus:border-secondary/60 focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)] ${className || ''}`}
+                        className={`w-full rounded-lg border-2 bg-input-bg border-input-border px-3 py-2 text-left text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:outline-none focus:border-secondary/60 focus:bg-input-focused-bg focus:text-input-focused-text ${className || ''}`}
                         value={value}
                         placeholder={placeholder}
                         readOnly={readOnly}
@@ -164,7 +164,7 @@ export default function InputClockTimePicker({
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-4 w-4 text-[var(--input-placeholder)]"
+                            className="h-4 w-4 text-input-placeholder"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"

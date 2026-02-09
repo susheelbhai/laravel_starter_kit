@@ -34,10 +34,10 @@ export default function Notification() {
                             <tr
                                 key={item.id}
                                 className={
-                                    `border-t border-[var(--color-border)] hover:bg-[var(--color-muted)] cursor-pointer` +
+                                    `border-t border-border hover:bg-muted cursor-pointer` +
                                     (!item.read_at
-                                        ? ' bg-[var(--color-white)] text-[var(--color-foreground)  ]'
-                                        : ' bg-[var(--color-muted)] text-[var(--color-muted-foreground)]')
+                                        ? ' bg-white text-foreground'
+                                        : ' bg-muted text-muted-foreground')
                                 }
                                 onClick={() => window.location.assign(route('admin.notification.show', item.id))}
                                 tabIndex={0}

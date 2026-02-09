@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="bg-[var(--footer-bg)] text-[var(--footer-text)]">
+    <footer className="bg-footer-bg text-footer-text">
       {/* Accent top border */}
       <div className="h-1 w-full bg-primary " />
 

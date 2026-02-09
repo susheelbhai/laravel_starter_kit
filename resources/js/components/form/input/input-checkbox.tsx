@@ -35,17 +35,17 @@ export default function InputCheckbox({
           className="
             h-5 w-5
             accent-secondary
-            border-2 border-[var(--input-border)]
+            border-2 border-input-border
             rounded-md
             cursor-pointer
             appearance-auto
-            checked:bg-secondary checked:border-[var(--input-border)]
-            focus:ring-2 focus:ring-secondary focus:ring-offset-0 focus:ring-offset-[var(--input-bg)]
-            bg-[var(--input-bg)]
+            checked:bg-secondary checked:border-input-border
+            focus:ring-2 focus:ring-secondary focus:ring-offset-0 focus:ring-offset-input-bg
+            bg-input-bg
             transition
           "
         />
-        <Label htmlFor={name} className="cursor-pointer text-[var(--foreground)]">
+        <Label htmlFor={name} className="cursor-pointer text-foreground">
           {label}
           {required && (
             <span className="text-red-500 font-bold text-xl">*</span>

@@ -68,7 +68,7 @@ export default function InputDateRangePicker({
                     <Button
                         type="button"
                         variant="outline"
-                        className={className + ' w-full justify-start text-left font-normal bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--input-text)] hover:bg-[var(--input-hover-bg)]'}
+                        className={className + ' w-full justify-start text-left font-normal bg-input-bg border-input-border text-input-text hover:bg-input-hover-bg'}
                         disabled={readOnly}
                     >
                         <CalendarIcon className="mr-2 h-4 w-4" />

@@ -43,9 +43,9 @@ export default function Create() {
                             <img src={blog.ad_img} alt="" />
                         </a>
 
-                        <div className="space-y-4 rounded-xl bg-[var(--sidebar)] border border-[var(--sidebar-border)] p-6 shadow">
-                            <h3 className="mb-2 text-xl font-semibold text-[var(--sidebar-foreground)]">Related Blogs</h3>
-                            <ul className="list-inside list-disc space-y-2 text-sm text-[var(--sidebar-foreground)]">
+                        <div className="space-y-4 rounded-xl bg-sidebar border border-sidebar-border p-6 shadow">
+                            <h3 className="mb-2 text-xl font-semibold text-sidebar-foreground">Related Blogs</h3>
+                            <ul className="list-inside list-disc space-y-2 text-sm text-sidebar-foreground">
                                 {blog.related_blogs?.map((related_blog: any) => (
                                     <div key={related_blog.id}>
                                         <a href={route('blog.show', related_blog.slug)} className="ml-2 hover:underline">

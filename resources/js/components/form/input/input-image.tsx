@@ -64,9 +64,9 @@ export default function InputImage({
           }}
           onDragLeave={() => setDragging(false)}
           onDrop={handleDrop}
-          className={`relative flex cursor-pointer items-center justify-center overflow-hidden rounded-md border-2 border-dashed bg-[var(--input-bg)] border-[var(--input-border)] hover:bg-[var(--input-hover-bg)] ${
+          className={`relative flex cursor-pointer items-center justify-center overflow-hidden rounded-md border-2 border-dashed bg-input-bg border-input-border hover:bg-input-hover-bg ${
             dragging
-              ? "border-secondary bg-[var(--input-focused-bg)]"
+              ? "border-secondary bg-input-focused-bg"
               : ""
           }`}
           style={{ height, width, maxWidth: "100%" }}
@@ -84,7 +84,7 @@ export default function InputImage({
               className="h-full w-full object-contain"
             />
           ) : (
-            <div className="text-center text-[var(--input-placeholder)]">
+            <div className="text-center text-input-placeholder">
               <p className="text-sm font-medium">
                 Drag & drop or click to upload
               </p>

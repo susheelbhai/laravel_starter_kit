@@ -408,7 +408,7 @@ export default function InputTimePicker({
                             placeholder={timeFormat === '12' ? 'HH:MM' : 'HH:MM'}
                             value={data[name] || ''}
                             onChange={handleInputChange}
-                            className="text-center bg-[var(--input-bg)] border-[var(--input-border)] text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]"
+                            className="text-center bg-input-bg border-input-border text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:bg-input-focused-bg focus:text-input-focused-text"
                         />
                     </div>
                 </PopoverContent>

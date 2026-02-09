@@ -70,7 +70,7 @@ export default function InputTags(props: InputDivProps) {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder={placeholder || 'Type and press Enter'}
-                    className="w-full rounded-md border-2 bg-[var(--input-bg)] border-[var(--input-border)] px-3 py-2 text-sm text-[var(--input-text)] placeholder:text-[var(--input-placeholder)] hover:bg-[var(--input-hover-bg)] focus:outline-none focus:border-secondary/60 focus:bg-[var(--input-focused-bg)] focus:text-[var(--input-focused-text)]"
+                    className="w-full rounded-md border-2 bg-input-bg border-input-border px-3 py-2 text-sm text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:outline-none focus:border-secondary/60 focus:bg-input-focused-bg focus:text-input-focused-text"
                 />
             </div>
 

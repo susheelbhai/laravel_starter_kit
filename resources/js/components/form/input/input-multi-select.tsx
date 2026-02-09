@@ -54,7 +54,7 @@ export default function InputMultiSelect({
                     setData(name, ids);
                 }}
                 placeholder="Select…"
-                className="react-select-container rounded-md border-2 border-[var(--input-border)]"
+                className="react-select-container rounded-md border-2 border-input-border"
                 classNamePrefix="react-select"
                 menuPortalTarget={document.body}
                 styles={{

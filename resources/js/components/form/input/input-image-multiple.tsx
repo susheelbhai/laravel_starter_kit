@@ -119,10 +119,10 @@ export default function InputMultiImage({
         onDrop={handleDrop}
         className={`relative cursor-pointer flex items-center justify-center overflow-hidden 
           rounded-md border-2 border-dashed transition-colors
-          ${dragging ? "border-secondary bg-[var(--input-focused-bg)]" : "border-[var(--input-border)] bg-[var(--input-bg)] hover:bg-[var(--input-hover-bg)]"}`}
+          ${dragging ? "border-secondary bg-input-focused-bg" : "border-input-border bg-input-bg hover:bg-input-hover-bg"}`}
         style={{ height, width, maxWidth: "100%" }}
       >
-        <div className="text-center text-[var(--input-placeholder)]">
+        <div className="text-center text-input-placeholder">
           <p className="text-sm font-medium">
             Click or drag to upload multiple images
           </p>
@@ -141,7 +141,7 @@ export default function InputMultiImage({
           {previews.map((url, idx) => (
             <div
               key={idx}
-              className="relative group rounded-md overflow-hidden border border-[var(--input-border)]"
+              className="relative group rounded-md overflow-hidden border border-input-border"
               style={{ width: "100%", height: "100px" }}
             >
               <img
