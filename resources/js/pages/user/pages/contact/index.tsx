@@ -1,9 +1,9 @@
 import { usePage } from '@inertiajs/react';
-import { Container } from '@/components/ui/container';
 import { Clock, LoaderCircle, Mail, MapPin, Phone } from 'lucide-react';
 
 import { InputDiv } from '@/components/form/container/input-div';
 import { Button } from '@/components/ui/button';
+import { Container } from '@/components/ui/container';
 import AppLayout from '@/layouts/user/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 
@@ -15,6 +15,23 @@ type FormType = {
     message: string;
 };
 
+interface AppData {
+    phone: string;
+    email: string;
+    address: string;
+    debug: boolean;
+}
+
+interface ContactData {
+    working_hour: string;
+    map_embad_url: string;
+}
+
+interface ContactPageProps {
+    appData: AppData;
+    data: ContactData;
+}
+
 export default function Create() {
     const initialValues: FormType = {
         name: '',
@@ -24,9 +41,9 @@ export default function Create() {
         message: '',
     };
 
-    const page = usePage();
-    const appData = (page.props as any).appData;
-    const contactData = (page.props as any).data as any;
+    const page = usePage<ContactPageProps>();
+    const appData = page.props.appData;
+    const contactData = page.props.data;
 
     const { submit, inputDivData, processing } = useFormHandler<FormType>({
         url: route('contact'),

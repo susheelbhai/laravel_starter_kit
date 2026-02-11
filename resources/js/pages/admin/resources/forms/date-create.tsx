@@ -1,4 +1,4 @@
-import { Head, usePage } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
@@ -27,7 +27,6 @@ export default function CreateForm() {
         method: 'PATCH',
         onSuccess: () => console.log('Simple form created successfully!'),
     });
-    const states = usePage().props.states as { id: string; title: string }[];
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Create Simple Form" />

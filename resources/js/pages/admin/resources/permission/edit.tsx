@@ -1,7 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { BreadcrumbItem, SharedData } from '@/types';
@@ -23,27 +22,30 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface PermissionData {
+    id: number | string;
+    name: string;
+    roles?: Array<{ id: number; title: string }>;
+}
+
+interface PermissionPageProps {
+    data: PermissionData;
+    roles: Array<{ id: number; title: string }>;
+}
+
 export default function EditPermission() {
     const page = usePage<SharedData>();
 
-    const permission =
-        ((page.props as any)?.data as {
-            id: number | string;
-            name: string;
-            roles?: { id: number; title: string }[];
-        }) || {};
+    const permission = ((page.props as PermissionPageProps)?.data) || { id: 0, name: '', roles: [] };
 
-    const allRoles = (page.props as any).roles as {
-        id: number;
-        title: string;
-    }[];
+    const allRoles = (page.props as PermissionPageProps).roles || [];
 
     // ✅ Initial values: convert related roles to array of IDs
     const initialValues: FormType = {
         id: permission.id,
         name: permission.name || '',
         roles: Array.isArray(permission.roles)
-            ? permission.roles.map((r: any) => r.id) // [1, 2, 3]
+            ? permission.roles.map((r) => r.id) // [1, 2, 3]
             : [],
     };
 

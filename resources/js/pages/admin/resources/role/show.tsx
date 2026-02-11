@@ -18,26 +18,27 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface RoleDetailData {
+    id: number;
+    membership_type?: { title: string };
+    name: string;
+    dob: string;
+    profile_pic: string;
+    permanent_address: string;
+    current_address: string;
+    city: string;
+    state: string;
+    email: string;
+    phone: string;
+    course: string;
+    enrollment_number: string;
+    college: string;
+    university?: { name: string };
+    is_active: number;
+}
+
 export default function Dashboard() {
-    const role =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            membership_type?: { title: string };
-            name: string;
-            dob: string;
-            profile_pic: string;
-            permanent_address: string;
-            current_address: string;
-            city: string;
-            state: string;
-            email: string;
-            phone: string;
-            course: string;
-            enrollment_number: string;
-            college: string;
-            university?: { name: string };
-            is_active: number;
-        }) || {};
+    const role = ((usePage<SharedData>().props as { data: RoleDetailData })?.data) || {} as RoleDetailData;
 
     const thead = [
         { title: 'Role Detail', className: 'p-3', colSpan: 1 },

@@ -4,7 +4,6 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 
@@ -19,15 +18,20 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface SliderData {
+    id: number;
+    name: string;
+    url: string;
+    is_active: number;
+    logo: string;
+}
+
+interface SliderShowPageProps extends SharedData {
+    data: SliderData;
+}
+
 export default function Dashboard() {
-    const slider =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            url: string;
-            is_active: number;
-            logo: string;
-        }) || [];
+    const slider = usePage<SliderShowPageProps>().props.data || {} as SliderData;
     const thead = [
         { title: 'Slider Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

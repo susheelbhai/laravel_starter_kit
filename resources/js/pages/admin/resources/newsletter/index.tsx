@@ -14,8 +14,21 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface NewsletterData {
+    id: number;
+    email: string;
+    is_active: number;
+}
+
+interface NewsletterIndexPageProps extends SharedData {
+    data: {
+        data: NewsletterData[];
+        [key: string]: unknown;
+    };
+}
+
 export default function Dashboard() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = usePage<NewsletterIndexPageProps>().props;
     const items = data?.data || [];
     const thead = [
         { title: 'ID', className: 'p-3' },
@@ -30,7 +43,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {items.map((user: any) => (
+                        {items.map((user: NewsletterData) => (
                             <tr
                                 key={user.id}
                                 className="border-t border-gray-200"

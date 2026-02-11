@@ -10,8 +10,16 @@ import ServicesSection from './pages/home/services';
 import TeamSection from './pages/home/team';
 import TestimonialSection from './pages/home/testimonials';
 
+interface DashboardData {
+    services: unknown[];
+    team: unknown[];
+    testimonials: unknown[];
+    clients: unknown[];
+    [key: string]: unknown;
+}
+
 const FinbizLandingPage = () => {
-    const data = usePage().props as any;
+    const data = usePage().props as DashboardData;
     return (
         <AppLayout title="Home">
             <HeroSection data={data} />

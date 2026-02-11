@@ -85,12 +85,18 @@ export const AppearanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
     useEffect(() => {
         const savedAppearance = getStoredAppearance();
-        updateAppearance(savedAppearance ?? defaultAppearance);
+        // Use a timeout to avoid calling setState directly in effect
+        const timer = setTimeout(() => {
+            updateAppearance(savedAppearance ?? defaultAppearance);
+        }, 0);
 
         const mq = mediaQuery();
         mq?.addEventListener('change', handleSystemThemeChange);
 
-        return () => mq?.removeEventListener('change', handleSystemThemeChange);
+        return () => {
+            clearTimeout(timer);
+            mq?.removeEventListener('change', handleSystemThemeChange);
+        };
     }, [updateAppearance, handleSystemThemeChange, defaultAppearance]);
 
     return (

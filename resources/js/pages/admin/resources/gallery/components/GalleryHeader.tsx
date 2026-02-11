@@ -1,8 +1,15 @@
 import { Edit, Trash2 } from 'lucide-react';
 import Button from '@/components/button';
 
+interface GalleryItem {
+    id: number;
+    title: string;
+    description: string;
+    created_date_time: string;
+}
+
 interface GalleryHeaderProps {
-    item: any;
+    item: GalleryItem;
 }
 
 export function GalleryHeader({ item }: GalleryHeaderProps) {

@@ -4,7 +4,6 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 
@@ -21,7 +20,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 export default function Dashboard() {
     const faq =
-        ((usePage<SharedData>().props as any)?.data as {
+        ((usePage<SharedData>().props as SharedData & { data: {
             id: number;
             name: string;
             designation: string;
@@ -29,7 +28,15 @@ export default function Dashboard() {
             message: string;
             is_active: number;
             image: string;
-        }) || [];
+        } })?.data) || {} as {
+            id: number;
+            name: string;
+            designation: string;
+            organisation: string;
+            message: string;
+            is_active: number;
+            image: string;
+        };
     const thead = [
         { title: 'Faq Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

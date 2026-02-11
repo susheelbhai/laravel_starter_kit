@@ -34,8 +34,12 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface BlogPageProps extends SharedData {
+    data: FormType;
+}
+
 export default function Create() {
-    const blog = ((usePage<SharedData>().props as any)?.data as FormType) || [];
+    const blog = (usePage<BlogPageProps>().props.data) || {} as FormType;
 
     const initialValues: FormType = {
         id: blog?.id || 0,

@@ -4,7 +4,7 @@ import { useState } from "react";
 /**
  * Smart FormData builder
  */
-function appendValue(fd: FormData, key: string, value: any) {
+function appendValue(fd: FormData, key: string, value: unknown) {
     if (value instanceof File) {
         fd.append(key, value);
         return;
@@ -44,12 +44,12 @@ function appendValue(fd: FormData, key: string, value: any) {
     }
 }
 
-export function useFormHandler<T extends Record<string, any>>(options: {
+export function useFormHandler<T extends Record<string, unknown>>(options: {
     url: string;
     initialValues: T;
     method?: "POST" | "PUT" | "PATCH" | "DELETE";
     onlyDirty?: boolean;
-    extraData?: Record<string, any>;
+    extraData?: Record<string, unknown>;
     onSuccess?: () => void;
     onError?: (errors: Record<string, string[]>) => void;
 }) {
@@ -75,7 +75,7 @@ export function useFormHandler<T extends Record<string, any>>(options: {
         const fd = new FormData();
 
         Object.entries(merged).forEach(([key, value]) => {
-            if (options.onlyDirty && value === options.initialValues[key]) return;
+            if (options.onlyDirty && value === (options.initialValues as Record<string, unknown>)[key]) return;
             appendValue(fd, key, value);
         });
 
@@ -92,8 +92,8 @@ export function useFormHandler<T extends Record<string, any>>(options: {
             },
             onError: (err) => {
                 setIsSubmitting(false);
-                setError(err as any);
-                if (options.onError) options.onError(err as any);
+                setError(err as Record<string, string[]>);
+                if (options.onError) options.onError(err as Record<string, string[]>);
             },
         });
     };

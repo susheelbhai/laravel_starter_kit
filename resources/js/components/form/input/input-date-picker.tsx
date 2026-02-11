@@ -18,7 +18,6 @@ import HelpTooltip from './input-help-tool';
 export default function InputDatePicker({
     label,
     name,
-    type,
     help,
     inputDivData,
     readOnly,

@@ -1,7 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import { type BreadcrumbItem, type SharedData } from '@/types';
@@ -38,9 +37,12 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ProductCategoryCreatePageProps extends SharedData {
+    parents: ParentOption[];
+}
+
 export default function Create() {
-    const parents =
-        ((usePage<SharedData>().props as any)?.parents as ParentOption[]) || [];
+    const { parents } = usePage<ProductCategoryCreatePageProps>().props;
     console.log('parents:', parents);
     const initialValues: FormType = {
         parent_id: '',

@@ -23,7 +23,7 @@ export default function InputMultiSelect({
           : [];
 
     const formattedOptions =
-        (options ?? []).map((o: any) => ({
+        (options ?? []).map((o: { id: string | number; title: string }) => ({
             value: String(o.id),
             label: String(o.title),
         })) ?? [];

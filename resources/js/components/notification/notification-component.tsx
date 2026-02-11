@@ -3,12 +3,20 @@ import { useState, useRef, useEffect } from 'react';
 import NotificationBox from './notification-box';
 import { NotificationIcon } from './notification-icon';
 
+interface NotificationData {
+    unreadNotificationsCount: number;
+    unreadNotifications: Array<{
+        id: string;
+        title: string;
+        message: string;
+        created_at: string;
+        [key: string]: unknown;
+    }>;
+    all_notifications_url: string;
+}
+
 export function NotificationComponent({ notificationData }: {
-    notificationData?: {
-        unreadNotificationsCount: number;
-        unreadNotifications: any[];
-        all_notifications_url: string;
-    };
+    notificationData?: NotificationData;
 }) {
     const unreadNotificationsCount = notificationData?.unreadNotificationsCount ?? 0;
     const unreadNotifications = notificationData?.unreadNotifications ?? [];

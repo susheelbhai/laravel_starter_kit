@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const MOBILE_BREAKPOINT = 768;
 
 export function useIsMobile() {
-    const [isMobile, setIsMobile] = useState<boolean>();
+    const [isMobile, setIsMobile] = useState<boolean>(false);
 
     useEffect(() => {
         const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
@@ -13,9 +13,15 @@ export function useIsMobile() {
         };
 
         mql.addEventListener('change', onChange);
-        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+        // Use a timeout to avoid calling setState directly in effect
+        const timer = setTimeout(() => {
+            setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+        }, 0);
 
-        return () => mql.removeEventListener('change', onChange);
+        return () => {
+            mql.removeEventListener('change', onChange);
+            clearTimeout(timer);
+        };
     }, []);
 
     return !!isMobile;

@@ -37,7 +37,7 @@ export default function InputDateTimePicker({
     placeholder = 'Select date & time',
     timeFormat = '24',
 }: InputDateTimePickerProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData } = inputDivData;
     const value = data[name] as string | undefined;
     const { date, time } = splitDateTime(value);
 

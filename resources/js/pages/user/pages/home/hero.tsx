@@ -1,7 +1,21 @@
-import { Container } from "@/components/ui/container";
 import { FaWhatsapp } from "react-icons/fa";
+import { Container } from "@/components/ui/container";
 
-export default function HeroSection(props: any) {
+interface HeroProps {
+    data: {
+        appData: {
+            name: string;
+            whatsapp: string;
+        };
+        data: {
+            banner_image: string;
+            banner_heading: string;
+            banner_description: string;
+        };
+    };
+}
+
+export default function HeroSection(props: HeroProps) {
     const appName = props.data?.appData?.name;
     const whatsapp = props.data?.appData?.whatsapp;
     const bannerImage = props.data?.data?.banner_image;

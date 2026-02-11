@@ -1,7 +1,7 @@
 import PreviewItem from "../components/PreviewItem";
 import PreviewSection from "../components/PreviewSection";
 
-export default function PreviewSocialMedia({ data }: { data: any }) {
+export default function PreviewSocialMedia({ data }: { data: Record<string, unknown> }) {
     return (
         <PreviewSection
             title="Social Media"
@@ -13,12 +13,12 @@ export default function PreviewSocialMedia({ data }: { data: any }) {
                     value={
                         data.facebook ? (
                             <a
-                                href={data.facebook}
+                                href={data.facebook as string}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 underline break-all"
                             >
-                                {data.facebook}
+                                {data.facebook as string}
                             </a>
                         ) : (
                             "—"
@@ -30,12 +30,12 @@ export default function PreviewSocialMedia({ data }: { data: any }) {
                     value={
                         data.twitter ? (
                             <a
-                                href={data.twitter}
+                                href={data.twitter as string}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 underline break-all"
                             >
-                                {data.twitter}
+                                {data.twitter as string}
                             </a>
                         ) : (
                             "—"
@@ -47,12 +47,12 @@ export default function PreviewSocialMedia({ data }: { data: any }) {
                     value={
                         data.instagram ? (
                             <a
-                                href={data.instagram}
+                                href={data.instagram as string}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 underline break-all"
                             >
-                                {data.instagram}
+                                {data.instagram as string}
                             </a>
                         ) : (
                             "—"
@@ -64,12 +64,12 @@ export default function PreviewSocialMedia({ data }: { data: any }) {
                     value={
                         data.linkedin ? (
                             <a
-                                href={data.linkedin}
+                                href={data.linkedin as string}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 underline break-all"
                             >
-                                {data.linkedin}
+                                {data.linkedin as string}
                             </a>
                         ) : (
                             "—"
@@ -81,12 +81,12 @@ export default function PreviewSocialMedia({ data }: { data: any }) {
                     value={
                         data.youtube ? (
                             <a
-                                href={data.youtube}
+                                href={data.youtube as string}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 underline break-all"
                             >
-                                {data.youtube}
+                                {data.youtube as string}
                             </a>
                         ) : (
                             "—"
@@ -98,12 +98,12 @@ export default function PreviewSocialMedia({ data }: { data: any }) {
                     value={
                         data.whatsapp ? (
                             <a
-                                href={`https://wa.me/${data.whatsapp.replace(/\D/g, "")}`}
+                                href={`https://wa.me/${(data.whatsapp as string).replace(/\D/g, "")}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 underline break-all"
                             >
-                                {data.whatsapp}
+                                {data.whatsapp as string}
                             </a>
                         ) : (
                             "—"
@@ -115,12 +115,12 @@ export default function PreviewSocialMedia({ data }: { data: any }) {
                     value={
                         data.telegram ? (
                             <a
-                                href={data.telegram}
+                                href={data.telegram as string}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-blue-600 underline break-all"
                             >
-                                {data.telegram}
+                                {data.telegram as string}
                             </a>
                         ) : (
                             "—"

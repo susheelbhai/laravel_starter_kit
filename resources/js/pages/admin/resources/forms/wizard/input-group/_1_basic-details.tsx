@@ -1,7 +1,8 @@
 import { InputDiv } from '@/components/form/container/input-div';
 import InputFieldset from '@/components/form/container/input-fieldset';
+import type { WizardComponentProps } from '../types';
 
-export default function BasicDetails({ inputDivData }: { inputDivData: any }) {
+export default function BasicDetails({ inputDivData }: WizardComponentProps) {
     return (
         <InputFieldset legend="Basic Details" description="Tell us about you.">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

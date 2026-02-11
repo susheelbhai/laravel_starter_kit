@@ -18,26 +18,27 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ProjectDetailData {
+    id: number;
+    title: string;
+    author: string;
+    tags: string;
+    short_description: string;
+    long_description1: string;
+    long_description2: string;
+    long_description3: string;
+    category: string;
+    is_active: number;
+    images: Array<{ url: string }>;
+    ad_img: string;
+    ad_url: string;
+    views: string;
+    highlighted_text1: string;
+    highlighted_text2: string;
+}
+
 export default function Dashboard() {
-    const project =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            title: string;
-            author: string;
-            tags: string;
-            short_description: string;
-            long_description1: string;
-            long_description2: string;
-            long_description3: string;
-            category: string;
-            is_active: number;
-            images: Array<string>;
-            ad_img: string;
-            ad_url: string;
-            views: string;
-            highlighted_text1: string;
-            highlighted_text2: string;
-        }) || [];
+    const project = ((usePage<SharedData>().props as { data: ProjectDetailData })?.data) || {} as ProjectDetailData;
     const thead = [
         { title: 'Project Detail', className: 'p-3', colSpan: 2 },
     ];
@@ -105,7 +106,7 @@ export default function Dashboard() {
                             <td className="p-3">
                                 {project.images && project.images.length > 0 ? (
                                     <div className="flex flex-wrap gap-2">
-                                        {project.images.map((img: any, index: number) => (
+                                        {project.images.map((img: ProjectDetailData['images'][0], index: number) => (
                                             <img key={index} src={img.url} alt="" width={160} />
                                         ))}
                                     </div>

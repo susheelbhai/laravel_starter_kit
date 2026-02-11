@@ -26,8 +26,8 @@ interface LoginProps {
     canResetPassword: boolean;
 }
 
-export default function Login({ submitUrl, status, canResetPassword }: LoginProps) {
-    const { data, setData, post, processing, errors, reset } = useForm<Required<LoginForm>>({
+export default function Login({ submitUrl, canResetPassword }: LoginProps) {
+    const { data, setData, post, processing, errors } = useForm<Required<LoginForm>>({
         email: '',
         password: '',
         remember: false,
@@ -47,17 +47,17 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
         }
     };
 
-    const socialData = usePage().props.socialData as any;
+    const socialData = usePage().props.socialData as Array<Record<string, { href: string }>>;
     return (
         <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
             <Head title="Log in" />
-            {socialData.map((item: any, id: number) => {
+            {socialData.map((item: Record<string, { href: string }>, id: number) => {
                 const key = Object.keys(item)[0];
                 const data = item[key];
                 return (
                     <ContinueWithSocial
                         key={id}
-                        platform={key as any}
+                        platform={key as 'google' | 'facebook' | 'twitter'}
                         href={data.href}
                     />
                 );
@@ -80,7 +80,7 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
                             tabIndex={1}
                             autoComplete="email"
                             value={data.email}
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                            onChange={(e) =>
                                 setData('email', e.target.value)
                             }
                             placeholder="email@example.com"
@@ -109,7 +109,7 @@ export default function Login({ submitUrl, status, canResetPassword }: LoginProp
                                 tabIndex={2}
                                 autoComplete="current-password"
                                 value={data.password}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                onChange={(e) =>
                                     setData('password', e.target.value)
                                 }
                                 placeholder="Password"

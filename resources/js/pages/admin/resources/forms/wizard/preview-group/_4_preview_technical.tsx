@@ -2,23 +2,23 @@ import { usePage } from "@inertiajs/react";
 import PreviewItem from "../components/PreviewItem";
 import PreviewSection from "../components/PreviewSection";
 
-export default function PreviewSubmissionRequirements({ data }: { data: any }) {
+export default function PreviewSubmissionRequirements({ data }: { data: Record<string, unknown> }) {
     // ✅ Same as form — get all lists from Inertia props
-    const genres = usePage().props.genres as any[];
-    const screener_formats = usePage().props.screener_formats as any[];
-    const projection_masters = usePage().props.projection_masters as any[];
-    const audio_specifications = usePage().props.audio_specifications as any[];
+    const genres = usePage().props.genres as Array<{ id: number; title: string }>;
+    const screener_formats = usePage().props.screener_formats as Array<{ id: number; title: string }>;
+    const projection_masters = usePage().props.projection_masters as Array<{ id: number; title: string }>;
+    const audio_specifications = usePage().props.audio_specifications as Array<{ id: number; title: string }>;
 
     // ✅ Helper to map selected IDs to titles (handles strings vs numbers)
-    const getTitles = (ids: any, list: any[]) => {
+    const getTitles = (ids: unknown, list: Array<{ id: number; title: string }>) => {
         if (!Array.isArray(list) || !ids) return [];
         const normalizedIds = Array.isArray(ids)
-            ? ids.map((v) => parseInt(v))
+            ? ids.map((v) => parseInt(String(v)))
             : typeof ids === "string"
             ? ids.split(",").map((v) => parseInt(v))
             : [];
         return list
-            .filter((item) => normalizedIds.includes(parseInt(item.id)))
+            .filter((item) => normalizedIds.includes(parseInt(String(item.id))))
             .map((item) => item.title);
     };
 

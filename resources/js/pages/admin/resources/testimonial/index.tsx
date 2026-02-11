@@ -1,6 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
 import { Eye } from 'lucide-react';
-import Button from '@/components/button';
 import Pagination from '@/components/table/pagination';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
@@ -18,8 +17,26 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface TestimonialData {
+    id: number;
+    name: string;
+    designation: string;
+    organisation: string;
+    message: string;
+    is_active: number;
+    image: string;
+    image_thumb?: string;
+}
+
+interface TestimonialIndexPageProps extends SharedData {
+    data: {
+        data: TestimonialData[];
+        [key: string]: unknown;
+    };
+}
+
 export default function Dashboard() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = usePage<TestimonialIndexPageProps>().props;
     const items = data?.data || [];
     const thead = [
         { title: 'Name', className: 'p-3' },
@@ -40,7 +57,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {items.map((testimonial: any) => (
+                        {items.map((testimonial: TestimonialData) => (
                             <tr key={testimonial.id} className="border-t border-gray-200">
                                 <td className="p-3">{testimonial.name}</td>
                                 <td className="p-3">{testimonial.designation}</td>

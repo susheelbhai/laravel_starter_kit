@@ -1,11 +1,22 @@
-import { Container } from '@/components/ui/container';
 import { usePage } from "@inertiajs/react";
 import { Target, Flag, Eye, Quote } from "lucide-react";
+import { Container } from '@/components/ui/container';
 
 import AppLayout from "@/layouts/user/app-layout";
 
+interface AboutPageData {
+    banner: string;
+    para1: string;
+    para2: string;
+    objective: string;
+    mission: string;
+    vision: string;
+    founder_image: string;
+    founder_message: string;
+}
+
 export default function Create() {
-  const data = usePage().props.data as any;
+  const data = usePage().props.data as AboutPageData;
 
   return (
     <AppLayout title="About Us">

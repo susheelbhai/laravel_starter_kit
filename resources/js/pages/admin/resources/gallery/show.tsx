@@ -18,8 +18,23 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface GalleryShowPageProps {
+    data: {
+        id: number;
+        title: string;
+        media?: Array<{
+            id: number;
+            name: string;
+            original_url: string;
+            size: number;
+            mime_type: string;
+            generated_conversions?: Record<string, boolean>;
+        }>;
+    };
+}
+
 export default function Show() {
-    const { data } = usePage().props as any;
+    const { data } = usePage<GalleryShowPageProps>().props;
     const item = data;
     const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
     const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
@@ -45,7 +60,7 @@ export default function Show() {
 
                     {item.media && item.media.length > 0 ? (
                         <div className="space-y-8">
-                            {item.media.map((media: any, index: number) => (
+                            {item.media.map((media: GalleryShowPageProps['data']['media'][0]) => (
                                 <ImageCard
                                     key={media.id}
                                     media={media}

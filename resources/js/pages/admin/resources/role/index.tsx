@@ -16,13 +16,14 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface RoleIndexData {
+    id: number;
+    name: string;
+    permissions: Array<{ name: string }>;
+}
+
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            permissions: { name: string }[];
-        }[]) || [];
+    const data = ((usePage<SharedData>().props as { data: RoleIndexData[] })?.data) || [];
 
     const thead = [
         { title: 'ID', className: 'p-3' },

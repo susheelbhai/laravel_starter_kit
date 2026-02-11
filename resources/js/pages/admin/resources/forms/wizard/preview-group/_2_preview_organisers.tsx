@@ -2,19 +2,22 @@ import PreviewImages from "../components/PreviewImages";
 import PreviewItem from "../components/PreviewItem";
 import PreviewSection from "../components/PreviewSection";
 
-export default function PreviewOrganisers({ data }: { data: any }) {
+export default function PreviewOrganisers({ data }: { data: Record<string, unknown> }) {
     const organisers = Array.isArray(data.eventOrganisers) ? data.eventOrganisers : [];
 
     // Detect possible file URL/object for proof_of_address
-    const getFileUrl = (file: any): string | null => {
+    const getFileUrl = (file: unknown): string | null => {
         if (!file) return null;
         if (typeof file === "string") return file;
-        if (file?.original_url) return file.original_url;
-        if (file?.url) return file.url;
+        if (typeof file === 'object' && file !== null) {
+            const fileObj = file as Record<string, unknown>;
+            if (fileObj.original_url && typeof fileObj.original_url === 'string') return fileObj.original_url;
+            if (fileObj.url && typeof fileObj.url === 'string') return fileObj.url;
+        }
         if (Array.isArray(file) && file.length > 0) return getFileUrl(file[0]);
         if (Array.isArray(data.media)) {
-            const mediaFile = data.media.find((m: any) => m.collection_name === "proof_of_address");
-            return mediaFile?.original_url || null;
+            const mediaFile = (data.media as Array<Record<string, unknown>>).find((m) => m.collection_name === "proof_of_address");
+            return (mediaFile?.original_url as string) || null;
         }
         return null;
     };
@@ -43,10 +46,10 @@ export default function PreviewOrganisers({ data }: { data: any }) {
                 <div>
                     <h3 className="text-md font-semibold text-gray-700 mt-6 mb-2">Event Organisers</h3>
                     <div className="space-y-2">
-                        {organisers.map((org: any, i: number) => (
+                        {organisers.map((org: Record<string, unknown>, i: number) => (
                             <div key={i} className="flex items-center justify-between rounded border p-2">
-                                <span className="font-medium text-gray-700">{org.title || "—"}</span>
-                                <span className="text-gray-800">{org.name || "—"}</span>
+                                <span className="font-medium text-gray-700">{(org.title as string) || "—"}</span>
+                                <span className="text-gray-800">{(org.name as string) || "—"}</span>
                             </div>
                         ))}
                     </div>

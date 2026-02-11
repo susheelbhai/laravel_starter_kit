@@ -2,9 +2,15 @@ import { Link, usePage } from "@inertiajs/react";
 import React, { useState } from "react";
 import Button from "@/components/button";
 
+interface ProfileItem {
+    name: string;
+    routeName: string;
+    method?: string;
+}
+
 interface AuthSectionProps {
     isMobile?: boolean;
-    profileItems: any;
+    profileItems: ProfileItem[];
     loginRoute: string;
 }
 
@@ -23,7 +29,7 @@ export default function AuthSection({
     profileItems,
     loginRoute,
 }: AuthSectionProps) {
-    const user = (usePage().props as any).auth?.user;
+    const user = (usePage().props as { auth?: { user?: { profile_pic?: string } } }).auth?.user;
     const loginExists = routeExists(loginRoute);
     const [profileOpen, setProfileOpen] = useState(false);
 
@@ -39,12 +45,12 @@ export default function AuthSection({
             }
         >
             <ul className="py-1 text-sm text-foreground">
-                {profileItems1.map((item: any) => (
+                {profileItems1.map((item: ProfileItem) => (
                     <li key={item.name}>
                         {item.method ? (
                             <Link
                                 href={route(item.routeName)}
-                                method={item.method as any}
+                                method={item.method as 'get' | 'post' | 'put' | 'patch' | 'delete'}
                                 as="button"
                                 className="block w-full px-4 py-2 text-left hover:bg-muted"
                             >

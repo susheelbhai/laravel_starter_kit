@@ -1,6 +1,6 @@
 interface PreviewImagesProps {
     label: string;
-    urls: any; // can be string, array, or object
+    urls: string | string[] | { original_url?: string; url?: string } | null; // can be string, array, or object
     single?: boolean;
 }
 
@@ -8,7 +8,7 @@ export default function PreviewImages({ label, urls, single = false }: PreviewIm
     if (!urls) return null;
 
     // Normalize URLs just like before
-    const normalizeUrls = (value: any): string[] => {
+    const normalizeUrls = (value: string | string[] | { original_url?: string; url?: string } | null): string[] => {
         if (!value) return [];
         if (typeof value === "string") return [value];
         if (Array.isArray(value)) {

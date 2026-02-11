@@ -2,7 +2,6 @@ import { Head, useForm } from '@inertiajs/react';
 import type { FormEventHandler } from 'react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import type { BreadcrumbItem } from '@/types';
 

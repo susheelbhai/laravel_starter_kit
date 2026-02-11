@@ -10,7 +10,7 @@ interface AppLayoutProps {
   title?: string;
 }
 
-export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
+export default ({ children, breadcrumbs, ...props }: AppLayoutProps) => {
   const page = usePage<SharedData>();
   const { partner } = page.props;
 
@@ -18,7 +18,7 @@ export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
   const unreadNotificationsCount = page.props.partner?.unread_notifications_count ?? 0;
   const unreadNotifications = page.props.partner?.unread_notifications ?? [];
   const all_notifications_url = route('partner.notification.index');
-  unreadNotifications.map((notification: any) => {
+  unreadNotifications.map((notification: { id: string; href?: string }) => {
     notification.href = route('partner.notification.show', notification.id);
     return notification;
   });

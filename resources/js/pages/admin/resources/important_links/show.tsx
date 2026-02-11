@@ -1,11 +1,9 @@
 import { Head, usePage } from '@inertiajs/react';
-import BtnLink from '@/components/btn-link';
 import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 
@@ -20,14 +18,19 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ImportantLinkData {
+    id: number;
+    name: string;
+    href: string;
+    is_active: number;
+}
+
+interface ImportantLinkShowPageProps extends SharedData {
+    data: ImportantLinkData;
+}
+
 export default function Dashboard() {
-    const important_links =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            href: string;
-            is_active: number;
-        }) || [];
+    const important_links = usePage<ImportantLinkShowPageProps>().props.data || {} as ImportantLinkData;
     const thead = [
         { title: 'Important Link Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

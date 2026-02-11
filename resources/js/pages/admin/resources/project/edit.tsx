@@ -32,8 +32,25 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ProjectData {
+    id: number;
+    title: string;
+    author: string;
+    tags: string;
+    short_description: string;
+    long_description1: string;
+    long_description2: string;
+    long_description3: string;
+    highlighted_text1: string;
+    highlighted_text2: string;
+    ad_url: string;
+    is_active: number;
+    images: string;
+    ad_img: string;
+}
+
 export default function Create() {
-    const project = usePage<SharedData>().props.data as any;
+    const project = usePage<SharedData>().props.data as ProjectData;
 
     const initialValues: FormType = {
         title: project.title,

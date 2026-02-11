@@ -1,7 +1,10 @@
 import { usePage } from '@inertiajs/react';
-import type { SVGAttributes } from 'react';
 
-export default function AppLogoIcon(props: SVGAttributes<SVGElement>) {
-    const appData = (usePage().props as any).appData;
+interface AppData {
+    light_logo: string;
+}
+
+export default function AppLogoIcon() {
+    const appData = (usePage().props as { appData: AppData }).appData;
     return <img src={appData.light_logo} alt="Logo" className="h-10 w-auto" />;
 }

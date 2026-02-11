@@ -1,7 +1,23 @@
 import { Link } from "@inertiajs/react";
 
+interface Product {
+    id: number;
+    title?: string;
+    name?: string;
+    short_description?: string;
+    description?: string;
+    thumbnail?: string;
+    image?: string;
+    slug: string;
+    price?: number;
+    category?: {
+        title?: string;
+        name?: string;
+    };
+}
+
 interface ProductSectionProps {
-  products: any[];
+  products: Product[];
 }
 
 export default function ProductSection({ products }: ProductSectionProps) {
@@ -40,7 +56,7 @@ export default function ProductSection({ products }: ProductSectionProps) {
         </div>
       ) : (
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((item: any) => {
+          {products.map((item: Product) => {
             const title = item.title ?? item.name;
             const description = item.short_description ?? item.description;
             const image = item.thumbnail ?? item.image ?? null;

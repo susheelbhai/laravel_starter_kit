@@ -13,21 +13,36 @@ const routeExists = (name: string): boolean => {
     }
 };
 
+interface MenuItem {
+    name: string;
+    routeName: string;
+}
+
+interface ProfileItem {
+    name: string;
+    routeName: string;
+    method?: string;
+}
+
+interface AppData {
+    dark_logo: string;
+}
+
 export default function Header({
     menuItems,
     profileItems,
     loginRoute
 }: {
-    menuItems: any;
-    profileItems: any;
+    menuItems: MenuItem[];
+    profileItems: ProfileItem[];
     loginRoute: string;
 }) {
-    const appData = (usePage().props as any).appData;
+    const appData = (usePage().props as { appData: AppData }).appData;
     const loginExists = routeExists(loginRoute);
     const [menuOpen, setMenuOpen] = useState(false);
 
     // Filter menuItems to only those with available routes
-    const availableMenuItems = menuItems.filter((item: any) => routeExists(item.routeName));
+    const availableMenuItems = menuItems.filter((item: MenuItem) => routeExists(item.routeName));
 
     return (
         <header className="sticky top-0 z-50 bg-header-bg/90 shadow-sm backdrop-blur-xl">
@@ -45,7 +60,7 @@ export default function Header({
 
                 {/* Desktop Menu */}
                 <nav className="hidden items-center gap-1 text-sm font-medium text-header-text md:flex">
-                    {availableMenuItems.map((item: any) => (
+                    {availableMenuItems.map((item: MenuItem) => (
                         <Link
                             key={item.name}
                             href={route(item.routeName)}
@@ -74,7 +89,7 @@ export default function Header({
             {menuOpen && (
                 <div className="border-t border-border bg-header-bg px-4 pb-4 shadow md:hidden">
                     <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-header-text">
-                        {availableMenuItems.map((item: any) => (
+                        {availableMenuItems.map((item: MenuItem) => (
                             <Link
                                 key={item.name}
                                 href={route(item.routeName)}

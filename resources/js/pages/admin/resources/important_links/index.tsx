@@ -1,6 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
 import { Eye } from 'lucide-react';
-import Button from '@/components/button';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -17,9 +16,19 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ImportantLinkData {
+    id: number;
+    name: string;
+    href: string;
+    is_active: number;
+}
+
+interface ImportantLinkIndexPageProps extends SharedData {
+    data: ImportantLinkData[];
+}
+
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as { id: number; name:string; href: string; is_active: number; display_img: string }[]) || [];
+    const data = usePage<ImportantLinkIndexPageProps>().props.data || [];
     const thead = [
         { title: 'Name', className: 'p-3' },
         { title: 'Href', className: 'p-3' },

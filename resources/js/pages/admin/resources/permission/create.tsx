@@ -10,15 +10,11 @@ import AppLayout from '@/layouts/admin/app-layout';
 import { can } from '@/lib/can';
 import { type BreadcrumbItem } from '@/types';
 
-interface LoginProps {
-    submitUrl?: string;
-    status?: string;
-}
 const submitUrl = route('admin.permission.store');
 
-export default function CreatePermission({ status }: LoginProps) {
+export default function CreatePermission() {
     console.log(submitUrl);
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         name: '',
         roles: [],
     });
@@ -38,7 +34,7 @@ export default function CreatePermission({ status }: LoginProps) {
         setData,
         errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
     };
-    const roles = usePage().props.roles as any;
+    const roles = usePage().props.roles as Array<{ id: number; name: string }>;
 
     console.log('Available roles:', roles);
     const breadcrumbs: BreadcrumbItem[] = [
@@ -67,7 +63,7 @@ export default function CreatePermission({ status }: LoginProps) {
                     </div>
                 </FormContainer>
 
-                {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
+                {/* Status removed as it's not used */}
             </ContainerFluid>
         </AppLayout>
     );

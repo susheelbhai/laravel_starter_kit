@@ -1,24 +1,12 @@
 import { InputDiv } from '@/components/form/container/input-div';
 import InputFieldset from '@/components/form/container/input-fieldset';
-// Define InputDivData locally if not exported from '@/types'
-type InputDivData = {
-    data: Record<string, any>;
-    setData: (key: string, value: any) => void;
-    errors: Record<string, string[]>;
-};
+import type { CourseData, EditEventForm, InputDivData } from '../types';
 
-type Props = {
+interface Props {
     inputDivData: InputDivData;
-    data: {
-        courses: {
-            name: string;
-            university: string;
-            marks: number;
-            passing_year: number;
-        }[];
-    };
-    setData: (data: any) => void;
-};
+    data: EditEventForm;
+    setData: (data: EditEventForm) => void;
+}
 
 export default function Education({ inputDivData, data, setData }: Props) {
     const courses = data.courses;
@@ -42,7 +30,7 @@ export default function Education({ inputDivData, data, setData }: Props) {
 
     const updateOrganiser = (
         index: number,
-        key: 'name' | 'university' | 'marks' | 'passing_year',
+        key: keyof CourseData,
         value: string | number,
     ) => {
         const updated = [...courses];
@@ -53,9 +41,9 @@ export default function Education({ inputDivData, data, setData }: Props) {
         });
     };
 
-    const initialOrganiser = [
-        { name: 'Matriculation', university: '', marks: '', passing_year: '' },
-        { name: 'Secondary School', university: '', marks: '', passing_year: '' },
+    const initialOrganiser: CourseData[] = [
+        { name: 'Matriculation', university: '', marks: 0, passing_year: 0 },
+        { name: 'Secondary School', university: '', marks: 0, passing_year: 0 },
     ];
 
     if (courses.length === 0) {
@@ -113,9 +101,9 @@ export default function Education({ inputDivData, data, setData }: Props) {
                             type="number"
                             label="Marks"
                             placeholder="85"
-                            value={course.marks}
+                            value={course.marks.toString()}
                             onChange={(e) =>
-                                updateOrganiser(index, 'marks', e.target.value)
+                                updateOrganiser(index, 'marks', parseInt(e.target.value) || 0)
                             }
                             className="flex-1"
                         />
@@ -124,12 +112,12 @@ export default function Education({ inputDivData, data, setData }: Props) {
                             type="number"
                             label="Passing Year"
                             placeholder="2020"
-                            value={course.passing_year}
+                            value={course.passing_year.toString()}
                             onChange={(e) =>
                                 updateOrganiser(
                                     index,
                                     'passing_year',
-                                    e.target.value,
+                                    parseInt(e.target.value) || 0,
                                 )
                             }
                             className="flex-1"

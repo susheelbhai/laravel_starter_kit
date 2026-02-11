@@ -11,8 +11,17 @@ import {
 import AppearanceToggleDropdown from '@/components/appearance-dropdown';
 import { Container } from '@/components/ui/container';
 
+interface AppData {
+    email: string;
+    facebook?: string;
+    twitter?: string;
+    linkedin?: string;
+    instagram?: string;
+    youtube?: string;
+}
+
 const TopHeader: React.FC = () => {
-    const appData = (usePage().props as any).appData;
+    const appData = (usePage().props as { appData: AppData }).appData;
 
     return (
         <div className="border-b border-gray-200 bg-primary/5 backdrop-blur dark:border-slate-800 dark:bg-slate-900/80">

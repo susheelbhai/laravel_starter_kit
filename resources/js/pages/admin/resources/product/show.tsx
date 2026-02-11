@@ -13,8 +13,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Show() {
-    const product =
-        ((usePage<SharedData>().props as any)?.data as any) || {};
+    const product = ((usePage<SharedData>().props as { data: ProductData })?.data) || {} as ProductData;
 
     const thead = [
         { title: 'Product Detail', className: 'p-3' },

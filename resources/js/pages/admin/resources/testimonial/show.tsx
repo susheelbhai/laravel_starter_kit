@@ -4,7 +4,6 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 
@@ -19,17 +18,22 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface TestimonialData {
+    id: number;
+    name: string;
+    designation: string;
+    organisation: string;
+    message: string;
+    is_active: number;
+    image: string;
+}
+
+interface TestimonialShowPageProps extends SharedData {
+    data: TestimonialData;
+}
+
 export default function Dashboard() {
-    const testimonial =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            designation: string;
-            organisation: string;
-            message: string;
-            is_active: number;
-            image: string;
-        }) || [];
+    const testimonial = usePage<TestimonialShowPageProps>().props.data || {} as TestimonialData;
     const thead = [
         { title: 'Testimonial Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

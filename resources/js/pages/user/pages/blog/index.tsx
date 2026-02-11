@@ -1,9 +1,17 @@
-import { Container } from '@/components/ui/container';
 import { Link, usePage } from '@inertiajs/react';
+import { Container } from '@/components/ui/container';
 import AppLayout from '@/layouts/user/app-layout';
 
+interface BlogData {
+    id: number;
+    title: string;
+    slug: string;
+    short_description: string;
+    display_img?: string;
+}
+
 export default function Create() {
-    const blogs = usePage().props.data as any;
+    const blogs = usePage().props.data as BlogData[];
 
     return (
         <AppLayout title="Blogs">
@@ -18,7 +26,7 @@ export default function Create() {
                 {/* Blog Grid */}
                 <Container className="py-16">
                     <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-                        {blogs.map((blog:any) => (
+                        {blogs.map((blog: BlogData) => (
                             <Link href={route('blog.show', blog.slug)} className="group" key={blog.id}>
                                 <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl flex flex-col h-full">
                                     {blog.display_img && (

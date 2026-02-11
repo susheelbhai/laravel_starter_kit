@@ -5,13 +5,13 @@ export interface InputDivProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   help?: string;
   inputDivData?: {
-    data: Record<string, any>;
-    setData: (key: string, value: any) => void;
+    data: Record<string, unknown>;
+    setData: (key: string, value: unknown) => void;
     errors: Record<string, string[]>;
   };
   name?: string;
   children?: React.ReactNode;
-  options?: any[];
+  options?: Array<{ id: string | number; title?: string; name?: string; value?: string | number }>;
   widthMultiplier?: number;
   heightMultiplier?: number;
   readOnly?: boolean;

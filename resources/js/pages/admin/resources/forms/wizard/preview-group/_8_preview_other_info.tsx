@@ -1,7 +1,7 @@
 import PreviewItem from "../components/PreviewItem";
 import PreviewSection from "../components/PreviewSection";
 
-export default function PreviewOtherInfo({ data }: { data: any }) {
+export default function PreviewOtherInfo({ data }: { data: Record<string, unknown> }) {
     return (
         <PreviewSection
             title="Other Information"
@@ -9,22 +9,22 @@ export default function PreviewOtherInfo({ data }: { data: any }) {
         >
             <PreviewItem
                 label="Code of Conduct"
-                value={data.code_of_conduct}
+                value={data.code_of_conduct as string}
                 isHtml
             />
             <PreviewItem
                 label="Diversity Statement"
-                value={data.diversity_statement}
+                value={data.diversity_statement as string}
                 isHtml
             />
             <PreviewItem
                 label="Accessibility Commitment"
-                value={data.accessibility_commitment}
+                value={data.accessibility_commitment as string}
                 isHtml
             />
             <PreviewItem
                 label="Additional Notes for The Film Sub Team"
-                value={data.additional_notes}
+                value={data.additional_notes as string}
                 isHtml
             />
         </PreviewSection>

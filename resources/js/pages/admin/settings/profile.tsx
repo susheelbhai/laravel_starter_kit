@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AppLayout from "@/layouts/admin/app-layout";
-import { NavItem, type BreadcrumbItem, type SharedData } from "@/types";
+import { type BreadcrumbItem, type SharedData } from "@/types";
 import SettingsLayout from "../../../themes/admin_default/settings/layout";
 import { sidebarNavItems } from "./data";
 

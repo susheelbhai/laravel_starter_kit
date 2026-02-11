@@ -16,8 +16,26 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ProductEnquiryData {
+    id: number;
+    name: string;
+    email: string;
+    phone?: string;
+    status: string;
+    product?: {
+        title: string;
+    };
+}
+
+interface ProductEnquiryPageProps {
+    data: {
+        data: ProductEnquiryData[];
+        [key: string]: unknown;
+    };
+}
+
 export default function ProductEnquiryIndex() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = (usePage<SharedData>().props as ProductEnquiryPageProps);
     const items = data?.data || [];
     const thead = [
         { title: 'ID', className: 'p-3' },
@@ -36,7 +54,7 @@ export default function ProductEnquiryIndex() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {items.map((enquiry: any) => (
+                        {items.map((enquiry: ProductEnquiryData) => (
                             <tr
                                 key={enquiry.id}
                                 className="border-t border-gray-200"

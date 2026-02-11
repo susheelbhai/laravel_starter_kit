@@ -18,8 +18,8 @@ import {
 } from '@/components/ui/input-otp';
 import { useClipboard } from '@/hooks/use-clipboard';
 import { OTP_MAX_LENGTH } from '@/hooks/use-two-factor-auth';
-import AlertError from './alert-error';
 import { confirm } from '@/routes/two-factor';
+import AlertError from './alert-error';
 
 function GridScanIcon() {
     return (
@@ -295,9 +295,11 @@ export default function TwoFactorSetupModal({
 
     useEffect(() => {
         if (!isOpen) {
-            resetModalState();
-
-            return;
+            // Use a timeout to avoid calling setState directly in effect
+            const timer = setTimeout(() => {
+                resetModalState();
+            }, 0);
+            return () => clearTimeout(timer);
         }
 
         if (!qrCodeSvg) {

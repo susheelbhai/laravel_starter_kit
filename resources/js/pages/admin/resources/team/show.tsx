@@ -4,7 +4,6 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 
@@ -19,15 +18,20 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface TeamData {
+    id: number;
+    name: string;
+    designation: string;
+    is_active: number;
+    image: string;
+}
+
+interface TeamShowPageProps extends SharedData {
+    data: TeamData;
+}
+
 export default function Dashboard() {
-    const team =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            designation: string;
-            is_active: number;
-            image: string;
-        }) || [];
+    const team = usePage<TeamShowPageProps>().props.data || {} as TeamData;
     const thead = [
         { title: 'Team Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

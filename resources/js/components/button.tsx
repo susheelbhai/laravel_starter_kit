@@ -65,7 +65,7 @@ type ButtonProps = {
     /** HTTP method or other action; catch 'delete' specially */
     method?: string;
     /** allow any other prop (e.g. data-*, aria-*, etc.) */
-    [key: string]: any;
+    [key: string]: unknown;
 };
 
 export default function Button({
@@ -129,7 +129,7 @@ function ButtonComponent({
     className?: string;
     size?: 'small' | 'medium' | 'full';
     children?: React.ReactNode;
-    [key: string]: any;
+    [key: string]: unknown;
 }) {
     return (
         <button className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', SizeIt(size), className)} {...props}>
@@ -149,7 +149,7 @@ function LinkComponent({
     href: string;
     size: 'small' | 'medium' | 'full';
     children?: React.ReactNode;
-    [key: string]: any;
+    [key: string]: unknown;
 }) {
     return (
         <TextLink href={href} className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', SizeIt(size), className)} {...props}>

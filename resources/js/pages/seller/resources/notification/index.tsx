@@ -14,8 +14,24 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface NotificationData {
+    id: number;
+    created_at: string;
+    data: {
+        type: string;
+        title: string;
+    };
+}
+
+interface NotificationPageProps {
+    data: {
+        data: NotificationData[];
+        [key: string]: unknown;
+    };
+}
+
 export default function Notification() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = (usePage<SharedData>().props as NotificationPageProps);
     const items = data?.data || [];
     const thead = [
         { title: 'Date', className: 'p-3' },
@@ -30,7 +46,7 @@ export default function Notification() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {items.map((item: any) => (
+                        {items.map((item: NotificationData) => (
                             <tr
                                 key={item.id}
                                 className="border-t border-gray-200 hover:bg-gray-50 cursor-pointer"

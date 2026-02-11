@@ -4,7 +4,6 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 
@@ -34,10 +33,12 @@ type ProductCategoryDetail = {
     meta_description: string | null;
 };
 
+interface ProductCategoryShowPageProps extends SharedData {
+    data: ProductCategoryDetail;
+}
+
 export default function Dashboard() {
-    const product_category =
-        ((usePage<SharedData>().props as any)?.data as ProductCategoryDetail) ||
-        ({} as ProductCategoryDetail);
+    const product_category = usePage<ProductCategoryShowPageProps>().props.data || {} as ProductCategoryDetail;
 
     const thead = [
         { title: 'Product Category Detail', className: 'p-3' },

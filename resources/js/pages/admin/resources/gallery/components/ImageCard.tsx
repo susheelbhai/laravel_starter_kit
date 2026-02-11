@@ -1,7 +1,16 @@
 import { Check, Copy } from 'lucide-react';
 
+interface MediaItem {
+    id: number;
+    name: string;
+    original_url: string;
+    size: number;
+    mime_type: string;
+    generated_conversions?: Record<string, boolean>;
+}
+
 interface ImageCardProps {
-    media: any;
+    media: MediaItem;
     onFullscreen: (url: string) => void;
     copiedUrl: string | null;
     onCopy: (url: string) => void;
@@ -13,7 +22,7 @@ export function ImageCard({
     copiedUrl,
     onCopy,
 }: ImageCardProps) {
-    const getConversionUrls = (media: any) => {
+    const getConversionUrls = (media: MediaItem) => {
         const urls: { [key: string]: string } = {
             Original: media.original_url,
         };

@@ -9,10 +9,61 @@ const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Edit', href: '/admin/product' },
 ];
 
+interface ProductData {
+    id: number;
+    seller_id: string;
+    product_category_id: number;
+    title: string;
+    slug: string;
+    sku: string;
+    short_description: string;
+    description: string;
+    long_description2: string;
+    long_description3: string;
+    features: string[];
+    price: number;
+    original_price: number;
+    mrp: number;
+    stock: number;
+    manage_stock: number;
+    images: string[] | null;
+    is_active: number;
+    is_featured: number;
+    meta_title: string;
+    meta_description: string;
+}
+
+interface CategoryOption {
+    id: number;
+    title: string;
+}
+
+interface FormType {
+    seller_id: string;
+    product_category_id: number | string;
+    title: string;
+    slug: string;
+    sku: string;
+    short_description: string;
+    description: string;
+    long_description2: string;
+    long_description3: string;
+    features: string[];
+    price: number;
+    original_price: number;
+    mrp: number;
+    stock: number;
+    manage_stock: number;
+    images: string[] | null;
+    is_active: number;
+    is_featured: number;
+    meta_title: string;
+    meta_description: string;
+}
+
 export default function Edit() {
-    const product = ((usePage<SharedData>().props as any)?.data as any) || {};
-    const categories =
-        ((usePage<SharedData>().props as any)?.categories as any[]) || [];
+    const product = ((usePage<SharedData>().props as { data: ProductData })?.data) || {} as ProductData;
+    const categories = ((usePage<SharedData>().props as { categories: CategoryOption[] })?.categories) || [];
 
     const initialValues: FormType = {
         seller_id: product.seller_id || '',

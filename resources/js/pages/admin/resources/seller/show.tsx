@@ -1,5 +1,4 @@
 import { Head, usePage } from '@inertiajs/react';
-import Button from '@/components/button';
 import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
@@ -19,16 +18,21 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface SellerData {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    is_active: number;
+    profile_pic: string;
+}
+
+interface SellerShowPageProps extends SharedData {
+    data: SellerData;
+}
+
 export default function Dashboard() {
-    const team =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            email: string;
-            phone: string;
-            is_active: number;
-            profile_pic: string;
-        }) || [];
+    const team = usePage<SellerShowPageProps>().props.data || {} as SellerData;
     const thead = [
         { title: 'Seller Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

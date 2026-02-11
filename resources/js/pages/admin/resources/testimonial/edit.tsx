@@ -26,9 +26,12 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface TestimonialEditPageProps extends SharedData {
+    data: FormType;
+}
+
 export default function Create() {
-    const testimonial =
-        ((usePage<SharedData>().props as any)?.data as FormType) || [];
+    const testimonial = usePage<TestimonialEditPageProps>().props.data || {} as FormType;
     const initialValues: FormType = {
         id: testimonial.id,
         name: testimonial.name,

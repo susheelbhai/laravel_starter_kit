@@ -4,7 +4,6 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 
@@ -19,15 +18,20 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface PortfolioData {
+    id: number;
+    name: string;
+    url: string;
+    is_active: number;
+    logo: string;
+}
+
+interface PortfolioShowPageProps extends SharedData {
+    data: PortfolioData;
+}
+
 export default function Dashboard() {
-    const portfolio =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            url: string;
-            is_active: number;
-            logo: string;
-        }) || [];
+    const portfolio = usePage<PortfolioShowPageProps>().props.data || {} as PortfolioData;
     const thead = [
         { title: 'Portfolio Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

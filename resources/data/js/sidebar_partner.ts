@@ -8,7 +8,16 @@ const mainNavItems = [
     },
 ];
 
-const footerNavItems:any = [];
+interface NavItem {
+    title: string;
+    routeName?: string;
+    href?: string | null;
+    icon: React.ComponentType;
+    permission?: string[];
+    children?: NavItem[];
+}
+
+const footerNavItems: NavItem[] = [];
 const profileNavItems = [
     {
         title: 'Settings',

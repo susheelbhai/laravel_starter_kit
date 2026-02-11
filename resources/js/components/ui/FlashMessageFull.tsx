@@ -13,12 +13,20 @@ const colorClasses = {
 };
 
 const FlashMessage: React.FC<FlashMessageProps> = ({ type, message }) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(true);
-    const timer = setTimeout(() => setVisible(false), 4000);
-    return () => clearTimeout(timer);
+    // Use a timeout to avoid calling setState directly in effect
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, 0);
+    
+    const hideTimer = setTimeout(() => setVisible(false), 4000);
+    
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(hideTimer);
+    };
   }, [type, message]); // Reset visibility on new message
 
   if (!visible) return null;

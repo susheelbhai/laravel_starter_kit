@@ -1,7 +1,8 @@
 import { InputDiv } from '@/components/form/container/input-div';
 import InputFieldset from '@/components/form/container/input-fieldset';
+import type { WizardComponentProps } from '../types';
 
-export default function OtherInfoSection({ inputDivData }: { inputDivData: any }) {
+export default function OtherInfoSection({ inputDivData }: WizardComponentProps) {
     return (
         <InputFieldset
             legend="Other Information"

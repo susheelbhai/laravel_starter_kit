@@ -24,7 +24,7 @@ export default function InputDateRangePicker({
     className,
     placeholder = 'Select date range',
 }: InputDivProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData } = inputDivData;
     const from = data[name + '_from'] || '';
     const to = data[name + '_to'] || '';
     type DateRange = { from: Date | undefined; to: Date | undefined };

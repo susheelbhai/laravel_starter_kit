@@ -1,7 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { BreadcrumbItem, SharedData } from '@/types';
@@ -27,7 +26,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function PageHome() {
-    const data = ((usePage<SharedData>().props as any)?.data as any) || [];
+    const data = ((usePage<SharedData>().props as SharedData & { data: FormType })?.data) || {} as FormType;
     const initialValues: FormType = {
         id: data.id,
         banner_heading: data.banner_heading,

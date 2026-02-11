@@ -16,16 +16,25 @@ import {
 
 import AppLogo from './app-logo';
 
+interface AuthUser {
+    dashboard_url?: string;
+    [key: string]: unknown;
+}
+
+interface NavItem {
+    [key: string]: unknown;
+}
+
 export function AppSidebar({
     authUser,
     mainNavItems,
     footerNavItems,
     profileNavItems,
 }: PropsWithChildren<{
-    authUser?: any;
-    footerNavItems?: any;
-    mainNavItems?: any;
-    profileNavItems?: any;
+    authUser?: AuthUser;
+    footerNavItems?: NavItem[];
+    mainNavItems?: NavItem[];
+    profileNavItems?: NavItem[];
 }>) {
     return (
         <Sidebar collapsible="icon" variant="inset">

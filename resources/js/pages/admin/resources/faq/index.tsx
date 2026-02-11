@@ -1,6 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
 import { Eye } from 'lucide-react';
-import Button from '@/components/button';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -19,7 +18,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 export default function Dashboard() {
     const data =
-        ((usePage<SharedData>().props as any)?.data as { id: number; category: { title: string }; question: string; is_active: number }[]) || [];
+        ((usePage<SharedData>().props as SharedData & { data: Array<{ id: number; category: { title: string }; question: string; is_active: number }> })?.data) || [];
     const thead = [
         { title: 'Category', className: 'p-3' },
         { title: 'Question', className: 'p-3' },

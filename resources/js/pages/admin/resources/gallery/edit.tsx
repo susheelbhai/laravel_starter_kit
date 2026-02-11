@@ -3,7 +3,7 @@ import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
-import type { BreadcrumbItem } from '@/types';
+import type { BreadcrumbItem, SharedData } from '@/types';
 
 type FormType = {
     title: string;
@@ -11,6 +11,16 @@ type FormType = {
     images: { id: number; url: string }[] | null;
     is_active: number;
 };
+
+interface GalleryEditPageProps extends SharedData {
+    data: {
+        id: number;
+        title: string;
+        description: string;
+        is_active: number;
+        media: Array<{ id: number; original_url: string }>;
+    };
+}
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -24,14 +34,14 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Edit() {
-    const { data } = usePage().props as any;
+    const { data } = usePage<GalleryEditPageProps>().props;
     const item = data;
 
     const initialValues: FormType = {
         title: item.title || '',
         description: item.description || '',
         images: item.media
-            ? item.media.map((m: any) => ({ id: m.id, url: m.original_url }))
+            ? item.media.map((m) => ({ id: m.id, url: m.original_url }))
             : null,
         is_active: item.is_active || 1,
     };

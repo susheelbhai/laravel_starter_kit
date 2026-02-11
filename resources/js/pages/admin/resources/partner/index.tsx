@@ -16,8 +16,24 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface PartnerData {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    profile_pic?: string;
+    profile_pic_thumb?: string;
+}
+
+interface PartnerPageProps {
+    data: {
+        data: PartnerData[];
+        [key: string]: unknown;
+    };
+}
+
 export default function Dashboard() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = (usePage<SharedData>().props as PartnerPageProps);
     const items = data?.data || [];
     const thead = [
         { title: 'ID', className: 'p-3' },
@@ -36,7 +52,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {items.map((user: any) => (
+                        {items.map((user: PartnerData) => (
                             <tr key={user.id} className="border-t border-gray-200">
                                 <td className="p-3">{user.id}</td>
                                 <td className="p-3">{user.name}</td>

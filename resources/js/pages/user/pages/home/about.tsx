@@ -1,6 +1,14 @@
 import { Container } from '@/components/ui/container';
 
-export default function AboutSection({ data }: any) {
+interface AboutData {
+    about_image_converted: {
+        medium: string;
+    };
+    about_heading: string;
+    about_description: string;
+}
+
+export default function AboutSection({ data }: { data: AboutData }) {
     return (
         <section id="about" className="bg-background py-20 md:py-28">
             <Container className="grid items-center gap-12 md:grid-cols-2">

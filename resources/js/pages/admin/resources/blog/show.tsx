@@ -18,25 +18,30 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface BlogDetailData {
+    id: number;
+    title: string;
+    author: string;
+    tags: string;
+    short_description: string;
+    long_description1: string;
+    long_description2: string;
+    long_description3: string;
+    highlighted_text1: string;
+    highlighted_text2: string;
+    category: string;
+    is_active: number;
+    display_img: string;
+    ad_img: string;
+    ad_url: string;
+}
+
+interface BlogShowPageProps extends SharedData {
+    data: BlogDetailData;
+}
+
 export default function Dashboard() {
-    const blog =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            title: string;
-            author: string;
-            tags: string;
-            short_description: string;
-            long_description1: string;
-            long_description2: string;
-            long_description3: string;
-            highlighted_text1: string;
-            highlighted_text2: string;
-            category: string;
-            is_active: number;
-            display_img: string;
-            ad_img: string;
-            ad_url: string;
-        }) || [];
+    const blog = usePage<BlogShowPageProps>().props.data || {} as BlogDetailData;
     const thead = [
         { title: 'Blog Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

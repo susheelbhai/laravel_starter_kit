@@ -3,7 +3,6 @@ import { router } from '@inertiajs/react';
 import type { FormEventHandler } from 'react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import type { BreadcrumbItem, SharedData } from '@/types';
 
@@ -25,17 +24,22 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-export default function Create() {
-    const portfolio =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            url: string;
-            is_active: number;
-            logo: string;
-        }) || [];
+interface PortfolioData {
+    id: number;
+    name: string;
+    url: string;
+    is_active: number;
+    logo: string;
+}
 
-    const { setData, post, processing, errors, reset, data } = useForm<Required<CreateForm>>({
+interface PortfolioEditPageProps extends SharedData {
+    data: PortfolioData;
+}
+
+export default function Create() {
+    const portfolio = usePage<PortfolioEditPageProps>().props.data || {} as PortfolioData;
+
+    const { setData, processing, errors, reset, data } = useForm<Required<CreateForm>>({
         name: portfolio.name,
         url: portfolio.url,
         logo: portfolio.logo || '',
@@ -48,7 +52,7 @@ export default function Create() {
         const formData = new FormData();
     
         Object.entries(data).forEach(([key, value]) => {
-            formData.append(key, value as any);
+            formData.append(key, value as string);
         });
     
         // 👇 Spoof the PUT method

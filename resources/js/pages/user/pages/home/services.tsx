@@ -1,5 +1,13 @@
 import { Container } from '@/components/ui/container';
-export default function ServicesSection(data: any) {
+interface ServiceData {
+    title: string;
+    desc: string;
+    display_img_converted: {
+        thumb: string;
+    };
+}
+
+export default function ServicesSection(data: { data: ServiceData[] }) {
     return (
         <section id="services" className="bg-background2 py-20 md:py-28">
             <Container className="text-center">
@@ -10,7 +18,7 @@ export default function ServicesSection(data: any) {
                     Our Services
                 </h2>
                 <div className="grid gap-8 md:grid-cols-3">
-                    {data.data.map((service: any, i: number) => (
+                    {data.data.map((service: ServiceData, i: number) => (
                         <div
                             key={i}
                             className="rounded-lg bg-card p-8 shadow transition hover:shadow-lg"

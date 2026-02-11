@@ -24,22 +24,23 @@ type FormType = {
     status: string;
 };
 
+interface ProductEnquiryDetailData {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+    message: string;
+    status: string;
+    product: {
+        id: number;
+        title: string;
+        slug: string;
+    };
+    created_date_time: string;
+}
+
 export default function ProductEnquiryShow() {
-    const enquiry =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            email: string;
-            phone: string;
-            message: string;
-            status: string;
-            product: {
-                id: number;
-                title: string;
-                slug: string;
-            };
-            created_date_time: string;
-        }) || {};
+    const enquiry = ((usePage<SharedData>().props as { data: ProductEnquiryDetailData })?.data) || {} as ProductEnquiryDetailData;
 
     const initialValues: FormType = {
         status: enquiry.status || 'pending',

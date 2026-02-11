@@ -1,9 +1,17 @@
-import { Container } from '@/components/ui/container';
 import { Link, usePage } from "@inertiajs/react";
+import { Container } from '@/components/ui/container';
 import AppLayout from "@/layouts/user/app-layout";
 
+interface ServiceData {
+    id: number;
+    title: string;
+    slug: string;
+    short_description: string;
+    display_img?: string;
+}
+
 export default function Services() {
-  const services = usePage().props.data as any;
+  const services = usePage().props.data as ServiceData[];
 
   return (
     <AppLayout title="Services">
@@ -36,7 +44,7 @@ export default function Services() {
         {/* Services List */}
         <Container className="py-14 md:py-16">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service: any) => (
+            {services.map((service: ServiceData) => (
               <Link
                 key={service.id}
                 href={route("serviceDetail", service.slug)}

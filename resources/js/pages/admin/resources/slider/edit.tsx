@@ -1,7 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { BreadcrumbItem, SharedData } from '@/types';
@@ -31,9 +30,12 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface SliderEditPageProps extends SharedData {
+    data: FormType;
+}
+
 export default function Create() {
-    const slider =
-        ((usePage<SharedData>().props as any)?.data as FormType) || [];
+    const slider = usePage<SliderEditPageProps>().props.data || {} as FormType;
 
     const initialValues: FormType = {
         id: slider.id,

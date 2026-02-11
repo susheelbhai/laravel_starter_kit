@@ -2,8 +2,14 @@ import { usePage } from '@inertiajs/react';
 import { Container } from '@/components/ui/container';
 import AppLayout from '@/layouts/user/app-layout';
 
+interface PageData {
+    title: string;
+    updated_at: string;
+    content: string;
+}
+
 const Dashboard = () => {
-    const data = usePage().props.data as any;
+    const data = usePage().props.data as PageData;
     return (
         <AppLayout title="Refund Policy">
              <Container className="py-10 text-foreground">

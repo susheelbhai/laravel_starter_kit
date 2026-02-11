@@ -7,7 +7,10 @@ import { UserMenuContent } from '@/components/user-menu-content';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 
-export function NavUser({ authUser, profileNavItems }: PropsWithChildren<{ authUser?: any; profileNavItems?: any }>) {
+export function NavUser({ authUser, profileNavItems }: PropsWithChildren<{ 
+    authUser?: { user: { name: string; email: string; avatar?: string } }; 
+    profileNavItems?: Array<{ title: string; href: string; icon?: React.ComponentType }> 
+}>) {
     const { state } = useSidebar();
     const isMobile = useIsMobile();
    

@@ -13,7 +13,7 @@ interface AppLayoutProps {
 export default ({ children, breadcrumbs, title, ...props }: AppLayoutProps) => {
     const page = usePage<SharedData>();
     const { user } = page.props;
-    const appData = (page.props as any).appData;
+    const appData = (page.props as SharedData & { appData: { name: string } }).appData;
 
     return (
         <AppLayoutTemplate

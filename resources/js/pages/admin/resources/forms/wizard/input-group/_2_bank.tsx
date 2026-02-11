@@ -2,20 +2,16 @@ import { InputDiv } from '@/components/form/container/input-div';
 import InputFieldset from '@/components/form/container/input-fieldset';
 // Define InputDivData locally if not exported from '@/types'
 type InputDivData = {
-    data: Record<string, any>;
-    setData: (key: string, value: any) => void;
+    data: Record<string, unknown>;
+    setData: (key: string, value: unknown) => void;
     errors: Record<string, string[]>;
 };
 
 type Props = {
     inputDivData: InputDivData;
-    data: {
-        eventOrganisers: { title: string; name: string }[];
-    };
-    setData: (data: any) => void;
 };
 
-export default function BankDetail({ inputDivData, data, setData }: Props) {
+export default function BankDetail({ inputDivData }: Props) {
     return (
         <InputFieldset
             legend="Bank Details"

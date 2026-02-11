@@ -8,6 +8,18 @@ import { useFormHandler } from '@/lib/use-form-handler';
 import type { SharedData } from '@/types';
 import { type BreadcrumbItem } from '@/types';
 
+interface Role {
+    id: number;
+    name: string;
+    title?: string;
+}
+
+interface Permission {
+    id: number;
+    name: string;
+    title?: string;
+}
+
 type AdminForm = {
     name: string;
     dob: string;
@@ -17,15 +29,15 @@ type AdminForm = {
     state: string;
     email: string;
     phone: string;
-    roles: any[]; // will be handled by useFormHandler (id/value extracted)
-    permissions: any[]; // same here
+    roles: number[]; // will be handled by useFormHandler (id/value extracted)
+    permissions: number[]; // same here
 };
 
 export default function CreateAdmin() {
     const page = usePage<SharedData>();
 
-    const rolesFromServer = (page.props as any).roles as any[];
-    const permissionsFromServer = (page.props as any).permissions as any[];
+    const rolesFromServer = (page.props as { roles: Role[] }).roles;
+    const permissionsFromServer = (page.props as { permissions: Permission[] }).permissions;
 
     // ✅ Map roles & permissions to { id, title } for multicheckbox
     const roleOptions = rolesFromServer.map((role) => ({
@@ -58,7 +70,7 @@ export default function CreateAdmin() {
         onSuccess: () => {
             console.log('Admin created successfully');
         },
-    }) as any;
+    });
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

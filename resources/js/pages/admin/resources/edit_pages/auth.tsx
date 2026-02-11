@@ -18,7 +18,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function PageAuth() {
-    const data = ((usePage<SharedData>().props as any)?.data as any) || [];
+    const data = ((usePage<SharedData>().props as { data: FormType })?.data) || { id: 0, side_image: '' };
     const initialValues: FormType = {
         id: data.id,
         side_image: data.side_image,

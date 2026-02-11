@@ -1,6 +1,6 @@
-import { Container } from '@/components/ui/container';
 import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
+import { Container } from '@/components/ui/container';
 import AppLayout from '@/layouts/user/app-layout';
 import ImageSlider from './components/image-slider';
 import ProductCTA from './components/product-cta';
@@ -10,8 +10,34 @@ import ProductFeatures from './components/product-features';
 import ProductPricing from './components/product-pricing';
 import ProductSections from './components/product-sections';
 
+interface ProductDetailData {
+    id: number;
+    title: string;
+    price?: number;
+    mrp?: number;
+    currency?: string;
+    category?: {
+        title: string;
+    };
+    features?: string[];
+    short_description?: string;
+    description?: string;
+    long_description2?: string;
+    long_description3?: string;
+    images?: Array<{
+        id: number;
+        url: string;
+        thumbnail: string;
+        name: string;
+        file_name: string;
+        size: number;
+        mime_type: string;
+    }>;
+    display_img?: string;
+}
+
 export default function ProductDetail() {
-    const { data: product } = usePage().props as any;
+    const { data: product } = usePage().props as { data: ProductDetailData };
     const [isModalOpen, setIsModalOpen] = useState(false);
     console.log(product);
     if (!product) {

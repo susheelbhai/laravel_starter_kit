@@ -13,8 +13,24 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface GalleryItem {
+    id: number;
+    title: string;
+    description: string;
+    created_date_time: string;
+    media?: Array<{
+        id: number;
+        name: string;
+        original_url: string;
+    }>;
+}
+
+interface GalleryIndexPageProps extends SharedData {
+    data: GalleryItem[];
+}
+
 export default function Dashboard() {
-    const data = (usePage<SharedData>().props as any)?.data as any;
+    const data = usePage<GalleryIndexPageProps>().props.data || [];
 
     return (
         <AppLayout breadcrumbs={breadcrumbs} title="Gallery">
@@ -29,7 +45,7 @@ export default function Dashboard() {
             {data.length > 0 ? (
                 <>
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                        {data.map((item: any) => (
+                        {data.map((item: GalleryItem) => (
                             <div
                                 key={item.id}
                                 className="overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg"
@@ -42,7 +58,7 @@ export default function Dashboard() {
                                                 .slice(0, 4)
                                                 .map(
                                                     (
-                                                        media: any,
+                                                        media,
                                                         index: number,
                                                     ) => (
                                                         <div

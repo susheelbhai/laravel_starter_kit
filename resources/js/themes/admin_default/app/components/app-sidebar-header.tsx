@@ -4,6 +4,13 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 import { type BreadcrumbItem as BreadcrumbItemType } from '@/types';
 import AppearanceToggleDropdown from '../../../../components/appearance-dropdown';
 
+interface NotificationItem {
+    id: string;
+    title: string;
+    message: string;
+    [key: string]: unknown;
+}
+
 export function AppSidebarHeader({
     breadcrumbs = [],
     notificationData,
@@ -11,7 +18,7 @@ export function AppSidebarHeader({
     breadcrumbs?: BreadcrumbItemType[];
     notificationData?: {
         unreadNotificationsCount: number;
-        unreadNotifications: any[];
+        unreadNotifications: NotificationItem[];
         all_notifications_url: string;
     };
 }) {

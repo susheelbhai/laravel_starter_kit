@@ -1,22 +1,21 @@
 import { Head } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { BreadcrumbItem } from '@/types';
 
 type FormType = {
-   heading1: '',
-        heading2: '',
-        paragraph1: '',
-        paragraph2: '',
-        btn_name: '',
-        btn_url: '',
-        btn_target: '',
-        is_active: 1,
-        image1: '',
-        image2: '',
+   heading1: string;
+        heading2: string;
+        paragraph1: string;
+        paragraph2: string;
+        btn_name: string;
+        btn_url: string;
+        btn_target: string;
+        is_active: number;
+        image1: string;
+        image2: string;
 };
 
 const breadcrumbs: BreadcrumbItem[] = [

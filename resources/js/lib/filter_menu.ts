@@ -10,7 +10,7 @@ const routeExists = (name: string | null): boolean => {
     }
 };
 
-export const filterMenuItems = (items: any[]): NavItem[] => {
+export const filterMenuItems = (items: NavItem[]): NavItem[] => {
     return items
         .filter((item) => {
             if (item.routeName && !routeExists(item.routeName)) {
@@ -33,12 +33,12 @@ export const filterMenuItems = (items: any[]): NavItem[] => {
             if (processedItem.children) {
                 // First, process all children
                 const filteredChildren = filterMenuItems(
-                    processedItem.children
+                    processedItem.children as NavItem[]
                 );
 
                 // Check which children have siblings (same route pattern)
                 const patternCounts = new Map<string, number>();
-                filteredChildren.forEach((child: any) => {
+                filteredChildren.forEach((child: NavItem & { routePattern?: string }) => {
                     if (child.routePattern) {
                         patternCounts.set(
                             child.routePattern,
@@ -49,7 +49,7 @@ export const filterMenuItems = (items: any[]): NavItem[] => {
 
                 // Mark children that have siblings
                 const childrenWithSiblingFlags = filteredChildren.map(
-                    (child: any) => {
+                    (child: NavItem & { routePattern?: string }) => {
                         const hasSiblingRoutes =
                             child.routePattern &&
                             (patternCounts.get(child.routePattern) || 0) > 1;

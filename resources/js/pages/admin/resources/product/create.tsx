@@ -9,10 +9,36 @@ const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Create', href: '/admin/product/create' },
 ];
 
+interface CategoryOption {
+    id: number;
+    title: string;
+}
+
+interface FormType {
+    seller_id: string;
+    product_category_id: number;
+    title: string;
+    slug: string;
+    sku: string;
+    short_description: string;
+    description: string;
+    long_description2: string;
+    long_description3: string;
+    features: string[];
+    price: number;
+    original_price: number;
+    mrp: number;
+    stock: number;
+    manage_stock: number;
+    images: File[] | null;
+    is_active: number;
+    is_featured: number;
+    meta_title: string;
+    meta_description: string;
+}
+
 export default function Create() {
-    const categories =
-        ((usePage<SharedData>().props as any)
-            ?.categories as CategoryOption[]) || [];
+    const categories = ((usePage<SharedData>().props as { categories: CategoryOption[] })?.categories) || [];
 
     const initialValues: FormType = {
         seller_id: '',

@@ -12,8 +12,16 @@ type FormType = {
     profile_pic: string;
 };
 
+interface UserData {
+    id: number;
+    name: string;
+    phone: string;
+    email: string;
+    profile_pic: string;
+}
+
 export default function Create() {
-    const user = ((usePage<SharedData>().props as any)?.data as any) || [];
+    const user = ((usePage<SharedData>().props as { data: UserData })?.data) || {} as UserData;
     const breadcrumbs: BreadcrumbItem[] = [
         {
             title: 'User',

@@ -1,6 +1,14 @@
 import { Container } from "@/components/ui/container";
 
-export default function FeatureSection({ data }: any) {
+interface FeatureData {
+    why_us_heading: string;
+    why_us_description: string;
+    why_us_image_converted: {
+        medium: string;
+    };
+}
+
+export default function FeatureSection({ data }: { data: FeatureData }) {
     return (
         <section id="features" className="bg-background py-20 md:py-28">
             <Container className="grid gap-12 px-4 md:grid-cols-2">

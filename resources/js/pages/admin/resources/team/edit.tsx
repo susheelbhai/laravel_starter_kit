@@ -24,9 +24,12 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface TeamEditPageProps extends SharedData {
+    data: FormType;
+}
+
 export default function Create() {
-    const team =
-        ((usePage<SharedData>().props as any)?.data as FormType) || [];
+    const team = usePage<TeamEditPageProps>().props.data || {} as FormType;
 
     const initialValues: FormType = {
         id: team.id,

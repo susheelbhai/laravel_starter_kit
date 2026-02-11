@@ -1,6 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
 import { Eye } from 'lucide-react';
-import Button from '@/components/button';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -17,9 +16,20 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface SliderData {
+    id: number;
+    heading1: string;
+    btn_name: string;
+    is_active: number;
+    image1: string;
+}
+
+interface SliderIndexPageProps extends SharedData {
+    data: SliderData[];
+}
+
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as { id: number; heading1:string;  btn_name: string; is_active: number; image1: string }[]) || [];
+    const data = usePage<SliderIndexPageProps>().props.data || [];
     const thead = [
         { title: 'Heading', className: 'p-3' },
         { title: 'Button', className: 'p-3' },

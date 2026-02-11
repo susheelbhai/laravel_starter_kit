@@ -17,8 +17,8 @@ export default function InputSelect({
 }: InputDivProps) {
     const { data, setData, errors } = inputDivData;
 
-    const getOptionValue = (item: any) => item?.id ?? item?.value ?? item;
-    const getOptionLabel = (item: any) =>
+    const getOptionValue = (item: { id?: string | number; value?: string | number }) => item?.id ?? item?.value ?? item;
+    const getOptionLabel = (item: { title?: string; name?: string; id?: string | number; value?: string | number }) =>
         item?.title ?? item?.name ?? String(getOptionValue(item));
 
     return (
@@ -44,7 +44,7 @@ export default function InputSelect({
                 )}
             >
                 <option value="">Select an option</option>
-                {options?.map((item: any) => {
+                {options?.map((item: { id?: string | number; value?: string | number; title?: string; name?: string }) => {
                     const value = getOptionValue(item);
                     const label = getOptionLabel(item);
                     return (

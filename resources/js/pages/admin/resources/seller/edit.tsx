@@ -1,7 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { BreadcrumbItem, SharedData } from '@/types';
@@ -14,9 +13,12 @@ type FormType = {
     profile_pic: string;
 };
 
+interface SellerEditPageProps extends SharedData {
+    data: FormType;
+}
+
 export default function Create() {
-    const seller =
-        ((usePage<SharedData>().props as any)?.data as FormType) || [];
+    const seller = usePage<SellerEditPageProps>().props.data || {} as FormType;
     const breadcrumbs: BreadcrumbItem[] = [
         {
             title: 'Seller',

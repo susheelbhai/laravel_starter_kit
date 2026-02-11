@@ -10,8 +10,12 @@ interface AuthLayoutProps {
     description?: string;
 }
 
+interface AuthSettings {
+    side_image: string;
+}
+
 export default function AuthSimpleLayout({ children, title, description }: PropsWithChildren<AuthLayoutProps>) {
-    const settings = (usePage().props as any).auth.settings ;
+    const settings = (usePage().props as { auth: { settings: AuthSettings } }).auth.settings;
 
     return (
         <ContainerFluid className="m-auto p-0 bg-background2">

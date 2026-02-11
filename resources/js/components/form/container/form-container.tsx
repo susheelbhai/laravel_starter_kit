@@ -14,6 +14,10 @@ type FormContainerProps = {
   buttonClassName?: string;
 };
 
+interface AppData {
+  debug: boolean;
+}
+
 export function FormContainer({
   onSubmit,
   processing = false,
@@ -24,7 +28,7 @@ export function FormContainer({
   buttonType = 'submit',
   buttonClassName,
 }: FormContainerProps) {
-  const appData = usePage().props.appData as any;
+  const appData = (usePage().props as { appData: AppData }).appData;
   if (appData.debug) {
     processing = false;
   }

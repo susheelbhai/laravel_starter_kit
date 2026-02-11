@@ -1,8 +1,8 @@
 import type { FormEventHandler } from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 
-const normalizeErrors = (errs: Record<string, any>) =>
+const normalizeErrors = (errs: Record<string, string[] | string>) =>
   Object.fromEntries(
     Object.entries(errs || {}).map(([k, v]) => [
       k,
@@ -13,19 +13,24 @@ const normalizeErrors = (errs: Record<string, any>) =>
 interface Step {
   id: number;
   title: string;
-  Component: React.FC<any>;
+  Component: React.FC<{
+    inputDivData: { data: Record<string, unknown>; setData: (key: string, value: unknown) => void; errors: Record<string, string[]> };
+    data: Record<string, unknown>;
+    setData: (key: string, value: unknown) => void;
+    [key: string]: unknown;
+  }>;
 }
 
 interface FormWizardProps {
   title?: string;
   steps: Step[];
-  data: any;
-  setData: (key: string, value: any) => void;
-  errors: Record<string, any>;
+  data: Record<string, unknown>;
+  setData: (key: string, value: unknown) => void;
+  errors: Record<string, string[]>;
   processing: boolean;
   onPartialSave?: (stepIndex: number, stepKey: string, onFinish: (success: boolean) => void) => void;
   onSubmit: FormEventHandler;
-  extraProps?: Record<string, any>;
+  extraProps?: Record<string, unknown>;
 }
 
 export default function FormWizard({
@@ -44,7 +49,7 @@ export default function FormWizard({
 
   const CurrentStepComponent = steps[step].Component;
 
-  const saveStep = (idx: number) => {
+  const saveStep = useCallback((idx: number) => {
     const key = steps[idx].title.toLowerCase().replace(/\s+/g, "_");
 
     if (!onPartialSave) return;
@@ -55,7 +60,7 @@ export default function FormWizard({
         if (idx < steps.length - 1) setStep(idx + 1);
       }
     });
-  };
+  }, [steps, onPartialSave, setCompletedSteps, setStep]);
 
   // ENTER key shortcut to trigger Save & Next
   useEffect(() => {
@@ -70,7 +75,7 @@ export default function FormWizard({
     };
     window.addEventListener("keydown", handleEnter);
     return () => window.removeEventListener("keydown", handleEnter);
-  }, [step, data]);
+  }, [step, data, saveStep]);
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { useFormHandler } from "@/lib/use-form-handler";
 import { Container } from "@/components/ui/container";
+import { useFormHandler } from "@/lib/use-form-handler";
 
 type NewsletterForm = {
     email: string;

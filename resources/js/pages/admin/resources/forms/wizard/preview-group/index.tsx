@@ -8,7 +8,7 @@ import PreviewVenues from './_6_preview_venues';
 import PreviewSocial from './_7_preview_social_media';
 import PreviewOtherInfo from './_8_preview_other_info';
 
-export default function PreviewSection({ data, event_types }: { data: any; event_types: any[] }) {
+export default function PreviewSection({ data, event_types }: { data: Record<string, unknown>; event_types: Array<{ id: number; title: string }> }) {
     return (
         <InputFieldset legend="Preview Your Festival">
             <PreviewBasic data={data} event_types={event_types} />

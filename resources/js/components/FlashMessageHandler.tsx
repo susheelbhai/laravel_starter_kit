@@ -18,21 +18,29 @@ export default function FlashMessageHandler() {
 
     // 🔁 Handle flash on every Inertia response
     useEffect(() => {
-        if (flash.success) {
-            setVisibleFlash({ type: "success", message: flash.success });
-        } else if (flash.warning) {
-            setVisibleFlash({ type: "warning", message: flash.warning });
-        } else if (flash.error) {
-            setVisibleFlash({ type: "error", message: flash.error });
-        } else {
-            setVisibleFlash(null);
-        }
+        // Use a timeout to avoid calling setState directly in effect
+        const timer = setTimeout(() => {
+            if (flash.success) {
+                setVisibleFlash({ type: "success", message: flash.success });
+            } else if (flash.warning) {
+                setVisibleFlash({ type: "warning", message: flash.warning });
+            } else if (flash.error) {
+                setVisibleFlash({ type: "error", message: flash.error });
+            } else {
+                setVisibleFlash(null);
+            }
+        }, 0);
 
         // ⏱ Auto-hide after 5 seconds if any flash is present
         if (flash.success || flash.warning || flash.error) {
-            const timer = setTimeout(() => setVisibleFlash(null), 5000);
-            return () => clearTimeout(timer);
+            const hideTimer = setTimeout(() => setVisibleFlash(null), 5000);
+            return () => {
+                clearTimeout(timer);
+                clearTimeout(hideTimer);
+            };
         }
+
+        return () => clearTimeout(timer);
     }, [flash]);
     
     return (

@@ -2,8 +2,19 @@ import { usePage } from '@inertiajs/react';
 import { useSidebar } from '@/components/ui/sidebar';
 import { useAppearance } from '@/hooks/use-appearance';
 
+interface AppData {
+    square_light_logo: string;
+    square_dark_logo: string;
+    light_logo: string;
+    dark_logo: string;
+}
+
+interface AppPageProps {
+    appData: AppData;
+}
+
 export default function AppLogo() {
-    const appData = (usePage().props as any).appData;
+    const appData = usePage<AppPageProps>().props.appData;
     const { isDark } = useAppearance();
     const { state } = useSidebar();
 

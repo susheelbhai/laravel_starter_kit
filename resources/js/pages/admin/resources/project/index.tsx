@@ -16,9 +16,17 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ProjectIndexData {
+    id: number;
+    title: string;
+    short_description: string;
+    category: string;
+    is_active: number;
+    thumbnail: string;
+}
+
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as { id: number; title:string; short_description: string; category: string; is_active: number; thumbnail: string }[]) || [];
+    const data = ((usePage<SharedData>().props as { data: ProjectIndexData[] })?.data) || [];
     const thead = [
         { title: 'Title', className: 'p-3' },
         { title: 'Description', className: 'p-3' },

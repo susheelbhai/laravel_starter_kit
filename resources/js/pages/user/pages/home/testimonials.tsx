@@ -1,5 +1,14 @@
 import { Container } from '@/components/ui/container';
-export default function TestimonialSection(data: any) {
+interface TestimonialData {
+    id: number;
+    name: string;
+    organisation: string;
+    designation: string;
+    message: string;
+    image: string;
+}
+
+export default function TestimonialSection(data: { data: TestimonialData[] }) {
     return data.data.length === 0 ? null : (
         <section id="testimonials" className="bg-background2 py-20 md:py-28">
             <Container className="text-center">
@@ -10,7 +19,7 @@ export default function TestimonialSection(data: any) {
                     What Our Clients Say
                 </h2>
                 <div className="grid gap-8 md:grid-cols-3">
-                    {data.data.map((testimonial: any) => (
+                    {data.data.map((testimonial: TestimonialData) => (
                         <div
                             key={testimonial.id}
                             className="rounded-lg bg-card p-8 shadow transition hover:shadow-lg"

@@ -17,8 +17,22 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface UserQueryData {
+    id: number;
+    name: string;
+    email: string;
+    phone: string;
+}
+
+interface UserQueryPageProps {
+    data: {
+        data: UserQueryData[];
+        [key: string]: unknown;
+    };
+}
+
 export default function Dashboard() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = (usePage<SharedData>().props as UserQueryPageProps);
     const queries = data?.data || [];
     
     const thead = [
@@ -36,7 +50,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {queries.map((user: any) => (
+                        {queries.map((user: UserQueryData) => (
                             <tr
                                 key={user.id}
                                 className="border-t border-border"

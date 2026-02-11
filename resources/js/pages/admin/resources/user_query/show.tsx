@@ -17,15 +17,16 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface UserQueryDetailData {
+    id: number;
+    name: string;
+    email: string;
+    is_active: number;
+    phone: string;
+}
+
 export default function Dashboard() {
-    const team =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            email: string;
-            is_active: number;
-            phone: string;
-        }) || [];
+    const team = ((usePage<SharedData>().props as { data: UserQueryDetailData })?.data) || {} as UserQueryDetailData;
     const thead = [
         { title: 'User Query Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

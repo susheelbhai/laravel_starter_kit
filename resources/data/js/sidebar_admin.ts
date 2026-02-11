@@ -16,7 +16,6 @@ import {
     LayoutGrid,
     Link2,
     ListFilter,
-    Lock,
     LogOut,
     MessageSquare,
     Newspaper,
@@ -31,7 +30,6 @@ import {
     Users2,
     Workflow,
 } from "lucide-react";
-import { Children } from "react";
 
 const mainNavItems = [
     {

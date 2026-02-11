@@ -41,9 +41,12 @@ function CustomTimeDropdown({
 
     // Only loop for hour/minute, not AM/PM
     const isPeriodDropdown = options.length === 2 && options[0].label === 'AM' && options[1].label === 'PM';
-    const infiniteOptions = isPeriodDropdown ? options : useMemo(() => {
+    const infiniteOptions = useMemo(() => {
+        if (isPeriodDropdown) {
+            return options;
+        }
         return [...options, ...options, ...options];
-    }, [options]);
+    }, [options, isPeriodDropdown]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {

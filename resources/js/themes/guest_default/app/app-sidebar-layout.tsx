@@ -4,6 +4,17 @@ import Footer from "./app-footer";
 import Header from "./header";
 import TopHeader from "./top-header";
 
+interface MenuItem {
+    name: string;
+    routeName: string;
+}
+
+interface ProfileItem {
+    name: string;
+    routeName: string;
+    method?: string;
+}
+
 export default function AppSidebarLayout({
     children,
     menuItems,
@@ -11,12 +22,12 @@ export default function AppSidebarLayout({
     loginRoute,
 }: PropsWithChildren<{
     breadcrumbs?: BreadcrumbItem[];
-    authUser?: any;
-    footerNavItems?: any;
-    mainNavItems?: any;
-    profileNavItems?: any;
-    menuItems: any;
-    profileItems: any;
+    authUser?: Record<string, unknown>;
+    footerNavItems?: Record<string, unknown>[];
+    mainNavItems?: Record<string, unknown>[];
+    profileNavItems?: Record<string, unknown>[];
+    menuItems: MenuItem[];
+    profileItems: ProfileItem[];
     loginRoute: string;
 }>) {
     return (

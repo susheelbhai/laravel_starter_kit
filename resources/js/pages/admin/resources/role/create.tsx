@@ -9,15 +9,11 @@ import { ContainerFluid } from '@/components/ui/container-fluid';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem } from '@/types';
 
-interface LoginProps {
-    submitUrl?: string;
-    status?: string;
-}
 const submitUrl = route('admin.role.store');
 
-export default function Login({ status }: LoginProps) {
+export default function Login() {
     console.log(submitUrl);
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         name: '',
         permissions: [],
     });
@@ -37,7 +33,7 @@ export default function Login({ status }: LoginProps) {
         setData,
         errors: Object.fromEntries(Object.entries(errors).map(([key, value]) => [key, value ? [value] : []])),
     };
-    const permissions = usePage().props.permissions as any;
+    const permissions = usePage().props.permissions as Array<{ id: number; name: string }>;
     const breadcrumbs: BreadcrumbItem[] = [
         {
             title: 'Role',

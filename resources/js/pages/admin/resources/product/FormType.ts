@@ -1,4 +1,4 @@
-type FormType = {
+export type FormType = {
     seller_id: number | string;
     product_category_id: number;
 
@@ -28,8 +28,8 @@ type FormType = {
     meta_description: string;
 };
 
-type UploadValue = File | string | null;
-type CategoryOption = {
+export type UploadValue = File | string | null;
+export type CategoryOption = {
     id: number;
     title: string;
 };

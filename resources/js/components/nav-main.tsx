@@ -8,19 +8,20 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 
-import { canAny } from '@/lib/can';
+import { useCan } from '@/lib/can';
 import { type NavItem } from '@/types';
 
 // Helper to get current route name from Ziggy
 const getCurrentRouteName = (): string => {
     try {
-        return (window as any).route().current() || '';
+        return (window as { route: () => { current: () => string } }).route().current() || '';
     } catch {
         return '';
     }
 };
 
 export function NavMain({ items = [] }: { items: NavItem[] }) {
+    const { canAny } = useCan();
     const filteredItems = items.filter(
         (item) => !item.permission || canAny(item.permission),
     );
@@ -46,25 +47,25 @@ function hasActiveChild(
     if (item.href === currentUrl) return true;
 
     // If item has sibling routes, use exact matching only
-    if ((item as any).hasSiblingRoutes) {
+    if ((item as NavItem & { hasSiblingRoutes?: boolean; routePattern?: string }).hasSiblingRoutes) {
         if (
-            (item as any).routePattern &&
-            currentRoute === (item as any).routePattern
+            (item as NavItem & { routePattern?: string }).routePattern &&
+            currentRoute === (item as NavItem & { routePattern?: string }).routePattern
         ) {
             return true;
         }
     } else {
         // No sibling routes - use pattern matching for CRUD routes
         if (
-            (item as any).routePattern &&
-            currentRoute.startsWith((item as any).routePattern + '.')
+            (item as NavItem & { routePattern?: string }).routePattern &&
+            currentRoute.startsWith((item as NavItem & { routePattern?: string }).routePattern + '.')
         ) {
             return true;
         }
         // Also check exact match for the pattern itself
         if (
-            (item as any).routePattern &&
-            currentRoute === (item as any).routePattern
+            (item as NavItem & { routePattern?: string }).routePattern &&
+            currentRoute === (item as NavItem & { routePattern?: string }).routePattern
         ) {
             return true;
         }
@@ -79,11 +80,15 @@ function hasActiveChild(
 }
 
 function SidebarMenuTree({ item, level }: { item: NavItem; level: number }) {
+    const { canAny } = useCan();
     const fullUrl = window.location.href;
     const currentRoute = getCurrentRouteName();
     const hasChildren = item.children && item.children.length > 0;
 
-    // ✅ Use canAny instead of can
+    const hasActive = hasActiveChild(item, fullUrl, currentRoute);
+    const [open, setOpen] = useState(hasActive);
+
+    // ✅ Use canAny hook
     if (item.permission && !canAny(item.permission)) {
         return null;
     }
@@ -92,21 +97,17 @@ function SidebarMenuTree({ item, level }: { item: NavItem; level: number }) {
     let isActive = item.href === fullUrl;
 
     // If no sibling routes exist, use pattern matching
-    if (!isActive && (item as any).routePattern) {
-        if ((item as any).hasSiblingRoutes) {
+    if (!isActive && (item as NavItem & { routePattern?: string }).routePattern) {
+        if ((item as NavItem & { hasSiblingRoutes?: boolean }).hasSiblingRoutes) {
             // Has siblings - only exact match
-            isActive = currentRoute === (item as any).routePattern;
+            isActive = currentRoute === (item as NavItem & { routePattern?: string }).routePattern;
         } else {
             // No siblings - pattern match for CRUD routes
             isActive =
-                currentRoute === (item as any).routePattern ||
-                currentRoute.startsWith((item as any).routePattern + '.');
+                currentRoute === (item as NavItem & { routePattern?: string }).routePattern ||
+                currentRoute.startsWith((item as NavItem & { routePattern?: string }).routePattern + '.');
         }
     }
-
-    const hasActive = hasActiveChild(item, fullUrl, currentRoute);
-
-    const [open, setOpen] = useState(hasActive);
 
     return (
         <SidebarMenuItem key={item.title} className={level > 0 ? 'ml-4' : ''}>

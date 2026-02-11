@@ -1,6 +1,6 @@
 import { useForm, usePage } from '@inertiajs/react';
 import type { FormEventHandler} from 'react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { ContainerFluid } from '@/components/ui/container-fluid';
@@ -13,6 +13,7 @@ import BankDetail from './input-group/_2_bank';
 import Education from './input-group/_3_education';
 import OtherInfoSection from './input-group/_4_other_info';
 import PreviewSection from './preview-group/index';
+import type { EditEventForm, WizardComponentProps } from './types';
 // steps definition
 const steps = [
     { id: 1, title: 'Basic Details', Component: BasicDetails },
@@ -34,7 +35,7 @@ const mapErrors = (errs: Record<string, string>) =>
     Object.fromEntries(Object.entries(errs).map(([k, v]) => [k, v ? [v] : []]));
 
 export default function EditEvent() {
-    const { data: event } = usePage<SharedData>().props as any;
+    const { data: event } = usePage<SharedData>().props as { data: Record<string, unknown> };
     const { setData, post, processing, errors, reset, data, transform } =
         useForm<EditEventForm>(initForm(event));
 
@@ -44,7 +45,7 @@ export default function EditEvent() {
     const inputDivData = { data, setData, errors: mapErrors(errors) };
 
     // ✅ Submit entire form to partial_update route on each step
-    const saveStep = (stepIndex: number) => {
+    const saveStep = useCallback((stepIndex: number) => {
         const stepInfo = steps[stepIndex];
         const stepKey = stepInfo.title.toLowerCase().replace(/\s+/g, '_'); // e.g. basic_details
         transform(jsonStringifyNested);
@@ -66,7 +67,7 @@ export default function EditEvent() {
                 },
             },
         );
-    };
+    }, [event.id, post, transform, setCompletedSteps, setStep]);
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -80,7 +81,7 @@ export default function EditEvent() {
         });
     };
 
-    const CurrentStepComponent = steps[step].Component as React.FC<any>;
+    const CurrentStepComponent = steps[step].Component as React.FC<WizardComponentProps>;
 
     // after const CurrentStepComponent = steps[step].Component;
     useEffect(() => {
@@ -95,7 +96,7 @@ export default function EditEvent() {
         };
         window.addEventListener('keydown', handleEnter);
         return () => window.removeEventListener('keydown', handleEnter);
-    }, [step, data]);
+    }, [step, saveStep]);
 
     return (
         <AppLayout title="Form Wizard">

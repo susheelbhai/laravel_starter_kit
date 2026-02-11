@@ -1,9 +1,19 @@
-import { Container } from '@/components/ui/container';
 import { usePage } from '@inertiajs/react';
+import { Container } from '@/components/ui/container';
 import AppLayout from '@/layouts/user/app-layout';
 
+interface ServiceDetailData {
+    title: string;
+    display_img?: string;
+    short_description: string;
+    long_description1: string;
+    long_description2: string;
+    long_description3: string;
+    features?: string[];
+}
+
 export default function Create() {
-    const service = usePage().props.data as any;
+    const service = usePage().props.data as ServiceDetailData;
     return (
         <AppLayout title={service.title}>
             <div className="bg-background text-foreground">
@@ -77,8 +87,8 @@ export default function Create() {
                             Why Choose This Service
                         </h3>
                         <ul className="list-inside list-disc space-y-2 text-sm text-sidebar-foreground">
-                            {service.features?.map((feature: any) => (
-                                <li key={feature.id}>{feature}</li>
+                            {service.features?.map((feature: string, index: number) => (
+                                <li key={index}>{feature}</li>
                             ))}
                         </ul>
                         <button className="mt-6 w-full rounded-md bg-sidebar-primary py-2 text-sidebar-primary-foreground transition hover:bg-sidebar-primary/90">

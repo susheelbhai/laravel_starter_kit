@@ -1,4 +1,6 @@
-export const initForm = (event: any): EditEventForm => ({
+import type { EditEventForm } from './types';
+
+export const initForm = (event: Record<string, unknown>): EditEventForm => ({
     name: event.name ?? '',
     email: event.email ?? '',
     phone: event.phone ?? '',
@@ -15,7 +17,7 @@ export const initForm = (event: any): EditEventForm => ({
     bank_ifsc: event.bank_ifsc ?? '',
     bank_upi_id: event.bank_upi_id ?? '',
 
-    courses: event.courses ?? [],
+    courses: (event.courses as EditEventForm['courses']) ?? [],
 
     short_description: event.short_description ?? '',
     biodata: event.biodata ?? '',

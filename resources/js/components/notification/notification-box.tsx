@@ -1,4 +1,22 @@
-export default function NotificationBox({ unreadNotifications = [], handleSeeAll }: { unreadNotifications?: any[], handleSeeAll: () => void }) {
+interface Notification {
+    id: string;
+    href?: string;
+    data?: {
+        title?: string;
+        data?: {
+            message?: string;
+        };
+    };
+    created_at?: string;
+}
+
+export default function NotificationBox({ 
+    unreadNotifications = [], 
+    handleSeeAll 
+}: { 
+    unreadNotifications?: Notification[]; 
+    handleSeeAll: () => void 
+}) {
     return (
         <div className="absolute right-0 mt-2 w-80 bg-card border border-border rounded-lg shadow-lg z-50">
             <div className="p-4 border-b font-semibold text-card-foreground">Unread Notifications</div>
@@ -6,7 +24,7 @@ export default function NotificationBox({ unreadNotifications = [], handleSeeAll
                 {(!unreadNotifications || unreadNotifications.length === 0) && (
                     <li className="p-4 text-muted-foreground text-sm text-center">No unread notifications</li>
                 )}
-                {unreadNotifications && unreadNotifications.slice(0, 5).map((notification: any) => (
+                {unreadNotifications && unreadNotifications.slice(0, 5).map((notification: Notification) => (
                     <li
                         key={notification.id}
                         className="p-4 hover:bg-muted cursor-pointer text-sm"

@@ -1,5 +1,14 @@
 import { Container } from '@/components/ui/container';
-export default function TeamSection(data: any) {
+interface TeamMember {
+    id: number;
+    name: string;
+    designation: string;
+    image_converted: {
+        small: string;
+    };
+}
+
+export default function TeamSection(data: { data: TeamMember[] }) {
     return data.data.length === 0 ? null : (
         <section id="team" className="bg-background py-20 md:py-28">
             <Container className="text-center">
@@ -10,7 +19,7 @@ export default function TeamSection(data: any) {
                     Meet Our Experts
                 </h2>
                 <div className="grid gap-8 md:grid-cols-4">
-                    {data.data.map((team: any) => (
+                    {data.data.map((team: TeamMember) => (
                         <div
                             key={team.id}
                             className="rounded-lg bg-background2 p-6"

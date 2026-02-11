@@ -1,4 +1,4 @@
-type EditEventForm = {
+export type EditEventForm = {
     name: string;
     email: string;
     phone: string;

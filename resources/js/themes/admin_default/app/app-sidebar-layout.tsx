@@ -5,6 +5,27 @@ import FlashMessageHandler from "@/components/FlashMessageHandler";
 import { AppSidebar } from "@/themes/admin_default/app/components/app-sidebar";
 import { AppSidebarHeader } from "@/themes/admin_default/app/components/app-sidebar-header";
 import { type BreadcrumbItem } from "@/types";
+interface AuthUser {
+    id: number;
+    name: string;
+    email: string;
+    [key: string]: unknown;
+}
+
+interface NavItem {
+    id: number;
+    title: string;
+    href: string;
+    [key: string]: unknown;
+}
+
+interface NotificationItem {
+    id: string;
+    title: string;
+    message: string;
+    [key: string]: unknown;
+}
+
 export default function AppSidebarLayout({
     children,
     authUser,
@@ -14,13 +35,13 @@ export default function AppSidebarLayout({
     notificationData,
     breadcrumbs = [],
 }: PropsWithChildren<{
-    authUser?: any;
-    footerNavItems?: any;
-    mainNavItems?: any;
-    profileNavItems?: any;
+    authUser?: AuthUser;
+    footerNavItems?: NavItem[];
+    mainNavItems?: NavItem[];
+    profileNavItems?: NavItem[];
     notificationData?: {
         unreadNotificationsCount: number;
-        unreadNotifications: any[];
+        unreadNotifications: NotificationItem[];
         all_notifications_url: string;
     };
     breadcrumbs?: BreadcrumbItem[];

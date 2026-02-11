@@ -17,7 +17,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-type ProductCategoryRow = {
+interface ProductCategoryData {
     id: number;
     parent_id: number | null;
     title: string;
@@ -29,10 +29,17 @@ type ProductCategoryRow = {
     position: number;
     is_active: number;
     is_featured: number;
-};
+}
+
+interface ProductCategoryPageProps {
+    data: {
+        data: ProductCategoryData[];
+        [key: string]: unknown;
+    };
+}
 
 export default function Index() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = (usePage<SharedData>().props as ProductCategoryPageProps);
     const items = data?.data || [];
 
     const thead = [
@@ -58,7 +65,7 @@ export default function Index() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {items.map((category: any) => (
+                        {items.map((category: ProductCategoryData) => (
                             <tr
                                 key={category.id}
                                 className="border-t border-gray-200"

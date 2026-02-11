@@ -2,8 +2,8 @@ import { usePage } from "@inertiajs/react";
 import PreviewItem from "../components/PreviewItem";
 import PreviewSection from "../components/PreviewSection";
 
-export default function PreviewVenues({ data }: { data: any }) {
-    const { event }: any = usePage().props;
+export default function PreviewVenues({ data }: { data: Record<string, unknown> }) {
+    const { event }: { event: Record<string, unknown> } = usePage().props as { event: Record<string, unknown> };
 
     // ✅ Fallback handling — prefer `data` first, then `event`
     const venueType = data.venue_type || event?.venue_type || "—";
@@ -37,30 +37,30 @@ export default function PreviewVenues({ data }: { data: any }) {
 
                     {venues.length > 0 ? (
                         <div className="space-y-4">
-                            {venues.map((venue: any, i: number) => (
+                            {venues.map((venue: Record<string, unknown>, i: number) => (
                                 <div
                                     key={i}
                                     className="rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm"
                                 >
                                     <h4 className="font-semibold text-base text-gray-800 mb-1">
-                                        {venue.name || `Venue ${i + 1}`}
+                                        {(venue.name as string) || `Venue ${i + 1}`}
                                     </h4>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <PreviewItem
                                             label="Seating Capacity"
-                                            value={venue.sitting_capacity}
+                                            value={venue.sitting_capacity as string}
                                         />
                                         <PreviewItem
                                             label="Projection Type"
-                                            value={venue.projection_type}
+                                            value={venue.projection_type as string}
                                         />
                                         <PreviewItem
                                             label="Audio System"
-                                            value={venue.audio_system}
+                                            value={venue.audio_system as string}
                                         />
                                         <PreviewItem
                                             label="Address"
-                                            value={venue.address}
+                                            value={venue.address as string}
                                         />
                                     </div>
 

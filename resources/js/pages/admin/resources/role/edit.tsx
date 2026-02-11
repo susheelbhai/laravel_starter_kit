@@ -23,17 +23,29 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
     
 ];
+interface RoleData {
+    id: number | string;
+    name: string;
+    permissions: Array<{ id: number; name: string }>;
+}
+
+interface PermissionOption {
+    id: number;
+    title?: string;
+    name: string;
+}
+
 export default function EditRole() {
-    const role = ((usePage<SharedData>().props as any)?.data as any) || {};
+    const role = ((usePage<SharedData>().props as { data: RoleData })?.data) || {} as RoleData;
 
     const initialValues: FormType = {
         id: role.id,
         name: role.name,
-        permissions: (role.permissions || []).map((p: any) => p.id), // [1, 2, 3]
+        permissions: (role.permissions || []).map((p) => p.id), // [1, 2, 3]
     };
 
-    const rawPermissions = usePage().props.permissions as any[];
-    const permissions = rawPermissions.map((permission: any) => ({
+    const rawPermissions = usePage().props.permissions as PermissionOption[];
+    const permissions = rawPermissions.map((permission) => ({
         id: permission.id,
         title: permission.title ?? permission.name,
     }));

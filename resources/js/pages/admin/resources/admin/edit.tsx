@@ -1,14 +1,38 @@
 import { usePage } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
 
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import { ContainerFluid } from '@/components/ui/container-fluid';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { SharedData } from '@/types';
 import { type BreadcrumbItem } from '@/types';
+
+interface Role {
+    id: number;
+    name: string;
+    title?: string;
+}
+
+interface Permission {
+    id: number;
+    name: string;
+    title?: string;
+}
+
+interface AdminData {
+    id: number | string;
+    name?: string;
+    dob?: string;
+    profile_pic?: string;
+    address?: string;
+    city?: string;
+    state?: string;
+    email?: string;
+    phone?: string;
+    roles?: { id: number; name: string }[];
+    permissions?: { id: number; name: string }[];
+}
 
 type AdminForm = {
     id: number | string;
@@ -20,32 +44,18 @@ type AdminForm = {
     state: string;
     email: string;
     phone: string;
-    roles: any[]; // handled by useFormHandler (id/value extraction)
-    permissions: any[]; // same here
+    roles: number[]; // handled by useFormHandler (id/value extraction)
+    permissions: number[]; // same here
 };
 
 export default function EditAdmin() {
     const page = usePage<SharedData>();
 
     // 🧩 Admin being edited (coming from controller as props.data)
-    const admin =
-        ((page.props as any)?.data as {
-            id: number | string;
-            name?: string;
-            dob?: string;
-            profile_pic?: string;
-            address?: string;
-            city?: string;
-            state?: string;
-            email?: string;
-            phone?: string;
-            roles?: { id: number; name: string }[];
-            permissions?: { id: number; name: string }[];
-        }) || {};
+    const admin = ((page.props as { data?: AdminData }).data) || {} as AdminData;
 
-    const rolesFromServer = (page.props as any).roles as any[];
-    const permissionsFromServer = (page.props as any).permissions as any[];
-    const status = (page.props as any).status as string | undefined;
+    const rolesFromServer = (page.props as SharedData & { roles: Role[] }).roles;
+    const permissionsFromServer = (page.props as SharedData & { permissions: Permission[] }).permissions;
 
     // ✅ Map roles & permissions to { id, title } for multicheckbox
     const roleOptions = rolesFromServer.map((role) => ({
@@ -70,10 +80,10 @@ export default function EditAdmin() {
         email: admin.email ?? '',
         phone: admin.phone ?? '',
         roles: Array.isArray(admin.roles)
-            ? admin.roles.map((r: any) => r.id)
+            ? admin.roles.map((r) => r.id)
             : [],
         permissions: Array.isArray(admin.permissions)
-            ? admin.permissions.map((p: any) => p.id)
+            ? admin.permissions.map((p) => p.id)
             : [],
     };
 
@@ -84,7 +94,7 @@ export default function EditAdmin() {
         onSuccess: () => {
             console.log('Admin updated successfully');
         },
-    }) as any;
+    });
 
     const breadcrumbs: BreadcrumbItem[] = [
         {

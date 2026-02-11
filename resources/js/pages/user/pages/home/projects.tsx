@@ -1,5 +1,11 @@
 import { Container } from '@/components/ui/container';
-export default function ProjectSection({data}: {data: any}) {
+interface ProjectData {
+    image: string;
+    title: string;
+    category: string;
+}
+
+export default function ProjectSection({data}: {data: ProjectData[]}) {
     return (
         <section id="projects" className="bg-background2 py-20 md:py-28">
             <Container className="text-center">
@@ -10,7 +16,7 @@ export default function ProjectSection({data}: {data: any}) {
                     Latest Case Studies
                 </h2>
                 <div className="grid gap-8 md:grid-cols-3">
-                    {data.map((project: any, i: number) => (
+                    {data.map((project: ProjectData, i: number) => (
                         <div
                             key={i}
                             className="overflow-hidden rounded-lg bg-card shadow transition hover:shadow-lg"

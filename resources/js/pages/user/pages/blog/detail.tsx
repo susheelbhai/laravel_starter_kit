@@ -1,9 +1,26 @@
-import { Container } from '@/components/ui/container';
 import { usePage } from '@inertiajs/react';
+import { Container } from '@/components/ui/container';
 import AppLayout from '@/layouts/user/app-layout';
 
+interface BlogDetailData {
+    title: string;
+    display_img?: string;
+    short_description: string;
+    long_description1: string;
+    long_description2: string;
+    long_description3: string;
+    ad_url: string;
+    ad_img: string;
+    related_blogs?: Array<{
+        id: number;
+        title: string;
+        slug: string;
+        display_img: string;
+    }>;
+}
+
 export default function Create() {
-    const blog = usePage().props.data as any;
+    const blog = usePage().props.data as BlogDetailData;
     return (
         <AppLayout title={blog.title}>
             <div className="bg-background text-foreground">
@@ -46,7 +63,7 @@ export default function Create() {
                         <div className="space-y-4 rounded-xl bg-sidebar border border-sidebar-border p-6 shadow">
                             <h3 className="mb-2 text-xl font-semibold text-sidebar-foreground">Related Blogs</h3>
                             <ul className="list-inside list-disc space-y-2 text-sm text-sidebar-foreground">
-                                {blog.related_blogs?.map((related_blog: any) => (
+                                {blog.related_blogs?.map((related_blog: BlogDetailData['related_blogs'][0]) => (
                                     <div key={related_blog.id}>
                                         <a href={route('blog.show', related_blog.slug)} className="ml-2 hover:underline">
                                             <div className="flex">

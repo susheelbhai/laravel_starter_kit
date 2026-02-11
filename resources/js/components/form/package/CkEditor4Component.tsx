@@ -3,7 +3,15 @@ import { useEffect, useRef } from 'react';
 // Declare CKEDITOR types for window object
 declare global {
     interface Window {
-        CKEDITOR: any;
+        CKEDITOR: {
+            replace: (id: string, config: Record<string, unknown>) => void;
+            instances: Record<string, {
+                on: (event: string, callback: () => void) => void;
+                getData: () => string;
+                setData: (data: string) => void;
+                destroy: () => void;
+            }>;
+        };
     }
 }
 
@@ -118,7 +126,7 @@ export default function CkEditor4Component({
 
         const initEditor = () => {
             if (editorRef.current && window.CKEDITOR) {
-                const config: any = {
+                const config: Record<string, unknown> = {
                     height: height,
                     toolbar: [
                         { name: 'document', items: ['Source', 'Save', 'NewPage', 'Preview', 'Print'] },
@@ -173,7 +181,7 @@ export default function CkEditor4Component({
                 styleElement.remove();
             }
         };
-    }, [id, height, uiColor, customEditorCss]);
+    }, [id, height, uiColor, customEditorCss, onChange, value]);
 
     return <textarea ref={editorRef} id={id} defaultValue={value}></textarea>;
 }

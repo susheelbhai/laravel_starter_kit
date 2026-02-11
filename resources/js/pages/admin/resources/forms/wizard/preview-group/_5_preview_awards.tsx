@@ -2,8 +2,8 @@ import { usePage } from "@inertiajs/react";
 import PreviewItem from "../components/PreviewItem";
 import PreviewSection from "../components/PreviewSection";
 
-export default function PreviewAwards({ data }: { data: any }) {
-    const { judging_methods, event }: any = usePage().props;
+export default function PreviewAwards({ data }: { data: Record<string, unknown> }) {
+    const { judging_methods, event }: { judging_methods: Array<{ id: number; title: string }>; event: Record<string, unknown> } = usePage().props as { judging_methods: Array<{ id: number; title: string }>; event: Record<string, unknown> };
 
     // ✅ 1. Detect awards from both data and event props
     const awards =
@@ -16,8 +16,8 @@ export default function PreviewAwards({ data }: { data: any }) {
     // ✅ 2. Resolve judging method title
     const judgingMethod =
         judging_methods?.find(
-            (m: any) =>
-                parseInt(m.id) === parseInt(data.judging_method_id ?? event?.judging_method_id)
+            (m) =>
+                parseInt(String(m.id)) === parseInt(String(data.judging_method_id ?? event?.judging_method_id))
         )?.title || "—";
 
     return (
@@ -35,20 +35,20 @@ export default function PreviewAwards({ data }: { data: any }) {
                         Awards & Prizes
                     </h3>
                     <div className="space-y-4">
-                        {awards.map((award: any, i: number) => (
+                        {awards.map((award: Record<string, unknown>, i: number) => (
                             <div
                                 key={i}
                                 className="rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm"
                             >
                                 <h4 className="font-semibold text-base text-gray-800 mb-1">
-                                    {award.title || `Award ${i + 1}`}
+                                    {(award.title as string) || `Award ${i + 1}`}
                                 </h4>
                                 <p className="text-gray-700 text-sm mb-1">
                                     <span className="font-semibold">Prize:</span>{" "}
-                                    {award.prize || "—"}
+                                    {(award.prize as string) || "—"}
                                 </p>
                                 <p className="text-gray-700 text-sm">
-                                    {award.description || "—"}
+                                    {(award.description as string) || "—"}
                                 </p>
                             </div>
                         ))}

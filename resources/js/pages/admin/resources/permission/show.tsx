@@ -18,26 +18,42 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface PermissionDetailData {
+    id: number;
+    membership_type?: { title: string };
+    name: string;
+    dob: string;
+    profile_pic: string;
+    permanent_address: string;
+    current_address: string;
+    city: string;
+    state: string;
+    email: string;
+    phone: string;
+    course: string;
+    enrollment_number: string;
+    college: string;
+    university?: { name: string };
+    is_active: number;
+}
+
 export default function Dashboard() {
-    const permission =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            membership_type?: { title: string };
-            name: string;
-            dob: string;
-            profile_pic: string;
-            permanent_address: string;
-            current_address: string;
-            city: string;
-            state: string;
-            email: string;
-            phone: string;
-            course: string;
-            enrollment_number: string;
-            college: string;
-            university?: { name: string };
-            is_active: number;
-        }) || {};
+    const permission = ((usePage<SharedData>().props as { data: PermissionDetailData })?.data) || {
+        id: 0,
+        name: '',
+        dob: '',
+        profile_pic: '',
+        permanent_address: '',
+        current_address: '',
+        city: '',
+        state: '',
+        email: '',
+        phone: '',
+        course: '',
+        enrollment_number: '',
+        college: '',
+        is_active: 0,
+    };
 
     const thead = [
         { title: 'Permission Detail', className: 'p-3', colSpan: 1 },

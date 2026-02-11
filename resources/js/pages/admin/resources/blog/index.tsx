@@ -17,9 +17,24 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface BlogData {
+    id: number;
+    title: string;
+    category: string;
+    short_description: string;
+    display_img: string;
+    is_active: number;
+}
+
+interface BlogIndexPageProps extends SharedData {
+    data: {
+        data: BlogData[];
+        [key: string]: unknown;
+    };
+}
+
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as any)?.data as any);
+    const data = usePage<BlogIndexPageProps>().props.data;
     const items = data?.data || [];
 
     const thead = [
@@ -39,7 +54,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {items.map((blog: any) => (
+                        {items.map((blog: BlogData) => (
                             <tr key={blog.id} className="border-t border-gray-200">
                                 <td className="p-3">{blog.title}</td>
                                 <td className="p-3">{blog.category}</td>

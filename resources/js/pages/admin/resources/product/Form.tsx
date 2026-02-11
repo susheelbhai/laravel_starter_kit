@@ -1,6 +1,17 @@
 import { FormContainer } from '@/components/form/container/form-container';
 import InputDiv from '@/components/form/container/input-div';
 
+interface CategoryOption {
+    id: number;
+    title: string;
+}
+
+interface InputDivData {
+    data: Record<string, unknown>;
+    setData: (key: string, value: unknown) => void;
+    errors: Record<string, string[]>;
+}
+
 export default function Form({
     submit,
     inputDivData,
@@ -8,9 +19,9 @@ export default function Form({
     categories,
 }: {
     submit: (e: React.FormEvent) => void;
-    inputDivData: any;
+    inputDivData: InputDivData;
     processing: boolean;
-    categories: any[];
+    categories: CategoryOption[];
 }) {
     return (
         <FormContainer onSubmit={submit} processing={processing}>

@@ -26,8 +26,8 @@ const formatDate = (dateStr: string): string => {
     return `${day}${suffix} ${month} ${year}`;
 };
 
-export default function PreviewImportantDates({ data }: { data: any }) {
-    const { event }: any = usePage().props;
+export default function PreviewImportantDates({ data }: { data: Record<string, unknown> }) {
+    const { event }: { event: Record<string, unknown> } = usePage().props as { event: Record<string, unknown> };
 
     // ✅ fallback (direct page vs form navigation)
     const deadlines =
@@ -58,9 +58,9 @@ export default function PreviewImportantDates({ data }: { data: any }) {
                     <div className="mt-6">
                         <h3 className="text-md mb-2 font-semibold text-gray-700">Submission Deadlines</h3>
                         <ul className="ml-3 list-inside list-disc text-sm text-gray-800">
-                            {deadlines.map((d: any, i: number) => (
+                            {deadlines.map((d: Record<string, unknown>, i: number) => (
                                 <li key={i}>
-                                    <span className="font-semibold">{d.name}</span> — {formatDate(d.date)}
+                                    <span className="font-semibold">{d.name as string}</span> — {formatDate(d.date as string)}
                                 </li>
                             ))}
                         </ul>
@@ -83,20 +83,20 @@ export default function PreviewImportantDates({ data }: { data: any }) {
                                 </tr>
                             </thead>
                             <tbody className="bg-white">
-                                {categories.map((category: any) => {
+                                {categories.map((category: Record<string, unknown>) => {
                                     const deadlines =
-                                        category.category_deadlines?.sort(
-                                            (a: any, b: any) => new Date(a.deadline_date).getTime() - new Date(b.deadline_date).getTime(),
+                                        (category.category_deadlines as Array<Record<string, unknown>>)?.sort(
+                                            (a, b) => new Date(a.deadline_date as string).getTime() - new Date(b.deadline_date as string).getTime(),
                                         ) || [];
 
-                                    const next = deadlines.find((d: any) => new Date(d.deadline_date).getTime() > now.getTime()) || deadlines[0];
+                                    const next = deadlines.find((d) => new Date(d.deadline_date as string).getTime() > now.getTime()) || deadlines[0];
 
-                                    const isExpanded = !!expanded[category.id];
+                                    const isExpanded = !!expanded[category.id as number];
                                     const rows = isExpanded ? deadlines : next ? [next] : [];
 
-                                    return rows.map((d: any, idx: number) => {
-                                        const dateString = formatDate(d.deadline_date);
-                                        const dateObj = new Date(d.deadline_date);
+                                    return rows.map((d, idx: number) => {
+                                        const dateString = formatDate(d.deadline_date as string);
+                                        const dateObj = new Date(d.deadline_date as string);
                                         const isPast = dateObj < now;
                                         const isNext = d.id === next?.id;
                                         const textClass = isPast ? 'text-gray-400' : isNext ? 'text-green-600' : 'text-gray-900';
@@ -109,7 +109,7 @@ export default function PreviewImportantDates({ data }: { data: any }) {
                                                 {idx === 0 && (
                                                     <td
                                                         rowSpan={rows.length}
-                                                        onMouseEnter={() => setHoveredCategoryId(category.id)}
+                                                        onMouseEnter={() => setHoveredCategoryId(category.id as number)}
                                                         onMouseLeave={() => setHoveredCategoryId(null)}
                                                         className={`px-6 py-4 align-middle text-sm font-medium whitespace-nowrap text-gray-900 ${
                                                             isCatHover ? 'bg-gray-100' : ''
@@ -117,23 +117,23 @@ export default function PreviewImportantDates({ data }: { data: any }) {
                                                     >
                                                         <button
                                                             type="button" // ✅ prevents submit
-                                                            onClick={() => toggle(category.id)}
+                                                            onClick={() => toggle(category.id as number)}
                                                             className="inline-flex cursor-pointer items-center hover:text-blue-600 focus:outline-none"
                                                         >
                                                             {isExpanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-                                                            <span className="ml-2">{category.name}</span>
+                                                            <span className="ml-2">{category.name as string}</span>
                                                         </button>
                                                     </td>
                                                 )}
 
                                                 <td
-                                                    onMouseEnter={() => setHoveredRowId(d.id)}
+                                                    onMouseEnter={() => setHoveredRowId(d.id as number)}
                                                     onMouseLeave={() => setHoveredRowId(null)}
                                                     className={`px-6 py-4 whitespace-nowrap ${textClass} ${
                                                         isRowHover || isCatHover ? 'bg-gray-100' : ''
                                                     }`}
                                                 >
-                                                    <div className="text-sm font-medium">{d.deadline_title}</div>
+                                                    <div className="text-sm font-medium">{d.deadline_title as string}</div>
                                                     <div className="text-xs text-gray-500">{dateString}</div>
                                                 </td>
                                                 <td
@@ -141,21 +141,21 @@ export default function PreviewImportantDates({ data }: { data: any }) {
                                                         isRowHover || isCatHover ? 'bg-gray-100' : ''
                                                     }`}
                                                 >
-                                                    {d.standard_fee ?? '—'}
+                                                    {(d.standard_fee as string) ?? '—'}
                                                 </td>
                                                 <td
                                                     className={`px-6 py-4 text-right whitespace-nowrap ${textClass} ${
                                                         isRowHover || isCatHover ? 'bg-gray-100' : ''
                                                     }`}
                                                 >
-                                                    {d.student_fee ?? '—'}
+                                                    {(d.student_fee as string) ?? '—'}
                                                 </td>
                                                 <td
                                                     className={`px-6 py-4 text-right whitespace-nowrap ${textClass} ${
                                                         isRowHover || isCatHover ? 'bg-gray-100' : ''
                                                     }`}
                                                 >
-                                                    {d.gold_fee ?? '—'}
+                                                    {(d.gold_fee as string) ?? '—'}
                                                 </td>
                                             </tr>
                                         );

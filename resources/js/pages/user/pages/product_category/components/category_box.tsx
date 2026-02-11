@@ -1,7 +1,15 @@
 import { Link } from "@inertiajs/react";
 
+interface Category {
+    id: number;
+    title: string;
+    description?: string;
+    icon?: string;
+    slug: string;
+}
+
 interface CategorySectionProps {
-  categories: any[];
+  categories: Category[];
 }
 
 export default function CategorySection({ categories }: CategorySectionProps) {
@@ -39,7 +47,7 @@ export default function CategorySection({ categories }: CategorySectionProps) {
         </div>
       ) : (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((category: any) => (
+          {categories.map((category: Category) => (
             <Link
               key={category.id}
               href={route("productCategory.show", category.slug)}

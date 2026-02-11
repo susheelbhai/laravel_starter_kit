@@ -18,22 +18,23 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ServiceDetailData {
+    id: number;
+    title: string;
+    author: string;
+    tags: string;
+    short_description: string;
+    long_description1: string;
+    long_description2: string;
+    long_description3: string;
+    category: string;
+    is_active: number;
+    display_img: string;
+    ad_img: string;
+}
+
 export default function Dashboard() {
-    const service =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            title: string;
-            author: string;
-            tags: string;
-            short_description: string;
-            long_description1: string;
-            long_description2: string;
-            long_description3: string;
-            category: string;
-            is_active: number;
-            display_img: string;
-            ad_img: string;
-        }) || [];
+    const service = ((usePage<SharedData>().props as { data: ServiceDetailData })?.data) || {} as ServiceDetailData;
     const thead = [
         { title: 'Service Detail', className: 'p-3', colSpan: 2 },
     ];

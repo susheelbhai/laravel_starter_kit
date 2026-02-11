@@ -24,7 +24,7 @@ export default function InputClockTimePicker({
     className,
     placeholder = 'Select time',
 }: InputClockTimePickerProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData } = inputDivData;
     const value = data[name] || '';
     const [isOpen, setIsOpen] = useState(false);
     const [hour, setHour] = useState<number | null>(null);
@@ -104,7 +104,7 @@ export default function InputClockTimePicker({
                                 setIsOpen(true);
                             }
                         }}
-                        onBlur={(e) => {
+                        onBlur={() => {
                             // Only close if focus is not moving to the clock popover
                             setTimeout(() => {
                                 const active = document.activeElement;

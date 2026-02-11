@@ -14,7 +14,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Products', href: '/admin/product' },
 ];
 
-type Row = {
+interface ProductData {
     id: number;
     seller_id: number;
     product_category_id: number;
@@ -24,10 +24,14 @@ type Row = {
     is_active: number;
     thumbnail: string | null;
     images: string[];
-};
+}
+
+interface ProductIndexPageProps extends SharedData {
+    data: ProductData[];
+}
 
 export default function Index() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = usePage<ProductIndexPageProps>().props;
 
     const thead = [
         { title: 'Title', className: 'p-3' },
@@ -50,7 +54,7 @@ export default function Index() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {data.map((product: any) => (
+                        {data.map((product: ProductData) => (
                             <tr key={product.id} className="border-t border-gray-200">
                                 <td className="p-3">{product.title}</td>
                                 <td className="p-3">{product.seller_id}</td>

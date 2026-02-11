@@ -1,7 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { BreadcrumbItem, SharedData } from '@/types';
@@ -12,9 +11,19 @@ type FormType = {
     is_active: number;
 };
 
+interface ImportantLinkData {
+    id: number;
+    name: string;
+    href: string;
+    is_active: number;
+}
+
+interface ImportantLinkEditPageProps extends SharedData {
+    data: ImportantLinkData;
+}
+
 export default function Create() {
-    const important_links =
-        ((usePage<SharedData>().props as any)?.data as any) || [];
+    const important_links = usePage<ImportantLinkEditPageProps>().props.data || {} as ImportantLinkData;
     const breadcrumbs: BreadcrumbItem[] = [
         {
             title: 'Important Link',

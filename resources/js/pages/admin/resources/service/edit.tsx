@@ -30,8 +30,23 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface ServiceData {
+    id: number;
+    title: string;
+    author: string;
+    tags: string;
+    short_description: string;
+    long_description1: string;
+    long_description2: string;
+    long_description3: string;
+    category: string;
+    is_active: number;
+    display_img: string;
+    ad_img: string;
+}
+
 export default function Create() {
-    const service = usePage<SharedData>().props.data as any;
+    const service = usePage<SharedData>().props.data as ServiceData;
 
     const initialValues: FormType = {
         title: service.title,

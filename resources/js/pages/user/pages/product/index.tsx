@@ -1,12 +1,20 @@
-import { Container } from '@/components/ui/container';
 import { usePage } from "@inertiajs/react";
+import { Container } from '@/components/ui/container';
 import AppLayout from "@/layouts/user/app-layout";
 import CategorySection from "../product_category/components/category_box";
 import ProductSection from "./components/product_box";
 
+interface ProductCategory {
+    [key: string]: unknown;
+}
+
+interface ProductData {
+    [key: string]: unknown;
+}
+
 export default function Products() {
-  const product_categories = usePage().props.categories as any;
-  const data = usePage().props.data as any; // 👉 products list
+  const product_categories = usePage().props.categories as ProductCategory[];
+  const data = usePage().props.data as ProductData[]; // 👉 products list
 
   return (
     <AppLayout title="Products">

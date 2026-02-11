@@ -5,9 +5,15 @@ import { UserInfo } from '@/components/user-info';
 import { useMobileNavigation } from '@/hooks/use-mobile-navigation';
 import { type User } from '@/types';
 
+interface ProfileNavItem {
+    title: string;
+    href: string;
+    icon?: React.ComponentType;
+}
+
 interface UserMenuContentProps {
     user: User;
-    profileNavItems: any; // Replace 'any' with the correct type if known
+    profileNavItems: ProfileNavItem[];
 }
 
 export function UserMenuContent({ user, profileNavItems }: UserMenuContentProps) {
@@ -27,7 +33,7 @@ export function UserMenuContent({ user, profileNavItems }: UserMenuContentProps)
             <DropdownMenuSeparator />
 
             <DropdownMenuGroup>
-                {profileNavItems.map((item: any) => {
+                {profileNavItems.map((item: ProfileNavItem) => {
                     return (
                         <React.Fragment key={item.title}>
                             {item.title === 'Log Out' ? (

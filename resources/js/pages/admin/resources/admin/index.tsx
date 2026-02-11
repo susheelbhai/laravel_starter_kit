@@ -1,4 +1,4 @@
-import { Head, usePage } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
 import Button from '@/components/button';
 import Pagination from '@/components/table/pagination';
 import Table from '@/components/table/table';
@@ -18,7 +18,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-    const { data } = (usePage<SharedData>().props as any);
+    const { data } = (usePage<SharedData>().props as SharedData & { data: { data: Array<{ id: number; name: string; email: string; phone: string; profile_pic_thumb?: string; profile_pic: string }> } });
     const admins = data?.data || [];
     const thead = [
         { title: 'ID', className: 'p-3' },
@@ -36,7 +36,7 @@ export default function Dashboard() {
                 <Table>
                     <THead data={thead} />
                     <TBody>
-                        {admins.map((admin: any) => (
+                        {admins.map((admin: { id: number; name: string; email: string; phone: string; profile_pic_thumb?: string; profile_pic: string }) => (
                             <tr key={admin.id} className="border-t border-gray-200">
                                 <td className="p-3">{admin.id}</td>
                                 <td className="p-3">{admin.name}</td>

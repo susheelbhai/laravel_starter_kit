@@ -1,6 +1,4 @@
 import { Head, usePage } from '@inertiajs/react';
-import BtnLink from '@/components/btn-link';
-import Button from '@/components/button';
 import EditRow from '@/components/table/edit-row';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
@@ -8,6 +6,32 @@ import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
+
+interface AdminData {
+    id: number;
+    name: string;
+    dob: string;
+    profile_pic: string;
+    address: string;
+    city: string;
+    state: string;
+    email: string;
+    phone: string;
+    university?: { name: string };
+    is_active: number;
+    roles: Array<{
+        id: number;
+        name: string;
+        permissions: Array<{
+            id: number;
+            name: string;
+        }>;
+    }>;
+    permissions: Array<{
+        id: number;
+        name: string;
+    }>;
+}
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -26,38 +50,12 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 export default function Dashboard() {
     const admin =
-        ((usePage<SharedData>().props as any)?.data as {
-            id: number;
-            name: string;
-            dob: string;
-            profile_pic: string;
-            address: string;
-            city: string;
-            state: string;
-            email: string;
-            phone: string;
-            university?: { name: string };
-            is_active: number;
-            roles: Array<{
-                id: number;
-                name: string;
-                permissions: Array<{
-                    id: number;
-                    name: string;
-                }>;
-            }>;
-            permissions: Array<{
-                id: number;
-                name: string;
-            }>;
-        }) || {};
+        ((usePage<SharedData>().props as SharedData & { data: AdminData })?.data) || {} as AdminData;
 
     const thead = [
         { title: 'Admin Detail', className: 'p-3', colSpan: 1 },
         { title: '', className: 'p-3', colSpan: 1 },
     ];
-
-    const universityName = admin.university?.name || 'N/A';
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -106,14 +104,14 @@ export default function Dashboard() {
                         <tr className="border-y border-gray-200">
                             <td className="p-3">Roles</td>
                             <td className="space-y-2 p-3">
-                                {admin.roles.map((role: any) => (
+                                {admin.roles.map((role: { id: number; name: string; permissions: Array<{ id: number; name: string }> }) => (
                                     <div key={role.id}>
                                         <span className="font-semibold">
                                             {role.name}
                                         </span>
                                         <div className="mt-1 ml-2 flex flex-wrap gap-2">
                                             {role.permissions.map(
-                                                (perm: any) => (
+                                                (perm: { id: number; name: string }) => (
                                                     <span
                                                         key={perm.id}
                                                         className="inline-block rounded bg-gray-100 px-2 py-1 text-sm text-gray-700"
@@ -131,7 +129,7 @@ export default function Dashboard() {
                         <tr className="border-y border-gray-200">
                             <td className="p-3">Permissions</td>
                             <td className="p-3">
-                                {admin.permissions.map((perm: any) => (
+                                {admin.permissions.map((perm: { id: number; name: string }) => (
                                     <span
                                         key={perm.id}
                                         className="inline-block rounded bg-gray-100 px-2 py-1 text-sm text-gray-700"

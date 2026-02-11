@@ -1,4 +1,3 @@
-import { Container } from '@/components/ui/container';
 import { Link, usePage } from "@inertiajs/react";
 import React, { useEffect, useState } from "react";
 import {
@@ -8,10 +7,31 @@ import {
   FaTwitter,
   FaYoutube,
 } from "react-icons/fa";
+import { Container } from '@/components/ui/container';
+
+interface AppData {
+  name: string;
+  tagline?: string;
+  phone: string;
+  email: string;
+  address: string;
+  light_logo?: string;
+  facebook?: string;
+  twitter?: string;
+  instagram?: string;
+  linkedin?: string;
+  youtube?: string;
+}
+
+interface ImportantLink {
+  id: string;
+  name: string;
+  href: string;
+}
 
 const Footer: React.FC = () => {
-  const appData = (usePage().props as any).appData;
-  const important_links = (usePage().props as any).important_links;
+  const appData = (usePage().props as { appData: AppData }).appData;
+  const important_links = (usePage().props as { important_links: ImportantLink[] }).important_links;
   const [visitors, setVisitors] = useState({ total: 0, today: 0 });
 
   useEffect(() => {
@@ -77,7 +97,7 @@ const Footer: React.FC = () => {
               Important Links
             </h2>
             <ul className="space-y-2 text-sm">
-              {important_links.map((link: any) => (
+              {important_links.map((link: ImportantLink) => (
                 <li key={link.id}>
                   <Link
                     href={link.href}

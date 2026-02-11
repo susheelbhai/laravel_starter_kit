@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { cn } from '@/lib/utils';
 import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
 import Calendar from '../package/calendar';
@@ -18,11 +17,9 @@ export default function InputDateTimePickerExpended({
     name,
     help,
     inputDivData,
-    readOnly,
     className,
-    placeholder = 'Select date range',
 }: InputDateTimePickerExpendedProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData } = inputDivData;
     // Store as two fields: name + '_from', name + '_to'
     const from = data[name + '_from'] || undefined;
     const to = data[name + '_to'] || undefined;
