@@ -6,12 +6,12 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputCheckbox({
   label,
-  name,
+  name = '',
   inputDivData,
   required,
   className,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
   // Normalize to boolean
   const checked =
@@ -53,7 +53,7 @@ export default function InputCheckbox({
         </Label>
       </div>
 
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

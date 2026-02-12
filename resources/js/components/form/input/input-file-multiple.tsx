@@ -6,12 +6,12 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputMultiFile({
   label,
-  name,
+  name = '',
   inputDivData,
   required,
   className,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
   const [fileNames, setFileNames] = useState<string[]>([]);
   const [dragging, setDragging] = useState(false);
@@ -105,7 +105,7 @@ export default function InputMultiFile({
         </div>
       </div>
 
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

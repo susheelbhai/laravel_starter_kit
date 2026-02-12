@@ -74,7 +74,7 @@ export default function InputTags(props: InputDivProps) {
                 />
             </div>
 
-            <InputError message={errors[name]?.[0]} />
+            <InputError message={errors?.[name]?.[0]} />
         </InputWrapper>
     );
 }

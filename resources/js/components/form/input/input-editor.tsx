@@ -8,7 +8,7 @@ import HelpTooltip from './input-help-tool';
 
 export default function InputEditor({
     label,
-    name,
+    name = '',
     required,
     help,
     inputDivData,
@@ -18,7 +18,7 @@ export default function InputEditor({
     editorCustomCss,
     editorType
 }: InputDivProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
     editorType = editorType || 'tinymce';
     return (
         <InputWrapper className={className}>
@@ -51,7 +51,7 @@ export default function InputEditor({
                     customEditorCss={editorCustomCss}
                 />
             )}
-            <InputError message={errors[name]?.[0]} />
+            <InputError message={errors?.[name]?.[0]} />
         </InputWrapper>
     );
 }

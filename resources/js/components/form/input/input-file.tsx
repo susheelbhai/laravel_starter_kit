@@ -6,12 +6,12 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputFile({
   label,
-  name,
+  name = '',
   inputDivData,
   required,
   className,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
   const [fileName, setFileName] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -77,7 +77,7 @@ export default function InputFile({
         </div>
       </div>
 
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

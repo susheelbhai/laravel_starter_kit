@@ -2,8 +2,8 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import type { InputDivProps } from "../container/input-types";
 
-export default function InputHidden({ name, inputDivData }: InputDivProps) {
-  const { data, setData } = inputDivData;
+export default function InputHidden({ name = '', inputDivData }: InputDivProps) {
+  const { data, setData } = inputDivData || { data: {}, setData: () => {} };
 
   return (
     <Input

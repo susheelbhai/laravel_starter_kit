@@ -6,14 +6,14 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputMultiImage({
   label,
-  name,
+  name = '',
   inputDivData,
   required,
   className,
   widthMultiplier = 2,
   heightMultiplier = 0.5,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
   const value =
     Array.isArray(data?.[name]) && data[name] ? data[name] : [];
 
@@ -161,7 +161,7 @@ export default function InputMultiImage({
         </div>
       )}
 
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

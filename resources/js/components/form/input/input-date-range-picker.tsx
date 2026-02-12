@@ -17,14 +17,14 @@ function formatLocalDate(date?: Date) {
 
 export default function InputDateRangePicker({
     label,
-    name,
+    name = '',
     help,
     inputDivData,
     readOnly,
     className,
     placeholder = 'Select date range',
 }: InputDivProps) {
-    const { data, setData } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
     const from = data[name + '_from'] || '';
     const to = data[name + '_to'] || '';
     type DateRange = { from: Date | undefined; to: Date | undefined };

@@ -6,12 +6,12 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputSwitch({
   label,
-  name,
+  name = '',
   inputDivData,
   required,
   className,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
   // normalize boolean: handles 1, "1", true
   const value =
@@ -48,7 +48,7 @@ export default function InputSwitch({
         </button>
       </div>
 
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

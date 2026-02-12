@@ -35,7 +35,7 @@ export default function InputText({
         className="bg-input-bg border-input-border text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:bg-input-focused-bg focus:text-input-focused-text"
         {...props}
       />
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

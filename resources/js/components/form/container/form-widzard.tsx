@@ -2,7 +2,7 @@ import type { FormEventHandler } from "react";
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 
-const normalizeErrors = (errs: Record<string, string[] | string>) =>
+const normalizeErrors = (errs: Record<string, any>) =>
   Object.fromEntries(
     Object.entries(errs || {}).map(([k, v]) => [
       k,
@@ -13,24 +13,19 @@ const normalizeErrors = (errs: Record<string, string[] | string>) =>
 interface Step {
   id: number;
   title: string;
-  Component: React.FC<{
-    inputDivData: { data: Record<string, unknown>; setData: (key: string, value: unknown) => void; errors: Record<string, string[]> };
-    data: Record<string, unknown>;
-    setData: (key: string, value: unknown) => void;
-    [key: string]: unknown;
-  }>;
+  Component: React.FC<any>;
 }
 
 interface FormWizardProps {
   title?: string;
   steps: Step[];
-  data: Record<string, unknown>;
-  setData: (key: string, value: unknown) => void;
-  errors: Record<string, string[]>;
+  data: any;
+  setData: (key: string, value: any) => void;
+  errors: Record<string, any>;
   processing: boolean;
   onPartialSave?: (stepIndex: number, stepKey: string, onFinish: (success: boolean) => void) => void;
   onSubmit: FormEventHandler;
-  extraProps?: Record<string, unknown>;
+  extraProps?: Record<string, any>;
 }
 
 export default function FormWizard({
@@ -60,7 +55,7 @@ export default function FormWizard({
         if (idx < steps.length - 1) setStep(idx + 1);
       }
     });
-  }, [steps, onPartialSave, setCompletedSteps, setStep]);
+  }, [onPartialSave, steps]);
 
   // ENTER key shortcut to trigger Save & Next
   useEffect(() => {

@@ -7,7 +7,7 @@ import HelpTooltip from './input-help-tool';
 
 export default function InputSelect({
     label,
-    name,
+    name = '',
     options,
     inputDivData,
     required,
@@ -15,10 +15,10 @@ export default function InputSelect({
     className,
     children,
 }: InputDivProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
-    const getOptionValue = (item: { id?: string | number; value?: string | number }) => item?.id ?? item?.value ?? item;
-    const getOptionLabel = (item: { title?: string; name?: string; id?: string | number; value?: string | number }) =>
+    const getOptionValue = (item: any) => item?.id ?? item?.value ?? item;
+    const getOptionLabel = (item: any) =>
         item?.title ?? item?.name ?? String(getOptionValue(item));
 
     return (
@@ -44,7 +44,7 @@ export default function InputSelect({
                 )}
             >
                 <option value="">Select an option</option>
-                {options?.map((item: { id?: string | number; value?: string | number; title?: string; name?: string }) => {
+                {options?.map((item: any) => {
                     const value = getOptionValue(item);
                     const label = getOptionLabel(item);
                     return (
@@ -56,7 +56,7 @@ export default function InputSelect({
                 {children}
             </select>
 
-            <InputError message={errors[name]?.[0]} />
+            <InputError message={errors?.[name]?.[0]} />
         </InputWrapper>
     );
 }

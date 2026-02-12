@@ -7,13 +7,13 @@ import { InputWrapper } from '../container/input-wrapper';
 
 export default function InputMultiSelect({
     label,
-    name,
+    name = '',
     inputDivData,
     options,
     required,
     className,
 }: InputDivProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
     const raw = data?.[name];
     const currentIds: string[] = Array.isArray(raw)
@@ -23,7 +23,7 @@ export default function InputMultiSelect({
           : [];
 
     const formattedOptions =
-        (options ?? []).map((o: { id: string | number; title: string }) => ({
+        (options ?? []).map((o: any) => ({
             value: String(o.id),
             label: String(o.title),
         })) ?? [];
@@ -83,7 +83,7 @@ export default function InputMultiSelect({
                 }}
             />
 
-            <InputError message={errors[name]?.[0]} />
+            <InputError message={errors?.[name]?.[0]} />
         </InputWrapper>
     );
 }

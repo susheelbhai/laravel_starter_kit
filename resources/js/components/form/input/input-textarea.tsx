@@ -7,14 +7,14 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputTextarea({
   label,
-  name,
+  name = '',
   inputDivData,
   required,
   readOnly,
   className,
   placeholder,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
   return (
     <InputWrapper className={className}>
@@ -37,7 +37,7 @@ export default function InputTextarea({
         rows={5}
         placeholder={placeholder || ""}
       />
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

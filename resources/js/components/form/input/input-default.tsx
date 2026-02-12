@@ -7,7 +7,7 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputDefault({
   label,
-  name,
+  name = '',
   inputDivData,
   type,
   readOnly,
@@ -15,7 +15,7 @@ export default function InputDefault({
   className,
   ...props
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
   return (
     <InputWrapper className={className}>
@@ -32,7 +32,7 @@ export default function InputDefault({
         className="bg-input-bg border-input-border text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:bg-input-focused-bg focus:text-input-focused-text"
         {...props}
       />
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

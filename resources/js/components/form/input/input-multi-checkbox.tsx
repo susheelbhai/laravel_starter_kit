@@ -6,13 +6,13 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputMultiCheckbox({
   label,
-  name,
+  name = '',
   inputDivData,
   options,
   required,
   className,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
   // normalize current value to array of strings
   const raw = data?.[name];
@@ -50,7 +50,7 @@ export default function InputMultiCheckbox({
       </Label>
 
       <div className="flex flex-col gap-2 border-2 border-input-border rounded-md p-3 bg-input-bg focus-within:bg-input-focused-bg focus-within:border-secondary/60 transition-colors">
-        {(options ?? []).map((option: { id?: string | number; value?: string | number; title?: string; name?: string }) => {
+        {(options ?? []).map((option: any) => {
           const value = String(option.id ?? option.value ?? option);
           const title = String(option.title ?? option.name ?? value);
           const checked = selectedValues.includes(value);
@@ -74,7 +74,7 @@ export default function InputMultiCheckbox({
         })}
       </div>
 
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

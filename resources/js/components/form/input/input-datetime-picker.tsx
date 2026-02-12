@@ -29,7 +29,7 @@ function combineDateTime(date: string, time: string) {
 
 export default function InputDateTimePicker({
     label,
-    name,
+    name = '',
     help,
     inputDivData,
     readOnly,
@@ -37,7 +37,7 @@ export default function InputDateTimePicker({
     placeholder = 'Select date & time',
     timeFormat = '24',
 }: InputDateTimePickerProps) {
-    const { data, setData } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
     const value = data[name] as string | undefined;
     const { date, time } = splitDateTime(value);
 
@@ -61,9 +61,9 @@ export default function InputDateTimePicker({
                     label={undefined}
                     name={name + '_date'}
                     inputDivData={{
-                        ...inputDivData,
                         data: { ...data, [name + '_date']: date },
                         setData: (_key: string, v: string) => handleDateChange(v),
+                        errors: errors,
                     }}
                     readOnly={readOnly}
                     className={className}
@@ -74,9 +74,9 @@ export default function InputDateTimePicker({
                     label={undefined}
                     name={name + '_time'}
                     inputDivData={{
-                        ...inputDivData,
                         data: { ...data, [name + '_time']: time },
                         setData: (_key: string, v: string) => handleTimeChange(v),
+                        errors: errors,
                     }}
                     readOnly={readOnly}
                     className={className}

@@ -8,14 +8,14 @@ import HelpTooltip from "./input-help-tool";
 
 export default function InputDate({
   label,
-  name,
+  name = '',
   type,
   help,
   inputDivData,
   readOnly,
   className,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Track whether we *think* the native picker is open
@@ -82,7 +82,7 @@ export default function InputDate({
           readOnly={readOnly}
           className="bg-input-bg border-input-border text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:bg-input-focused-bg focus:text-input-focused-text"
         />
-        <InputError message={errors[name]?.[0]} />
+        <InputError message={errors?.[name]?.[0]} />
       </div>
     </InputWrapper>
   );

@@ -41,12 +41,9 @@ function CustomTimeDropdown({
 
     // Only loop for hour/minute, not AM/PM
     const isPeriodDropdown = options.length === 2 && options[0].label === 'AM' && options[1].label === 'PM';
-    const infiniteOptions = useMemo(() => {
-        if (isPeriodDropdown) {
-            return options;
-        }
+    const infiniteOptions = isPeriodDropdown ? options : useMemo(() => {
         return [...options, ...options, ...options];
-    }, [options, isPeriodDropdown]);
+    }, [options]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -171,7 +168,7 @@ function CustomTimeDropdown({
 
 export default function InputTimePicker({
     label,
-    name,
+    name = '',
     help,
     inputDivData,
     readOnly,
@@ -179,7 +176,7 @@ export default function InputTimePicker({
     placeholder = 'Select time',
     timeFormat = '24',
 }: TimePickerProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
     const [isOpen, setIsOpen] = useState(false);
     const [lastValue, setLastValue] = useState('');
     const [hourDropdownOpen, setHourDropdownOpen] = useState(false);
@@ -416,7 +413,7 @@ export default function InputTimePicker({
                     </div>
                 </PopoverContent>
             </Popover>
-            <InputError message={errors[name]?.[0]} />
+            <InputError message={errors?.[name]?.[0]} />
         </InputWrapper>
     );
 }

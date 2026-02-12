@@ -6,14 +6,14 @@ import { InputWrapper } from "../container/input-wrapper";
 
 export default function InputImage({
   label,
-  name,
+  name = '',
   inputDivData,
   required,
   className,
   widthMultiplier = 2,
   heightMultiplier = 1,
 }: InputDivProps) {
-  const { data, setData, errors } = inputDivData;
+  const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
 
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [dragging, setDragging] = useState(false);
@@ -93,7 +93,7 @@ export default function InputImage({
         </div>
       </div>
 
-      <InputError message={errors[name]?.[0]} />
+      <InputError message={errors?.[name]?.[0]} />
     </InputWrapper>
   );
 }

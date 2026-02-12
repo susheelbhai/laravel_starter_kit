@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { cn } from '@/lib/utils';
 import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
 import Calendar from '../package/calendar';
@@ -14,12 +15,14 @@ interface InputDateTimePickerExpendedProps extends InputDivProps {
 
 export default function InputDateTimePickerExpended({
     label,
-    name,
+    name = '',
     help,
     inputDivData,
+    readOnly,
     className,
+    placeholder = 'Select date range',
 }: InputDateTimePickerExpendedProps) {
-    const { data, setData } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
     // Store as two fields: name + '_from', name + '_to'
     const from = data[name + '_from'] || undefined;
     const to = data[name + '_to'] || undefined;

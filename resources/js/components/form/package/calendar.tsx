@@ -19,8 +19,8 @@ interface CustomDropdownProps {
     value?: string | number | readonly string[];
     onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     options?: DropdownOption[];
-    components?: Record<string, unknown>;
-    classNames?: Record<string, string>;
+    components?: any;
+    classNames?: any;
 }
 
 function CustomDropdown({
@@ -77,6 +77,7 @@ function CustomDropdown({
             if (isScrollingRef.current) return;
 
             const scrollTop = container.scrollTop;
+            const scrollHeight = container.scrollHeight;
             const clientHeight = container.clientHeight;
 
             // If scrolled to top, jump to middle set
@@ -145,7 +146,7 @@ function CustomDropdown({
                                                 target: {
                                                     value: String(option.value),
                                                 },
-                                            } as React.ChangeEvent<HTMLSelectElement>;
+                                            } as any;
                                             onChange?.(event);
                                             setIsOpen(false);
                                         }

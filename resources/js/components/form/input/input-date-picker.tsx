@@ -17,14 +17,15 @@ import HelpTooltip from './input-help-tool';
 
 export default function InputDatePicker({
     label,
-    name,
+    name = '',
+    type,
     help,
     inputDivData,
     readOnly,
     className,
     placeholder,
 }: InputDivProps) {
-    const { data, setData, errors } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
     const [isOpen, setIsOpen] = useState(false);
     const [lastValue, setLastValue] = useState('');
 
@@ -204,7 +205,7 @@ export default function InputDatePicker({
                     </Popover>
                 </div>
 
-                <InputError message={errors[name]?.[0]} />
+                <InputError message={errors?.[name]?.[0]} />
             </div>
         </InputWrapper>
     );

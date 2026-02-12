@@ -17,14 +17,14 @@ function pad(num: number) {
 
 export default function InputClockTimePicker({
     label,
-    name,
+    name = '',
     help,
     inputDivData,
     readOnly,
     className,
     placeholder = 'Select time',
 }: InputClockTimePickerProps) {
-    const { data, setData } = inputDivData;
+    const { data, setData, errors } = inputDivData || { data: {}, setData: () => {}, errors: {} };
     const value = data[name] || '';
     const [isOpen, setIsOpen] = useState(false);
     const [hour, setHour] = useState<number | null>(null);
@@ -104,7 +104,7 @@ export default function InputClockTimePicker({
                                 setIsOpen(true);
                             }
                         }}
-                        onBlur={() => {
+                        onBlur={(e) => {
                             // Only close if focus is not moving to the clock popover
                             setTimeout(() => {
                                 const active = document.activeElement;

@@ -7,10 +7,7 @@ let tinyMceScriptPromise: Promise<void> | null = null;
 // Declare TinyMCE types for window object
 declare global {
     interface Window {
-        tinymce: {
-            init: (config: Record<string, unknown>) => void;
-            remove: (editor: unknown) => void;
-        };
+        tinymce: any;
     }
 }
 
@@ -29,6 +26,8 @@ interface TinyMceComponentProps {
     onChange: (data: string) => void;
     id?: string;
     height?: number;
+    uiColor?: string;
+    customEditorCss?: string; // Path to custom CSS file for editor UI styling
 }
 
 export default function TinyMceComponent({
@@ -36,9 +35,11 @@ export default function TinyMceComponent({
     onChange,
     id = 'tinymce1',
     height = TINYMCE_STYLES.defaultHeight,
+    uiColor,
+    customEditorCss
 }: TinyMceComponentProps) {
     const editorRef = useRef<HTMLTextAreaElement>(null);
-    const editorInstanceRef = useRef<{ getContent: () => string; setContent: (content: string) => void } | null>(null);
+    const editorInstanceRef = useRef<any>(null);
 
     // Initialize TinyMCE only once
     useEffect(() => {
@@ -192,7 +193,7 @@ export default function TinyMceComponent({
                     ],
                     toolbar:
                         'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-                    setup: (editor: { getContent: () => string; setContent: (content: string) => void; on: (event: string, callback: () => void) => void }) => {
+                    setup: (editor: any) => {
                         editorInstanceRef.current = editor;
                         editor.on('Change KeyUp', () => {
                             onChange(editor.getContent());
