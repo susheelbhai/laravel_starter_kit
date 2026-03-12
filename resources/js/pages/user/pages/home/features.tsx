@@ -1,4 +1,4 @@
-import { Container } from "@/components/ui/container";
+import { Container } from "@/components/ui/layout/container";
 
 interface FeatureData {
     why_us_heading: string;
@@ -31,7 +31,7 @@ export default function FeatureSection({ data }: { data: FeatureData }) {
                     <img
                         src={data?.why_us_image_converted.medium}
                         alt="About"
-                        className="w-full rounded-md"
+                        className="w-full rounded-div"
                     />
                 </div>
             </Container>

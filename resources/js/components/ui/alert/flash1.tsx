@@ -24,7 +24,7 @@ export function FlashMessage({ type, message, onClose }: FlashMessageProps) {
                 right-6 
                 z-[9999]
                 flex items-center justify-between
-                gap-3 rounded-md border px-8 py-6 text-sm shadow-lg
+                gap-3 rounded-div border px-8 py-6 text-sm shadow-lg
                 w-auto max-w-[320px]
                 ${colorClasses[type]}
             `}

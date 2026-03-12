@@ -6,12 +6,12 @@ import { useState } from 'react';
 import ContinueWithSocial from '@/components/auth/ContinueWithSocial';
 import ContinueWithText from '@/components/auth/ContinueWithText';
 import { FormContainer } from '@/components/form/container/form-container';
-import InputError from '@/components/input-error';
-import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button-old';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import InputError from '@/components/form/input/input-error';
+import TextLink from '@/components/ui/button/text-link';
+import { Button } from '@/components/ui/button/button-old';
+import { Checkbox } from '@/components/form/input/checkbox';
+import { Input } from '@/components/form/input/input';
+import { Label } from '@/components/form/input/label';
 import AuthLayout from '@/layouts/partner/auth-layout';
 
 type LoginForm = {

@@ -1,6 +1,6 @@
 import { X, Loader2 } from 'lucide-react';
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button/button';
 import { useFormHandler } from '@/lib/use-form-handler';
 
 interface ProductEnquiryModalProps {
@@ -45,7 +45,7 @@ export default function ProductEnquiryModal({
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-            <div className="relative w-full max-w-md rounded-lg bg-background p-6 shadow-xl">
+            <div className="relative w-full max-w-md rounded-div bg-background p-6 shadow-xl">
                 {/* Close Button */}
                 <button
                     onClick={onClose}

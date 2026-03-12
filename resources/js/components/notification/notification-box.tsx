@@ -18,7 +18,7 @@ export default function NotificationBox({
     handleSeeAll: () => void 
 }) {
     return (
-        <div className="absolute right-0 mt-2 w-80 bg-card border border-border rounded-lg shadow-lg z-50">
+        <div className="absolute right-0 mt-2 w-80 bg-card border border-border rounded-div shadow-lg z-50">
             <div className="p-4 border-b font-semibold text-card-foreground">Unread Notifications</div>
             <ul className="max-h-72 overflow-y-auto divide-y divide-border">
                 {(!unreadNotifications || unreadNotifications.length === 0) && (

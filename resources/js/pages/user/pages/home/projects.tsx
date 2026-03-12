@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 interface ProjectData {
     image: string;
     title: string;
@@ -19,7 +19,7 @@ export default function ProjectSection({data}: {data: ProjectData[]}) {
                     {data.map((project: ProjectData, i: number) => (
                         <div
                             key={i}
-                            className="overflow-hidden rounded-lg bg-card shadow transition hover:shadow-lg"
+                            className="overflow-hidden rounded-div bg-card shadow transition hover:shadow-lg"
                         >
                             <img
                                 src={project.image}

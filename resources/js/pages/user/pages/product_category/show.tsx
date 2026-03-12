@@ -1,5 +1,5 @@
 import { usePage } from "@inertiajs/react";
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 
 import AppLayout from "@/layouts/user/app-layout";
 import ProductDescription from "../product/components/product-description";
@@ -36,7 +36,7 @@ export default function ProductCategoryShow() {
             <div className="flex flex-row items-center justify-center w-full max-w-5xl gap-8">
               {/* Icon left */}
               {category.icon && (
-                <div className="hidden md:flex items-center justify-center h-32 w-32 rounded-2xl bg-white/80 shadow-lg overflow-hidden">
+                <div className="hidden md:flex items-center justify-center h-32 w-32 rounded-div bg-white/80 shadow-lg overflow-hidden">
                   <img
                     src={category.icon}
                     alt={category.title}

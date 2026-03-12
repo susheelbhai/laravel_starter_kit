@@ -7,7 +7,7 @@ import {
   FaXTwitter,
   FaYoutube,
 } from "react-icons/fa6";
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 import type { SharedData } from '@/types';
 
 interface AppData {
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
 
           {/* Section 2: Important Links */}
           <div>
-            <h2 className="mb-4 text-base font-semibold tracking-wide text-foreground">
+            <h2 className="mb-4 text-base font-semibold tracking-wide text-footer-foreground">
               Important Links
             </h2>
             <ul className="space-y-2 text-sm">
@@ -118,7 +118,7 @@ const Footer: React.FC = () => {
 
           {/* Section 3: Social + Visitors */}
           <div className="space-y-4">
-            <h2 className="mb-2 text-base font-semibold tracking-wide text-foreground">
+            <h2 className="mb-2 text-base font-semibold tracking-wide text-footer-foreground">
               Connect With Us
             </h2>
             <div className="flex flex-wrap items-center gap-3">
@@ -177,7 +177,7 @@ const Footer: React.FC = () => {
             {/* Visitor Stats */}
             {/* 
             <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
-              <div className="rounded-xl border border-border bg-card/60 px-3 py-2.5">
+              <div className="rounded-div border border-border bg-card/60 px-3 py-2.5">
                 <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
                   Total Visitors
                 </p>
@@ -185,7 +185,7 @@ const Footer: React.FC = () => {
                   {visitors.total}
                 </p>
               </div>
-              <div className="rounded-xl border border-border bg-card/60 px-3 py-2.5">
+              <div className="rounded-div border border-border bg-card/60 px-3 py-2.5">
                 <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
                   Today&apos;s Visitors
                 </p>

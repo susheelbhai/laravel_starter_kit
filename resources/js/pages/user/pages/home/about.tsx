@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 
 interface AboutData {
     about_image_converted: {
@@ -16,7 +16,7 @@ export default function AboutSection({ data }: { data: AboutData }) {
                     <img
                         src={data?.about_image_converted.medium}
                         alt="About"
-                        className="w-full rounded-md"
+                        className="w-full rounded-div"
                     />
                 </div>
                 <div>

@@ -49,7 +49,7 @@ export default function Show() {
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title={`Gallery - ${item.title}`} />
 
-            <div className="overflow-hidden rounded-lg bg-white shadow-md">
+            <div className="overflow-hidden rounded-div bg-white shadow-md">
                 <GalleryHeader item={item} />
 
                 {/* Images Gallery */}

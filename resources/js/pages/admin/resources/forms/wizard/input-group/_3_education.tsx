@@ -60,13 +60,13 @@ export default function Education({ inputDivData, data, setData }: Props) {
         >
             <h1 className="text-lg font-semibold"> Courses </h1>
             {courses.map((course, index) => (
-                <div key={index} className="my-3 rounded-md bg-green-50 p-4">
+                <div key={index} className="my-3 rounded-div bg-green-50 p-4">
                     <div className="text-right">
                         {courses.length > 1 && (
                         <button
                             type="button"
                             onClick={() => removeOrganiser(index)}
-                            className="text-xl bg-red-500 hover:bg-red-700 px-3 py-1 text-white rounded-sm cursor-pointer"
+                            className="text-xl bg-red-500 hover:bg-red-700 px-3 py-1 text-white rounded-div cursor-pointer"
                         >
                             &times;
                         </button>
@@ -136,7 +136,7 @@ export default function Education({ inputDivData, data, setData }: Props) {
             <button
                 type="button"
                 onClick={addOrganiser}
-                className="mt-2 text-sm bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white rounded-md cursor-pointer"
+                className="mt-2 text-sm bg-blue-600 hover:bg-blue-800 px-4 py-2 text-white rounded-div cursor-pointer"
             >
                 + Add New Course
             </button>

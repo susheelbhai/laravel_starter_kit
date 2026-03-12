@@ -1,5 +1,5 @@
 import { Link, usePage } from "@inertiajs/react";
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from "@/layouts/user/app-layout";
 
 interface ServiceData {
@@ -50,10 +50,10 @@ export default function Services() {
                 href={route("serviceDetail", service.slug)}
                 className="group block"
               >
-                <div className="h-full rounded-2xl bg-card p-6 shadow-sm ring-1 ring-border transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="h-full rounded-div bg-card p-6 shadow-sm ring-1 ring-border transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   {/* Image/Icon */}
                   {service.display_img && (
-                    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 p-2 shadow-sm">
+                    <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-div bg-primary/10 p-2 shadow-sm">
                       <img
                         src={service.display_img}
                         alt={service.title}

@@ -1,6 +1,6 @@
 import React from "react";
-import InputError from "@/components/input-error";
-import { Label } from "@/components/ui/label";
+import InputError from "@/components/form/input/input-error";
+import { Label } from "@/components/form/input/label";
 import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
 
@@ -36,7 +36,7 @@ export default function InputCheckbox({
             h-5 w-5
             accent-secondary
             border-2 border-input-border
-            rounded-md
+            rounded-div
             cursor-pointer
             appearance-auto
             checked:bg-secondary checked:border-input-border

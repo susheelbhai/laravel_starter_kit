@@ -38,7 +38,7 @@ export default function PreviewAwards({ data }: { data: Record<string, unknown> 
                         {awards.map((award: Record<string, unknown>, i: number) => (
                             <div
                                 key={i}
-                                className="rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm"
+                                className="rounded-div border border-gray-200 bg-gray-50 p-4 shadow-sm"
                             >
                                 <h4 className="font-semibold text-base text-gray-800 mb-1">
                                     {(award.title as string) || `Award ${i + 1}`}

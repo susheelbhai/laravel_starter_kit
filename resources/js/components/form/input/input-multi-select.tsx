@@ -1,7 +1,7 @@
 import type { MultiValue } from 'react-select';
 import Select from 'react-select';
-import InputError from '@/components/input-error';
-import { Label } from '@/components/ui/label';
+import InputError from '@/components/form/input/input-error';
+import { Label } from '@/components/form/input/label';
 import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
 
@@ -54,7 +54,7 @@ export default function InputMultiSelect({
                     setData(name, ids);
                 }}
                 placeholder="Select…"
-                className="react-select-container rounded-md border-2 border-input-border"
+                className="react-select-container rounded-div border-2 border-input-border"
                 classNamePrefix="react-select"
                 menuPortalTarget={document.body}
                 styles={{

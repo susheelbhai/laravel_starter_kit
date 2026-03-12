@@ -92,7 +92,7 @@ export default function BasicDetails({ inputDivData }: WizardComponentProps) {
                         Upload an image (3:4 aspect ratio) for your profile pic.
                         <br /> <br />
                         <label
-                            className="cursor-pointer rounded-lg bg-indigo-300 p-2 text-sm font-medium text-gray-700"
+                            className="cursor-pointer rounded-div bg-indigo-300 p-2 text-sm font-medium text-gray-700"
                             htmlFor="logo"
                         >
                             Upload Logo

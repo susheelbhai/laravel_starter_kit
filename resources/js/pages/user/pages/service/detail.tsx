@@ -1,5 +1,5 @@
 import { usePage } from '@inertiajs/react';
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from '@/layouts/user/app-layout';
 
 interface ServiceDetailData {
@@ -37,7 +37,7 @@ export default function Create() {
                             <img
                                 src={`${service.display_img}`}
                                 alt={service.title}
-                                className="mb-4 w-full rounded-xl shadow"
+                                className="mb-4 w-full rounded-div shadow"
                             />
                         )}
 
@@ -82,7 +82,7 @@ export default function Create() {
                     </div>
 
                     {/* Sidebar */}
-                    <div className="space-y-4 rounded-xl bg-sidebar border border-sidebar-border p-6 shadow">
+                    <div className="space-y-4 rounded-div bg-sidebar border border-sidebar-border p-6 shadow">
                         <h3 className="mb-2 text-xl font-semibold text-sidebar-foreground">
                             Why Choose This Service
                         </h3>
@@ -91,7 +91,7 @@ export default function Create() {
                                 <li key={index}>{feature}</li>
                             ))}
                         </ul>
-                        <button className="mt-6 w-full rounded-md bg-sidebar-primary py-2 text-sidebar-primary-foreground transition hover:bg-sidebar-primary/90">
+                        <button className="mt-6 w-full rounded-div bg-sidebar-primary py-2 text-sidebar-primary-foreground transition hover:bg-sidebar-primary/90">
                             Book Now
                         </button>
                     </div>

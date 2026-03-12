@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from '@/layouts/user/app-layout';
 
 interface BlogData {
@@ -28,7 +28,7 @@ export default function Create() {
                     <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
                         {blogs.map((blog: BlogData) => (
                             <Link href={route('blog.show', blog.slug)} className="group" key={blog.id}>
-                                <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl flex flex-col h-full">
+                                <div className="rounded-div border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl flex flex-col h-full">
                                     {blog.display_img && (
                                         <div className="mb-4 flex justify-center">
                                             <img src={`${blog.display_img}`} alt={blog.title} className="h-32 w-32 object-cover rounded-full border-4 border-primary shadow-md group-hover:scale-105 transition-transform duration-200" />

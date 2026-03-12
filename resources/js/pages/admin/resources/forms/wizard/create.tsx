@@ -1,9 +1,9 @@
 import { useForm, usePage } from '@inertiajs/react';
 import type { FormEventHandler} from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Container } from '@/components/ui/container';
-import { ContainerFluid } from '@/components/ui/container-fluid';
+import { Button } from '@/components/ui/button/button';
+import { Container } from '@/components/ui/layout/container';
+import { ContainerFluid } from '@/components/ui/layout/container-fluid';
 import AppLayout from '@/layouts/admin/app-layout';
 import type { SharedData } from '@/types';
 
@@ -107,7 +107,7 @@ export default function EditEvent() {
                     </h1>
 
                     {/* Step Tabs */}
-                    <div className="mb-6 flex overflow-hidden rounded-md bg-[#fdf8f2]">
+                    <div className="mb-6 flex overflow-hidden rounded-div bg-[#fdf8f2]">
                         {steps.map((s, idx) => {
                             let classes =
                                 'flex-1 border-r border-white p-3 text-sm font-medium last:border-r-0 ';

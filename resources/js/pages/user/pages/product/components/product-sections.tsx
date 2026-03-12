@@ -16,7 +16,7 @@ export default function ProductSections({
     return (
         <div className="space-y-8">
             {description && (
-                <section className="rounded-lg border border-gray-200 p-6">
+                <section className="rounded-div border border-gray-200 p-6">
                     <h2 className="mb-4 text-2xl font-bold text-foreground">
                         Overview
                     </h2>
@@ -30,7 +30,7 @@ export default function ProductSections({
             )}
 
             {longDescription2 && (
-                <section className="rounded-lg border border-gray-200 p-6">
+                <section className="rounded-div border border-gray-200 p-6">
                     <h2 className="mb-4 text-2xl font-bold text-foreground">
                         How It Works
                     </h2>
@@ -44,7 +44,7 @@ export default function ProductSections({
             )}
 
             {longDescription3 && (
-                <section className="rounded-lg border border-gray-200 p-6">
+                <section className="rounded-div border border-gray-200 p-6">
                     <h2 className="mb-4 text-2xl font-bold text-foreground">
                         Why Choose Us
                     </h2>

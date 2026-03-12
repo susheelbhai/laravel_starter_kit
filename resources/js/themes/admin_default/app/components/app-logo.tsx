@@ -1,5 +1,5 @@
 import { usePage } from '@inertiajs/react';
-import { useSidebar } from '@/components/ui/sidebar';
+import { useSidebar } from '@/components/ui/layout/sidebar';
 import { useAppearance } from '@/hooks/use-appearance';
 
 interface AppData {

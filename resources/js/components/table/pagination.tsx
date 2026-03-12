@@ -26,7 +26,7 @@ export default function Pagination({ data }: PaginationProps) {
                 {data.prev_page_url && (
                     <Link
                         href={data.prev_page_url}
-                        className="relative inline-flex items-center rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-muted"
+                        className="relative inline-flex items-center rounded-div border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-muted"
                     >
                         Previous
                     </Link>
@@ -34,7 +34,7 @@ export default function Pagination({ data }: PaginationProps) {
                 {data.next_page_url && (
                     <Link
                         href={data.next_page_url}
-                        className="relative ml-3 inline-flex items-center rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-muted"
+                        className="relative ml-3 inline-flex items-center rounded-div border border-border bg-background px-4 py-2 text-sm font-medium text-foreground hover:bg-muted"
                     >
                         Next
                     </Link>
@@ -49,7 +49,7 @@ export default function Pagination({ data }: PaginationProps) {
                     </p>
                 </div>
                 <div>
-                    <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+                    <nav className="isolate inline-flex -space-x-px rounded-div shadow-sm" aria-label="Pagination">
                         {data.links.map((link, index) => (
                             <Link
                                 key={index}

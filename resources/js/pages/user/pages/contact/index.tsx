@@ -2,8 +2,8 @@ import { usePage } from '@inertiajs/react';
 import { Clock, LoaderCircle, Mail, MapPin, Phone } from 'lucide-react';
 
 import { InputDiv } from '@/components/form/container/input-div';
-import { Button } from '@/components/ui/button';
-import { Container } from '@/components/ui/container';
+import { Button } from '@/components/ui/button/button';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from '@/layouts/user/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { SharedData } from '@/types';
@@ -76,7 +76,7 @@ export default function Create() {
                     </div>
 
                     {/* Main Card */}
-                    <div className="grid gap-10 rounded-3xl bg-card p-6 shadow-[0_24px_60px_rgba(0,0,0,0.08)] ring-1 ring-border md:grid-cols-5 md:p-8 lg:p-10">
+                    <div className="grid gap-10 rounded-div bg-card p-6 shadow-[0_24px_60px_rgba(0,0,0,0.08)] ring-1 ring-border md:grid-cols-5 md:p-8 lg:p-10">
                         {/* Left: Contact Info */}
                         <div className="space-y-6 border-b border-border pb-6 md:col-span-2 md:border-r md:border-b-0 md:pr-8 md:pb-0">
                             <h2 className="text-xl font-semibold">
@@ -89,8 +89,8 @@ export default function Create() {
 
                             <div className="space-y-4">
                                 {/* Phone */}
-                                <div className="flex gap-3 rounded-2xl bg-muted/80 p-3.5">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
+                                <div className="flex gap-3 rounded-div bg-muted/80 p-3.5">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-div bg-primary/10">
                                         <Phone className="h-5 w-5 text-primary" />
                                     </div>
                                     <div>
@@ -107,8 +107,8 @@ export default function Create() {
                                 </div>
 
                                 {/* Email */}
-                                <div className="flex gap-3 rounded-2xl bg-muted/80 p-3.5">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
+                                <div className="flex gap-3 rounded-div bg-muted/80 p-3.5">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-div bg-primary/10">
                                         <Mail className="h-5 w-5 text-primary" />
                                     </div>
                                     <div>
@@ -125,8 +125,8 @@ export default function Create() {
                                 </div>
 
                                 {/* Address */}
-                                <div className="flex gap-3 rounded-2xl bg-muted/80 p-3.5">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
+                                <div className="flex gap-3 rounded-div bg-muted/80 p-3.5">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-div bg-primary/10">
                                         <MapPin className="h-5 w-5 text-primary" />
                                     </div>
                                     <div>
@@ -140,8 +140,8 @@ export default function Create() {
                                 </div>
 
                                 {/* Working Hours */}
-                                <div className="flex gap-3 rounded-2xl bg-muted/80 p-3.5">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/10">
+                                <div className="flex gap-3 rounded-div bg-muted/80 p-3.5">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-div bg-primary/10">
                                         <Clock className="h-5 w-5 text-primary" />
                                     </div>
                                     <div>
@@ -217,7 +217,7 @@ export default function Create() {
                                 <div className="pt-2">
                                     <Button
                                         type="submit"
-                                        className="relative mt-2 flex w-full items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow hover:bg-accent/90 disabled:opacity-70 md:w-auto"
+                                        className="relative mt-2 flex w-full items-center justify-center gap-2 rounded-div bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow hover:bg-accent/90 disabled:opacity-70 md:w-auto"
                                         tabIndex={4}
                                         disabled={processing1}
                                     >
@@ -238,7 +238,7 @@ export default function Create() {
                         <h3 className="mb-3 text-base font-semibold">
                             Find us on the map
                         </h3>
-                        <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_20px_45px_rgba(0,0,0,0.08)]">
+                        <div className="overflow-hidden rounded-div border border-border bg-card shadow-[0_20px_45px_rgba(0,0,0,0.08)]">
                             <iframe
                                 src={contactData.map_embad_url}
                                 width="100%"

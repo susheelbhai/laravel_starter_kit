@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import InputError from "@/components/input-error";
-import { Label } from "@/components/ui/label";
+import InputError from "@/components/form/input/input-error";
+import { Label } from "@/components/form/input/label";
 import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
 
@@ -118,7 +118,7 @@ export default function InputMultiImage({
         onDragLeave={() => setDragging(false)}
         onDrop={handleDrop}
         className={`relative cursor-pointer flex items-center justify-center overflow-hidden 
-          rounded-md border-2 border-dashed transition-colors
+          rounded-div border-2 border-dashed transition-colors
           ${dragging ? "border-secondary bg-input-focused-bg" : "border-input-border bg-input-bg hover:bg-input-hover-bg"}`}
         style={{ height, width, maxWidth: "100%" }}
       >
@@ -141,7 +141,7 @@ export default function InputMultiImage({
           {previews.map((url, idx) => (
             <div
               key={idx}
-              className="relative group rounded-md overflow-hidden border border-input-border"
+              className="relative group rounded-div overflow-hidden border border-input-border"
               style={{ width: "100%", height: "100px" }}
             >
               <img

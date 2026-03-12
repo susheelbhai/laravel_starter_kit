@@ -1,7 +1,7 @@
 import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Container } from "@/components/ui/container";
+import { Container } from "@/components/ui/layout/container";
 import AuthSection from "./auth-section";
 import type { SharedData } from '@/types';
 
@@ -98,7 +98,7 @@ export default function Header({
                             <Link
                                 key={item.name}
                                 href={route(item.routeName)}
-                                className="rounded-lg px-3 py-2 transition-colors hover:bg-muted hover:text-primary"
+                                className="rounded-div px-3 py-2 transition-colors hover:bg-muted hover:text-primary"
                                 onClick={() => setMenuOpen(false)}
                             >
                                 {item.name}

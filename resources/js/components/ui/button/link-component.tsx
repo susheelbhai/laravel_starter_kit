@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
-import TextLink from '@/components/text-link';
+import TextLink from '@/components/ui/button/text-link';
 import { SizeIt } from './button-styles';
 
 export function LinkComponent({

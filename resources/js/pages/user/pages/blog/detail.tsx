@@ -1,5 +1,5 @@
 import { usePage } from '@inertiajs/react';
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from '@/layouts/user/app-layout';
 
 interface BlogDetailData {
@@ -35,7 +35,7 @@ export default function Create() {
                 <Container className="grid grid-cols-1 gap-10 py-16 md:grid-cols-3">
                     <div className="space-y-6 md:col-span-2">
                         {/* Image */}
-                        {blog.display_img && <img src={blog.display_img} alt={blog.title} className="mb-4 w-full rounded-xl shadow" />}
+                        {blog.display_img && <img src={blog.display_img} alt={blog.title} className="mb-4 w-full rounded-div shadow" />}
 
                         {/* Short Description */}
                         <p className="text-lg text-muted-foreground">{blog.short_description}</p>
@@ -56,11 +56,11 @@ export default function Create() {
 
                     {/* Sidebar */}
                     <div className="right">
-                        <a href={blog.ad_url} target='_blank' className="space-y-4 rounded-xl bg-background2 shadow mb-6 overflow-hidden block">
+                        <a href={blog.ad_url} target='_blank' className="space-y-4 rounded-div bg-background2 shadow mb-6 overflow-hidden block">
                             <img src={blog.ad_img} alt="" />
                         </a>
 
-                        <div className="space-y-4 rounded-xl bg-sidebar border border-sidebar-border p-6 shadow">
+                        <div className="space-y-4 rounded-div bg-sidebar border border-sidebar-border p-6 shadow">
                             <h3 className="mb-2 text-xl font-semibold text-sidebar-foreground">Related Blogs</h3>
                             <ul className="list-inside list-disc space-y-2 text-sm text-sidebar-foreground">
                                 {blog.related_blogs?.map((related_blog: BlogDetailData['related_blogs'][0]) => (

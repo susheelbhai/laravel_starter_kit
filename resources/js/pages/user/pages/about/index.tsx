@@ -1,6 +1,6 @@
 import { usePage } from "@inertiajs/react";
 import { Target, Flag, Eye, Quote } from "lucide-react";
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 
 import AppLayout from "@/layouts/user/app-layout";
 
@@ -48,7 +48,7 @@ export default function Create() {
         {/* Main Content */}
         <Container className="py-10 md:py-14">
           {/* Intro card */}
-          <div className="rounded-3xl bg-card/90 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.08)] ring-1 ring-border md:p-8 lg:p-10">
+          <div className="rounded-div bg-card/90 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.08)] ring-1 ring-border md:p-8 lg:p-10">
             {/* Intro paragraphs */}
             <div className="space-y-6 text-sm leading-relaxed text-muted-foreground md:text-base">
               <div dangerouslySetInnerHTML={{ __html: data.para1 }} />
@@ -62,8 +62,8 @@ export default function Create() {
               </h2>
               <div className="grid gap-6 md:grid-cols-3">
                 {/* Objective */}
-                <div className="group rounded-2xl bg-muted p-5 shadow-sm ring-1 ring-border transition hover:-translate-y-1 hover:shadow-md">
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-card shadow-sm">
+                <div className="group rounded-div bg-muted p-5 shadow-sm ring-1 ring-border transition hover:-translate-y-1 hover:shadow-md">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-div bg-card shadow-sm">
                     <Target className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="mb-2 text-base font-semibold">
@@ -77,8 +77,8 @@ export default function Create() {
                 </div>
 
                 {/* Mission */}
-                <div className="group rounded-2xl bg-muted p-5 shadow-sm ring-1 ring-border transition hover:-translate-y-1 hover:shadow-md">
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-card shadow-sm">
+                <div className="group rounded-div bg-muted p-5 shadow-sm ring-1 ring-border transition hover:-translate-y-1 hover:shadow-md">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-div bg-card shadow-sm">
                     <Flag className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="mb-2 text-base font-semibold">
@@ -90,8 +90,8 @@ export default function Create() {
                 </div>
 
                 {/* Vision */}
-                <div className="group rounded-2xl bg-muted p-5 shadow-sm ring-1 ring-border transition hover:-translate-y-1 hover:shadow-md">
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-card shadow-sm">
+                <div className="group rounded-div bg-muted p-5 shadow-sm ring-1 ring-border transition hover:-translate-y-1 hover:shadow-md">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-div bg-card shadow-sm">
                     <Eye className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="mb-2 text-base font-semibold">
@@ -105,7 +105,7 @@ export default function Create() {
             </div>
 
             {/* Founder Section */}
-            <div className="mt-12 rounded-3xl bg-muted p-6 ring-1 ring-border md:flex md:items-center md:gap-8 md:p-7 lg:p-8">
+            <div className="mt-12 rounded-div bg-muted p-6 ring-1 ring-border md:flex md:items-center md:gap-8 md:p-7 lg:p-8">
               <div className="mx-auto mb-6 flex flex-col items-center md:mb-0 md:items-start">
                 <div className="relative">
                   {/* Brand-ish glow using accent/primary tones */}

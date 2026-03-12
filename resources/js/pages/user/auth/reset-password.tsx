@@ -2,9 +2,9 @@ import { Head, useForm } from '@inertiajs/react';
 import type { FormEventHandler } from 'react';
 
 import { FormContainer } from '@/components/form/container/form-container';
-import InputError from '@/components/input-error';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import InputError from '@/components/form/input/input-error';
+import { Input } from '@/components/form/input/input';
+import { Label } from '@/components/form/input/label';
 import AuthLayout from '@/layouts/user/auth-layout';
 
 interface ResetPasswordProps {

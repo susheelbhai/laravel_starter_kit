@@ -1,8 +1,8 @@
 import { format } from 'date-fns';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Button } from '@/components/ui/button/button';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/overlay/popover';
 import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
 import Calendar from '../package/calendar';
@@ -80,7 +80,7 @@ export default function InputDateRangePicker({
                         mode="range"
                         selected={range}
                         onSelect={handleSelect}
-                        className="rounded-lg border bg-background p-2"
+                        className="rounded-div border bg-background p-2"
                         initialFocus
                     />
                 </PopoverContent>

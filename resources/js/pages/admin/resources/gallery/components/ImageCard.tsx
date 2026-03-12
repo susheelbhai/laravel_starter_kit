@@ -49,12 +49,12 @@ export function ImageCard({
     const urls = getConversionUrls(media);
 
     return (
-        <div className="rounded-lg border p-4">
+        <div className="rounded-div border p-4">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                 {/* Image Preview */}
                 <div>
                     <div
-                        className="aspect-square cursor-pointer overflow-hidden rounded-lg bg-gray-100 transition-opacity hover:opacity-90"
+                        className="aspect-square cursor-pointer overflow-hidden rounded-div bg-gray-100 transition-opacity hover:opacity-90"
                         onClick={() => onFullscreen(media.original_url)}
                     >
                         <img

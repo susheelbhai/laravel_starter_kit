@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 interface TestimonialData {
     id: number;
     name: string;
@@ -22,7 +22,7 @@ export default function TestimonialSection(data: { data: TestimonialData[] }) {
                     {data.data.map((testimonial: TestimonialData) => (
                         <div
                             key={testimonial.id}
-                            className="rounded-lg bg-card p-8 shadow transition hover:shadow-lg"
+                            className="rounded-div bg-card p-8 shadow transition hover:shadow-lg"
                         >
                             <img
                                 src={`${testimonial.image}`}

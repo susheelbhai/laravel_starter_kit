@@ -35,7 +35,7 @@ export default function PreviewImages({ label, urls, single = false }: PreviewIm
                 <img
                     src={imageUrls[0]}
                     alt={label}
-                    className="w-40 h-40 rounded-lg object-cover border"
+                    className="w-40 h-40 rounded-div object-cover border"
                 />
             ) : (
                 <div className="flex flex-wrap gap-3">
@@ -44,7 +44,7 @@ export default function PreviewImages({ label, urls, single = false }: PreviewIm
                             key={i}
                             src={url}
                             alt={`${label} ${i + 1}`}
-                            className="w-32 h-20 rounded-lg object-cover border"
+                            className="w-32 h-20 rounded-div object-cover border"
                         />
                     ))}
                 </div>

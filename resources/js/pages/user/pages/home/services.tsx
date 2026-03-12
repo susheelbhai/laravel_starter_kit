@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 interface ServiceData {
     title: string;
     desc: string;
@@ -21,7 +21,7 @@ export default function ServicesSection(data: { data: ServiceData[] }) {
                     {data.data.map((service: ServiceData, i: number) => (
                         <div
                             key={i}
-                            className="rounded-lg bg-card p-8 shadow transition hover:shadow-lg"
+                            className="rounded-div bg-card p-8 shadow transition hover:shadow-lg"
                         >
                             <img
                                 src={`${service.display_img_converted.thumb}`}

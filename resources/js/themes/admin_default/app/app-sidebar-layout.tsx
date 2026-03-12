@@ -1,7 +1,7 @@
 import { type PropsWithChildren } from "react";
-import { AppContent } from "@/components/app-content";
-import { AppShell } from "@/components/app-shell";
-import FlashMessageHandler from "@/components/FlashMessageHandler";
+import { AppContent } from "@/components/layout/app-content";
+import { AppShell } from "@/components/layout/app-shell";
+import FlashMessageHandler from "@/components/ui/feedback/FlashMessageHandler";
 import { AppSidebar } from "@/themes/admin_default/app/components/app-sidebar";
 import { AppSidebarHeader } from "@/themes/admin_default/app/components/app-sidebar-header";
 import { type BreadcrumbItem } from "@/types";

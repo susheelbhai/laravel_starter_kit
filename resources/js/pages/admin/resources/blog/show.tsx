@@ -6,7 +6,7 @@ import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
-import Button from '@/components/ui/button';
+import Button from '@/components/ui/button/button';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

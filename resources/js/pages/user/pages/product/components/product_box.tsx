@@ -43,7 +43,7 @@ export default function ProductSection({ products }: ProductSectionProps) {
         )}
       </div>
       {!hasProducts ? (
-        <div className="rounded-3xl border-2 border-dashed border-border bg-linear-to-br from-card to-muted px-8 py-16 text-center shadow-sm">
+        <div className="rounded-div border-2 border-dashed border-border bg-linear-to-br from-card to-muted px-8 py-16 text-center shadow-sm">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
             <span className="text-3xl">🎯</span>
           </div>
@@ -66,7 +66,7 @@ export default function ProductSection({ products }: ProductSectionProps) {
                 href={route("product.show", item.slug)}
                 className="group block"
               >
-                <div className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-card shadow-lg border border-border/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/50">
+                <div className="relative flex h-full flex-col overflow-hidden rounded-div bg-card shadow-lg border border-border/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/50">
                   {image && (
                     <div className="relative h-56 w-full overflow-hidden bg-muted">
                       <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

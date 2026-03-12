@@ -2,7 +2,7 @@ import { usePage } from '@inertiajs/react';
 
 import { FormContainer } from '@/components/form/container/form-container';
 import { InputDiv } from '@/components/form/container/input-div';
-import { ContainerFluid } from '@/components/ui/container-fluid';
+import { ContainerFluid } from '@/components/ui/layout/container-fluid';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import type { SharedData } from '@/types';

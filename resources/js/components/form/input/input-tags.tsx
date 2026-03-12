@@ -1,8 +1,8 @@
 import { X } from 'lucide-react';
 import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
-import InputError from '@/components/input-error';
-import { Label } from '@/components/ui/label';
+import InputError from '@/components/form/input/input-error';
+import { Label } from '@/components/form/input/label';
 import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
 
@@ -47,7 +47,7 @@ export default function InputTags(props: InputDivProps) {
                         {tags.map((tag, index) => (
                             <span
                                 key={index}
-                                className="inline-flex items-center gap-1 rounded-md bg-primary/10 px-3 py-1 text-sm text-primary"
+                                className="inline-flex items-center gap-1 rounded-div bg-primary/10 px-3 py-1 text-sm text-primary"
                             >
                                 {tag}
                                 <button
@@ -70,7 +70,7 @@ export default function InputTags(props: InputDivProps) {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder={placeholder || 'Type and press Enter'}
-                    className="w-full rounded-md border-2 bg-input-bg border-input-border px-3 py-2 text-sm text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:outline-none focus:border-secondary/60 focus:bg-input-focused-bg focus:text-input-focused-text"
+                    className="w-full rounded-div border-2 bg-input-bg border-input-border px-3 py-2 text-sm text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:outline-none focus:border-secondary/60 focus:bg-input-focused-bg focus:text-input-focused-text"
                 />
             </div>
 

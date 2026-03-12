@@ -71,8 +71,8 @@ export default function PreviewImportantDates({ data }: { data: Record<string, u
             {/* === Categories & Entry Fees === */}
             <PreviewSection title="Categories & Entry Fees" description="Competition categories with their respective entry fees and deadlines.">
                 {categories.length > 0 ? (
-                    <div className="overflow-x-auto rounded-lg border border-gray-200 bg-white shadow-sm">
-                        <table className="min-w-full divide-y divide-gray-200 rounded-lg">
+                    <div className="overflow-x-auto rounded-div border border-gray-200 bg-white shadow-sm">
+                        <table className="min-w-full divide-y divide-gray-200 rounded-div">
                             <thead className="bg-gray-50">
                                 <tr>
                                     <th className="px-6 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase">Category</th>

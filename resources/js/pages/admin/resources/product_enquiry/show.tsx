@@ -4,7 +4,7 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button/button';
 import AppLayout from '@/layouts/admin/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import { type BreadcrumbItem, type SharedData } from '@/types';

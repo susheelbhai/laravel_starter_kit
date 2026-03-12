@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import InputError from "@/components/input-error";
-import { Label } from "@/components/ui/label";
+import InputError from "@/components/form/input/input-error";
+import { Label } from "@/components/form/input/label";
 import type { InputDivProps } from "../container/input-types";
 import { InputWrapper } from "../container/input-wrapper";
 
@@ -57,7 +57,7 @@ export default function InputFile({
           }}
           onDragLeave={() => setDragging(false)}
           onDrop={handleDrop}
-          className={`relative flex h-32 w-150 cursor-pointer items-center justify-center overflow-hidden rounded-md border-2 border-dashed transition-colors ${
+          className={`relative flex h-32 w-150 cursor-pointer items-center justify-center overflow-hidden rounded-div border-2 border-dashed transition-colors ${
             dragging
               ? "border-blue-500 bg-blue-100"
               : "border-input-border bg-input-bg hover:bg-input-focused-bg"

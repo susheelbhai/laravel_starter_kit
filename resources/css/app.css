@@ -15,6 +15,10 @@
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
+    --radius-div: var(--radius-div);
+    --radius-input: var(--radius-input);
+    --radius-textarea: var(--radius-textarea);
+    --radius-button: var(--radius-button);
 
     --color-background: var(--background);
     --color-background2: var(--background2);
@@ -144,6 +148,10 @@
     --chart-5: #f97316;  /* orange-500 */
 
     --radius: 0.75rem;
+    --radius-div: 0rem;
+    --radius-input: .5rem;
+    --radius-textarea: .75rem;
+    --radius-button: 0.75rem;
 
     --input-bg: var(--color-card-bg);
     --input-text: var(--color-dark);
@@ -192,7 +200,7 @@
     --popover: var(--color-dark-bg);
     --popover-foreground: var(--color-dark-text);
 
-    --primary: #0212AC;              /* deep blue primary in dark */
+    --primary: #38BDF8;              /* deep blue primary in dark */
     --primary-foreground: var(--color-dark-text);
 
     --secondary: #F38F02;            /* orange */

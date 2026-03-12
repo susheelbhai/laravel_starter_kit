@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/form/input/input";
 import type { InputDivProps } from "../container/input-types";
 
 export default function InputHidden({ name = '', inputDivData }: InputDivProps) {

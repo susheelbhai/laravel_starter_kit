@@ -1,7 +1,7 @@
 import { Link } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
-import AppLogoIcon from '@/components/app-logo-icon';
-import FlashMessageHandler from '@/components/FlashMessageHandler';
+import AppLogoIcon from '@/components/layout/app-logo-icon';
+import FlashMessageHandler from '@/components/ui/feedback/FlashMessageHandler';
 
 interface AuthLayoutProps {
     name?: string;
@@ -17,7 +17,7 @@ export default function AuthSimpleLayout({ children, title, description }: Props
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-col items-center gap-4">
                         <Link href={route('home')} className="flex flex-col items-center gap-2 font-medium">
-                            <div className="mb-1 flex  items-center justify-center rounded-md">
+                            <div className="mb-1 flex  items-center justify-center rounded-div">
                                 <AppLogoIcon className="fill-current text-foreground dark:text-white" />
                             </div>
                             <span className="sr-only">{title}</span>

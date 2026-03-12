@@ -1,6 +1,6 @@
 import { Link, usePage } from "@inertiajs/react";
 import React, { useState } from "react";
-import Button from "@/components/ui/button";
+import Button from "@/components/ui/button/button";
 
 interface ProfileItem {
     name: string;
@@ -41,7 +41,7 @@ export default function AuthSection({
             className={
                 isMobile
                     ? ""
-                    : "absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-xl bg-card shadow-lg ring-1 ring-border"
+                    : "absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-div bg-card shadow-lg ring-1 ring-border"
             }
         >
             <ul className="py-1 text-sm text-foreground">
@@ -108,7 +108,7 @@ export default function AuthSection({
                 <div className="mt-3 border-t border-border pt-3">
                     <button
                         onClick={() => setProfileOpen((prev) => !prev)}
-                        className="flex items-center gap-2 rounded-lg px-2 py-2"
+                        className="flex items-center gap-2 rounded-div px-2 py-2"
                     >
                         <img
                             src={user?.profile_pic || "/default-avatar.png"}
@@ -118,7 +118,7 @@ export default function AuthSection({
                         <span className="text-sm font-semibold">Account</span>
                     </button>
                     {profileOpen && (
-                        <div className="mt-1 rounded-xl border border-border bg-card">
+                        <div className="mt-1 rounded-div border border-border bg-card">
                             {renderProfileMenu()}
                         </div>
                     )}

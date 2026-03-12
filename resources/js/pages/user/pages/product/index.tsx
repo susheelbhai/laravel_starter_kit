@@ -1,5 +1,5 @@
 import { usePage } from "@inertiajs/react";
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from "@/layouts/user/app-layout";
 import CategorySection from "../product_category/components/category_box";
 import ProductSection from "./components/product_box";

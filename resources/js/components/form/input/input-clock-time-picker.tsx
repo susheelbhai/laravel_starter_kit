@@ -88,7 +88,7 @@ export default function InputClockTimePicker({
                 <div className="relative w-full">
                     <input
                         type="text"
-                        className={`w-full rounded-lg border-2 bg-input-bg border-input-border px-3 py-2 text-left text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:outline-none focus:border-secondary/60 focus:bg-input-focused-bg focus:text-input-focused-text ${className || ''}`}
+                        className={`w-full rounded-div border-2 bg-input-bg border-input-border px-3 py-2 text-left text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg focus:outline-none focus:border-secondary/60 focus:bg-input-focused-bg focus:text-input-focused-text ${className || ''}`}
                         value={value}
                         placeholder={placeholder}
                         readOnly={readOnly}
@@ -180,7 +180,7 @@ export default function InputClockTimePicker({
                 </div>
                 {isOpen && (
                     <div
-                        className="clock-popover absolute left-0 z-10 mt-2 rounded-lg border bg-background p-4 shadow-lg"
+                        className="clock-popover absolute left-0 z-10 mt-2 rounded-div border bg-background p-4 shadow-lg"
                     >
                         <div
                             className="clock-face"

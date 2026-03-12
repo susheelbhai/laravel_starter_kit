@@ -1,8 +1,8 @@
 import { Head, usePage } from '@inertiajs/react';
 import { Edit, Eye, Trash2 } from 'lucide-react';
-import Button from '@/components/ui/button';
+import Button from '@/components/ui/button/button';
 import Pagination from '@/components/table/pagination';
-import ButtonCreate from '@/components/ui/button-create';
+import ButtonCreate from '@/components/ui/button/button-create';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 
@@ -48,7 +48,7 @@ export default function Dashboard() {
                         {data.map((item: GalleryItem) => (
                             <div
                                 key={item.id}
-                                className="overflow-hidden rounded-lg bg-white shadow-md transition-shadow hover:shadow-lg"
+                                className="overflow-hidden rounded-div bg-white shadow-md transition-shadow hover:shadow-lg"
                             >
                                 {/* Images Grid */}
                                 <div className="relative h-48 bg-gray-200">
@@ -178,7 +178,7 @@ export default function Dashboard() {
                     )}
                 </>
             ) : (
-                <div className="rounded-lg bg-white p-8 text-center shadow">
+                <div className="rounded-div bg-white p-8 text-center shadow">
                     <p className="text-lg text-gray-500">
                         No gallery items found.
                     </p>

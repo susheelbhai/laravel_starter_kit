@@ -1,6 +1,6 @@
 import type { FormEventHandler } from "react";
 import { useState, useEffect, useCallback } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button/button";
 
 const normalizeErrors = (errs: Record<string, any>) =>
   Object.fromEntries(
@@ -79,7 +79,7 @@ export default function FormWizard({
       )}
 
       {/* Step Tabs */}
-      <div className="mb-6 flex overflow-hidden rounded-md bg-muted">
+      <div className="mb-6 flex overflow-hidden rounded-div bg-muted">
         {steps.map((s, idx) => {
           let classes = "flex-1 border-r p-3 text-sm font-medium last:border-r-0 ";
           if (idx === step) classes += "bg-primary text-primary-foreground";

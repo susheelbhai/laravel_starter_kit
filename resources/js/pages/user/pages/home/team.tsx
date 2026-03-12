@@ -1,4 +1,4 @@
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 interface TeamMember {
     id: number;
     name: string;
@@ -22,7 +22,7 @@ export default function TeamSection(data: { data: TeamMember[] }) {
                     {data.data.map((team: TeamMember) => (
                         <div
                             key={team.id}
-                            className="rounded-lg bg-background2 p-6"
+                            className="rounded-div bg-background2 p-6"
                         >
                             <img
                                 src={`${team.image_converted.small}`}

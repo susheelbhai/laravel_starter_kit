@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button-old";
-import { Container } from "@/components/ui/container";
+import { Button } from "@/components/ui/button/button-old";
+import { Container } from "@/components/ui/layout/container";
 import { useFormHandler } from "@/lib/use-form-handler";
 
 type NewsletterForm = {
@@ -66,7 +66,7 @@ export default function NewsletterSection() {
                             className="
                                 m-0 
                                 h-full 
-                                rounded-none rounded-r-full 
+                                rounded-div rounded-r-full 
                                 bg-primary 
                                 px-6 
                                 text-sm font-semibold text-primary-foreground 

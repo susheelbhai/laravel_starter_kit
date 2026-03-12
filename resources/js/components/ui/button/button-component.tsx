@@ -14,7 +14,7 @@ export function ButtonComponent({
     [key: string]: unknown;
 }) {
     return (
-        <button className={cn('mt-auto w-full cursor-pointer items-center rounded p-2 text-center', SizeIt(size), className)} {...props}>
+        <button className={cn('mt-auto w-full cursor-pointer items-center rounded-button p-2 text-center', SizeIt(size), className)} {...props}>
             {children}
         </button>
     );

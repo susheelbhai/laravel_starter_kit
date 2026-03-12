@@ -1,8 +1,8 @@
 import { usePage } from '@inertiajs/react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
-import { Container } from '@/components/ui/container';
-import { ContainerFluid } from '@/components/ui/container-fluid';
+import { Container } from '@/components/ui/layout/container';
+import { ContainerFluid } from '@/components/ui/layout/container-fluid';
 import AppLayout from '@/layouts/user/app-layout';
 
 interface FAQ {

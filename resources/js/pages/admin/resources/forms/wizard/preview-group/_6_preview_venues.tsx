@@ -40,7 +40,7 @@ export default function PreviewVenues({ data }: { data: Record<string, unknown> 
                             {venues.map((venue: Record<string, unknown>, i: number) => (
                                 <div
                                     key={i}
-                                    className="rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm"
+                                    className="rounded-div border border-gray-200 bg-gray-50 p-4 shadow-sm"
                                 >
                                     <h4 className="font-semibold text-base text-gray-800 mb-1">
                                         {(venue.name as string) || `Venue ${i + 1}`}

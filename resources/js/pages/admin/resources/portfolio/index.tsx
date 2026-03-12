@@ -5,8 +5,8 @@ import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
-import TextLink from '@/components/text-link';
-import ButtonCreate from '@/components/ui/button-create';
+import TextLink from '@/components/ui/button/text-link';
+import ButtonCreate from '@/components/ui/button/button-create';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
 

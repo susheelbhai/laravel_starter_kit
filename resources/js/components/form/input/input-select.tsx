@@ -1,5 +1,5 @@
-import InputError from '@/components/input-error';
-import { Label } from '@/components/ui/label';
+import InputError from '@/components/form/input/input-error';
+import { Label } from '@/components/form/input/label';
 import { cn } from '@/lib/utils';
 import type { InputDivProps } from '../container/input-types';
 import { InputWrapper } from '../container/input-wrapper';
@@ -37,7 +37,7 @@ export default function InputSelect({
                 onChange={(e) => setData(name, e.target.value)}
                 required={required}
                 className={cn(
-                    'flex h-10 w-full rounded-md border-2 bg-input-bg border-input-border px-3 py-2 text-sm text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg',
+                    'flex h-10 w-full rounded-div border-2 bg-input-bg border-input-border px-3 py-2 text-sm text-input-text placeholder:text-input-placeholder hover:bg-input-hover-bg',
                     'focus:border-secondary/60 focus:outline-none focus:bg-input-focused-bg focus:text-input-focused-text',
                     'disabled:cursor-not-allowed disabled:opacity-50',
                     className,

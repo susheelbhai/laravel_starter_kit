@@ -1,8 +1,8 @@
-import { Breadcrumbs } from '@/components/breadcrumbs';
+import { Breadcrumbs } from '@/components/navigation/breadcrumbs';
 import { NotificationComponent } from '@/components/notification/notification-component';
-import { SidebarTrigger } from '@/components/ui/sidebar';
+import { SidebarTrigger } from '@/components/ui/layout/sidebar';
 import { type BreadcrumbItem as BreadcrumbItemType } from '@/types';
-import AppearanceToggleDropdown from '../../../../components/appearance-dropdown';
+import AppearanceToggleDropdown from '../../../../components/ui/display/appearance-dropdown';
 
 interface NotificationItem {
     id: string;

@@ -8,8 +8,8 @@ import {
     FaYoutube,
     FaEnvelope,
 } from 'react-icons/fa6';
-import AppearanceToggleDropdown from '@/components/appearance-dropdown';
-import { Container } from '@/components/ui/container';
+import AppearanceToggleDropdown from '@/components/ui/display/appearance-dropdown';
+import { Container } from '@/components/ui/layout/container';
 import type { SharedData } from '@/types';
 
 interface AppData {

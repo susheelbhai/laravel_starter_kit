@@ -1,7 +1,7 @@
 import { usePage } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button/button';
 
 type FormContainerProps = {
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;

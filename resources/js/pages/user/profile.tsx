@@ -2,9 +2,9 @@ import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
 import { InputDiv } from '@/components/form/container/input-div';
-import HeadingSmall from '@/components/heading-small';
-import { Button } from '@/components/ui/button';
-import { Container } from '@/components/ui/container';
+import HeadingSmall from '@/components/ui/typography/heading-small';
+import { Button } from '@/components/ui/button/button';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from '@/layouts/user/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
 import { type SharedData } from '@/types';
@@ -96,7 +96,7 @@ export default function Profile({
                                         No profile picture uploaded.
                                     </p>
                                 ) : (
-                                <img src={`${auth.user.profile_pic}`} className='rounded-xl' alt="Profile Picture" />
+                                <img src={`${auth.user.profile_pic}`} className='rounded-div' alt="Profile Picture" />
                                 )}
                             </div>
                         </div>

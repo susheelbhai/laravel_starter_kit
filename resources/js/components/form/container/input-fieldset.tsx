@@ -10,7 +10,7 @@ interface InputFieldsetProps  {
 
 export function InputFieldset({className, legend, description, children, ...props }: InputFieldsetProps) {
     return (
-        <div className={`rounded-lg overflow-hidden bg-white shadow-sm my-4 ${className}`} {...props}>
+        <div className={`rounded-div overflow-hidden bg-white shadow-sm my-4 ${className}`} {...props}>
             {/* <legend className="mb-4 text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 border-b p-3 overflow-hidden">{legend}</legend> */}
             <div className="px-8 pt-8">
                 <h1 className="text-xl font-bold">{legend}</h1>

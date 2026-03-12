@@ -34,7 +34,7 @@ export default function CategorySection({ categories }: CategorySectionProps) {
         )}
       </div>
       {!hasCategories ? (
-        <div className="rounded-3xl border-2 border-dashed border-slate-200 bg-linear-to-br from-white to-slate-50 px-8 py-16 text-center shadow-sm">
+        <div className="rounded-div border-2 border-dashed border-slate-200 bg-linear-to-br from-white to-slate-50 px-8 py-16 text-center shadow-sm">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-slate-100 flex items-center justify-center">
             <span className="text-3xl">📦</span>
           </div>
@@ -53,7 +53,7 @@ export default function CategorySection({ categories }: CategorySectionProps) {
               href={route("productCategory.show", category.slug)}
               className="group block"
             >
-              <div className="relative h-full rounded-3xl bg-linear-to-br from-white to-slate-50 p-8 shadow-md border border-slate-200/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 overflow-hidden">
+              <div className="relative h-full rounded-div bg-linear-to-br from-white to-slate-50 p-8 shadow-md border border-slate-200/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20 hover:border-primary/30 overflow-hidden">
                 <div className="absolute inset-0 bg-linear-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10">
                   {category.icon && (

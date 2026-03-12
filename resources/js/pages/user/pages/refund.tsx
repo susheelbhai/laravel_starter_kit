@@ -1,5 +1,5 @@
 import { usePage } from '@inertiajs/react';
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from '@/layouts/user/app-layout';
 
 interface PageData {

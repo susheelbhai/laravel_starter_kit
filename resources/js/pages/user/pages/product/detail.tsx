@@ -1,6 +1,6 @@
 import { usePage } from '@inertiajs/react';
 import { useState } from 'react';
-import { Container } from '@/components/ui/container';
+import { Container } from '@/components/ui/layout/container';
 import AppLayout from '@/layouts/user/app-layout';
 import ImageSlider from './components/image-slider';
 import ProductCTA from './components/product-cta';

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button-old';
+import { Button } from '@/components/ui/button/button-old';
 import type { ReactElement } from 'react';
 
 type SocialPlatform = 'google' | 'facebook' | 'x' | 'linkedin' | 'github' | 'gitlab' | 'bitbucket' | 'slack' | 'apple' | 'amazon';

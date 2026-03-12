@@ -119,7 +119,7 @@ function CustomDropdown({
                 <ChevronDown className="h-3 w-3" />
             </button>
             {isOpen && (
-                <div className="absolute top-1/2 left-1/2 z-50 max-h-[200px] min-w-[100px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-md border border-border bg-background py-3 shadow-lg">
+                <div className="absolute top-1/2 left-1/2 z-50 max-h-[200px] min-w-[100px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-div border border-border bg-background py-3 shadow-lg">
                     <div
                         ref={dropdownRef}
                         className="scrollbar-hide max-h-[176px] overflow-y-auto"
