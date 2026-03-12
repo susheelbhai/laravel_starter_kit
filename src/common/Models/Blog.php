@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\BaseModels\BaseExternalMediaModel;
 use App\Traits\HasDynamicMediaAttributes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends BaseExternalMediaModel
 {
-    use HasFactory, HasDynamicMediaAttributes;
+    use HasFactory, HasDynamicMediaAttributes, SoftDeletes;
     protected$mediaAttributes = [
         'display_img',
         'ad_img',

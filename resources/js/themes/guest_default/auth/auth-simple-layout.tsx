@@ -3,6 +3,7 @@ import { type PropsWithChildren } from 'react';
 import AppLogoIcon from '@/components/app-logo-icon';
 import { Container } from '@/components/ui/container';
 import { ContainerFluid } from '@/components/ui/container-fluid';
+import type { SharedData } from '@/types';
 
 interface AuthLayoutProps {
     name?: string;
@@ -14,8 +15,15 @@ interface AuthSettings {
     side_image: string;
 }
 
+interface AuthLayoutPageProps extends SharedData {
+    auth: {
+        settings: AuthSettings;
+    };
+}
+
 export default function AuthSimpleLayout({ children, title, description }: PropsWithChildren<AuthLayoutProps>) {
-    const settings = (usePage().props as { auth: { settings: AuthSettings } }).auth.settings;
+    const { auth } = usePage<AuthLayoutPageProps>().props;
+    const settings = auth.settings;
 
     return (
         <ContainerFluid className="m-auto p-0 bg-background2">

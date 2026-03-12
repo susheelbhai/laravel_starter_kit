@@ -1,6 +1,6 @@
 import AppLogoIcon from './app-logo-icon';
 
-export default function AppLogo() {
+export default function AppLogo({ className = '' }: { className?: string }) {
     return (
         <>
             <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground">

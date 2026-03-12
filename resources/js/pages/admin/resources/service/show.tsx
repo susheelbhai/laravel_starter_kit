@@ -33,8 +33,12 @@ interface ServiceDetailData {
     ad_img: string;
 }
 
+interface ServiceShowPageProps extends SharedData {
+    data: ServiceDetailData;
+}
+
 export default function Dashboard() {
-    const service = ((usePage<SharedData>().props as { data: ServiceDetailData })?.data) || {} as ServiceDetailData;
+    const { data: service } = usePage<ServiceShowPageProps>().props;
     const thead = [
         { title: 'Service Detail', className: 'p-3', colSpan: 2 },
     ];

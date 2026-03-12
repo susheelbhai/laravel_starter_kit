@@ -1,5 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
-import Button from '@/components/button';
+import Button from '@/components/ui/button';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -22,8 +22,12 @@ interface PermissionData {
     roles: Array<{ name: string }>;
 }
 
+interface PermissionIndexPageProps extends SharedData {
+    data: PermissionData[];
+}
+
 export default function Dashboard() {
-    const data = ((usePage<SharedData>().props as { data: PermissionData[] })?.data) || [];
+    const { data } = usePage<PermissionIndexPageProps>().props;
 
     const thead = [
         { title: 'ID', className: 'p-3' },

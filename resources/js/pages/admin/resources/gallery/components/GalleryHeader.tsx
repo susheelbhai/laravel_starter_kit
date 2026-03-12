@@ -1,5 +1,5 @@
 import { Edit, Trash2 } from 'lucide-react';
-import Button from '@/components/button';
+import Button from '@/components/ui/button';
 
 interface GalleryItem {
     id: number;

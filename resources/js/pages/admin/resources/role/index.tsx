@@ -1,5 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
-import Button from '@/components/button';
+import Button from '@/components/ui/button';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
@@ -22,8 +22,12 @@ interface RoleIndexData {
     permissions: Array<{ name: string }>;
 }
 
+interface RoleIndexPageProps extends SharedData {
+    data: RoleIndexData[];
+}
+
 export default function Dashboard() {
-    const data = ((usePage<SharedData>().props as { data: RoleIndexData[] })?.data) || [];
+    const { data } = usePage<RoleIndexPageProps>().props;
 
     const thead = [
         { title: 'ID', className: 'p-3' },

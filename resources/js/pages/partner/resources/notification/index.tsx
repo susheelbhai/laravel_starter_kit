@@ -5,7 +5,7 @@ import TableCard from '@/components/table/table-card';
 import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
 import AppLayout from '@/layouts/partner/app-layout';
-import { type BreadcrumbItem, type SharedData } from '@/types';
+import { type BreadcrumbItem, type PageWithPaginatedData } from '@/types';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -23,15 +23,8 @@ interface NotificationData {
     };
 }
 
-interface NotificationPageProps {
-    data: {
-        data: NotificationData[];
-        [key: string]: unknown;
-    };
-}
-
 export default function Notification() {
-    const { data } = (usePage<SharedData>().props as NotificationPageProps);
+    const { data } = usePage<PageWithPaginatedData<NotificationData>>().props;
     const items = data?.data || [];
     const thead = [
         { title: 'Date', className: 'p-3' },

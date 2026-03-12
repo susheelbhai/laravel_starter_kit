@@ -37,8 +37,12 @@ interface ProjectDetailData {
     highlighted_text2: string;
 }
 
+interface ProjectShowPageProps extends SharedData {
+    data: ProjectDetailData;
+}
+
 export default function Dashboard() {
-    const project = ((usePage<SharedData>().props as { data: ProjectDetailData })?.data) || {} as ProjectDetailData;
+    const { data: project } = usePage<ProjectShowPageProps>().props;
     const thead = [
         { title: 'Project Detail', className: 'p-3', colSpan: 2 },
     ];

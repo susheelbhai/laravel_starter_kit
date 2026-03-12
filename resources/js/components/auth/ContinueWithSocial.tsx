@@ -1,38 +1,127 @@
-import ContinueWithAmazon from "./ContinueWithAmazon";
-import ContinueWithApple from "./ContinueWithApple";
-import ContinueWithBitbucket from "./ContinueWithBitbucket";
-import ContinueWithFacebook from "./ContinueWithFacebook";
-import ContinueWithGitHub from "./ContinueWithGitHub";
-import ContinueWithGitLab from "./ContinueWithGitLab";
-import ContinueWithGoogle from "./ContinueWithGoogle";
-import ContinueWithLinkedIn from "./ContinueWithLinkedIn";
-import ContinueWithSlack from "./ContinueWithSlack";
-import ContinueWithX from "./ContinueWithX";
+import { Button } from '@/components/ui/button-old';
+import type { ReactElement } from 'react';
 
-export default function ContinueWithSocial({ platform, href }: { platform: string; href?: string }) {
+type SocialPlatform = 'google' | 'facebook' | 'x' | 'linkedin' | 'github' | 'gitlab' | 'bitbucket' | 'slack' | 'apple' | 'amazon';
 
-    switch (platform) {
-        case 'google':
-            return <ContinueWithGoogle href={href ?? route('social.login', 'google')} />;
-        case 'facebook':
-            return <ContinueWithFacebook href={href ?? route('social.login', 'facebook')} />;
-        case 'x':
-            return <ContinueWithX href={href ?? route('social.login', 'x')} />;
-        case 'linkedin':
-            return <ContinueWithLinkedIn href={href ?? route('social.login', 'linkedin')} />;
-        case 'github':
-            return <ContinueWithGitHub href={href ?? route('social.login', 'github')} />;
-        case 'gitlab':
-            return <ContinueWithGitLab href={href ?? route('social.login', 'gitlab')} />;
-        case 'bitbucket':
-            return <ContinueWithBitbucket href={href ?? route('social.login', 'bitbucket')} />;
-        case 'slack':
-            return <ContinueWithSlack href={href ?? route('social.login', 'slack')} />;
-        case 'apple':
-            return <ContinueWithApple href={href ?? route('social.login', 'apple')} />;
-        case 'amazon':
-            return <ContinueWithAmazon href={href ?? route('social.login', 'amazon')} />;
-        default:
-            return null;
+interface SocialConfig {
+    label: string;
+    icon: ReactElement;
+}
+
+const socialConfigs: Record<SocialPlatform, SocialConfig> = {
+    google: {
+        label: 'Continue with Google',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+            </svg>
+        ),
+    },
+    facebook: {
+        label: 'Continue with Facebook',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+        ),
+    },
+    x: {
+        label: 'Continue with X',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+        ),
+    },
+    linkedin: {
+        label: 'Continue with LinkedIn',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+        ),
+    },
+    github: {
+        label: 'Continue with GitHub',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+        ),
+    },
+    gitlab: {
+        label: 'Continue with GitLab',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.955 13.587l-1.342-4.135-2.664-8.189c-.135-.423-.73-.423-.867 0L16.418 9.45H7.582L4.919 1.263C4.783.84 4.185.84 4.05 1.26L1.386 9.449.044 13.587c-.121.375.014.789.331 1.023L12 23.054l11.625-8.443c.318-.235.453-.647.33-1.024"/>
+            </svg>
+        ),
+    },
+    bitbucket: {
+        label: 'Continue with Bitbucket',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.778 1.213a.768.768 0 00-.768.892l3.263 19.81c.084.5.515.868 1.022.873H19.95a.772.772 0 00.77-.646l3.27-20.03a.768.768 0 00-.768-.891zM14.52 15.53H9.522L8.17 8.466h7.561z"/>
+            </svg>
+        ),
+    },
+    slack: {
+        label: 'Continue with Slack',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5.042 15.165a2.528 2.528 0 01-2.52 2.523A2.528 2.528 0 010 15.165a2.527 2.527 0 012.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 012.521-2.52 2.527 2.527 0 012.521 2.52v6.313A2.528 2.528 0 018.834 24a2.528 2.528 0 01-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 01-2.521-2.52A2.528 2.528 0 018.834 0a2.528 2.528 0 012.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 012.521 2.521 2.528 2.528 0 01-2.521 2.521H2.522A2.528 2.528 0 010 8.834a2.528 2.528 0 012.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 012.522-2.521A2.528 2.528 0 0124 8.834a2.528 2.528 0 01-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 01-2.523 2.521 2.527 2.527 0 01-2.52-2.521V2.522A2.527 2.527 0 0115.165 0a2.528 2.528 0 012.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 012.523 2.522A2.528 2.528 0 0115.165 24a2.527 2.527 0 01-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 01-2.52-2.523 2.526 2.526 0 012.52-2.52h6.313A2.527 2.527 0 0124 15.165a2.528 2.528 0 01-2.522 2.523h-6.313z"/>
+            </svg>
+        ),
+    },
+    apple: {
+        label: 'Continue with Apple',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+        ),
+    },
+    amazon: {
+        label: 'Continue with Amazon',
+        icon: (
+            <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726-1.53.406-3.045.61-4.516.61-2.265 0-4.463-.42-6.588-1.265-2.11-.84-3.937-1.99-5.46-3.456-.18-.178-.148-.316.076-.48zm23.71-5.12c-.28-.44-.73-.65-1.35-.65h-2.246c-.728 0-1.355.2-1.877.6-.52.4-.78.91-.78 1.52 0 .61.18 1.11.54 1.49.36.39.83.58 1.41.58.58 0 1.06-.15 1.43-.44.37-.29.68-.77.93-1.44.12-.34.18-.66.18-.96 0-.29-.06-.52-.18-.68zm-1.24-2.48c.41 0 .61.2.61.59v.35c0 .16-.03.3-.09.42-.06.12-.16.18-.3.18h-3.24c-.14 0-.24-.06-.3-.18-.06-.12-.09-.26-.09-.42v-.35c0-.39.2-.59.61-.59h3.24zm-8.42 0c.41 0 .61.2.61.59v.35c0 .16-.03.3-.09.42-.06.12-.16.18-.3.18h-3.24c-.14 0-.24-.06-.3-.18-.06-.12-.09-.26-.09-.42v-.35c0-.39.2-.59.61-.59h3.24z"/>
+            </svg>
+        ),
+    },
+};
+
+export default function ContinueWithSocial({ 
+    platform, 
+    href 
+}: { 
+    platform: SocialPlatform; 
+    href?: string;
+}) {
+    const config = socialConfigs[platform];
+    
+    if (!config) {
+        return null;
     }
+
+    const handleClick = () => {
+        window.location.href = href ?? route('social.login', platform);
+    };
+
+    return (
+        <div className="mb-1">
+            <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={handleClick}
+            >
+                {config.icon}
+                {config.label}
+            </Button>
+        </div>
+    );
 }

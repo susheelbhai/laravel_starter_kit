@@ -9,6 +9,7 @@ import ProductEnquiryModal from './components/product-enquiry-modal';
 import ProductFeatures from './components/product-features';
 import ProductPricing from './components/product-pricing';
 import ProductSections from './components/product-sections';
+import type { SharedData } from '@/types';
 
 interface ProductDetailData {
     id: number;
@@ -36,8 +37,12 @@ interface ProductDetailData {
     display_img?: string;
 }
 
+interface ProductDetailPageProps extends SharedData {
+    data: ProductDetailData;
+}
+
 export default function ProductDetail() {
-    const { data: product } = usePage().props as { data: ProductDetailData };
+    const { data: product } = usePage<ProductDetailPageProps>().props;
     const [isModalOpen, setIsModalOpen] = useState(false);
     console.log(product);
     if (!product) {

@@ -8,7 +8,7 @@ import THead from '@/components/table/thead';
 import TextLink from '@/components/text-link';
 import ButtonCreate from '@/components/ui/button-create';
 import AppLayout from '@/layouts/admin/app-layout';
-import { type BreadcrumbItem, type SharedData } from '@/types';
+import { type BreadcrumbItem, type PageWithPaginatedData } from '@/types';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -28,15 +28,8 @@ interface TestimonialData {
     image_thumb?: string;
 }
 
-interface TestimonialIndexPageProps extends SharedData {
-    data: {
-        data: TestimonialData[];
-        [key: string]: unknown;
-    };
-}
-
 export default function Dashboard() {
-    const { data } = usePage<TestimonialIndexPageProps>().props;
+    const { data } = usePage<PageWithPaginatedData<TestimonialData>>().props;
     const items = data?.data || [];
     const thead = [
         { title: 'Name', className: 'p-3' },

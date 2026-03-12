@@ -37,8 +37,12 @@ interface RoleDetailData {
     is_active: number;
 }
 
+interface RoleShowPageProps extends SharedData {
+    data: RoleDetailData;
+}
+
 export default function Dashboard() {
-    const role = ((usePage<SharedData>().props as { data: RoleDetailData })?.data) || {} as RoleDetailData;
+    const { data: role } = usePage<RoleShowPageProps>().props;
 
     const thead = [
         { title: 'Role Detail', className: 'p-3', colSpan: 1 },

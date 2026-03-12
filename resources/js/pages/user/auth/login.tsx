@@ -1,5 +1,5 @@
 import { Head, useForm, usePage } from '@inertiajs/react';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, LoaderCircle } from 'lucide-react';
 import type { FormEventHandler} from 'react';
 import { useState } from 'react';
 
@@ -8,7 +8,7 @@ import ContinueWithText from '@/components/auth/ContinueWithText';
 import { FormContainer } from '@/components/form/container/form-container';
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button-old';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -52,19 +52,19 @@ export default function Login({ submitUrl, canResetPassword }: LoginProps) {
         <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
             <Head title="Log in" />
             {socialData.map((item: Record<string, { href: string }>, id: number) => {
-                const key = Object.keys(item)[0];
+                const key = Object.keys(item)[0] as 'google' | 'facebook' | 'x' | 'linkedin' | 'github' | 'gitlab' | 'bitbucket' | 'slack' | 'apple' | 'amazon';
                 const data = item[key];
                 return (
                     <ContinueWithSocial
                         key={id}
-                        platform={key as 'google' | 'facebook' | 'twitter'}
+                        platform={key}
                         href={data.href}
                     />
                 );
             })}
             {socialData.length > 0 && <ContinueWithText />}
 
-            <FormContainer onSubmit={submit} processing={processing} buttonLabel="Log in" className="space-y-2">
+            <FormContainer onSubmit={submit} processing={processing} showButton={false} className="space-y-2">
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
@@ -140,6 +140,17 @@ export default function Login({ submitUrl, canResetPassword }: LoginProps) {
                         Sign up
                     </TextLink>
                 </div>
+                <Button
+                          type="submit"
+                          className={`mt-4 w-full`}
+                          tabIndex={4}
+                          disabled={processing}
+                        >
+                          {processing && (
+                            <LoaderCircle className="h-4 w-4 animate-spin" />
+                          )}
+                          Sign In
+                        </Button>
             </FormContainer>
         </AuthLayout>
     );

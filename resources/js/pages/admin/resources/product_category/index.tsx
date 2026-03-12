@@ -8,7 +8,7 @@ import THead from '@/components/table/thead';
 import TextLink from '@/components/text-link';
 import ButtonCreate from '@/components/ui/button-create';
 import AppLayout from '@/layouts/admin/app-layout';
-import { type BreadcrumbItem, type SharedData } from '@/types';
+import { type BreadcrumbItem, type PageWithPaginatedData } from '@/types';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -31,15 +31,8 @@ interface ProductCategoryData {
     is_featured: number;
 }
 
-interface ProductCategoryPageProps {
-    data: {
-        data: ProductCategoryData[];
-        [key: string]: unknown;
-    };
-}
-
 export default function Index() {
-    const { data } = (usePage<SharedData>().props as ProductCategoryPageProps);
+    const { data } = usePage<PageWithPaginatedData<ProductCategoryData>>().props;
     const items = data?.data || [];
 
     const thead = [

@@ -61,9 +61,18 @@ interface FormType {
     meta_description: string;
 }
 
+interface CategoryOption {
+    id: number;
+    title: string;
+}
+
+interface ProductEditPageProps extends SharedData {
+    data: ProductData;
+    categories: CategoryOption[];
+}
+
 export default function Edit() {
-    const product = ((usePage<SharedData>().props as { data: ProductData })?.data) || {} as ProductData;
-    const categories = ((usePage<SharedData>().props as { categories: CategoryOption[] })?.categories) || [];
+    const { data: product, categories } = usePage<ProductEditPageProps>().props;
 
     const initialValues: FormType = {
         seller_id: product.seller_id || '',

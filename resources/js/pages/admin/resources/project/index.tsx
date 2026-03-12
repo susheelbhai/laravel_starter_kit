@@ -25,8 +25,12 @@ interface ProjectIndexData {
     thumbnail: string;
 }
 
+interface ProjectIndexPageProps extends SharedData {
+    data: ProjectIndexData[];
+}
+
 export default function Dashboard() {
-    const data = ((usePage<SharedData>().props as { data: ProjectIndexData[] })?.data) || [];
+    const { data } = usePage<ProjectIndexPageProps>().props;
     const thead = [
         { title: 'Title', className: 'p-3' },
         { title: 'Description', className: 'p-3' },

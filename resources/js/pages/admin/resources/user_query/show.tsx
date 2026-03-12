@@ -25,8 +25,12 @@ interface UserQueryDetailData {
     phone: string;
 }
 
+interface UserQueryShowPageProps extends SharedData {
+    data: UserQueryDetailData;
+}
+
 export default function Dashboard() {
-    const team = ((usePage<SharedData>().props as { data: UserQueryDetailData })?.data) || {} as UserQueryDetailData;
+    const { data: team } = usePage<UserQueryShowPageProps>().props;
     const thead = [
         { title: 'User Query Detail', className: 'p-3' },
         { title: '', className: 'p-3' },

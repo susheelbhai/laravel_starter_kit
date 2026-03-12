@@ -1,4 +1,4 @@
-import Button from '@/components/button';
+import Button from '@/components/ui/button';
 export default function EditRow({children, trClassName, tdClassName, buttonClassName, divClassName, href, buttonName }: { children?: React.ReactNode, trClassName?: string, tdClassName?: string, divClassName?: string, buttonClassName?: string, href: string, buttonName?: string }) {
     return (
         <tr className={trClassName}>

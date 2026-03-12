@@ -3,18 +3,31 @@ import { Container } from '@/components/ui/container';
 import AppLayout from "@/layouts/user/app-layout";
 import CategorySection from "../product_category/components/category_box";
 import ProductSection from "./components/product_box";
+import type { SharedData } from '@/types';
 
-interface ProductCategory {
-    [key: string]: unknown;
+interface Category {
+    id: number;
+    title: string;
+    slug: string;
 }
 
-interface ProductData {
-    [key: string]: unknown;
+interface Product {
+    id: number;
+    slug: string;
+    title: string;
+    price?: number;
+    mrp?: number;
+    short_description?: string;
+    display_img?: string;
+}
+
+interface ProductIndexPageProps extends SharedData {
+    categories: Category[];
+    data: Product[];
 }
 
 export default function Products() {
-  const product_categories = usePage().props.categories as ProductCategory[];
-  const data = usePage().props.data as ProductData[]; // 👉 products list
+  const { categories: product_categories, data } = usePage<ProductIndexPageProps>().props;
 
   return (
     <AppLayout title="Products">

@@ -8,7 +8,7 @@ import type { BreadcrumbItem, SharedData } from '@/types';
 type FormType = {
     id: number | string;
     name: string;
-    permissions: (string | { value: string })[];
+    permissions: (string | number | { value: string })[];
 };
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -29,6 +29,11 @@ interface RoleData {
     permissions: Array<{ id: number; name: string }>;
 }
 
+interface RoleEditPageProps extends SharedData {
+    data: RoleData;
+    permissions: PermissionOption[];
+}
+
 interface PermissionOption {
     id: number;
     title?: string;
@@ -36,7 +41,7 @@ interface PermissionOption {
 }
 
 export default function EditRole() {
-    const role = ((usePage<SharedData>().props as { data: RoleData })?.data) || {} as RoleData;
+    const { data: role, permissions: rawPermissions } = usePage<RoleEditPageProps>().props;
 
     const initialValues: FormType = {
         id: role.id,
@@ -44,7 +49,6 @@ export default function EditRole() {
         permissions: (role.permissions || []).map((p) => p.id), // [1, 2, 3]
     };
 
-    const rawPermissions = usePage().props.permissions as PermissionOption[];
     const permissions = rawPermissions.map((permission) => ({
         id: permission.id,
         title: permission.title ?? permission.name,

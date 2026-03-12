@@ -1,6 +1,6 @@
 import { Link, usePage } from "@inertiajs/react";
 import React, { useState } from "react";
-import Button from "@/components/button";
+import Button from "@/components/ui/button";
 
 interface ProfileItem {
     name: string;

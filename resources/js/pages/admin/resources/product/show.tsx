@@ -12,8 +12,32 @@ const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Product Detail', href: '/dashboard' },
 ];
 
+interface ProductData {
+    id: number;
+    title: string;
+    slug: string;
+    seller_id: number;
+    product_category_id: number;
+    sku?: string;
+    short_description?: string;
+    description?: string;
+    price: number;
+    mrp?: number;
+    stock: number;
+    manage_stock: number;
+    images?: string[];
+    is_active: number;
+    is_featured: number;
+    meta_title?: string;
+    meta_description?: string;
+}
+
+interface ProductShowPageProps extends SharedData {
+    data: ProductData;
+}
+
 export default function Show() {
-    const product = ((usePage<SharedData>().props as { data: ProductData })?.data) || {} as ProductData;
+    const { data: product } = usePage<ProductShowPageProps>().props;
 
     const thead = [
         { title: 'Product Detail', className: 'p-3' },

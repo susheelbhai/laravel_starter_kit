@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('ad_url')->nullable();
             $table->string('views')->nullable();
             $table->boolean('is_active')->default(1);
+            $table->softDeletes();
         });
     }
 

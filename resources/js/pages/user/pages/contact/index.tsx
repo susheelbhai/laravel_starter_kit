@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import AppLayout from '@/layouts/user/app-layout';
 import { useFormHandler } from '@/lib/use-form-handler';
+import type { SharedData } from '@/types';
 
 type FormType = {
     name: string;
@@ -27,7 +28,7 @@ interface ContactData {
     map_embad_url: string;
 }
 
-interface ContactPageProps {
+interface ContactPageProps extends SharedData {
     appData: AppData;
     data: ContactData;
 }

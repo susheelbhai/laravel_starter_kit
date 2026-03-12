@@ -39,8 +39,12 @@ interface ProductEnquiryDetailData {
     created_date_time: string;
 }
 
+interface ProductEnquiryShowPageProps extends SharedData {
+    data: ProductEnquiryDetailData;
+}
+
 export default function ProductEnquiryShow() {
-    const enquiry = ((usePage<SharedData>().props as { data: ProductEnquiryDetailData })?.data) || {} as ProductEnquiryDetailData;
+    const { data: enquiry } = usePage<ProductEnquiryShowPageProps>().props;
 
     const initialValues: FormType = {
         status: enquiry.status || 'pending',

@@ -6,6 +6,7 @@ import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
 import AppLayout from '@/layouts/admin/app-layout';
 import { type BreadcrumbItem, type SharedData } from '@/types';
+import Button from '@/components/ui/button';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -120,7 +121,16 @@ export default function Dashboard() {
                             <td className="p-3">Status</td>
                             <td className="p-3">{blog.is_active == 1 ? 'active' : 'inactive'}</td>
                         </tr>
-                        <EditRow href={route('admin.blog.edit', blog.id)} buttonName='Edit Blog' />
+                    </TBody>
+                    <TBody>
+                        <tr className="border-y border-gray-200">
+                            <td className="p-3 " colSpan={2}>
+                                <div className="flex justify-between gap-8 ">
+                                    <Button size='full' href={route('admin.blog.edit', blog.id)}> Edit </Button>
+                                    <Button size='full' method='delete' href={route('admin.blog.destroy', blog.id)}> Delete </Button>
+                                </div>
+                            </td>
+                        </tr>
                     </TBody>
                 </Table>
             </TableCard>

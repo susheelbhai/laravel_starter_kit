@@ -25,8 +25,12 @@ interface ServiceIndexData {
     display_img: string;
 }
 
+interface ServiceIndexPageProps extends SharedData {
+    data: ServiceIndexData[];
+}
+
 export default function Dashboard() {
-    const data = ((usePage<SharedData>().props as { data: ServiceIndexData[] })?.data) || [];
+    const { data } = usePage<ServiceIndexPageProps>().props;
     const thead = [
         { title: 'Title', className: 'p-3' },
         { title: 'Category', className: 'p-3' },

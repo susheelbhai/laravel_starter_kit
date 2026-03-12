@@ -1,6 +1,6 @@
 import { Head, useForm, usePage } from '@inertiajs/react';
 import { Eye, EyeOff } from 'lucide-react';
-import type { FormEventHandler} from 'react';
+import type { FormEventHandler } from 'react';
 import { useState } from 'react';
 
 import ContinueWithSocial from '@/components/auth/ContinueWithSocial';
@@ -8,7 +8,7 @@ import ContinueWithText from '@/components/auth/ContinueWithText';
 import { FormContainer } from '@/components/form/container/form-container';
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button-old';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -52,12 +52,12 @@ export default function Login({ submitUrl, canResetPassword }: LoginProps) {
         <AuthLayout title="Log in to your account" description="Enter your email and password below to log in">
             <Head title="Log in" />
             {socialData.map((item: Record<string, { href: string }>, id: number) => {
-                const key = Object.keys(item)[0];
+                const key = Object.keys(item)[0] as 'google' | 'facebook' | 'x' | 'linkedin' | 'github' | 'gitlab' | 'bitbucket' | 'slack' | 'apple' | 'amazon';
                 const data = item[key];
                 return (
                     <ContinueWithSocial
                         key={id}
-                        platform={key as 'google' | 'facebook' | 'twitter'}
+                        platform={key}
                         href={data.href}
                     />
                 );

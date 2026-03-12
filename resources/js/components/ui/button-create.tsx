@@ -1,5 +1,5 @@
 import { Plus } from "lucide-react";
-import Button from "../button";
+import Button from "./button";
 
 export default function ButtonCreate({ href, text }: { href: string; text: string }) {
     return (

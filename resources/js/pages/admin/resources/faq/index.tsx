@@ -16,9 +16,19 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
+interface FaqData {
+    id: number;
+    category: { title: string };
+    question: string;
+    is_active: number;
+}
+
+interface FaqIndexPageProps extends SharedData {
+    data: FaqData[];
+}
+
 export default function Dashboard() {
-    const data =
-        ((usePage<SharedData>().props as SharedData & { data: Array<{ id: number; category: { title: string }; question: string; is_active: number }> })?.data) || [];
+    const { data } = usePage<FaqIndexPageProps>().props;
     const thead = [
         { title: 'Category', className: 'p-3' },
         { title: 'Question', className: 'p-3' },

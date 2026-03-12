@@ -36,6 +36,21 @@ const rightNavItems: NavItem[] = [
     },
 ];
 
+const profileNavItems = [
+    {
+        title: 'Profile',
+        href: '/profile',
+    },
+    {
+        title: 'Settings',
+        href: '/settings',
+    },
+    {
+        title: 'Log Out',
+        href: '/logout',
+    },
+];
+
 const activeItemStyles = 'text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100';
 
 interface AppHeaderProps {
@@ -164,7 +179,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56" align="end">
-                                <UserMenuContent user={auth.user} />
+                                <UserMenuContent user={auth.user} profileNavItems={profileNavItems} />
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div>

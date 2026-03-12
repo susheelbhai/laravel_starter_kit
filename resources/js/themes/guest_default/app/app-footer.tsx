@@ -4,10 +4,11 @@ import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaTwitter,
+  FaXTwitter,
   FaYoutube,
-} from "react-icons/fa";
+} from "react-icons/fa6";
 import { Container } from '@/components/ui/container';
+import type { SharedData } from '@/types';
 
 interface AppData {
   name: string;
@@ -29,9 +30,13 @@ interface ImportantLink {
   href: string;
 }
 
+interface FooterPageProps extends SharedData {
+  appData: AppData;
+  important_links: ImportantLink[];
+}
+
 const Footer: React.FC = () => {
-  const appData = (usePage().props as { appData: AppData }).appData;
-  const important_links = (usePage().props as { important_links: ImportantLink[] }).important_links;
+  const { appData, important_links } = usePage<FooterPageProps>().props;
   const [visitors, setVisitors] = useState({ total: 0, today: 0 });
 
   useEffect(() => {
@@ -42,7 +47,7 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="bg-footer-bg text-footer-text">
+    <footer className="bg-footer text-footer-foreground">
       {/* Accent top border */}
       <div className="h-1 w-full bg-primary " />
 
@@ -134,7 +139,7 @@ const Footer: React.FC = () => {
                   rel="noreferrer"
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-muted-foreground transition-all hover:-translate-y-0.5 hover:bg-primary hover:text-primary-foreground"
                 >
-                  <FaTwitter />
+                  <FaXTwitter />
                 </a>
               )}
               {appData.instagram && (
@@ -170,6 +175,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Visitor Stats */}
+            {/* 
             <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
               <div className="rounded-xl border border-border bg-card/60 px-3 py-2.5">
                 <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
@@ -188,6 +194,7 @@ const Footer: React.FC = () => {
                 </p>
               </div>
             </div>
+             */}
           </div>
         </div>
 

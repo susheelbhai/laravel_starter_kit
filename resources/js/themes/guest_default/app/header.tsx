@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Container } from "@/components/ui/container";
 import AuthSection from "./auth-section";
+import type { SharedData } from '@/types';
 
 const routeExists = (name: string): boolean => {
     try {
@@ -28,6 +29,10 @@ interface AppData {
     dark_logo: string;
 }
 
+interface HeaderPageProps extends SharedData {
+    appData: AppData;
+}
+
 export default function Header({
     menuItems,
     profileItems,
@@ -37,7 +42,7 @@ export default function Header({
     profileItems: ProfileItem[];
     loginRoute: string;
 }) {
-    const appData = (usePage().props as { appData: AppData }).appData;
+    const { appData } = usePage<HeaderPageProps>().props;
     const loginExists = routeExists(loginRoute);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -45,7 +50,7 @@ export default function Header({
     const availableMenuItems = menuItems.filter((item: MenuItem) => routeExists(item.routeName));
 
     return (
-        <header className="sticky top-0 z-50 bg-header-bg/90 shadow-sm backdrop-blur-xl">
+        <header className="sticky top-0 z-50 bg-header/90 shadow-sm backdrop-blur-xl">
             <Container className="mx-auto flex items-center justify-between px-4 py-3.5 md:py-4">
                 {/* Logo */}
                 <div className="flex items-center gap-2">
@@ -59,7 +64,7 @@ export default function Header({
                 </div>
 
                 {/* Desktop Menu */}
-                <nav className="hidden items-center gap-1 text-sm font-medium text-header-text md:flex">
+                <nav className="hidden items-center gap-1 text-sm font-medium text-header-foreground md:flex">
                     {availableMenuItems.map((item: MenuItem) => (
                         <Link
                             key={item.name}
@@ -87,8 +92,8 @@ export default function Header({
 
             {/* Mobile Menu Dropdown */}
             {menuOpen && (
-                <div className="border-t border-border bg-header-bg px-4 pb-4 shadow md:hidden">
-                    <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-header-text">
+                <div className="border-t border-border bg-header px-4 pb-4 shadow md:hidden">
+                    <nav className="flex flex-col space-y-1.5 pt-3 text-sm font-medium text-header-foreground">
                         {availableMenuItems.map((item: MenuItem) => (
                             <Link
                                 key={item.name}

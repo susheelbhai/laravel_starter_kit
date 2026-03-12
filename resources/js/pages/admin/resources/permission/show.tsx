@@ -37,23 +37,12 @@ interface PermissionDetailData {
     is_active: number;
 }
 
+interface PermissionShowPageProps extends SharedData {
+    data: PermissionDetailData;
+}
+
 export default function Dashboard() {
-    const permission = ((usePage<SharedData>().props as { data: PermissionDetailData })?.data) || {
-        id: 0,
-        name: '',
-        dob: '',
-        profile_pic: '',
-        permanent_address: '',
-        current_address: '',
-        city: '',
-        state: '',
-        email: '',
-        phone: '',
-        course: '',
-        enrollment_number: '',
-        college: '',
-        is_active: 0,
-    };
+    const { data: permission } = usePage<PermissionShowPageProps>().props;
 
     const thead = [
         { title: 'Permission Detail', className: 'p-3', colSpan: 1 },

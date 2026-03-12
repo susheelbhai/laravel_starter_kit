@@ -1,6 +1,6 @@
 import { Head, usePage } from '@inertiajs/react';
 import { Eye } from 'lucide-react';
-import Button from '@/components/button';
+import Button from '@/components/ui/button';
 import Pagination from '@/components/table/pagination';
 import Table from '@/components/table/table';
 import TableCard from '@/components/table/table-card';
@@ -8,7 +8,7 @@ import TBody from '@/components/table/tbody';
 import THead from '@/components/table/thead';
 import ButtonCreate from '@/components/ui/button-create';
 import AppLayout from '@/layouts/admin/app-layout';
-import { type BreadcrumbItem, type SharedData } from '@/types';
+import { type BreadcrumbItem, type PageWithPaginatedData } from '@/types';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -26,15 +26,8 @@ interface UserData {
     profile_pic_thumb?: string;
 }
 
-interface UserIndexPageProps extends SharedData {
-    data: {
-        data: UserData[];
-        [key: string]: unknown;
-    };
-}
-
 export default function Dashboard() {
-    const { data } = usePage<UserIndexPageProps>().props;
+    const { data } = usePage<PageWithPaginatedData<UserData>>().props;
     const items = data?.data || [];
     const thead = [
         { title: 'ID', className: 'p-3' },

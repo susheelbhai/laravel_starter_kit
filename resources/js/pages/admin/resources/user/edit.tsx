@@ -20,8 +20,12 @@ interface UserData {
     profile_pic: string;
 }
 
+interface UserEditPageProps extends SharedData {
+    data: UserData;
+}
+
 export default function Create() {
-    const user = ((usePage<SharedData>().props as { data: UserData })?.data) || {} as UserData;
+    const { data: user } = usePage<UserEditPageProps>().props;
     const breadcrumbs: BreadcrumbItem[] = [
         {
             title: 'User',
