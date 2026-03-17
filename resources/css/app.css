@@ -153,13 +153,13 @@
     --radius-textarea: .75rem;
     --radius-button: 0.75rem;
 
-    --input-bg: var(--color-card-bg);
+    --input-bg: #d2d2d2;
     --input-text: var(--color-dark);
-    --input-focused-bg: var(--color-card-bg);
+    --input-focused-bg: #e2e2e2;
     --input-focused-text: var(--color-dark);
     --input-border: var(--color-border-light);
     --input-placeholder: var(--color-placeholder);
-    --input-hover-bg: var(--color-light-bg);
+    --input-hover-bg: #e0e0e0;
     --input-error-border: #dc2626;
     --input-success-border: #22c55e;
 

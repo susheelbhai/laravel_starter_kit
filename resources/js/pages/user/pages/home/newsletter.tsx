@@ -37,7 +37,7 @@ export default function NewsletterSection() {
         <section
             id="newsletter"
             ref={sectionRef}
-            className="bg-card py-20 md:py-28"
+            className="bg-background py-20 md:py-28"
         >
             <Container className="text-center">
                 <Heading

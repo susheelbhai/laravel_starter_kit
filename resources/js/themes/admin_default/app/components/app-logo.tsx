@@ -1,6 +1,7 @@
 import { usePage } from '@inertiajs/react';
 import { useSidebar } from '@/components/ui/layout/sidebar';
 import { useAppearance } from '@/hooks/use-appearance';
+import type { SharedData } from '@/types';
 
 interface AppData {
     square_light_logo: string;
@@ -9,7 +10,7 @@ interface AppData {
     dark_logo: string;
 }
 
-interface AppPageProps {
+interface AppPageProps extends SharedData {
     appData: AppData;
 }
 
