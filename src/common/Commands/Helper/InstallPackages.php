@@ -8,6 +8,28 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 class InstallPackages
 {
 
+
+    public function composer($this_data, $starter_kit_installed)
+    {
+        $this_data->info("Installing composer packages...");
+        $composerPackages = [
+            'susheelbhai/laratsapp',
+            'laravel/fortify',
+            'livewire/livewire',
+            'livewire/volt',
+            'spatie/laravel-permission',
+            'spatie/laravel-medialibrary',
+            'laravel/socialite',
+            'socialiteproviders/amazon',
+            'socialiteproviders/apple',
+            'intervention/image',
+            'tightenco/ziggy',
+            'inertiajs/inertia-laravel',
+        ];
+        $this->installComposerPackages($this_data, $composerPackages);
+    }
+
+
     public function react($this_data, $starter_kit_installed)
     {
 
@@ -29,13 +51,15 @@ class InstallPackages
             'tw-animate-css',
             'tailwind-merge',
         ];
-        
+
         $this->installNpmPackages($this_data, $npmPackages);
         // if no starter kit selected at the time of installation of laravel
         if ($starter_kit_installed != 'yes') {
             $this->installNpmPackages($this_data, $npmPackages2);
         }
     }
+
+
 
     public function blade($this_data, $starter_kit_installed)
     {

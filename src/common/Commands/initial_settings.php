@@ -81,6 +81,7 @@ class initial_settings extends Command
 
         $package_obj = new InstallPackages();
         $publish_obj = new Publish();
+        $package_obj->composer($this, $starter_kit_installed);
 
         switch ($starter_kit_type) {
             case 'blade':
