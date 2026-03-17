@@ -28,7 +28,7 @@
         "laravel/fortify": "^1.33",
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.7.0",
-        "spatie/laravel-permission": "^6.18",
+        "spatie/laravel-permission": "*",
         "spatie/laravel-medialibrary": "^11.17",
         "laravel/socialite": "^5.24",
         "socialiteproviders/amazon": "^4.1",
