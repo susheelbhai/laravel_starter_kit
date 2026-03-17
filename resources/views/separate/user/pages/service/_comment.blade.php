@@ -20,7 +20,7 @@
 
 <div class="author-area">
     <div class="thumbnail details mb_sm--15">
-        <img src="{{ asset('themes/guest') }}/images/blog/details/author.jpg" alt="finbiz_buseness">
+        <img src="{{ asset('themes/guest') }}/images/blog/details/author.jpg" alt="app_buseness">
     </div>
     <div class="author-details team">
         <span>Brand Designer</span>

@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/layout/container';
+import Heading from '@/components/ui/typography/heading';
 
 interface AboutData {
     about_image_converted: {
@@ -20,12 +21,7 @@ export default function AboutSection({ data }: { data: AboutData }) {
                     />
                 </div>
                 <div>
-                    <span className="text-sm font-semibold tracking-wider text-primary uppercase">
-                        About Us
-                    </span>
-                    <h2 className="mt-4 mb-6 text-3xl leading-tight font-bold md:text-5xl">
-                        {data?.about_heading}
-                    </h2>
+                    <Heading title={data?.about_heading} description="About Us" />
                     <div
                         className="prose max-w-none text-muted-foreground"
                         dangerouslySetInnerHTML={{

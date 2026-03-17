@@ -49,7 +49,7 @@
                                             <img src="{{ asset('themes/guest') }}/images/gallery/icon/01.svg" alt="Business-gallery">
                                         </div>
                                         <a href="#">
-                                            <h4 class="title">Finbiz Pro Business</h4>
+                                            <h4 class="title">app Pro Business</h4>
                                         </a>
                                         <span>Case Study, Growth</span>
                                         <p class="disc">In the literal sense, the term “Business” means the state of

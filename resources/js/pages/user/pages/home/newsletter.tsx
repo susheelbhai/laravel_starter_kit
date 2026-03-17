@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button/button-old";
 import { Container } from "@/components/ui/layout/container";
+import Heading from "@/components/ui/typography/heading";
 import { useFormHandler } from "@/lib/use-form-handler";
 
 type NewsletterForm = {
@@ -38,17 +39,11 @@ export default function NewsletterSection() {
             ref={sectionRef}
             className="bg-card py-20 md:py-28"
         >
-            <Container className="">
-                <span className="text-sm font-semibold text-primary uppercase">
-                    Newsletter
-                </span>
-                <h2 className="mt-2 mb-6 text-3xl font-bold md:text-5xl">
-                    Stay Updated With Our Latest News
-                </h2>
-                <p className="mb-8 text-muted-foreground">
-                    Subscribe to receive the latest updates and offers from Finbiz.
-                </p>
-
+            <Container className="text-center">
+                <Heading
+                    title="Stay Updated With Our Latest News"
+                    description="Newsletter"
+                />
                 <form onSubmit={submit} className="mx-auto max-w-md">
                     <div className="flex w-full items-stretch overflow-hidden rounded-full border border-primary bg-background">
                         <input

@@ -17,7 +17,7 @@
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="service-one-inner one">
                     <div class="thumbnail">
-                        <img src="{{ asset('themes/guest') }}/images/service/icon/01.svg" alt="finbiz_service">
+                        <img src="{{ asset('themes/guest') }}/images/service/icon/01.svg" alt="app_service">
                     </div>
                     <div class="service-details">
                         <a href="service-details.html">
@@ -37,7 +37,7 @@
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="service-one-inner two">
                     <div class="thumbnail">
-                        <img src="{{ asset('themes/guest') }}/images/service/icon/02.svg" alt="finbiz_service">
+                        <img src="{{ asset('themes/guest') }}/images/service/icon/02.svg" alt="app_service">
                     </div>
                     <div class="service-details">
                         <a href="service-details.html">
@@ -57,7 +57,7 @@
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="service-one-inner three">
                     <div class="thumbnail">
-                        <img src="{{ asset('themes/guest') }}/images/service/icon/03.svg" alt="finbiz_service">
+                        <img src="{{ asset('themes/guest') }}/images/service/icon/03.svg" alt="app_service">
                     </div>
                     <div class="service-details">
                         <a href="service-details.html">
@@ -77,7 +77,7 @@
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="service-one-inner four">
                     <div class="thumbnail">
-                        <img src="{{ asset('themes/guest') }}/images/service/icon/04.svg" alt="finbiz_service">
+                        <img src="{{ asset('themes/guest') }}/images/service/icon/04.svg" alt="app_service">
                     </div>
                     <div class="service-details">
                         <a href="service-details.html">
@@ -97,7 +97,7 @@
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="service-one-inner five">
                     <div class="thumbnail">
-                        <img src="{{ asset('themes/guest') }}/images/service/icon/05.svg" alt="finbiz_service">
+                        <img src="{{ asset('themes/guest') }}/images/service/icon/05.svg" alt="app_service">
                     </div>
                     <div class="service-details">
                         <a href="service-details.html">
@@ -117,7 +117,7 @@
             <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                 <div class="service-one-inner six">
                     <div class="thumbnail">
-                        <img src="{{ asset('themes/guest') }}/images/service/icon/06.svg" alt="finbiz_service">
+                        <img src="{{ asset('themes/guest') }}/images/service/icon/06.svg" alt="app_service">
                     </div>
                     <div class="service-details">
                         <a href="service-details.html">

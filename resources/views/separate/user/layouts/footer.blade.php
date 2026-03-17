@@ -38,7 +38,7 @@
                 <div class="footer-one-single-wized">
                     <div class="wized-title">
                         <h5 class="title">Quick Links</h5>
-                        <img src="{{ asset('themes/guest') }}/images/footer/under-title.png" alt="finbiz_footer">
+                        <img src="{{ asset('themes/guest') }}/images/footer/under-title.png" alt="app_footer">
                     </div>
                     <div class="quick-link-inner">
                         <ul class="links">
@@ -62,7 +62,7 @@
                 <div class="footer-one-single-wized mid-bg">
                     <div class="wized-title">
                         <h5 class="title">Opening Hours</h5>
-                        <img src="{{ asset('themes/guest') }}/images/footer/under-title.png" alt="finbiz_footer">
+                        <img src="{{ asset('themes/guest') }}/images/footer/under-title.png" alt="app_footer">
                     </div>
                     <div class="opening-time-inner">
                         <div class="single-opening">
@@ -88,13 +88,13 @@
                 <div class="footer-one-single-wized margin-left-65">
                     <div class="wized-title">
                         <h5 class="title">Popular Updates</h5>
-                        <img src="{{ asset('themes/guest') }}/images/footer/under-title.png" alt="finbiz_footer">
+                        <img src="{{ asset('themes/guest') }}/images/footer/under-title.png" alt="app_footer">
                     </div>
                     <div class="post-wrapper">
                         <!-- single post -->
                         <div class="single-footer-post mb--30">
                             <div class="left-thumbnail">
-                                <img src="{{ asset('themes/guest') }}/images/footer/post/01.png" alt="finbiz_business-post">
+                                <img src="{{ asset('themes/guest') }}/images/footer/post/01.png" alt="app_business-post">
                             </div>
                             <div class="post-right">
                                 <p> <i class="fal fa-clock"></i> 15th April, 2022</p>
@@ -109,7 +109,7 @@
                         <!-- single post -->
                         <div class="single-footer-post">
                             <div class="left-thumbnail">
-                                <img src="{{ asset('themes/guest') }}/images/footer/post/02.png" alt="finbiz_business-post">
+                                <img src="{{ asset('themes/guest') }}/images/footer/post/02.png" alt="app_business-post">
                             </div>
                             <div class="post-right">
                                 <p> <i class="fal fa-clock"></i> 15th April, 2022</p>

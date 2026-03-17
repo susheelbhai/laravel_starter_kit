@@ -325,7 +325,7 @@ $page_contact = array(
 $page_home = array(
   array('id' => '1', 'created_at' => '2025-12-22 14:31:44', 'updated_at' => '2025-12-22 14:44:21', 'banner_heading' => 'Smart Solutions For
 Your Business Needs', 'banner_description' => '<p>We are a team of talented designers making websites with Bootstrap</p>', 'why_us_heading' => 'We\'re Ready To Grow
-Your Business With Us', 'why_us_description' => '<p>Finbiz helps you grow your business through effective strategy and a professional support system tailored to your industry.</p>
+Your Business With Us', 'why_us_description' => '<p>app helps you grow your business through effective strategy and a professional support system tailored to your industry.</p>
 
 <div class="gap-4 grid grid-cols-2 text-left">
 <div>

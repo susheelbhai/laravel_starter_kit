@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/layout/container';
+import Heading from '@/components/ui/typography/heading';
 interface ServiceData {
     title: string;
     desc: string;
@@ -11,12 +12,7 @@ export default function ServicesSection(data: { data: ServiceData[] }) {
     return (
         <section id="services" className="bg-background2 py-20 md:py-28">
             <Container className="text-center">
-                <span className="text-sm font-semibold text-primary uppercase">
-                    What We Do
-                </span>
-                <h2 className="mt-2 mb-12 text-3xl font-bold md:text-5xl">
-                    Our Services
-                </h2>
+                <Heading title="Our Services" description="What We Do" />
                 <div className="grid gap-8 md:grid-cols-3">
                     {data.data.map((service: ServiceData, i: number) => (
                         <div

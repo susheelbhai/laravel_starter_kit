@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/layout/container';
+import Heading from '@/components/ui/typography/heading';
 interface TeamMember {
     id: number;
     name: string;
@@ -12,12 +13,7 @@ export default function TeamSection(data: { data: TeamMember[] }) {
     return data.data.length === 0 ? null : (
         <section id="team" className="bg-background py-20 md:py-28">
             <Container className="text-center">
-                <span className="text-sm font-semibold text-accent uppercase">
-                    Our Team
-                </span>
-                <h2 className="mt-2 mb-12 text-3xl font-bold md:text-5xl">
-                    Meet Our Experts
-                </h2>
+                <Heading title="Meet Our Experts" description="Our Team" />
                 <div className="grid gap-8 md:grid-cols-4">
                     {data.data.map((team: TeamMember) => (
                         <div

@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/layout/container';
+import Heading from '@/components/ui/typography/heading';
 interface ClientLogo {
     id: number;
     name: string;
@@ -14,7 +15,7 @@ export default function ClientSection(data: ClientData) {
     return (
         <section className="bg-background2 py-10 md:py-16">
             <Container className="text-center">
-                <h3 className="mb-6 text-sm font-semibold text-muted-foreground uppercase">Our Partners</h3>
+                <Heading title="Our Partners" />
                 <div className="flex flex-wrap items-center justify-center gap-10">
                     {data.data.map((logo: ClientLogo) => (
                         <a

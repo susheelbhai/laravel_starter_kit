@@ -57,7 +57,7 @@
                         <!-- left area start -->
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="author-inner">
-                                <a class="thumbnail" href="#"><img src="{{ asset('themes/guest') }}/images/about/sm-01.png" alt="finbiz_founder"></a>
+                                <a class="thumbnail" href="#"><img src="{{ asset('themes/guest') }}/images/about/sm-01.png" alt="app_founder"></a>
                                 <div class="founder-details">
                                     <a href="team-details.html">
                                         <h6 class="title">Adesh Kumar</h6>
@@ -89,8 +89,8 @@
             <!-- about-right Start-->
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 order-lg-2 order-md-1 order-sm-1 order-1">
                 <div class="about-one-thumbnail">
-                    <img src="{{ asset('themes/guest') }}/images/about/main/about-01.png" alt="about-finbiz">
-                    <img class="small-img" src="{{ asset('themes/guest') }}/images/about/main/about-02.png" alt="finbiz-small">
+                    <img src="{{ asset('themes/guest') }}/images/about/main/about-01.png" alt="about-app">
+                    <img class="small-img" src="{{ asset('themes/guest') }}/images/about/main/about-02.png" alt="app-small">
                     <div class="experience">
                         <div class="left single">
                             <h2 class="title">25+</h2>

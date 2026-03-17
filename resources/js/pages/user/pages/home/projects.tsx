@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/layout/container';
+import Heading from '@/components/ui/typography/heading';
 interface ProjectData {
     image: string;
     title: string;
@@ -9,12 +10,7 @@ export default function ProjectSection({data}: {data: ProjectData[]}) {
     return (
         <section id="projects" className="bg-background2 py-20 md:py-28">
             <Container className="text-center">
-                <span className="text-sm font-semibold text-primary uppercase">
-                    Our Projects
-                </span>
-                <h2 className="mt-2 mb-12 text-3xl font-bold md:text-5xl">
-                    Latest Case Studies
-                </h2>
+                <Heading title="Latest Case Studies" description="Our Projects" />
                 <div className="grid gap-8 md:grid-cols-3">
                     {data.map((project: ProjectData, i: number) => (
                         <div

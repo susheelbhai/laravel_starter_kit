@@ -17,7 +17,7 @@
             @else
                 
                 <span>
-                    <img src="{{ asset(Auth::user()->profile_pic) }}" alt="finbiz_buseness" style="width:48px !important">
+                    <img src="{{ asset(Auth::user()->profile_pic) }}" alt="app_buseness" style="width:48px !important">
                     {{ Auth::user()->name }}
                 </span>
             @endguest
@@ -33,7 +33,7 @@
 <div>
     @foreach ($comments as $i)
     <div class="comment-area my-2">
-        <img src="{{ asset($i['user']['profile_pic']) }}" alt="finbiz_buseness" width="24px">
+        <img src="{{ asset($i['user']['profile_pic']) }}" alt="app_buseness" width="24px">
         <span>{{ $i['user']['name'] }}</span>
         <p>
             {{ $i['message'] }}

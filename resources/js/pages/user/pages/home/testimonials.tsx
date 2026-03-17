@@ -1,4 +1,5 @@
 import { Container } from '@/components/ui/layout/container';
+import Heading from '@/components/ui/typography/heading';
 interface TestimonialData {
     id: number;
     name: string;
@@ -12,12 +13,7 @@ export default function TestimonialSection(data: { data: TestimonialData[] }) {
     return data.data.length === 0 ? null : (
         <section id="testimonials" className="bg-background2 py-20 md:py-28">
             <Container className="text-center">
-                <span className="text-sm font-semibold text-primary uppercase">
-                    Testimonials
-                </span>
-                <h2 className="mt-2 mb-12 text-3xl font-bold md:text-5xl">
-                    What Our Clients Say
-                </h2>
+                <Heading title="What Our Clients Say" description="Testimonials" />
                 <div className="grid gap-8 md:grid-cols-3">
                     {data.data.map((testimonial: TestimonialData) => (
                         <div
