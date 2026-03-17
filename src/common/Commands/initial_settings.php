@@ -84,13 +84,13 @@ class initial_settings extends Command
 
         switch ($starter_kit_type) {
             case 'blade':
-                $publish_obj->blade($this, $starter_kit_installed);
                 $package_obj->blade($this, $starter_kit_installed);
+                $publish_obj->blade($this, $starter_kit_installed);
                 break;
 
             case 'react':
-                $publish_obj->react($this, $starter_kit_installed);
                 $package_obj->react($this, $starter_kit_installed);
+                $publish_obj->react($this, $starter_kit_installed);
                 break;
         }
 
