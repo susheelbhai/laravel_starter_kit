@@ -22,7 +22,7 @@ class InstallPackages
             'react-select',
         ];
         $npmPackages2 = [
-            '@vitejs/plugin-react',
+            '@vitejs/plugin-react@^5',
             '@headlessui/react',
             '@inertiajs/react',
             'class-variance-authority',
