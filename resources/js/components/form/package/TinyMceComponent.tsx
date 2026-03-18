@@ -40,6 +40,16 @@ export default function TinyMceComponent({
 }: TinyMceComponentProps) {
     const editorRef = useRef<HTMLTextAreaElement>(null);
     const editorInstanceRef = useRef<any>(null);
+    const onChangeRef = useRef(onChange);
+    const valueRef = useRef(value);
+
+    useEffect(() => {
+        onChangeRef.current = onChange;
+    }, [onChange]);
+
+    useEffect(() => {
+        valueRef.current = value;
+    }, [value]);
 
     // Initialize TinyMCE only once
     useEffect(() => {
@@ -196,10 +206,10 @@ export default function TinyMceComponent({
                     setup: (editor: any) => {
                         editorInstanceRef.current = editor;
                         editor.on('Change KeyUp', () => {
-                            onChange(editor.getContent());
+                            onChangeRef.current?.(editor.getContent());
                         });
                         editor.on('init', () => {
-                            editor.setContent(value || '');
+                            editor.setContent(valueRef.current || '');
                         });
                     },
                 });
@@ -225,7 +235,7 @@ export default function TinyMceComponent({
                 styleElement.remove();
             }
         };
-    }, [id, height, onChange, value]);
+    }, [id, height]);
 
     // Update content if value changes
     useEffect(() => {
